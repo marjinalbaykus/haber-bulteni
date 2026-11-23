@@ -1,0 +1,1386 @@
+{
+ "date": "2026-11-24",
+ "generated_at": "2026-11-23T22:46Z",
+ "markets": [
+  {
+   "symbol": "GC=F",
+   "name": "Altın (ons, USD)",
+   "group": "dunya",
+   "value": 3634.4,
+   "changes": {
+    "day": 3.39,
+    "week": -5.67,
+    "month": -9.32
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "GRAM",
+   "name": "Gram altın (TL)",
+   "group": "tr",
+   "value": 5909.87,
+   "changes": {
+    "day": 3.42,
+    "week": -5.23,
+    "month": -7.78
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "BZ=F",
+   "name": "Brent petrol",
+   "group": "dunya",
+   "value": 86.72,
+   "changes": {
+    "day": -6.32,
+    "week": -6.19,
+    "month": -25.7
+   },
+   "alarms": [
+    {
+     "window": "month",
+     "label": "30 günde",
+     "pct": -25.7
+    }
+   ]
+  },
+  {
+   "symbol": "USDTRY=X",
+   "name": "Dolar/TL",
+   "group": "tr",
+   "value": 50.58,
+   "changes": {
+    "day": 0.03,
+    "week": 0.47,
+    "month": 1.7
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "EURTRY=X",
+   "name": "Euro/TL",
+   "group": "tr",
+   "value": 55.2,
+   "changes": {
+    "day": -0.52,
+    "week": -0.61,
+    "month": -1.16
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "XU100.IS",
+   "name": "BIST 100",
+   "group": "tr",
+   "value": 11131.3,
+   "changes": {
+    "day": -2.36,
+    "week": -6.01,
+    "month": -3.85
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "^GSPC",
+   "name": "S&P 500",
+   "group": "dunya",
+   "value": 7237.17,
+   "changes": {
+    "day": 4.73,
+    "week": -2.42,
+    "month": -5.07
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 4.7
+    }
+   ]
+  },
+  {
+   "symbol": "^IXIC",
+   "name": "Nasdaq",
+   "group": "dunya",
+   "value": 24089.56,
+   "changes": {
+    "day": 6.51,
+    "week": -1.71,
+    "month": -7.19
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 6.5
+    }
+   ]
+  },
+  {
+   "symbol": "BTC-USD",
+   "name": "Bitcoin",
+   "group": "dunya",
+   "value": 61024.64,
+   "changes": {
+    "day": -0.22,
+    "week": -5.91,
+    "month": -24.47
+   },
+   "alarms": []
+  }
+ ],
+ "market_alarms": [
+  {
+   "symbol": "BZ=F",
+   "name": "Brent petrol",
+   "group": "dunya",
+   "value": 86.72,
+   "changes": {
+    "day": -6.32,
+    "week": -6.19,
+    "month": -25.7
+   },
+   "alarms": [
+    {
+     "window": "month",
+     "label": "30 günde",
+     "pct": -25.7
+    }
+   ]
+  },
+  {
+   "symbol": "^GSPC",
+   "name": "S&P 500",
+   "group": "dunya",
+   "value": 7237.17,
+   "changes": {
+    "day": 4.73,
+    "week": -2.42,
+    "month": -5.07
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 4.7
+    }
+   ]
+  },
+  {
+   "symbol": "^IXIC",
+   "name": "Nasdaq",
+   "group": "dunya",
+   "value": 24089.56,
+   "changes": {
+    "day": 6.51,
+    "week": -1.71,
+    "month": -7.19
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 6.5
+    }
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "real_madrid",
+   "title": "Real Madrid ve Arda Güler",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Mourinho, PSV maçı öncesi Arda Güler'i dinlendirme kararı aldı; İspanyol basını Arda ile Bellingham'ın yedek kalabileceğini yazıyor.",
+     "title": "Mourinho, PSV Maçı Öncesi Arda Güler'i Dinlendirmeyi Planlıyor",
+     "detail": "Real Madrid, Şampiyonlar Ligi'nde ilk dört maçını kazanarak 4'te 4 yaptı ve 24 Kasım'da Santiago Bernabeu'da PSV'yi konuk edecek. LaLiga'da Celta Vigo galibiyetiyle moral bulan takımda gözler bu maça çevrildi.\n\nCelta Vigo karşılaşmasına ilk 11'de başlayan ve 90 dakika sahada kalan Arda Güler, teknik direktör Jose Mourinho'nun maç sonu açıklamasında öne çıktı. Mourinho, \"İkinci golden sonra takım dengesizleşti. Arda ve Jude orta sahada fiziksel olarak tükendi ama işleri nasıl yoluna koyacağımızı biliyorduk\" demişti.\n\nİspanyol basınındaki haberlere göre Mourinho, yoğun maç temposu nedeniyle Arda Güler ve Jude Bellingham'ı PSV karşısında dinlendirmeyi düşünüyor; iki oyuncunun da ilk 11'de başlamaması bekleniyor. Arda, Şampiyonlar Ligi'ndeki son AEK deplasmanında da kadroya alınmamıştı.\n\nMilli yıldız bu sezon Real Madrid formasıyla ikisi Şampiyonlar Ligi'nde olmak üzere 15 maçta süre aldı; 4 gol ve 7 asistlik katkı sağladı. Şampiyonlar Ligi'nin ilk maçını kart cezası nedeniyle kaçırmıştı. Arda'nın PSV maçında oynayıp oynamayacağı teknik heyetin son kararına bağlı.",
+     "key_points": [
+      "Mourinho, Celta Vigo sonrası Arda Güler ve Bellingham'ın fiziksel olarak tükendiğini söyledi.",
+      "İspanyol basınına göre ikisinin de PSV maçına yedek başlaması bekleniyor.",
+      "Arda Güler bu sezon 15 maçta 4 gol ve 7 asist kaydetti.",
+      "Arda, Şampiyonlar Ligi'ndeki son AEK deplasmanında kadroda yoktu.",
+      "Real Madrid, Şampiyonlar Ligi'nde 4'te 4 yaparak PSV'yi Bernabeu'da ağırlayacak."
+     ],
+     "sources": [
+      {
+       "title": "Mourinho'dan Arda Güler kararı! Real Madrid'de tüm hesaplar değişti",
+       "url": "https://www.star.com.tr/spor/mourinhodan-arda-guler-karari-real-madridde-tum-hesaplar-degisti-haber-2055294/",
+       "source": "STAR",
+       "lang": "tr",
+       "published": "2026-11-23T13:26Z"
+      },
+      {
+       "title": "Mourinho yine ortalığı karıştırdı! Arda'ya büyük şok",
+       "url": "https://www.msn.com/tr-tr/haber/diger/mourinho-yine-ortal%C4%B1%C4%9F%C4%B1-kar%C4%B1%C5%9Ft%C4%B1rd%C4%B1-ardaya-b%C3%BCy%C3%BCk-%C5%9Fok/ar-AA2i2WCl",
+       "source": "Haberler.com on MSN",
+       "lang": "tr",
+       "published": "2026-11-23T07:36Z"
+      },
+      {
+       "title": "Arda Güler'e kötü haber! Mourinho'dan yeni karar",
+       "url": "https://www.milligazete.com.tr/arda-gulere-kotu-haber-mourinhodan-yeni-karar",
+       "source": "Milli Gazete",
+       "lang": "tr",
+       "published": "2026-11-23T08:47Z"
+      },
+      {
+       "title": "Mourinho'dan Arda Güler'i üzecek karar",
+       "url": "https://www.sozcu.com.tr/mourinhodan-arda-guleri-uzecek-karar-p383605",
+       "source": "Sözcü Gazetesi",
+       "lang": "tr",
+       "published": "2026-11-23T01:32Z"
+      },
+      {
+       "title": "Jose Mourinho talks Guler, Bellingham, Vinicius, Comesana ahead of Real Madrid vs PSV",
+       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVmZsUmZSU2FpbDBwMF9jSThHa1FRRnZ2MWN1Z1EzSlduMmhqNHBEUzdDYmxGbnZtbmdSVUxhMFBXMWxJeU9pM1dkTzZYaTJKRlNwOHkwRzF5aFdiNE1heHk2OUJPdnZJQWFTbkNyeTRKdW5sWVFjYlZvdGlSSmdWNmxRd3NCSUFMaEJ1Nm5B?oc=5",
+       "source": "Yahoo Sports",
+       "lang": "en",
+       "published": "2026-11-23T20:22Z"
+      },
+      {
+       "title": "Bad news for Arda Güler! Mourinho is doing what he said.",
+       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOZkxQMjU5TVlsUXd0eGJpX1gxX2NnVG1fS3NEaUp2cmcwWm1LdzY5X3ktNS02R0IyT2FGcU1FLW1WVmNsWkZqeWE2Ykx3UGlyTm1YSGVZTVpyMy1zYlRGaDZySkNTSDdVVlBGU3dJSnhrcU5BUjBpQWVTMGJYMlNHTHdnS1JWQTBWQ3c?oc=5",
+       "source": "Haberler.com",
+       "lang": "en",
+       "published": "2026-11-23T12:50Z"
+      },
+      {
+       "title": "Mourinho announced his decision on Arda Güler",
+       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeTNGMC02SjFzSndnS2FFSjRjUUo0UW9lcjVObldHQk9xRk05YXRSeE90a1drQVlSVEhkMW9aSE53MmZNb05tWVlDTDNRMUpLTjY2QTlyWXVNUGNCbUViTGVzOFExWFpsazA3TlpPNDN5bFBfNUJhSEVMM2VXcEdsTFlIXzI?oc=5",
+       "source": "Haberler.com",
+       "lang": "en",
+       "published": "2026-11-23T15:15Z"
+      },
+      {
+       "title": "Jose Mourinho says Arda Guler and Jude Bellingham are two of the 'good liars' in his Real Madrid squad",
+       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNVmJGS2tmaGtDXzdPUU9nRnNTSWh3ek5fTC1vRFRRNEpnckhrSV9WZHQ0N3RHaUJObWxvRlZfd3k1NGdoeHpWem85cUFsdU9LREVhV3UxaW1CUVFPZHhmSGVrR2tncXhpeVNwY0JzaW9BYXByNnNHN0h3Nlgxell1eUdqM3lNX2YxVExmR0JoRk5hMm9CQndfY3QwQWVJdTYtaHQ5OHVhajFGTG03QWdZd0c2Y0lQYnN0OURMZk1JTGJlR0Q1cURRb0RSV1Vfek9laHk0Q2EyTzdYSU42Nk5ZOFZ3QQ?oc=5",
+       "source": "101 Great Goals",
+       "lang": "en",
+       "published": "2026-11-23T13:28Z"
+      },
+      {
+       "title": "Jose Mourinho Plans to Rest Real Madrid Players in the Champions League",
+       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNR0JMcXVwYzFaUjQwZGFaSjh3M0tJR1IzUmRtM0FoYXNLYVpodmhZaGZGczIta2wxOWE4NE02dlhWNmhTVE1IVy12OTIzMlNJaTZoQ1k3Zmh5cW5UYWpZZUJEYTd6eUNLaHN0ZGhrSmtWcncwRmJIM1o2b2lGbFlEWjV2OGRpZFdWUXRnaHMyN1R6eDM4bzhHXzdicWxFV01JblZIdXBxbE1NOW9STURkNHYtX0tsbnU5U2VCMGhUazZGcEdpSDhmbk9fc2k?oc=5",
+       "source": "roundtable.io",
+       "lang": "en",
+       "published": "2026-11-22T22:47Z"
+      },
+      {
+       "title": "Real Madrid: Mourinho faces attacking dilemma ahead of Champions League clash with PSV",
+       "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNTEtmNVIzTXdIbUtEakVuWnRMaW1kUHk3RUF5TFBwY2lPRkVXeVNkS19YVjFFb3lNNWNqZ2NjMzBvRGtjakV5enNpM2RhU0U2X0UtN0NNMGhNMGpqZ2FLa3lxckNVa0VUaG1vNndoQjhqdk94NFc4MktveVJVS0JicVJhSnYxdllYb2ZTZHN4YnJWZzFoODNZRk4tRmFyd3JTNlU1UGVWbHJINGoxbFB0aFMxckJfUjFDUGlPbWhwV2RyR09sbVlaM0t4ZzRNTFZBeFZ3WXZIajAxRjhEVHlVRFlwenU?oc=5",
+       "source": "Sports Mole",
+       "lang": "en",
+       "published": "2026-11-23T13:19Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "real_madrid-1"
+    },
+    {
+     "importance": 6,
+     "headline": "Real Madrid'de Endrick kas sakatlığı nedeniyle yaklaşık üç hafta yok; PSV kadrosunda yer almıyor, takımda dört sakat bulunuyor.",
+     "title": "Endrick sakatlandı: Real Madrid'de sakat sayısı dörde çıktı",
+     "detail": "Real Madrid, Endrick'in sağ uyluğunda kas sakatlığı tespit edildiğini resmi sağlık raporuyla duyurdu. Kulüp açıklamasına göre Brezilyalı forvet, Salı günü Şampiyonlar Ligi'nde PSV Eindhoven ile oynanacak maçta kadroda yer almıyor. Haberlerde Endrick'in yaklaşık iki-üç hafta sahalardan uzak kalacağı belirtiliyor.\n\nEndrick bu sezon sekiz maçta bir gol ve bir asist üretti; son dört maçta ise yedek kulübesinde başladı. Sakatlığı yalnızca PSV maçını değil, Alaves, Real Sociedad, Athletic Bilbao, Arsenal ve Osasuna karşılaşmalarını da riske atıyor.\n\nReal Madrid'de sakat listesi geniş: Ferland Mendy, Raul Asencio ve Rodrygo da sakatlıkları nedeniyle PSV kadrosunda yok. Bernabéu Digital'e göre Endrick, Celta Vigo maçı kadrosuna göre tek değişiklikti; şimdi ise o da listeden çıktı.\n\nArda Güler'i takip eden bir taraftar için bu gelişme hücum hattındaki rotasyonu doğrudan etkiliyor: Rodrygo ve Endrick'in yokluğunda teknik direktörün hücum tercihleri ve Arda'nın ilk 11'deki konumu daha da önem kazanıyor.",
+     "key_points": [
+      "Endrick'in sağ uyluk kas sakatlığı kulüp tarafından doğrulandı.",
+      "Brezilyalı forvetin yaklaşık 2-3 hafta yok olması bekleniyor.",
+      "PSV maçı kadrosunda Endrick yok; Mendy, Asencio ve Rodrygo da sakat.",
+      "Endrick bu sezon 8 maçta 1 gol, 1 asist yaptı.",
+      "Rodrygo ve Endrick'in yokluğu hücum rotasyonunu ve Arda Güler'in rolünü etkiliyor."
+     ],
+     "sources": [
+      {
+       "title": "Endrick ruled out for three weeks",
+       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOY3R1QUlUQzI3ZkZ5OXA4ek8xVlB1cWItWmNRSWo1dlZGX3pkbWpRaXlYUm14OW82VTJuVHJNcWVmclp3STBoWVZoTlJ2bFBEVlNlbzhKLUZEUXlRWnAyTFctQm9GbWhhVnV1VERhTHJlNl9lZE1VREo2SFlXOWtWbklUTkpZWXBRcVdGMWxlNF85Tm0zbjJfZENQeFRpYVk5NTJtRtIBpAFBVV95cUxOY3R1QUlUQzI3ZkZ5OXA4ek8xVlB1cWItWmNRSWo1dlZGX3pkbWpRaXlYUm14OW82VTJuVHJNcWVmclp3STBoWVZoTlJ2bFBEVlNlbzhKLUZEUXlRWnAyTFctQm9GbWhhVnV1VERhTHJlNl9lZE1VREo2SFlXOWtWbklUTkpZWXBRcVdGMWxlNF85Tm0zbjJfZENQeFRpYVk5NTJtRg?oc=5",
+       "source": "Mundo Deportivo",
+       "lang": "en",
+       "published": "2026-11-23T15:05Z"
+      },
+      {
+       "title": "Endrick será baja en el Real Madrid para el partido de Champions League",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOZDNJTXhnTU1fTjhjR0pRS3FzUkxfNkxiRGs3dW4tWFpRY25ESHVSOEEzWE5lN2hGNTdZbzhib3BEZjFWemNEMmloUjBYWmI4QXpZUThhcUxKU09qVFpObzVoYjlLMXA1SjZKbnl3SmZtOXpIN0tpbjF4Zm1qQ1lyN2c3OG1nblVmRENNcEFNN21Ha0lCZDdocDhJTnhEb2VlQUZmSFRiVFctZlBP0gGsAUFVX3lxTE5kM0lNeGdNTV9OOGNHSlFLcXNSTF82TGJEazd1bi1YWlFjbkRIdVI4QTNYTmU3aEY1N1lvOGJvcERmMVZ6Y0QyaWhSMFhaYjhBellROGFxTEpTT2pUWk5vNWhiOUsxcDVKNkpueXdKZm05ekg3S2luMXhmbWpDWXI3Zzc4bWduVWZEQ01wQU03bUdrSUJkN2hwOElOeERvZWVBRmZIVGJUVy1mUE8?oc=5",
+       "source": "Diario de México",
+       "lang": "es",
+       "published": "2026-11-23T19:49Z"
+      },
+      {
+       "title": "Convocatoria del Real Madrid ante el PSV: Endrick, la única novedad respecto al Celta",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOcjB2VzFrZWJwZHg3bjZwWHVpNG1iSE9Iekl4cUZUUmJ2WXpjODNTZnliYUNkdUZRNVM1X2FLTlNybGlVbk1XQ2RBRWI1aVRfMTFiRlU3ZVE3Mkg5WnQ0akItakU2dWY0dEhGWXVPbE9WbkFLdk5SZ0xtSlZuNHF0dVQ5OG92anlQcV9tZWtQYmtSZ0dCWldDWHk3b1dVSDlNalBHT0xPRnUxTkZT?oc=5",
+       "source": "Bernabéu Digital",
+       "lang": "es",
+       "published": "2026-11-23T14:26Z"
+      },
+      {
+       "title": "Real Madrid pierde a Endrick y tiene cuatro lesionados vs PSV",
+       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPeG5XWEIwb3NXZ1NySlFaczJIWi04OUhkeTRVVWdEcjV0aTRUZW03d1AtSHo2S3d2RHBnWEtRbzMyd19XV2NLZUN0cUx2aEUyc3REcDZyT0tTaVRyNXA2Y0RoaUxXM1FpOTcyN0s4NjVtRGE2MXFxbWtuTHlIR0otUjF0NnB1azh2SExtTDJsNkl5T09va195ZVB2OTUxNWxjeWNEY2VxS0Q5dGJ5SGJ4TmFnOFRla3Vaek5mZmdIU2lqYWJ1VXhsRg?oc=5",
+       "source": "ESPN Deportes",
+       "lang": "es",
+       "published": "2026-11-23T16:43Z"
+      },
+      {
+       "title": "Real Madrid dice que el delantero Endrick estará de baja por una lesión muscular",
+       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQMTh5bGxPdE5LMGtuZDVJbWJIYkN0cFNHVHd4SWZzaFN5SjJBVHB3OGFNSC11YzNZczZ5U1pnLW8yVXZDY2RRMndZbG9mWGIzenpnZldaMDNfODBGUHVqWG5xNkZFUzg0eVBucHRZMXRzSFNyVEJ6bGtQcE93dFRadEljaE14OGgxSmxJM3hCZENEd1g3VzA3MW5vX21fSGpEenJzdmlhX0puZWQ1a1NkSDgwOVVKNTdPRXBjcTlKNFhDMkc2bWFpTFJ5YjkwQ3JldzhxaQ?oc=5",
+       "source": "Independent en Español",
+       "lang": "es",
+       "published": "2026-11-23T19:55Z"
+      },
+      {
+       "title": "Lesionados y sancionados del Real Madrid para enfrentarse al PSV",
+       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWTdidXk2OUdQVm1zdUlfQVJYWDZ1NV9VZTgtcXpjcGxaQjB4bjk2QW42MlFEdzhUOVUxQlFldTZ5U2Q4dFJzYnYzcWxmb3Rybi03Y2ZOYnA0ZnJDX3JfVXBjc2E0LTBhOUJyOUVXSnN1NVpCekF4NWh6QVFOaFJ3cDdGMmNHaGU0YmtudmF5bGsweUU5VUJKUTJHNUczSEhWRmc?oc=5",
+       "source": "Sports Illustrated",
+       "lang": "es",
+       "published": "2026-11-23T16:03Z"
+      },
+      {
+       "title": "Real Madrid striker Endrick ruled out with thigh injury",
+       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdHJ0bDRkNXhDRWd0Q2NzZ1F6NG0yVFlRTVdwZFozMmExZGo1Wml5azNCZVI1TUVNNHdzYmpEc2lEQzVSWkR3UXk1a20wckFFcWVXOEw1ajZaem04TXBSWUZXMDViT0pFR0Q4SGNScTk4YWpMNjB0Mi13OFhHYUQtVnBQRlBhQmwtcU5FSGJDcFJUeVlLNDdGT2hmLUZLXzN6ZnpMZ2Q0Rnk?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-23T12:26Z"
+      },
+      {
+       "title": "Real Madrid Rocked by Double Injury Blow Ahead of Crucial Champions League Push",
+       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdl9OdzRHcXplYUh5LWhrYmdhWjR2TjA4eEZBUXFFUFFWNjBodHNyaURjWk56bDM2dE9oV09kb0Z0NWpxRTY5SEFJd0xCMkhYM19Qa3VXTkd3U082SUJVLTBkSFZzQnE3WlpEaDA4M1drdldheTF4ZjVERUhWQVRNaUV2bTdrRHFmVXlyYmszN1l0YTdzS3Y2TQ?oc=5",
+       "source": "Sports Illustrated",
+       "lang": "en",
+       "published": "2026-11-23T20:30Z"
+      },
+      {
+       "title": "Medical Report: Endrick",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNcWJEd3ppLVVLdjlHUW9ldDFxN3J1T2QxNVZJZlZ1RWtZLVIwZEJCN3RlTGFfUHIxNDJ5Z093TzZodi1pVEM1cjhEbTl2ODE0Q0VUV1NDcXFFX1c3N0gxNDdhY0I2dVhwd09LeHFMVVh1alE1V25UZlhZcXRuYndJV0t5S0Q1dEdoM3AySVhReXluRkp0Z3U5dEliZEZQckFTcTd3WUZWMW5xSllf?oc=5",
+       "source": "Real Madrid CF | Web Oficial",
+       "lang": "en",
+       "published": "2026-11-23T11:30Z"
+      },
+      {
+       "title": "Real Madrid says striker Endrick will be sidelined with a muscle injury",
+       "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNVmwwWWpydUJqdWp0S19YaWduOEZsWHhpaHVTazl4UDIwSFpXTW52eGk5dGo2ZGFFRWcwZkdsZjBPUDRhc05sVFhDVlpuSjE4UXdJMXNCS0VXQ3hBU3hxeXowTnZXUzRLMWZZNHVnczVscWREbTBWTHJieFVuemtlaVdGVFJkdU94UHduUzc2WUoyVzMyNFRxR2dKS0pPNU5rNURyR3pVLWVQb0t0N0M5U0NmRnk1UW9xQjdfYV9BdG5MNm4wWVdXTl9yM1hhREdxQmNqd1pURUVOMHJIcDl5WmpGRjdrMjRKNUhn?oc=5",
+       "source": "The Killeen Daily Herald",
+       "lang": "en",
+       "published": "2026-11-23T18:42Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "real_madrid-2"
+    },
+    {
+     "importance": 6,
+     "headline": "Arda Güler, CIES'in 32 Avrupa ligindeki 22 yaş altı futbolcular için 90 dakika başına asist beklentisi listesinde birinci oldu.",
+     "title": "Arda Güler, CIES'in 22 Yaş Altı Asist Listesinde Zirvede",
+     "detail": "Real Madrid forması giyen Arda Güler, CIES'in 32 Avrupa ligini kapsayan araştırmasında 90 dakika başına 0,72 asist beklentisiyle (xA) ilk sıraya yerleşti. Araştırma, 22 yaş altı futbolcuları bu ölçüte göre sıralıyor.\n\nGüler'i 0,57 ile Barcelonalı Lamine Yamal takip ederken, Vaduz oyuncusu Lutfi Dalipi 0,45 asist beklentisiyle üçüncü oldu. Galatasaray'ın Rus orta sahası Aleksey Batrakov ise 0,40 ile dördüncü sırada yer aldı; üçüncülüğün yalnızca 0,05 puan gerisinde kaldı.\n\nBu sonuç, Güler'in yalnızca gol katkısıyla değil, takım arkadaşlarına yarattığı skor fırsatlarıyla da Avrupa'nın en etkili genç oyun kurucularından biri olduğunu gösteriyor. Real Madrid taraftarı için bu, genç oyuncunun ilk 11'deki rolünün ve hücumdaki yaratıcılığının istatistiksel bir teyidi niteliğinde.\n\nHatırlatma: Batrakov, Galatasaray ile ağustos ayında 2026-27 sezonundan itibaren geçerli beş yıllık sözleşme imzalamıştı.",
+     "key_points": [
+      "Arda Güler, 90 dakika başına 0,72 asist beklentisiyle CIES listesinde birinci.",
+      "İkinci sırada 0,57 ile Lamine Yamal, üçüncü sırada 0,45 ile Lutfi Dalipi var.",
+      "Galatasaraylı Batrakov 0,40 ile dördüncü; üçüncülüğün 0,05 puan gerisinde.",
+      "Liste, 32 Avrupa ligindeki 22 yaş altı futbolcuları asist beklentisine göre sıralıyor."
+     ],
+     "sources": [
+      {
+       "title": "Arda Güler o listede zirveye çıktı! Galatasaraylı Batrakov takipte",
+       "url": "https://www.sozcu.com.tr/arda-guler-o-listede-zirveye-cikti-galatasarayli-batrakov-takipte-p383852",
+       "source": "Sözcü Gazetesi",
+       "lang": "tr",
+       "published": "2026-11-23T02:43Z"
+      },
+      {
+       "title": "Arda Güler’in zirveye çıktığı liste açıklandı: Galatasaraylı Batrakov tırmanışta",
+       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWmZ3YldqWjJQcU1Ha2ZIQWlpMU9CTDNzbUtKTXBPbWYwYzNQYUpGczZKUlVDMF9RbkNmbXJYdEpoNDZybDJkbC12cjliWDRWU05vVjJpcWtxLThaYXMxOE1KY29ESm14WnlzaElsbUtNS1NyaXVWcGc3Ym5yX2VLbkpDaDJkV3RQbkZWeUF4WVJsSU1lTHhOWVV6VHBlNkJrb2RIZUJ5MzNjQjVXd0VBdTJDc2t4eUNqNFRQLUkyc0LSAcYBQVVfeXFMT25EdkZ1SjEwNUNreVpyR2g0YmxPNXhBNkQ1SVFGb2JKX01BNVFsSUNLbkNRTEhfM3JpTS1uWnhiMWN6RDF2OE9jLVdKdVVEUGQyZUJob2JlZGtfZzQ0cnM1eTBSUldtc1VMX3dhY0tpQmRrdU1sZkhXT3ZNeWh0NEZ2d2l4Rzhkc3l0c2dxclFCcWFBTDhYZGxrMnoxUllmM2c4WUUtNk0yYTNDc3U3RmE1YUs4N2tMRGZjX1U2NU1ZQmJaaVF3?oc=5",
+       "source": "NTVSpor",
+       "lang": "tr",
+       "published": "2026-11-23T21:30Z"
+      },
+      {
+       "title": "Arda Güler, CIES'in 22 yaş altı asist beklentisi listesinde birinci oldu",
+       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQRW1HQ1d3U0tkYlBES28tWWdiMkNUeXhaWEJLV2N4ZHFOcWdIVEI1UVhJTHpvaWlrTjJ3M18yai10S3JpZzRnaC0zdDUzXzhXWE5kcnpRYkhyX0JVU2h3RmhYZ2RENU5JZFdIM2ZWb1JFVWF4UWRzWTNpWi03YVhNbV8ydGtudUtzRGZKNGR0WVpROU9LVU1udmtYMGJ0WWdBbWlOeHhmTTJ3S2hteGdFQ0NFTWM?oc=5",
+       "source": "Yorumla",
+       "lang": "tr",
+       "published": "2026-11-23T21:58Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "real_madrid-3"
+    },
+    {
+     "importance": 6,
+     "headline": "Bellingham'ın Real Madrid ile uzun vadeli sözleşme yenilemesinde sona yaklaşılıyor; yıllık kazancı 15 milyon euronun belirgin üzerine çıkacak.",
+     "title": "Bellingham Real Madrid ile Yeniden Sözleşmeye Yakın: Yıllık Kazanç 15 Milyon Euro'nun Üzerine Çıkacak",
+     "detail": "Real Madrid, Jude Bellingham ile uzun vadeli yeni sözleşme görüşmelerinde son aşamaya geldi. The Athletic'in haberine göre İngiliz orta saha oyuncusunun yıllık kazancı şu anda yaklaşık 15 milyon euro düzeyinde ve yeni anlaşmayla bu rakamın belirgin şekilde üzerine çıkması bekleniyor.\n\nBu gelişme, kulübün son bir haftada duyurduğu sözleşme yenilemelerinin ardından geldi: Real Madrid, Arda Güler, Aurélien Tchouaméni ve Thibaut Courtois ile yeni anlaşmalar açıkladı. İspanyol basınından Jorge Picón ise Fede Valverde'nin de önümüzdeki günlerde resmen duyurulacağını ve Bellingham'ın onu izleyeceğini aktarıyor.\n\nBellingham'ın yanı sıra Valverde'nin de uzun vadeli yeni sözleşmeye bağlanması bekleniyor. Real Madrid taraftarı için bu tablo, Arda Güler'in de aralarında bulunduğu çekirdek kadronun uzun yıllar birlikte tutulacağı anlamına geliyor.\n\nBellingham'ın resmi duyuru takvimi netleşmiş değil; ancak haberler, anlaşmanın kısa süre içinde açıklanabileceği yönünde.",
+     "key_points": [
+      "Bellingham ile uzun vadeli yeni sözleşme görüşmeleri ileri aşamada.",
+      "Mevcut yıllık kazancı yaklaşık 15 milyon euro; yeni anlaşmada belirgin artış bekleniyor.",
+      "Real Madrid son bir haftada Arda Güler, Tchouaméni ve Courtois'in sözleşmelerini yeniledi.",
+      "Fede Valverde'nin de kısa süre içinde duyurulması bekleniyor; ardından Bellingham gelebilir."
+     ],
+     "sources": [
+      {
+       "title": "Real Madrid star will earn ‘significantly’ more than €15m-per-year as part of contract renewal",
+       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPc0t6bnFqUHZKVlVOeWJFTlNuX1A3N182WEF1aENqc042UDh4WG1WZVRISEZ1M055dWNjVDQ1c1ZOMlNOUkFjRUVZUExsdlY1cFdKYXltRmdPOUk2T1FWdE9UM3RqTVpFal9HUzJUREFkTzU3T1oxMExwT25DdTY3SHBramJ3eVYwR29NdkVTY1NoTmpVWHMyYkk3Nm5EeE5Mb0wxZU1SakEyZF9Rb1JXU2xOb0J5cU96cElNQVVBWkxaUVVZ?oc=5",
+       "source": "Get Spanish Football News",
+       "lang": "en",
+       "published": "2026-11-23T20:17Z"
+      },
+      {
+       "title": "Jorge Picón afirma que el Real Madrid va a anunciar la renovación de Bellingham y Fede Valverde en los próximos días",
+       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxORnl3ZGdhNkJjT3VzUXlMaXByT2Z0ZlUzUUUzTVpwZFNIa01USTdjemthelVPM0VDLUZKZTU5NGM5eFlnWGVDRTdYa3M3NXJKSHd3OUdXTG5Ta1YyRm0wWmpUTWkwZFFGV1BfTjduODJxMkUwVW1ySmZiYTRPa2Ixcm1wMzV2UTgyRFpadHI4UGZRQjRvOXUxZFZocGxQaHlsajZMeDMxUzZqY1VHWC10WDVkNXo2bzEzTHAzeTczZlFrRVNBbWJLM1NyRWJVOWZsLXRWU1I4eWVLQmJUZmdFVm5mRQ?oc=5",
+       "source": "Defensa Central",
+       "lang": "es",
+       "published": "2026-11-23T06:00Z"
+      },
+      {
+       "title": "Jude Bellingham in advanced talks over Real Madrid long-term contract renewal - The Athletic",
+       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQT0hBZ21rNENfY0lkM0FFbnlGVGtTaWZUbU96aWF0REhDZjlKenVGcVVXYU9YOGhsejgza1BsdEt2WjJvREpNbHZIbThOYS14bGdYSXdVd2Q5M0RpWkZNc3ZpSmJMTk5sclB6NUxyXzlpTnZmbXExLTVuekEyYkRQajlpdTA4X2pSbXVEeGVmM0lJOE0?oc=5",
+       "source": "The New York Times",
+       "lang": "en",
+       "published": "2026-11-23T18:45Z"
+      },
+      {
+       "title": "Real Madrid in advanced talks with key superstar over renewal; announcement to follow soon",
+       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOTGZtRkw1Rl9oZnhIdmtXbkcwVHBEWU90M3FUaUNFejhTcGpvdmZKUm5BMmx6TlZXNlh1cS1IZWhSZDFTa0U0Y3NmNlFKMWJqMktraE90UGJ6c0FXUGVoT2I0bEZsU1V6LW5ZTF9vbXJqSkZ1RjhJeUFJS0YxYzJVQ1lSZmYxdw?oc=5",
+       "source": "Yahoo Sports",
+       "lang": "en",
+       "published": "2026-11-23T18:59Z"
+      },
+      {
+       "title": "Report: Jude Bellingham Nears New Long-Term Real Madrid Deal",
+       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQcjlySUlBSGJkWlhuWWM4Ylo4U3VPdkxrQVM4QXNVaFR4MEswRzE5Nm90OUVheTZEOXdEcXVpbThPUzZZamJ0Z0NrZ0ZReTROeG5lU01oSUhMZ2xacWpuUDdQNWM1b1A3Q2lSbnJOZmpTWmpVaXF1Q3Zrbk45OFVMZGdhTUVxbGlYdGZTRg?oc=5",
+       "source": "RG.org",
+       "lang": "en",
+       "published": "2026-11-23T19:31Z"
+      },
+      {
+       "title": "Real Madrid star will earn ‘significantly’ more than €15m-per-year as part of contract renewal",
+       "url": "https://sports.yahoo.com/articles/real-madrid-star-earn-significantly-201700901.html",
+       "source": "Yahoo Sports",
+       "lang": "en",
+       "published": "2026-11-23T12:17Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "real_madrid-4"
+    }
+   ],
+   "note": "",
+   "candidates": 220
+  },
+  {
+   "id": "pc_donanim",
+   "title": "PC Donanım, GPU ve Çipler",
+   "stories": [
+    {
+     "importance": 10,
+     "headline": "NVIDIA, Trump'ın baskısıyla Jensen Huang'ı CEO'luğa geri getirdi; hisseler %32 yükseldi, piyasa değeri 1 trilyon dolar arttı, Kongre'de tepki büyüdü.",
+     "title": "NVIDIA, Jensen Huang'ı CEO'luğa geri getirdi: hisseler fırladı, Kongre tepkili",
+     "detail": "NVIDIA, 23 Kasım'da yaptığı açıklamayla Jensen Huang'ın derhal geçerli olmak üzere başkan, CEO ve yönetim kurulu üyesi görevlerine geri getirildiğini duyurdu. Karar, yönetim kurulunun oybirliğiyle alındı. Şirket, kurulun Huang ile yaptığı görüşmelerin ardından onun açıklığından ve NVIDIA'yı yönetme yeteneğinden memnun kaldığını, ayrıca ABD hükümetinin üst düzeyinden gelen bilgiler ışığında Huang'ın dönüşünün ulusal güvenlik riski taşımadığına kanaat getirdiğini belirtti. Huang, 12 Kasım'da, aralarında Çin istihbaratıyla bağlantılı olduğu iddia edilen bir kadının da bulunduğu evlilik dışı ilişki haberlerinin ardından istifa etmişti.\n\nHaberin ardından NVIDIA hisseleri gün içinde yüzde 30'un üzerinde, kapanışta yaklaşık yüzde 31 arttı; şirketin piyasa değeri saatler içinde 1 trilyon doları aşan bir artışla yeniden 4 trilyon dolar seviyesine çıktı. Philadelphia Yarı İletken Endeksi yüzde 13 yükseldi, S&P 500 yüzde 4,7 arttı. ABD Başkanı Donald Trump, kurulun \"doğru ve yerinde\" karar verdiğini söyleyerek Huang'ı tebrik etti; Elon Musk da \"hata düzeltildi\" mesajı paylaştı.\n\nTartışma bitmiş değil. Kurul, Huang hakkındaki bağımsız soruşturmanın sonuna kadar süreceğini, ulusal güvenlik ve ihracat kontrolü komitesinin çalışmalarını sürdüreceğini ve yeni bir uyum başkanı (Chief Compliance Officer) aranacağını açıkladı. Kongre'de Demokrat senatörler karara sert tepki gösterdi; Elizabeth Warren, Huang'ın ihracat kontrollerine uyum konusunda Kongre'ye hesap vermesi gerektiğini söyledi. Huang 1 Aralık'ta kapalı kapılar ardında, 3 Aralık'ta ise Senato Bankacılık Komitesi'nde kamuya açık şekilde ifade verecek.\n\nBu haber, NVIDIA ekosistemine bağlı bir PC kullanıcısı için de önemli: Şirketin başındaki belirsizlik ve ihracat kontrolleri tartışması, GPU fiyatlarını ve arzını doğrudan etkileyebilecek bir sürecin parçası. Ancak bu içerikte doğrudan RX 7800 XT veya RDNA3 sürücülerine dair bir gelişme yer almıyor.",
+     "key_points": [
+      "NVIDIA yönetim kurulu, Jensen Huang'ı oybirliğiyle CEO'luğa geri getirdi; karar 11 günlük istifanın ardından geldi.",
+      "NVIDIA hisseleri yaklaşık yüzde 31 yükseldi, piyasa değeri saatler içinde 1 trilyon dolardan fazla arttı ve 4 trilyon dolara döndü.",
+      "Trump kararı destekledi ve Huang'ın dönüşünün ulusal güvenlik riski taşımadığını söyledi; Kongre'deki Demokratlar ise soruşturma ve ifade talebiyle tepki gösterdi.",
+      "Huang hakkındaki bağımsız soruşturma sürecek; şirket ulusal güvenlik komitesi kurdu ve uyum başkanı arıyor.",
+      "Huang 1 Aralık'ta kapalı oturumda, 3 Aralık'ta Senato komitesinde ifade verecek."
+     ],
+     "sources": [
+      {
+       "title": "Jensen Huang Reinstated as Nvidia CEO",
+       "url": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director",
+       "source": "nvidianews.nvidia.com",
+       "lang": "en",
+       "published": "2026-11-23T14:01Z"
+      },
+      {
+       "title": "Nvidia Reinstates Jensen Huang as CEO",
+       "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html",
+       "source": "cnbc.com",
+       "lang": "en",
+       "published": "2026-11-23T14:00Z"
+      },
+      {
+       "title": "Nvidia reinstates Jensen Huang as CEO following unanimous vote by company board",
+       "url": "https://www.tomshardware.com/tech-industry/nvidia-reinstates-jensen-huang-as-ceo-following-unanimous-vote-by-company-board-11-day-exit-from-company-saw-stock-prices-fall-by-24-percent-after-affair-scandal",
+       "source": "Tom's Hardware",
+       "lang": "en",
+       "published": "2026-11-23T14:14Z"
+      },
+      {
+       "title": "NVIDIA Says Jensen Huang Isn’t A Security Risk As It Reinstalls Him As CEO After Consulting Senior US Officials",
+       "url": "https://wccftech.com/nvidia-reinstates-jensen-huang-ceo-board-of-director/",
+       "source": "Wccftech",
+       "lang": "en",
+       "published": "2026-11-23T14:09Z"
+      },
+      {
+       "title": "Jensen Huang Was Reinstated As NVIDIA CEO In A Sunday Board Decision That Kept Interim CEO Collette Kress Out Of The Loop, Says Bloomberg",
+       "url": "https://wccftech.com/__trashed-17/",
+       "source": "Wccftech",
+       "lang": "en",
+       "published": "2026-11-23T18:49Z"
+      },
+      {
+       "title": "英伟达恢复黄仁勋 CEO 职务，马斯克称“错误已更正”",
+       "url": "https://www.ithome.com/1/031/218.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-23T14:49Z"
+      },
+      {
+       "title": "特朗普祝贺黄仁勋重返英伟达：美国需要其领导才能确保公司以及整个美国经济的繁荣与成功",
+       "url": "https://www.ithome.com/1/031/216.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-23T14:41Z"
+      },
+      {
+       "title": "黄仁勋恢复 CEO 职务：英伟达美股开盘大涨 32%，市值增加超 1 万亿美元",
+       "url": "https://www.ithome.com/1/031/217.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-23T14:39Z"
+      },
+      {
+       "title": "黄仁勋：很荣幸重返英伟达，迫不及待想回去工作",
+       "url": "https://www.ithome.com/1/031/211.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-23T14:18Z"
+      },
+      {
+       "title": "英伟达盘前股价大涨 30%，此前董事会宣布恢复黄仁勋 CEO 职务",
+       "url": "https://www.ithome.com/1/031/209.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-23T14:16Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "pc_donanim-1"
+    },
+    {
+     "importance": 8,
+     "headline": "ABD, Nvidia çiplerinin Çin'e aktarıldığı soruşturmada Singapur merkezli Megaspeed'i kara listeye aldı; Huang 3 Aralık'ta Senato'da ifade verecek.",
+     "title": "ABD, Nvidia çip soruşturmasında Megaspeed'i kara listeye aldı; Huang Senato'da ifade verecek",
+     "detail": "ABD, Nvidia yapay zeka çiplerinin Çin'e yasa dışı şekilde aktarıldığı iddialarıyla ilgili soruşturma kapsamında Singapur merkezli çip şirketi Megaspeed'i ticaret kara listesine (Entity List) almaya hazırlanıyor. Reuters, The Jerusalem Post ve Investing.com gibi kaynaklar, Megaspeed'in Nvidia çiplerinin Çin'e yönlendirilmesiyle bağlantılı olduğunu bildirdi. Şirketin kara listeye alınması, ABD ihracat kontrollerini ihlal ettiği şüphesini güçlendiriyor.\n\nSoruşturma, Nvidia CEO'su Jensen Huang'ın 12 Kasım'da görevden alınmasının ardından iki hafta içinde yeniden CEO olarak atanmasıyla aynı döneme denk geldi. Huang, 3 Aralık'ta ABD Senatosu Bankacılık Komisyonu'nun düzenleyeceği ve ABD ihracat kontrolleri ile ulusal güvenlik konularının ele alınacağı kamuya açık oturumda ifade verecek. Bu oturum öncesinde Huang, 1 Aralık'ta Senato'nun üç farklı komisyonunda kapalı kapılar ardında sorgulanacak. Senato komisyonları ayrıca Huang'ın Çinli bir kadınla ilişkisi olduğu iddialarını da inceliyor.\n\nABD Hazine Bakanı Scott Bessent, hükümetin Nvidia'dan çiplerinin Çin'e nasıl aktarıldığına dair açıklama beklediğini söyledi. Bu gelişme, ABD'nin yapay zeka çiplerinde Çin'e yönelik ihracat kısıtlamalarını sıkılaştırdığı bir dönemde yaşanıyor. Nvidia, küresel yapay zeka çip pazarının en büyük oyuncusu ve ABD'nin ihracat kontrollerinin merkezinde yer alıyor.\n\nKullanıcı için önemi: Bu haber, Nvidia'nın çip sevkiyatlarını ve dolayısıyla küresel GPU arzını etkileyebilecek bir soruşturmayı gündeme getiriyor. AMD Radeon RX 7800 XT gibi RDNA3 tabanlı bir ekran kartı kullananlar için doğrudan bir etki henüz yok; ancak sektördeki bu tür gelişmeler, özellikle yapay zeka çiplerine yönelik talebin ve arz kısıtlarının dolaylı olarak oyun GPU fiyatlarını da etkileyebileceği anlamına geliyor.",
+     "key_points": [
+      "ABD, Nvidia çiplerinin Çin'e aktarılması soruşturmasında Singapur merkezli Megaspeed'i kara listeye almaya hazırlanıyor.",
+      "Nvidia CEO'su Jensen Huang, 3 Aralık'ta Senato Bankacılık Komisyonu'nda ifade verecek; 1 Aralık'ta da üç komisyonda kapalı oturuma katılacak.",
+      "ABD Hazine Bakanı Bessent, hükümetin Nvidia'dan çiplerin Çin'e akışına dair açıklama beklediğini belirtti.",
+      "Huang, 12 Kasım'da görevden alınmasının ardından iki hafta içinde yeniden CEO olarak atandı."
+     ],
+     "sources": [
+      {
+       "title": "US blacklists Megaspeed chip firm linked to Nvidia scandal",
+       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZ3ZUR1ZCZXpLTkNjVFA5cm1ueHd6VjlHUzZSZWUtNE40NndKNFNWQVJqV3k4WHA5SU5BQTBvWmw5dlN3S1RZZHQ5WG5LRGhWMDFxUk83RjdGV0dqWUtjU3c4RlVkdkFBVlhfbXdiVm1WWW44dEtpUXY0Yjk0ZndBN2w3MURmNkVJLUlvM3ZpSmRfV3RTeUJYNHQtS29HaUFwejF2SlVtR2lpY0NqX3BYMg?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-23T21:46Z"
+      },
+      {
+       "title": "US set to add chip firm Megaspeed to trade blacklist amid ties to Nvidia espionage investigation",
+       "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAwb1pxRDlYekFUbVpRdnA0eHdjV3Zrd2JvdHZoSFNjeW9nLTdyRzF2cGExbEZ5bU53MVBOX1h2M2xzTGhkMG12aE1SY2JMSW9ybThwdW93NmdYSGx0eGhBTTZjQ1FfaS1BQVNDdw?oc=5",
+       "source": "The Jerusalem Post",
+       "lang": "en",
+       "published": "2026-11-23T20:58Z"
+      },
+      {
+       "title": "US Readies Entity List Designation for Singapore's Megaspeed as Nvidia Chip Probe Widens",
+       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1yV0RFWUVqS21tSEhHZS1MNWhWVGFSZzY4d2dacktsU1lYVEtYcFJMWkl1QVhEMEt0NHduZFhLb1BYOEVVNFlTcmxwZW1IUnBGV2N6YWE2dTAxUjFSRXNCZk4xTmprMVBhaDNLb1RXUF9fQVNWSWc?oc=5",
+       "source": "BigGo Finance",
+       "lang": "en",
+       "published": "2026-11-23T21:55Z"
+      },
+      {
+       "title": "US blacklists Megaspeed over suspected Nvidia AI chip diversion to China",
+       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNclBUWFR5amRzOFJZRlBOT1BhOVdVWXhDVkRnTGZaSDVTTlRKazRaZEMxMURXanBVbDBFMFRpQjRONjB4Z1NiLVpjV1ZQQ0RMM0k2LWlwMHJZRTRQcHE0akxVZ3pOSU5wQnAzM25lZWNjSEh4VTJiSE5reWF1RUN6YTczMjExU0hDY3owVTJDNEhUMm5CUEktcms4eHRqbTA4RVE?oc=5",
+       "source": "Crypto Briefing",
+       "lang": "en",
+       "published": "2026-11-23T21:35Z"
+      },
+      {
+       "title": "美国拟将新加坡芯片公司Megaspeed列入贸易黑名单 提供者 Investing.com",
+       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1CWWhXVHBwWVJzZi0xQlFfT1dWZEpUU2dUTWJrZWVJTmtaN0ZVcGcxRkp3RFJUUEFDcS1fWDlveS1PQ3BXb216ek9seXpaZHVpNFVRVFJ1ZVhIRnBjZE5pUlZaR1ZMMkVKdmJ4NDQ0cV8?oc=5",
+       "source": "英为财情 Investing.com",
+       "lang": "zh",
+       "published": "2026-11-23T20:23Z"
+      },
+      {
+       "title": "黄仁勋复任英伟达CEO后将出席美国参议院听证会 12月3日接受质询",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587712.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T18:27Z"
+      },
+      {
+       "title": "贝森特：政府仍在等待英伟达就其芯片流入中国问题作出解释",
+       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSW9zRUxERXlUX09PVTh0T3lnVFRMZWZQZWJncjVEQl93dVRmcWlaRk5odWFhQTJReUNncXJ6Z0dicHJsSm5jZkR0aDN3UkZHV0dKZWpfc3BFb3k4RnUtX184Qjd0YnNlM3hNc1FhZnZtTGpWbVQ4LXRMbWc2WTRKVklrRVNlR1lpcTRIanZRTTBrQW5kbTJsa0hoaWZ1WmsyYWRkR0sycmpRdHBnMEtidE1SNUMtUFHSAbcBQVVfeXFMT0lvc0VMREV5VF9PT1U4dE95Z1RUTGVmUGViZ3I1REJfd3VUZnFpWkZOaHVhYUEyUXlDZ3FyemdHYnBybEpuY2ZEdGgzd1JGR1dHSmVqX3NwRW95OEZ1LV9fOEI3dGJzZTN4TXNRYWZ2bUxqVm1UOC10TG1nNlk0SlZJa0VTZUdZaXE0SGp2UU0wa0FuZG0ybGtIaGlmdVprMmFkZEdLMnJqUXRwZzBLYnRNUjVDLVBR?oc=5",
+       "source": "美国之音",
+       "lang": "zh",
+       "published": "2026-11-23T13:40Z"
+      },
+      {
+       "title": "Nvidia reinstates Jensen Huang as CEO as US probes alleged chip exports to China",
+       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQSmhGM1lkclhPWUNNOEtqSm12OWZ5ZGlrWjlMcVhPd3VWcHdiMHNVMkVHcnRSOVd0cHRaU0sxQnNMODVhR001eXN3bEtxRklFSU5vZnNKZTA3S2hyMU9NQWJLZ0xIMXFRX2hFbUhuQ25oSDhuN1RMM1E1dFVNc0F0c0lZaF90RDZFQlE5TkR4SjFBZWpfYmd1LWNsU0xva3BRVzNBRWt6SUNER1lweUowaGliWHdPRzhCbFJN0gG-AUFVX3lxTE1EVXVXQ0JLNDBzVG41ZmlYNURTOWZwbVA1amI2OWhub1NWOXhyd29NN0ZUU09ZN1RISjF0aUk1MDNWTjlqVnExOW5hMjVQNEpxRkx4MU9vMVI4VTZtazU5NWhxejNjb0hyT01UMFllRzBSankzU2pTT05WNXV2MFVjaXZETy1XbHZ2ZXhKbWR6eGxwcGJVcmJHWERpdEI4S1VjS0F1LVlGQkx6QnBVYlF3Z2JkZ21iZnpWZ2dRMlE?oc=5",
+       "source": "VOA - Voice of America English News",
+       "lang": "en",
+       "published": "2026-11-23T21:10Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "pc_donanim-2"
+    },
+    {
+     "importance": 8,
+     "headline": "RAM kıtlığı AI sunucu maliyetlerini üçe katladı; Dell, HPE, Lenovo ve Supermicro sözleşme sonrası fiyatları %45'e varan oranda artırdı.",
+     "title": "RAM kıtlığı AI sunucu fiyatlarını vurdu: sözleşme sonrası %45'e varan zam",
+     "detail": "Financial Times'a göre Dell, Hewlett Packard Enterprise (HPE), Lenovo ve Supermicro, AI sunucusu alımlarında müşterilerle aylar önce anlaşılan fiyatların üzerine sonradan büyük zamlar yapıyor. Bazı siparişlerde ek artış %25, %30 hatta %45'e ulaşıyor; müşteriler ise veri merkezi inşasında hesaplama gücüne duyulan acil ihtiyaç yüzünden bu farkı genellikle kabul etmek zorunda kalıyor.\n\nZammın ana nedeni RAM fiyatlarındaki artış. GPU sunucularında fiyatlar %20-30 yükselirken, bellek ağırlıklı CPU düğümlerinin maliyeti iki-üç katına çıkmış durumda. Kaynaklardan biri \"Sonunda hesaplama gücü bizim için değerli, parasını öderiz\" diyerek hiçbir zaman bu artışları reddetmediklerini belirtiyor. Sözleşmelerde fiyat dalgalanmasını engelleyen maddelerin olup olmadığı sorusuna ise şirketlerden net bir yanıt gelmedi.\n\nHerkes sessiz kalmıyor: Haziran ayında XTX Markets'in Finlandiya birimi, 1.680 sunucu için anlaşılan 549 milyon dolara ek olarak istenen 62-70 milyon dolarlık artış nedeniyle Dell'in İrlanda iştirakine dava açtı. Dava sürüyor ve fiyat istikrarı maddesi için 5 milyon dolar ek ödeme yapılmış olması dikkat çekiyor. Bu tablo DRAM kıtlığının sürdüğünü ve büyük alıcıların bile artan fiyatları kabul ettiğini gösteriyor; yani RX 7800 XT gibi kartların VRAM'i ve genel bellek fiyatları için yakın vadede rahatlama zor görünüyor.",
+     "key_points": [
+      "Dell, HPE, Lenovo ve Supermicro, AI sunucu sözleşmelerinde sonradan %25-45 arası zam yapmakla suçlanıyor.",
+      "Zammın nedeni RAM kıtlığı: bellek ağırlıklı CPU düğümlerinin maliyeti iki-üç katına çıktı, GPU sunucuları %20-30 arttı.",
+      "Alıcı finans firmaları hesaplama gücüne olan ihtiyaç nedeniyle artışları kabul ediyor, sözleşme maddeleri konusunda net yanıt yok.",
+      "XTX Markets, Dell'e karşı 62-70 milyon dolarlık ek talep nedeniyle dava açtı; dava sürüyor.",
+      "DRAM kıtlığı sürdüğü için tüketici tarafında RAM ve VRAM fiyatlarında yakın vadede düşüş beklenmiyor."
+     ],
+     "sources": [
+      {
+       "title": "AI server makers hike prices up to 45% months after contracts are signed as RAM shortage triples memory-heavy CPU node costs",
+       "url": "https://www.tomshardware.com/tech-industry/big-tech/ai-server-makers-hike-prices-up-to-45-percent-months-after-contracts-are-signed-as-ram-shortage-triples-memory-heavy-cpu-node-costs-financial-firms-still-pay-up-as-the-compute-is-valuable",
+       "source": "Tom's Hardware",
+       "lang": "en",
+       "published": "2026-11-23T12:30Z"
+      },
+      {
+       "title": "AI服务器价格争议升级 戴尔、慧与、联想及超微被指在签约后大幅加价",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587722.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T19:41Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "pc_donanim-3"
+    },
+    {
+     "importance": 7,
+     "headline": "TSMC, ABD düzenlemeleri nedeniyle bazı müşterilere ileri çip sevkiyatını durdurdu; hisseleri %15 yükseldi.",
+     "title": "TSMC, ABD düzenlemeleri nedeniyle ileri çip sevkiyatını durdurdu; hisseler yükseldi",
+     "detail": "TSMC, ABD düzenlemeleri kapsamında bazı müşterilere ileri teknoloji çip sevkiyatını durdurdu. Bu adımın ardından şirket hisselerinde yaklaşık %15'lik bir yükseliş yaşandı.\n\nHaber kaynağı Traders Union, hisse senedindeki sert artışı doğrudan bu kararla ilişkilendiriyor. Ancak sevkiyatı durdurulan müşterilerin kimler olduğu, hangi çip ailelerinin etkilendiği ve kararın ne kadar süreceği konusunda ayrıntı paylaşılmadı.\n\nBu gelişme, çip sektörünün ABD ihracat düzenlemelerine ne kadar duyarlı olduğunu bir kez daha gösteriyor. TSMC, AMD ve NVIDIA gibi büyük tasarım şirketlerinin üretiminde kilit rol oynadığı için, sevkiyat kısıtlamaları önümüzdeki dönemde GPU ve CPU arzını, dolayısıyla fiyatları etkileyebilecek bir başlık olarak öne çıkıyor.",
+     "key_points": [
+      "TSMC, ABD düzenlemeleri nedeniyle bazı müşterilere ileri çip sevkiyatını durdurdu.",
+      "Kararın ardından TSMC hisseleri yaklaşık %15 yükseldi.",
+      "Etkilenen müşteriler ve çip türleri hakkında ayrıntı verilmedi.",
+      "TSMC, AMD ve NVIDIA üretiminde kilit tedarikçi konumunda."
+     ],
+     "sources": [
+      {
+       "title": "TSMC shares surge almost 15% after halting advanced chip deliveries to some clients due to U.S. regulations",
+       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQTdIdlg4WUU0cTJmTXphUVF0RkRTOXg3SXRabHRIYnpTNWg3aHIwRUV2eS02Z2JwX3ZKV2JYdVNCdDBoMzhicjJSR2dTOF8wLTE5OERyN05UMG53TUJFVkpCempwdXBtbmw3aWFQZXlHNm5qOHlGOEp4aXVGUmQtTUhYbG1aWDdma3dVaHd6dXAtSFUtY0praXFRSlB3Zw?oc=5",
+       "source": "Traders Union",
+       "lang": "en",
+       "published": "2026-11-23T18:51Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "pc_donanim-4"
+    }
+   ],
+   "note": "",
+   "candidates": 220
+  },
+  {
+   "id": "yerel_llm",
+   "title": "Yerel LLM (kendi bilgisayarında çalışan modeller)",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Mira Murati'nin Thinking Machines Lab'ından Inkling-2-Mini: 26,4B parametreli MoE model, 4-bit ile 16 GB VRAM'de çalışabiliyor.",
+     "title": "Inkling-2-Mini: 26,4 milyar parametreli açık model laptopta çalışıyor",
+     "detail": "Thinking Machines Lab, 17 Kasım 2026'da Inkling-2-Mini'yi açık ağırlıklı olarak yayınladı. Model 26,4 milyar parametreli bir mixture-of-experts (MoE) mimarisine sahip; her token'da yalnızca 5,4 milyar parametre aktif oluyor. Apache 2.0 lisansı, görsel desteği ve 1 milyon token'lık bağlam penceresi var. Unsloth ayrıca GGUF quantize sürümlerini yayınladı; her iki model de Hugging Face trend listesinde üst sıralarda yer aldı.\n\nVRAM açısından tablo şöyle: Unsloth'un önerdiği UD-Q4_K_XL dosyası 17,6 GB. Bu, 16 GB VRAM'li bir karta tam sığmıyor; ancak MoE yapısı sayesinde modelin bir kısmı sistem RAM'inde tutularak 16 GB kartta da çalıştırılabiliyor (biraz daha yavaş). 24 GB'lık bir kartta rahat, 32 GB'de ise yaklaşık 14 GB bağlam alanı kalacak şekilde sorunsuz çalışıyor. 3-bit sürüm 13-15 GB aralığında olduğu için 16 GB karta doğrudan sığıyor.\n\nAMD RX 7800 XT (16 GB) için pratikte 3-bit ya da 4-bit + kısmi CPU offload seçenekleri öne çıkıyor. İkinci kartla 32 GB'a çıkıldığında 4-bit dosya tamamen VRAM'e oturuyor ve uzun bağlam için bolca alan kalıyor. Haberdeki kurulum rehberi Unsloth Desktop üzerinden ROCm/Vulkan tabanlı llama.cpp altyapısını kullanıyor; LAN erişimi açılarak model ev ağındaki tüm cihazlardan kullanılabiliyor.\n\nDikkat edilmesi gereken nokta: İsimdeki \"Mini\" yanıltıcı. Aynı ailenin Inkling 2 Small sürümü 594 milyar parametreli ve en küçük dosyası 171,7 GB; bu, 32 GB VRAM'e kesinlikle sığmaz, yalnızca birleşik bellekli Mac Studio veya DGX Station gibi sistemlere uygun.",
+     "key_points": [
+      "Inkling-2-Mini: 26,4B toplam, 5,4B aktif parametreli MoE model, Apache 2.0, görsel destekli, 1M token bağlam.",
+      "4-bit GGUF (UD-Q4_K_XL) 17,6 GB: 16 GB VRAM'e tam sığmaz ama kısmi CPU offload ile çalışır; 32 GB'de rahat çalışır.",
+      "3-bit sürüm 13-15 GB ile 16 GB AMD kartına doğrudan sığıyor.",
+      "AMD tarafında Unsloth Desktop üzerinden llama.cpp/ROCm/Vulkan ile kurulum yapılıyor, LAN erişimi destekleniyor.",
+      "Inkling 2 Small 594B parametreli ve en küçük dosyası 171,7 GB: 32 GB VRAM'e sığmaz, yerel kullanım için uygun değil."
+     ],
+     "sources": [
+      {
+       "title": "Hugging Face trend modeli: thinkingmachines/Inkling-2-Mini",
+       "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-17T00:26Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: unsloth/Inkling-2-Mini-GGUF",
+       "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-20T13:09Z"
+      },
+      {
+       "title": "Inkling 2 Mini: Mira Murati's Looped AI Model Runs on Laptops",
+       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxObWZnOE1FOVFIMndMTm1BZTFZTVNEUXlKRWF1dEhsa19DSmF6NEVqeFRldm41NnlXempYWUppUGhObHk0R2JrdVhzcXlNM29IS1daTzRKU3c1YXNLSGdyNW9xSjcyRWV6VVlTRGFQRUg2b0xsdWJVMm9ZdDFYNDBJOEFueWVZOGx0cXc?oc=5",
+       "source": "TechJuice",
+       "lang": "en",
+       "published": "2026-11-23T07:03Z"
+      },
+      {
+       "title": "Inkling 2 Mini: 2026’s local AI outperforms last year’s Claude",
+       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPZVBnUmFiRUM4aWhrVzFSMzdJTXlBSjZ0eEU2Z0xfWFlkbUJ3ajZwMEVxQkdOQTJXaDB5T3J0M3hpWDVlM201Q1NvNlJ6WERPRmVlajNsOGZ6T2JkUlluTGJvOEtvVDVMRHNhREhkR251OG5KbkUtY0NyeVU0Um1hSWxSVHRrQ3hnWUpTQXBYZDlfR09HVHZlQWZfdG8tMWNJQWJ4aFRLUGRnRkVXN1E?oc=5",
+       "source": "Techzine Global",
+       "lang": "en",
+       "published": "2026-11-23T08:33Z"
+      },
+      {
+       "title": "What is a looped transformer and why Inkling 2 Mini uses one",
+       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQeXZaN2lEdkhiNnkzN2ZsbWpKak83MkhSMmloZXNjU0t6akdKWlNDRjB6cHlGWGtrVm5UbV9KZ1Qzem9Tdy1RcUJfWWxoWEROMTItaGpMTWxUdjUxY3ZHMllSRXdVWDRjSXgtU1lNTm1yb3FCdEpmX1JGV0E0U3lBaHJkV1ZOcC1mNmkxOGc4azVpVTVz?oc=5",
+       "source": "Pasquale Pillitteri",
+       "lang": "en",
+       "published": "2026-11-23T12:12Z"
+      },
+      {
+       "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+       "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+       "source": "gpupartner.com",
+       "lang": "en",
+       "published": "2026-11-22T21:01Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yerel_llm-1"
+    }
+   ],
+   "note": "",
+   "candidates": 107
+  },
+  {
+   "id": "yapay_zeka",
+   "title": "Yapay Zeka",
+   "stories": [
+    {
+     "importance": 9,
+     "headline": "Anthropic, 81,3 milyar dolarlık rekor halka arzla sermaye topladı; yapay zeka balonu tartışması büyüdü.",
+     "title": "Anthropic 81,3 milyar dolarlık halka arzla rekor kırdı",
+     "detail": "Anthropic, 81,3 milyar dolarlık halka arz gerçekleştirerek tarihteki en büyük IPO'ya imza attı. Şirketin seyreltilmiş değeri, hisseler işlem görmeye başlamadan önce yaklaşık 1,5 trilyon dolar olarak açıklandı. Bu, halka arz öncesi 965 milyar dolarlık değerlemeye göre önemli bir artışı işaret ediyor.\n\nHalka arz, yapay zeka sektöründeki değerlemelerin sürdürülebilirliği konusundaki tartışmaları da alevlendirdi. Eurotopics, \"Anthropic'in halka arzı: Yapay zeka balonu patladı mı?\" başlığıyla bu soruyu gündeme taşıdı. TechCrunch'a konuşan yatırımcılar ise şirketin tutarlı performansına ve kurumsal benimsemedeki artışa dikkat çekti.\n\nNotable Capital, GIC ve Baillie Gifford gibi büyük yatırımcılar, Anthropic'in potansiyeline erken dönemde güvendiklerini belirtti. Notable Capital, 2024'te Seri E turunda şirketin 61,5 milyar dolarlık değerlemesiyle yatırım yapmıştı. GIC, 2025'te Seri F'te 183 milyar dolar değerleme üzerinden ilk yatırımını yaptı ve toplamda 4,5 milyar doları aşan yatırımla şirketin yaklaşık %1'ine sahip oldu. Baillie Gifford ise üç turda toplam 1,5 milyar dolar yatırım yaptı.\n\nBu rekor halka arz, yapay zeka alanındaki en büyük oyuncuların sermaye piyasalarındaki gücünü gösterirken, sektördeki balon endişelerini de beraberinde getiriyor.",
+     "key_points": [
+      "Anthropic, 81,3 milyar dolarlık halka arzla tarihin en büyük IPO'sunu gerçekleştirdi.",
+      "Şirketin halka arz öncesi değeri yaklaşık 1,5 trilyon dolar oldu.",
+      "GIC, üç turda 4,5 milyar doların üzerinde yatırım yaparak şirketin %1'ine sahip oldu.",
+      "Halka arz, yapay zeka balonu tartışmalarını yeniden gündeme getirdi."
+     ],
+     "sources": [
+      {
+       "title": "Anthropic Raises $81.3 Billion In Record IPO",
+       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFA0RWhyOGlkanlGeGcyWUV3WHFoQl9rMXQxWkxoVEh4N3pGX2pwTUliclVpeWY5TW12VFNsQWhrV1p0ai1oQ2VrNnViWE1TVHdyeDRoZEtaazEzdUtKeHVOVmp3aEV6NkZscnlscDl0TVgwVDQ?oc=5",
+       "source": "CIO Africa",
+       "lang": "en",
+       "published": "2026-11-23T08:57Z"
+      },
+      {
+       "title": "Anthropic’in halka arzı: Yapay zekâ balonu patladı mı?",
+       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZ21xZFRYLVNMNTVCOWowbWpJT2JoNHhSSzFaU0Z4cVdoUE5fdFdoTVFWSGNUNXhTSFcxT1cyOGFkUTNiY2U5T29EeFhKSWFWMU9OdDlPNTlIVVdteWNQUzg0RWphRGlQQzJOek9NeFBjaVBLT0taNHlSQV9NLVJQOFAyN3lhT0dycjA0ZDlGcFJ0Zw?oc=5",
+       "source": "eurotopics.net",
+       "lang": "tr",
+       "published": "2026-11-23T07:28Z"
+      },
+      {
+       "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
+       "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T01:25Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yapay_zeka-1"
+    },
+    {
+     "importance": 8,
+     "headline": "Amazon, Decart'ın yapay zeka optimizasyon teknolojisini ve araştırma ekibini 7,5 milyar dolara satın alıyor.",
+     "title": "Amazon, Decart'ın yapay zeka optimizasyon teknolojisini 7,5 milyar dolara alıyor",
+     "detail": "Amazon, İsrailli yapay zeka girişimi Decart'ın optimizasyon teknolojisini ve araştırma ekibini 7,5 milyar dolara satın almak üzere anlaştı. Bloomberg'in haberine göre şirket, bu hamleyle yapay zeka modellerini kendi çiplerinde daha verimli çalıştırmayı hedefliyor.\n\nDecart, gerçek zamanlı etkileşimli dünya modelleri (son olarak Oasis 3) ve yapay zeka video üretim araçlarıyla tanınıyor. Ancak şirketin asıl öne çıkan ürünü, yapay zeka modellerinin Nvidia, Amazon ve Google donanımında verimli çalışmasını sağlayan \"Decart Optimization Stack\" (DOS) yazılımı. Anlaşma kapsamında Amazon, DOS'un arkasındaki teknolojinin yanı sıra Decart'ın kurucu ekibini ve yapay zeka araştırmacıları ile mühendislerinden oluşan ekibi de bünyesine katacak.\n\nAmazon üst yöneticisi Peter DeSantis, \"Yapay zekadaki her ileri sıçrama, her çipten daha fazla verim almaya dayanır\" dedi ve daha verimli hesaplamanın daha iyi eğitim, daha hızlı çıkarım ve müşteriler için daha düşük maliyetli modeller anlamına geldiğini belirtti.\n\nAmazon şimdiye kadar Trainium çiplerini kendi veri merkezlerinde kullanıyordu; şirket bu çipleri Nvidia'ya rakip olarak müşterilere satmaya hazırlanıyor. Decart'ın teknolojisi, müşterilerin iş yüklerini Nvidia yerine Amazon çiplerinde çalıştırmasını kolaylaştırabilir. Bu da yapay zeka donanımında Nvidia'nın hakimiyetine karşı önemli bir rekabet hamlesi olarak değerlendiriliyor.",
+     "key_points": [
+      "Amazon, Decart'ı 7,5 milyar dolara satın alıyor.",
+      "Anlaşma DOS optimizasyon yazılımını, kurucu ekibi ve araştırmacıları kapsıyor.",
+      "Decart, Oasis 3 dünya modeli ve yapay zeka video araçlarıyla tanınıyor.",
+      "Amazon, Trainium çiplerini Nvidia'ya rakip olarak satmaya hazırlanıyor.",
+      "Amaç, yapay zeka iş yüklerini Amazon çiplerinde daha verimli çalıştırmak."
+     ],
+     "sources": [
+      {
+       "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+       "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T17:14Z"
+      },
+      {
+       "title": "Amazon'dan 7,5 milyar dolarlık yapay zeka hamlesi: Decart'ın teknolojisini satın alıyor",
+       "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNa0MtdVlkaUJxZS16aG8tYlpfR3dmcGZia0NvSkptRGYxOFR5ZllHSDhQTDV2Ui1wOTcwZFNsMmV4Vm9FWm9tTG1rU3kzYUpBUWg5d2oxOGU4OVgybGV2XzZYUmIxeGVyQUowTjR5TUl2Z0dIbTU0Rkozcl9hZjFFMTlUNTM3YW9kNno0NzdHcUwxSWttM283czFWVXJzNlBhUlctcG5kRnNrdm1lUllYXzlqWXFHREpQcWtVTHcxc0Y0RXpWWjZrZjU2Y0F0UnZ5Q2NaUFRvQjdKUQ?oc=5",
+       "source": "Ekonomim",
+       "lang": "tr",
+       "published": "2026-11-23T19:29Z"
+      },
+      {
+       "title": "Amazon, Decart'ın yapay zeka optimizasyon teknolojisini satın alıyor",
+       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPS2E0Z3BTOW5XM2d2QmcxZXZfUTZEbk1XLVBQSkR5R1NWM0p6S1hERkdIa2RlWGo3MmpzU0JRRmpHZE1aSXBhXzgxeWxCUXJKeE1uTmlmYkZjVlpMczduZEl2c1pUdzFfQ0syeUNzUzE1WlIwblF4WkpLNlg1czBMeFljQXdBaVZVSG5idGFtSHJrMVNaYWNWMjRtQWtyUUdjYkNqWW9yNHpsVDhxSy1vc0RNc2pmdw?oc=5",
+       "source": "Anadolu Ajansı",
+       "lang": "tr",
+       "published": "2026-11-23T17:50Z"
+      },
+      {
+       "title": "Amazon, yapay zeka girişimi Decart'ı 7,5 milyar dolara satın almayı planlıyor",
+       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNdmFpcTk4ZTgzSXJSa1k2cHZzMEVOTkw4WVBtaENPSmpKdHJwYmNjSlRvVGpyOU9vU3AzYm1tN2ZNWmpXcW9WZlByeDFpbXVzRjNQVGk1MDlfWVg2YWZpa3J4WDhJUlJxRlhzbkU4OFdHb1dCSzhPUnpZd2wwdmRkYlFQUmNzMFJJdHktZjlrNFQ2ZG5pMkdvZmh6d0VsS24yUzZIclNNRnJmYi1yVWc?oc=5",
+       "source": "Webrazzi",
+       "lang": "tr",
+       "published": "2026-11-23T09:32Z"
+      },
+      {
+       "title": "Amazon, Decart’ın yapay zeka teknolojisini 7,5 milyar dolara alıyor",
+       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWC02MFdIa1hrVlNiYnFuaTBlNl9YNDl1QWp2cHk1QV9yNFl4X0Vyd2tjYmMwMmxVUmhzUjl3VkJXYWJERUJuM2tmY1AxaXNRQnN4QlRfTTZrRE1haDd1N2FIcWtGQnhkcGpCa3gtWm1Hb0hhUzBJbGhWRXk1bXVrX05jMUNVZmNkTlJIcFA2bjhDZ2dleFZ1TWVfNTluQms5SkNNNXpiS25QbE9JQ1lLVUdYMEpkU3JUVXc?oc=5",
+       "source": "Investing.com Türkiye",
+       "lang": "tr",
+       "published": "2026-11-23T14:33Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yapay_zeka-2"
+    },
+    {
+     "importance": 8,
+     "headline": "Zhipu, açık kaynak GLM-5.4'ü yayımladı; Opus 5.5'e yüzde 5'ten yakın performans ve aralıkta 3 trilyon parametreli GLM-5.5 duyurdu.",
+     "title": "Zhipu, açık kaynak GLM-5.4'ü yayımladı: Opus 5.5'e yakın performans",
+     "detail": "Çinli yapay zeka laboratuvarı Zhipu (z.ai), yeni büyük dil modeli GLM-5.4'ü resmen yayımladı. Şirketin ilk \"loop transformer\" mimarisini kullanan model, 750 milyar parametreli amiral gemisi olarak tanıtıldı. Zhipu'ya göre GLM-5.4, açık kaynak modeller arasında en güçlüsü ve Anthropic'in Opus 5.5 modeliyle arasındaki fark yüzde 5'in altında.\n\nModelin kodlama odaklı olduğu ve z.ai'nin kodlama planına haftalık kotada yüzde 50 artışla eklendiği belirtiliyor. Ancak bazı kaynaklar, yayın anında henüz kamuya açık benchmark sonuçlarının paylaşılmadığını aktarıyor; bu nedenle ileri sürülen performans farkı bağımsız ölçümlerle henüz doğrulanmadı.\n\nZhipu ayrıca yaklaşık 3 trilyon parametreli GLM-5.5 modelini aralık ayında yayımlamayı planlıyor. Şirket, Çinli büyük modellerin haftalık çağrı hacminde üst üste 30 haftadır birinci olduğunu belirtiyor.\n\nGLM-5.4, Hacker News'te 996 puan ve 328 yorumla geniş yankı buldu. Piyasada GLM-5.4'ün Gemini 4 Argon ve DeepSeek V4.1 Pro gibi rakiplerle kıyaslandığı değerlendirmeler de dolaşıyor, ancak bu karşılaştırmalarda net puanlar henüz ortaya konmuş değil.",
+     "key_points": [
+      "Zhipu, 750 milyar parametreli açık kaynak GLM-5.4'ü yayımladı.",
+      "Şirkete göre Opus 5.5 ile fark yüzde 5'in altında; bağımsız benchmark sonuçları henüz paylaşılmadı.",
+      "Model, Zhipu'nun ilk \"loop transformer\" mimarisini kullanıyor ve kodlama planına haftalık yüzde 50 ek kota getiriyor.",
+      "Yaklaşık 3 trilyon parametreli GLM-5.5'in aralıkta çıkması bekleniyor.",
+      "Hacker News'te 996 puan ve 328 yorumla geniş ilgi gördü."
+     ],
+     "sources": [
+      {
+       "title": "智谱正式发布新一代大模型GLM-5.4",
+       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBRYkxyR19GRWJWMnREX0Q5QW5GaUplSlJrYTA4SEdTSFQzN1VmdlgtZ19LM19QTE1MLW1YUEx4Z2E4amJqUVVnQXYtUnc5TlhodGRnQWRaY0FNcFVPb2R6WWVFbEc?oc=5",
+       "source": "东方财富网",
+       "lang": "zh",
+       "published": "2026-11-23T11:18Z"
+      },
+      {
+       "title": "智谱GLM-5.4大模型发布：仍是开源最强、比Opus 5.5差距5%内",
+       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBET1NDVWVpNlRoZTExT3FOdHQxR2Z4M0VMaGJGb240NmNVYWpNbmFfOS05OGZZUFNvZkpVVTlmbzBjWnRrWlBkNnJ4QkFEQjVTOTBjbzNQVW4?oc=5",
+       "source": "驱动之家",
+       "lang": "zh",
+       "published": "2026-11-23T07:31Z"
+      },
+      {
+       "title": "中国大模型周调用量连续30周第一！智谱GLM-5.4上线，3万亿参数GLM-5.5预计12月发布",
+       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE91OWpEZXU1Um9vYVJKQlZCZlRIZFJoYmRkeElqX29TU0YxcnpaUnd5VnRzdXBuZi1NLTh1aTNLaElZMUFDd2szSndURjhzZHR6R1NxUUhjM1hieF9ycmdFZQ?oc=5",
+       "source": "ThePaper.cn",
+       "lang": "zh",
+       "published": "2026-11-23T07:26Z"
+      },
+      {
+       "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+       "url": "https://z.ai/blog/glm-5.4",
+       "source": "z.ai",
+       "lang": "en",
+       "published": "2026-11-23T10:06Z"
+      },
+      {
+       "title": "Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model",
+       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaWpsRHQwN1U1VFRVZWNmaG9RRzJ0YjA5NnV3VUItblJTQ0FKRkJtck9QZHZZSXpieGd0blhOakJ3R3VHSlI2NElVZi0wQXEzTUJQc2g5OWlqNXZkMUQ1QkRzV0tiVFh3WXIwY1BSMFd2cFZrT3E3TUN0SnhmaGRQZlowR0NqeTNEc2dEQTRhX3ZOd3pPeXNOT0FJcThmSzRaYzRFN25ZQ05rWXJyUVE?oc=5",
+       "source": "The Decoder",
+       "lang": "en",
+       "published": "2026-11-23T15:13Z"
+      },
+      {
+       "title": "GLM-5.4 Arrives on Z.ai's Coding Plan: No Benchmarks Yet",
+       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9iNktnU3JGMUdTamh3RlhTN2RacGR2dGVSYnV5Sm9hblVZUFZ5OUxsQmxOMUZHbVRXNXVNUC1rTHhOOEdrVnZkQmFZMkhKcWxrQkp0VjdnNUdtWm91MWoyUUVQNGNMYkFNaVNR?oc=5",
+       "source": "OrcaRouter",
+       "lang": "en",
+       "published": "2026-11-23T06:52Z"
+      },
+      {
+       "title": "GLM-5.4 vs Gemini 4 Argon: Benchmarks vs a Blank Half",
+       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBDT1lDS3hfTkYtUEF3WE5Wa0NTV2hNLXFwbHJQMm5QZnFBOEtVcVF0WEpCVkFkQWFPVzhsZnZtY0d5dWJEMUtBUFJZTThEakRjZ3BmaklhUklubEpvNW1rV20zeXlhanM?oc=5",
+       "source": "OrcaRouter",
+       "lang": "en",
+       "published": "2026-11-23T06:55Z"
+      },
+      {
+       "title": "GLM-5.4 Ships to Coding Plans With 50% More Weekly Quota",
+       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNU1hGVmRUUGVLaWxpVGN4Nm1MaEpxQ0pwSGxXeU8zeWFVSDRoV3FiakxKY2g2WVRPdzNEVEFla0h6ZTM1MG5ZMURmVU9nS3Y5T0piWnRHYm82VWpNNENVREpVMXAwbnlvTVBkZmdpaHNXVjNic3pYbUhOSXJXQnNvS0lrYmxBUjdOUk1Z?oc=5",
+       "source": "FourWeekMBA",
+       "lang": "en",
+       "published": "2026-11-23T07:04Z"
+      },
+      {
+       "title": "GLM-5.4 vs DeepSeek V4.1 Pro: Neither Has a Price Row Yet",
+       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE8ya1lETldKVG9XcGRfY0ZfN3pSX0FPN3lQQ0lGZlNJejJUZlNBemNwZHNfdWotMEs5cjd0RjFCV2N2NDlmMlpYdEpGcWF6OXgzVUpVc2xia2FEUFJMR0U4bVdLdFZiamxCd0VJ?oc=5",
+       "source": "OrcaRouter",
+       "lang": "en",
+       "published": "2026-11-23T06:54Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "yapay_zeka-3"
+    },
+    {
+     "importance": 8,
+     "headline": "OpenAI, GPT-6.2 Astra ve Sol'u yayımladı; Astra, Fable 5.2 karşılaştırmasında 62'ye 65 alırken bilgisayar kontrolü ve siber güvenlikte öne çıktı.",
+     "title": "OpenAI, GPT-6.2 Astra ve Sol modellerini yayımladı",
+     "detail": "OpenAI, GPT-6.2 Astra ve Sol adlı iki yeni modelini duyurdu. Şirket, geliştiriciler için bu modellerin API kullanımı ve yönlendirme (prompting) konusunda bir rehber de yayımladı.\n\nAstra, Fable 5.2 ile yapılan bir karşılaştırmada 62 puana karşı 65 puan aldı. Fiyatlandırmada ise Astra 4 dolar, Fable 5.2 ise 26,54 dolar olarak belirtildi. Astra'nın bilgisayar kontrolü ve siber güvenlik alanlarında öne çıktığı vurgulandı.\n\nBazı kullanıcılar ise OpenAI'nin son modelini \"kullanılamaz\", \"dengesiz\" ve \"çalışması zor\" olarak nitelendirdi. Bu eleştiriler, modelin pratik kullanımda tutarsızlıklara yol açabileceğine işaret ediyor.\n\nYapay zeka dünyası için önemli olan bu gelişme, büyük dil modelleri arasındaki rekabetin hem performans hem de maliyet açısından kızıştığını gösteriyor. Özellikle bilgisayar kontrolü ve siber güvenlik gibi alanlarda iddialı olan Astra'nın, rakip modellere karşı nasıl bir denge kuracağı merak konusu.",
+     "key_points": [
+      "OpenAI, GPT-6.2 Astra ve Sol modellerini yayımladı.",
+      "Astra, Fable 5.2 ile karşılaştırmada 62'ye 65 puan aldı.",
+      "Astra'nın fiyatı 4 dolar, Fable 5.2'nin fiyatı 26,54 dolar.",
+      "Astra, bilgisayar kontrolü ve siber güvenlikte öne çıkıyor.",
+      "Bazı kullanıcılar modeli 'kullanılamaz' ve 'dengesiz' buluyor."
+     ],
+     "sources": [
+      {
+       "title": "OpenAI has released a guide to prompting and configuring the API for GPT-6.2 Astra and Sol models. What's changed for developers",
+       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRGhhTXcyYTRzNWFmN2c2d05xVjBfY0FNbzNrWFpUclhYNTFZUDJtZEt6cFBhazJaTWJnaE91ekVONUoyWV9DYTFDSGZxbXFVa1VUWEhUNzUwSkV6ZkF0U20zNXRHekhjLVNHaVJjU0JGRUZWbDItLXdjTjdjVVk0dFZR?oc=5",
+       "source": "dev.ua",
+       "lang": "en",
+       "published": "2026-11-23T13:45Z"
+      },
+      {
+       "title": "OpenAI Launches GPT-6 Astra: A Major Leap in Computer Control and Cybersecurity",
+       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZktIcXVsbzNJbVEyTVAzYlZwV1lPZXB4Y25yQVJLOEFiWFEzbW1hTlFhbXpYWmREOGR5UEJfMGFIOG1wMGxHbENTM19NWlRQM05uQXB3d2xqa1oxNnNQNVRKcVF5WE9qTkhwOUZGM09ZcFlvVV8yVEhCTThLcjd3amQ2OEhPMGNPSEdzb2VYeHF5S2ZxbmVXNEl6TjVYOXdLMElvS2JwTGEwX3ZZRDB3SkhWdWx2ZFRVSWpiVWU3UkhYYWo0cEFjcQ?oc=5",
+       "source": "آي-فون إسلام",
+       "lang": "en",
+       "published": "2026-11-23T08:35Z"
+      },
+      {
+       "title": "GPT-6.2 Astra vs Fable 5.2: 62 vs 65, $4 vs $26.54",
+       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNd2YyUDJld29wX2dRQ204ZVQzdW5QNTBZWmE0UW4zRXdlNS1NZnhVTHg1SENlUVVvYk5MdWd3U2NsSWpubmRrZ1ZzTzRXX0N2X2xCWVpySjJKdDJraHNMVWxuZVpRQUVqVUt6ckxESVliV3RYc1psdFNLajFLVzVEbEdmT3ZnYkR3VkJkZTRFQzJfMTJWVHc?oc=5",
+       "source": "shattered.io",
+       "lang": "en",
+       "published": "2026-11-23T11:32Z"
+      },
+      {
+       "title": "Here’s why some say OpenAI’s latest model is ‘unusable,’ ‘uneven’ and ‘insufferable to work with’",
+       "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPWE9IeGUyUlI1QzMxLWgwc25xUlpCZG9wMzNwdUhDMV8tUVp0UU1GZnNoLU12S1hvSF80TnBhOW9RTWs0UzZYM0pmcURGS1pWeUR5NXYxYy1JZ3FHLWtqdXBrRlBVLTR4VEgxVnFjbHlYWVB0Y0g1RXRRRkZTaDNKV0lNeGxwVnIwQnY4Y1pGYWVJZnZ6MzhyVEhSQkdHRVowelBlSjY2QUpQUW5GRzZoVnYxYzYwX0dXWXRfRXUwYjVGN3lZRjFzWlBoc3lVVVNwRV9V?oc=5",
+       "source": "BizPac Review",
+       "lang": "en",
+       "published": "2026-11-23T11:58Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "yapay_zeka-4"
+    },
+    {
+     "importance": 8,
+     "headline": "Google, Gemini 4 Neon'u AI Pro kullanıcılarına 1 milyon token bağlamla sunuyor.",
+     "title": "Google, Gemini 4 Neon'u AI Pro kullanıcılarına 1 milyon token bağlamla sundu",
+     "detail": "Google, yeni yapay zeka modeli Gemini 4 Neon'u AI Pro abonelerine 1 milyon token bağlam penceresiyle kullanıma açtı. Bu hamle, şirketin büyük dil modelleri pazarındaki rekabetini güçlendirme çabası olarak yorumlanıyor. Modelin iş verimliliğini artırmayı hedeflediği belirtiliyor.\n\nGemini 4 Neon, 1 milyon tokenlik bağlamla uzun belgeler ve karmaşık görevlerde kullanılabilecek. Ancak modelin maliyet etkinliği konusunda soru işaretleri bulunuyor; bazı analizler, daha büyük iş yüklerinde fiyatlandırmanın rekabetçi olup olmadığını sorguluyor.\n\nÖte yandan Google'ın gelecekteki Gemini 4 varyantları üzerinde çalıştığına dair işaretler var. Web arayüzünde 'Helium' etiketi görüldüğü ve SDK kodunda 'Gemini 4 Flash' ifadesinin yer aldığı bildiriliyor. Bu varyantların çıkış tarihi henüz açıklanmadı.",
+     "key_points": [
+      "Gemini 4 Neon, AI Pro kullanıcılarına 1 milyon token bağlamla sunuldu.",
+      "Model, iş verimliliğini artırmayı hedefliyor.",
+      "Maliyet etkinliği tartışmalı; bazı analizler fiyatlandırmayı sorguluyor.",
+      "Google'ın 'Helium' ve 'Gemini 4 Flash' varyantları üzerinde çalıştığı iddia ediliyor."
+     ],
+     "sources": [
+      {
+       "title": "Google's Gemini 4 Neon Takes on Bigger AI Jobs but Is It Actually Cheaper?",
+       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZ3ZmRWdRUEh2aUk2VmJ1VC1jNDBFN2pILU40d1NodURqQ1BzNkg2N1pFSmhfYW84dUw5dmk5U1JzcVNWcGl1NUNnVWRXeFM0YzJpcGpnN2JpVm82REJ1eFhYQzVRSGtkekFiREtZRDVYYUtjNzR4WXZKUThTeGxLREt3ZTM2dw?oc=5",
+       "source": "SoaplandTV",
+       "lang": "en",
+       "published": "2026-11-23T22:02Z"
+      },
+      {
+       "title": "Model Release: Gemini 4 Neon, GPT-6.2-Astra-Sol target business productivity",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRHphN3RHUmwxdVhoR3RvLUp6aTRJcUdWc1NYNy1Qd2NzVkJ0V1Q1VWtMRTlRcktXMFZ2SDYwNUhZWGNfa2VEOTZIYk1ZY3VJVTJZa3VWdVdMSHBUdVJ3c2JsZmx0RWFxYUVrOFNFdDdvZXFlcExMZWhkVEc1N3lBU3hubVRFemQtanM5U3pQQ1RhOHNjN0VRQ01GQnBBU1lfZTl2d3FBVEJ2M3JrMi1xalBR?oc=5",
+       "source": "TechTarget",
+       "lang": "en",
+       "published": "2026-11-23T13:15Z"
+      },
+      {
+       "title": "Gemini 4 Neon Comes to AI Pro Users with Context of 1 Million Tokens",
+       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSEd2bmc4T3NtY2NISkR3c1g2U1JzUkwzRER2MnlKYmdGeUNtclRfRnZGZnNzMER1S0JObEx2TUMzdEVFa251bkk1NExBNTRoSGNSYzBRQU1kN2F1c3p5VHJOd0JuWGdSVkJOMzc4STQ0YVdkZ21abTRsT3k3SVNaRFBLWDIya0w5d3Z3S2s0ZkhfNWdXZV9Ga2RfdmFfMGlDRUlDT2tFWQ?oc=5",
+       "source": "VOI.ID",
+       "lang": "en",
+       "published": "2026-11-23T00:05Z"
+      },
+      {
+       "title": "Users report 'Helium' label in Gemini on the web, rumored as next Gemini 4 variant",
+       "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1NbUJyVDhIWjlmcXdqVTNwZVE4aS1SVUJGV3hYOG1SSVNNV21XTHJxVmRORXFpeW5QRU5zRGRFMWRyX1Ft?oc=5",
+       "source": "Digg",
+       "lang": "en",
+       "published": "2026-11-23T13:28Z"
+      },
+      {
+       "title": "Google SDK Code Secretly Mentions 'Gemini 4 Flash' Ahead of Unannounced Launch",
+       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBSUVNXdEZ0ZFJsYUltSUN0ci1ZWE1lQ0tPWUdtSGNRaGZCNDgxdXA0bE1XVDh4eXA2STNkM1RfSC1NT19iYXBwUi00OEJjRzF4NThCMktCcDJ5U0hUOFd2ZTBKOFhaR09pY0JXWThEZzlqNDA0?oc=5",
+       "source": "Nokiapoweruser",
+       "lang": "en",
+       "published": "2026-11-23T09:45Z"
+      },
+      {
+       "title": "Gemini 4 Release Date: Helium Reported Next, No Date Announced",
+       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9TQkM4aGt5cldEWEQxZ2RiU0J2NDJLZjJISzFnQlZvdWVXMDBoUFlFbDA3SVFLRXlHNHo5cTU4SmpTcEY4R2tXeGtORUlRMmlrN2pOWENxMjBBUzhDemVQR01R?oc=5",
+       "source": "OrcaRouter",
+       "lang": "en",
+       "published": "2026-11-23T14:31Z"
+      },
+      {
+       "title": "Ultimate Gemini Model Comparison 2026: 2.5 to Gemini 4",
+       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4zcWFFUUNFRmY3ZmJmTXVzMzJLRi1TVlY3LVhNekpjcXdmNWttbGtjOXVOV3VrNnlkWVo0MkhWNU9UeXlySEpKUXNRLV9UYkc5cU1zbVVsRTY4dG5IRUhENHgwTQ?oc=5",
+       "source": "Fello AI",
+       "lang": "en",
+       "published": "2026-11-23T05:06Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "yapay_zeka-5"
+    }
+   ],
+   "note": "",
+   "candidates": 217
+  },
+  {
+   "id": "teknoloji",
+   "title": "Genel Teknoloji",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "CrowdStrike, Zscaler'i 44 milyar dolarlık tamamı hisse senedi işlemiyle satın alacağını açıkladı.",
+     "title": "CrowdStrike, Zscaler'i 44 milyar dolara satın alıyor",
+     "detail": "Siber güvenlik şirketi CrowdStrike, bulut güvenliği alanında faaliyet gösteren Zscaler'i yaklaşık 43,9-44 milyar dolar değerleme üzerinden tamamı hisse senediyle satın alacağını duyurdu. Anlaşma iki şirketin yönetim kurulları tarafından oybirliğiyle onaylandı. Işlem, siber güvenlik sektöründe büyük bir birleşme olarak öne çıkıyor.\n\nAnlaşma kapsamında Zscaler'in her bir hissesi 1,135 CrowdStrike hissesine dönüştürülecek. Bu da Zscaler hissesi başına yaklaşık 260,41 dolarlık bir değer anlamına geliyor; bu rakam 20 Kasım kapanış fiyatına göre yaklaşık yüzde 34 prim içeriyor. Işlem tamamlandığında Zscaler'in mevcut hissedarları birleşik şirketin yaklaşık yüzde 15,9'una sahip olacak.\n\nCrowdStrike, uç nokta güvenliği yazılımını Zscaler'in yaklaşık 8 bin kurumsal müşteriye hizmet veren sıfır güven (zero-trust) platformuyla birleştirmeyi hedefliyor. Şirketler, bu birleşmenin müşterilerin yapay zeka ajanlarını güvenli biçimde kullanmasına yardımcı olacağını belirtiyor. Birleşik şirketin yıllık yinelenen gelirinin 10 milyar doları aşması, potansiyel pazar büyüklüğünün 2029'a kadar 185 milyar doların üzerine çıkması bekleniyor.\n\nIşlemin CrowdStrike'ın 2028 mali yılının ikinci yarısında (2027 Ağustos - 2028 Ocak arası) tamamlanması öngörülüyor. Ancak anlaşma, Zscaler hissedarlarının onayına ve düzenleyici kurumların iznine tabi. Duyuru, Microsoft ve ABD Federal Havacılık Dairesi (FAA) dahil birçok kurumun çevrimiçi sistemlerinde son haftalarda yaşanan teknik aksaklıkların ardından geldi.",
+     "key_points": [
+      "CrowdStrike, Zscaler'i yaklaşık 44 milyar dolar değerlemeyle tamamı hisse senedi karşılığında satın alıyor.",
+      "Zscaler hissesi başına 1,135 CrowdStrike hissesi verilecek; bu, hisse başına yaklaşık 260,41 dolar ve yüzde 34 prim anlamına geliyor.",
+      "Işlem sonrası Zscaler hissedarları birleşik şirketin yaklaşık yüzde 15,9'una sahip olacak.",
+      "Birleşik şirketin yıllık yinelenen gelirinin 10 milyar doları aşması bekleniyor.",
+      "Anlaşmanın 2028 mali yılı ikinci yarısında tamamlanması planlanıyor; hisse ve düzenleyici onaylara tabi."
+     ],
+     "sources": [
+      {
+       "title": "网络安全大合并：CrowdStrike 宣布将以 439 亿美元全股票交易收购 Zscaler",
+       "url": "https://www.ithome.com/1/031/188.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-23T11:54Z"
+      },
+      {
+       "title": "CrowdStrike to acquire Zscaler for $44 billion",
+       "url": "https://techcrunch.com/2026/11/23/crowdstrike-to-acquire-zscaler-for-44-billion/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T16:20Z"
+      },
+      {
+       "title": "CrowdStrike将以440亿美元收购云安全公司Zscaler",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587634.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T11:48Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "teknoloji-1"
+    },
+    {
+     "importance": 8,
+     "headline": "Raporlara göre Rusya, önümüzdeki ay yörüngeye nükleer silah yerleştirebilir; bu binlerce uyduda ciddi kayba yol açabilir.",
+     "title": "Rusya'nın Yörüngeye Nükleer Silah Yerleştirme Raporları",
+     "detail": "Ars Technica'nın haberine göre, Rusya'nın önümüzdeki ay yörüngeye bir nükleer silah yerleştirebileceği yönünde raporlar var. Uzayda meydana gelecek bir nükleer patlamanın \"binlerce uydunun hızlı ve ani kaybına veya bozulmasına\" yol açabileceği belirtiliyor.\n\nBu tür bir patlama, yörüngedeki uyduların elektronik sistemlerini ciddi şekilde etkileyerek haberleşme, navigasyon ve gözlem gibi kritik hizmetlerde büyük aksaklıklara neden olabilir.\n\nHenüz resmi makamlardan bir doğrulama gelmediği için haber, potansiyel bir tehdit olarak değerlendirilmeli. Ancak uzaydaki nükleer silahlanma, küresel güvenlik ve uydu altyapısı için büyük bir risk oluşturuyor.",
+     "key_points": [
+      "Rusya'nın önümüzdeki ay yörüngeye nükleer silah yerleştirebileceği raporlandı.",
+      "Uzayda nükleer patlama binlerce uyduda kayıp veya bozulmaya yol açabilir.",
+      "Resmi doğrulama yok; ancak potansiyel etkileri büyük."
+     ],
+     "sources": [
+      {
+       "title": "Reports: Russia may launch nuclear weapon into orbit as soon as next month",
+       "url": "https://arstechnica.com/space/2026/11/russia-may-launch-a-nuclear-armed-satellite-far-sooner-than-we-thought/",
+       "source": "Ars Technica",
+       "lang": "en",
+       "published": "2026-11-23T19:28Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "teknoloji-2"
+    }
+   ],
+   "note": "",
+   "candidates": 220
+  },
+  {
+   "id": "oyunlar",
+   "title": "Oyunlar (Soulslike ve Aksiyon-RPG)",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Dragon Age'in eski patronu Mark Darrah, BioWare'nin kapanışını EA'nın kötü yönetimine bağladı: 'Masaya konan tüm seçenekler berbattı.'",
+     "title": "BioWare'nin kapanışı: Eski Dragon Age patronu EA'yı suçluyor",
+     "detail": "Geçtiğimiz ay, Mass Effect, Dragon Age, Neverwinter Nights, Star Wars: Knights of the Old Republic ve ilk Baldur's Gate gibi klasiklerin arkasındaki efsanevi stüdyo BioWare'nin EA tarafından kapatıldığı haberi geldi. Karar, EA'nın Suudi Arabistan Kamu Yatırım Fonu ile Silver Lake ve Affinity Partners'tan oluşan bir konsorsiyum tarafından satın alınmasından yalnızca bir yıl sonra alındı.\n\nKapanışın gerekçesi olarak beklentilerin altında kalan oyunlar gösteriliyor: Dragon Age: The Veilguard hedefi tutturamadı, Mass Effect: Andromeda iyi karşılanmadı ve canlı hizmet nişancı oyunu Anthem'in sunucuları bu yıl tamamen kapandı. Ancak eski Dragon Age yönetmeni Mark Darrah, suçun tamamen BioWare'nin kötü yönetiminde olmadığını savunuyor.\n\nDarrah'a göre Frostbite motorunu kullanmak, Dragon Age 2'yi yapmak ve Anthem'i çıkarmak gibi kararlar, BioWare'nin EA'nın belirlediği finansal hedeflere ulaşma baskısının ürünüydü. Bir röportajda aktardığı bir sözü paylaşan Darrah, EA'nın doğrudan emir vermediğini ama seçenekleri daralttığını anlatıyor: \"EA sizi vurmaz, masaya bir silah koyar ve her gün gelip kendinizi vurup vurmayacağınızı sorar.\" Ona göre EA resmen \"biz yaptırmadık, onlar seçti\" diyebilir, ama masadaki tüm seçenekler berbattı ve BioWare en az berbat olanı seçti.\n\nDarrah ayrıca BioWare'nin tek projeli bir stüdyoya dönüşüp Mass Effect ya da Dragon Age'den birini bırakmasının işe yarayıp yaramayacağını da sorguluyor; ona göre EA içinde bunu deneyen birçok stüdyo yine de kapatıldı. Aksiyon-RPG ve soulslike sevenler için bu haber, sektörün en köklü RPG stüdyolarından birinin yapısal ve yönetsel baskılar sonucu kaybolmasının ardındaki tartışmayı gündeme getiriyor; BioWare'nin mirası ve benzeri büyük stüdyoların geleceği açısından önemli bir vaka olarak öne çıkıyor.",
+     "key_points": [
+      "BioWare, EA tarafından geçtiğimiz ay kapatıldı; karar EA'nın satın alınmasından bir yıl sonra geldi.",
+      "Eski Dragon Age patronu Mark Darrah, kapanışı EA'nın kötü yönetimine ve finansal baskısına bağlıyor.",
+      "Darrah'a göre Frostbite motoru, Dragon Age 2 ve Anthem kararları EA'nın hedefleri yüzünden alındı.",
+      "Darrah, BioWare'nin tek projeli stüdyoya dönüşmesinin de çözüm olmayacağını savunuyor."
+     ],
+     "sources": [
+      {
+       "title": "Former Dragon Age boss questions whether BioWare should have become 'a one project studio' dropping either Mass Effect or Dragon Age to survive EA",
+       "url": "https://www.pcgamer.com/gaming-industry/former-dragon-age-boss-questions-whether-bioware-should-have-become-a-one-project-studio-dropping-either-mass-effect-or-dragon-age-to-survive-ea/",
+       "source": "PC Gamer",
+       "lang": "en",
+       "published": "2026-11-23T18:01Z"
+      },
+      {
+       "title": "Dragon Age's former boss explains that poor management from EA led to BioWare shutting down because 'the options on the table were all terrible'",
+       "url": "https://www.pcgamer.com/gaming-industry/dragon-ages-former-boss-explains-that-poor-management-from-ea-led-to-bioware-shutting-down-because-the-options-on-the-table-were-all-terrible/",
+       "source": "PC Gamer",
+       "lang": "en",
+       "published": "2026-11-23T14:30Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "oyunlar-1"
+    },
+    {
+     "importance": 7,
+     "headline": "Nioh 3 Complete Edition, Kore derecelendirme kurulunda listelendi; yeni sürüm için çıkış sinyali.",
+     "title": "Nioh 3 Complete Edition Kore'de derecelendirildi",
+     "detail": "Team Ninja'nın aksiyon-RPG serisi Nioh'un üçüncü oyunu için \"Complete Edition\" sürümü, Kore ve Japonya oyun derecelendirme kurullarında listelenmeye başladı. Koei Tecmo henüz resmi bir duyuru yapmadı; ancak bu durum, serinin önceki oyunlarında izlenen yola benzer bir stratejinin işaretçisi olarak görülüyor.\n\nNioh 3, 6 Şubat 2026'da PS5 ve PC için çıktı. İlk iki oyunun aksine bu kez PlayStation tarafından değil, Koei Tecmo tarafından yayımlandı ve PC'de de eşzamanlı olarak sunuldu. Oyunun ilk genişlemesi Hell Rising, 19 Ağustos'ta yayımlandı; ikinci DLC Bloody Insurrection'ın ise Şubat 2027'de gelmesi planlanıyor.\n\nNioh 2'nin Complete Edition sürümü de temel oyunun çıkışından yaklaşık bir yıl sonra gelmişti. Bu nedenle Nioh 3 Complete Edition'ın da 2027 başlarında, muhtemelen ikinci DLC ile aynı dönemde çıkması bekleniyor. Sürümün yalnızca PS5 ve PC ile mi sınırlı kalacağı, yoksa Xbox'a da gelip gelmeyeceği ise henüz belirsiz.\n\nSoulslike ve aksiyon-RPG sevenler için bu haber, Nioh 3'ün tüm içeriğini tek pakette sunacak bir sürümün yolda olduğunu gösteriyor. Serinin Xbox'a açılması hâlinde, platformun bu türdeki oyun yelpazesi de genişleyebilir.",
+     "key_points": [
+      "Nioh 3 Complete Edition, Kore ve Japonya derecelendirme kurullarında listelendi.",
+      "Koei Tecmo'dan henüz resmi duyuru yok.",
+      "Temel oyun 6 Şubat 2026'da PS5 ve PC için çıktı.",
+      "İkinci DLC Bloody Insurrection Şubat 2027'de geliyor.",
+      "Complete Edition'ın 2027 başında çıkması ve Xbox'a gelebileceği konuşuluyor."
+     ],
+     "sources": [
+      {
+       "title": "Nioh 3 Complete Edition Has Been Rated in Korea",
+       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQVDdFSFJtbHhPRXJQNThxdzJxbEZGOW81VWQ5VnlpYk9JZmtzVGxYWVBoWkx1X015cmV2QW9RSmIxRW5hS095bERadUJSeFJWTUFmaDBnYjhaZVNzYXcxUVBGT1lWX3UtSF9yQ3JRbW44M01iM2ROdGxUYWtEbkdGUy1B?oc=5",
+       "source": "GLITCHED",
+       "lang": "en",
+       "published": "2026-11-23T09:09Z"
+      },
+      {
+       "title": "Nioh 3: Complete Edition has been officially rated in Korea",
+       "url": "https://www.kitguru.net/gaming/mustafa-mahmoud/nioh-3-complete-edition-has-been-officially-rated-in-korea/",
+       "source": "KitGuru",
+       "lang": "en",
+       "published": "2026-11-23T04:00Z"
+      },
+      {
+       "title": "Tag: Nioh-3-complete-edition",
+       "url": "https://www.psu.com/tag/nioh-3-complete-edition/",
+       "source": "PlayStation Universe",
+       "lang": "en",
+       "published": "2026-11-23T02:15Z"
+      },
+      {
+       "title": "Nioh 3 Complete Edition Rated In Korea",
+       "url": "https://www.psu.com/news/nioh-3-complete-edition-rated-in-korea/",
+       "source": "PlayStation Universe",
+       "lang": "en",
+       "published": "2026-11-23T02:15Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "oyunlar-2"
+    },
+    {
+     "importance": 7,
+     "headline": "Elden Ring: Rot & Sorcery'nin 2027 için resmen onaylandığı açıklandı.",
+     "title": "Elden Ring: Rot & Sorcery 2027 için resmen onaylandı",
+     "detail": "Elden Ring: Rot & Sorcery'nin 2027 yılı için resmen onaylandığı duyuruldu. IMDb'nin haberine göre, oyunun çıkış tarihi ve detayları henüz netleşmedi.\n\nSoulslike ve aksiyon-RPG türünün merakla beklenen yapımlarından biri olan Elden Ring'in yeni içeriği, tür hayranları için önemli bir gelişme. FromSoftware imzalı oyunun genişleme paketi veya yeni oyunu hakkında resmi bir açıklama henüz yapılmadı.\n\n2027 yılı işaret edilse de, oyunun hangi platformlarda çıkacağı ve içeriğinin ne olacağı belirsizliğini koruyor. Bu duyuru, özellikle soulslike türüne ilgi duyan oyuncular için heyecan verici bir haber.",
+     "key_points": [
+      "Elden Ring: Rot & Sorcery 2027 için onaylandı.",
+      "Çıkış tarihi ve detaylar henüz açıklanmadı.",
+      "Soulslike ve aksiyon-RPG hayranları için önemli bir duyuru."
+     ],
+     "sources": [
+      {
+       "title": "Elden Ring: Rot & Sorcery Officially Confirmed For 2027",
+       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBoYlNDZTIwQjNvWkxHYVNncG8zanBfWThPNDdhN0xiczBpTldIVmE0OUVzSXBYVmFtNnlzNUpzMjItQzBzalFNOUc4Q1VJTkFtQXBuV2Q3NHdhdHlQR2lYSXMzOHJmRVU?oc=5",
+       "source": "IMDb",
+       "lang": "en",
+       "published": "2026-11-23T13:17Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "oyunlar-3"
+    },
+    {
+     "importance": 6,
+     "headline": "Eurogamer, Queen's Domain'i 'gerçek bir merak uyandıran etkileyici aksiyon-RPG' diye övdü; oyun 300 bin sattı.",
+     "title": "Queen's Domain: Övgü Dolu İnceleme ve 300 Bin Satış",
+     "detail": "Freshly Baked Games'in geliştirdiği Queen's Domain, Eurogamer'dan övgü dolu bir inceleme aldı. İnceleme, oyunun FromSoftware'in King's Field ve Dark Souls oyunlarından ilham aldığını ancak bunların ötesine geçerek kendine özgü bir kimlik oluşturduğunu belirtiyor. The Legend of Zelda ve Metroidvania türlerinden de izler taşıyan yapım, yoğun sırlarla dolu bir dünya sunuyor.\n\nOyun, Neasied adasında kral babasını arayan Prens Beruim'i konu alıyor. Retro estetiğiyle dikkat çeken yapım, düşük çözünürlüklü dokular ve düşük poligonlu şekillerle zamansız bir dünya yaratıyor. Soulslike türünün alışkanlıklarına meydan okuyan oyun; kilitlenme veya özel kaçınma tuşu gibi modern kolaylıklardan yoksun, daha bilinçli ve ritmik bir dövüş sistemi sunuyor.\n\nVGChartz'in haberine göre oyun 300 bin adet satış rakamına ulaştı. 100'den fazla düşman ve benzer sayıda silah içeren yapım, taş-kağıt-makas tarzı zayıflık sistemleri ve staminaya bağlı hasar mekanikleriyle dikkat çekiyor. Aksiyon-RPG ve soulslike türlerine ilgi duyan oyuncular için türün temel dinamiklerini koruyup yenilikçi bir yaklaşım getiren dikkate değer bir alternatif olarak öne çıkıyor.",
+     "key_points": [
+      "Eurogamer, Queen's Domain'i 'gerçek bir merak uyandıran etkileyici aksiyon-RPG' olarak nitelendirdi.",
+      "Oyun, King's Field ve Dark Souls'tan ilham alıyor ancak Zelda ve Metroidvania unsurları da içeriyor.",
+      "VGChartz'e göre oyun 300 bin adet sattı.",
+      "Kilitlenme ve özel kaçınma tuşu olmayan, daha ritmik ve bilinçli bir dövüş sistemi sunuyor.",
+      "100'den fazla düşman ve silah ile geniş bir deneyim alanı vadediyor."
+     ],
+     "sources": [
+      {
+       "title": "Queen's Domain review - a stunning action-RPG of genuine wonder",
+       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1zREVUVlluSjRQb2ZjRWxTTHZEUGNjbl93RVJLNjBWYkJtSU0wTVI0YnVibkI4enExdElzRTRuQ1J0Z1dXSDJtMGk5bEhoTC1UMEt5MHFKX1J4Zw?oc=5",
+       "source": "Eurogamer.net",
+       "lang": "en",
+       "published": "2026-11-23T10:04Z"
+      },
+      {
+       "title": "Queen's Domain Sales Top 300,000 Units",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxObllNNk1mUEZSbV9Gd3hDOXdfeC1TTmVvcTFiZmVyLVc2ajJlOWRNQklvUkFNS25EbHUtbmpCREMzQ3hGSENIeHUzbWd0U09fUW1zemdObzcyOHdybWpGZTlBeDlsRWhzTUJ5Zzd6T3FwOTAtT1hCanZyTmVQb1d2LXBlaw?oc=5",
+       "source": "VGChartz",
+       "lang": "en",
+       "published": "2026-11-23T19:01Z"
+      },
+      {
+       "title": "Queen's Domain review - a stunning action-RPG of genuine wonder",
+       "url": "https://www.eurogamer.net/queens-domain-review",
+       "source": "Eurogamer",
+       "lang": "en",
+       "published": "2026-11-23T02:04Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "oyunlar-4"
+    }
+   ],
+   "note": "",
+   "candidates": 58
+  },
+  {
+   "id": "cs2",
+   "title": "CS2",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "PGL Major Singapore 2026'da Stage 1 başladı; ilk İsviçre turu maçlarının sonuçları alındı.",
+     "title": "PGL Major Singapore 2026 Stage 1 başladı: İlk İsviçre maçları",
+     "detail": "PGL Major Singapore 2026, 24 Kasım'da Stage 1 ile başladı. Kallang, Singapur'da düzenlenen turnuva, 2026'nın ikinci CS2 Major'ı ve yılın en büyük etkinliği. 32 takım, 1.25 milyon dolarlık ödül havuzu için yarışıyor. Stage 1 maçları 24-27 Kasım tarihleri arasında oynanacak.\n\nStage 1'de 16 takım İsviçre sistemiyle mücadele ediyor. İlk turda tüm maçlar best-of-one formatında. Eleme ve ilerleme maçları ise best-of-three olacak. İlk tur maçlarının sonuçları alındı; favori takımların çoğu beklendiği gibi başladı.\n\nStage 1'de Ninjas in Pyjamas, PARIVISION, HEROIC, FaZe Clan, Team Liquid, Eternal Fire, 100 Thieves, 9z Team, M80, DENDELE CS, Imperial Esports, Wildcard, BC.Game Esports, FlyQuest, Chinggis Warriors ve Lynn Vision Gaming yer alıyor. Türk takımı Eternal Fire da Stage 1'de mücadele ediyor.\n\nTurnuvanın formatı gereği Stage 1, 2 ve 3'te 16 takım İsviçre sistemiyle oynayacak; ilk 8 takım bir üst aşamaya çıkacak. Playoffs tek eleme usulüyle 10-13 Aralık'ta yapılacak. Şampiyon 500 bin dolar kazanacak.",
+     "key_points": [
+      "PGL Major Singapore 2026 Stage 1, 24 Kasım'da başladı.",
+      "Stage 1'de 16 takım İsviçre sistemiyle mücadele ediyor; ilk tur maçları best-of-one.",
+      "Türk takımı Eternal Fire, Stage 1'de yer alıyor.",
+      "Turnuvanın ödül havuzu 1.25 milyon dolar; şampiyon 500 bin dolar alacak.",
+      "Playoffs 10-13 Aralık'ta tek eleme usulüyle oynanacak."
+     ],
+     "sources": [
+      {
+       "title": "PGL Major Singapore 2026",
+       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1pSEdRaUR3ZUcwb3FKUFA3M1ZzV080V3BaV01nM2NxT3BKRlpOYTBlOHV2NzNUVXFjVTN6S1l0dWFaRmlfT21LTEdKeFhDS0ZMVkFZY1V0QVM?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-23T21:49Z"
+      },
+      {
+       "title": "CS2 Singapore Major Stage 1 Betting Analysis For Opening BO1s",
+       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWFVOUG9PU25USExIZzdDLUdBMFNKVkNIcjRscHM3NWwzSUlCaWV4SGRYaDAyRGRLQnh1ZGNXdzh4N3o5SkJrN25MTjRFeVhRbVg0M2U1dXR5cVNWaHFiMTczV3M3dlJZQko5SE00aDItQ1VNci0td21PZlFwZTlla0x0WW1BQVItTzREeVp6NENMUVJxUHNjYXZsXzRoN2lKVnZldjVrb29sMU8wa09pVGZkOA?oc=5",
+       "source": "Legal Sports Betting",
+       "lang": "en",
+       "published": "2026-11-23T21:20Z"
+      },
+      {
+       "title": "Singapore Major Pick'em: what pros and creators picked",
+       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5fRGNpaC1qdERJTEN6cG5Ua2wzYU92WWRyMHNqOTA1TGpWaGdHYWIzb0wxWmNXNndHYjVLUlNHX19MSnRjQk50bFQ4Z0xnLXJubnVrakkzelA0YU1kMkhoTExxTW9oLWlPQ0tMZV9xOXU?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-23T16:57Z"
+      },
+      {
+       "title": "Who can win the Singapore Major? Five teams, one favourite",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNY2pxZ2pRbzVjaEtJWVFjaFk2QVROTnRMNTh1S19wenlVMUM1cGlhMk00MnpPR2hnc2lDX2MyNGk3bk9yeHNRZzktVDNpbFlySXhTS2huc0J3UmlzZ3RNUnY3OEhMTUNaem8xWS1HQ1VKUGhpdVRsWjAtRFMtVFlZbzVzaw?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-23T16:00Z"
+      },
+      {
+       "title": "Stage 1 kicks off CS2 Singapore Major 2026: Results from the early Swiss clashes",
+       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNamRjZk5ZR3QzbHlvLTdqT1hGU2ZCWGJLak5xaWZRcnN3YUhFWjdTdVIycFRWeVVsWm5iTDVjbHJPLWlzb1A3RXZpb3BHN0lMX0N2TVM0Z19rS3QtamhoaWxhbEJBM3NKdmV2Tm5MMGZzYlVLajFwM0xRRVJkVGpEYjBCcWljZGFlUERaRkU0MEhvUDFBSXBwcFdiZw?oc=5",
+       "source": "Esports.gg",
+       "lang": "en",
+       "published": "2026-11-23T14:34Z"
+      },
+      {
+       "title": "PGL Major Singapore 2026: Favorites and teams to watch",
+       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5RRlYxZWNnS0RXUDh0ZV85bVhpNDA3RTQ1VW1IdF83NzdBWXRodTVNaktyUWZZS0gyWFBodlF0Yy1FSzNxOWU4enFkQnNBY01aOVhxS3RNZUdnNWxxYkxSVFFaTlpFRFF3QkV4NngtRQ?oc=5",
+       "source": "Esports Charts",
+       "lang": "en",
+       "published": "2026-11-23T14:08Z"
+      },
+      {
+       "title": "Pick’Ems for CS2 Singapore Major 2026: Prediction ideas and bracket analysis",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPdHd2aHBnVDZfUVUyME9ZTkZXQWstMzlyU2dvSDFZa28ycTdjMURoV1VpVG80ZFVmZjBwS3NLVGMxWDFtWWVNbDIzQW1aVjNYLVEzcnY5Sk1xNHFCUk5kWHBlX0FZOWgzZW5IZGFVRXhFX3BQNjFqVG9lLVQxTVZvRGZQYw?oc=5",
+       "source": "Esports.gg",
+       "lang": "en",
+       "published": "2026-11-23T13:20Z"
+      },
+      {
+       "title": "PGL Major Singapore teams, format, schedule, talent, fantasy",
+       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPRDh3eEdMRTZqcVZkNFJoX0tvNWVINFhjdFQxV1pHaTZWanNKRFlabTVaMm94bGtIZEhxS2xTR3NFTUl1LVZXdzZhUDZBX2lsbUZfUUlnNzZTNTlCUmxWOVd4YTJvSFlQZ0VoYzN6Q19va2EtWkR3YjYxaDd0dGh2YU0yRWJvZXJyZXI3a2NwNmlfdw?oc=5",
+       "source": "HLTV.org",
+       "lang": "en",
+       "published": "2026-11-23T10:10Z"
+      },
+      {
+       "title": "CS2 PGL Major Singapore 2026 - All participating teams, format, prize pool, and more",
+       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQQUtjTVBLdVhEYklVVjA4eUVaWEpGSW9HYWZGTmFndGhwNk9Gc2hadU5nX2steE04MzQ5MzZOUTlENHhnYXdaNFFVaVNJdkZHWU1PRTVFQzJQeTlJY2FESlNoSWlBa21kT3R2OWFKZlRXV3BoMko1d3BqRklYNmZSd3c3MGx6T2hJQjI2T1B5TVQyUzNveEJBOWhYVHBpUkFjY3lMcjB1QmJsaXM3YTFEUGFSdWJ6ZS10akdTR0p4bl9zenEyS0JENFhiRQ?oc=5",
+       "source": "GosuGamers",
+       "lang": "en",
+       "published": "2026-11-23T10:42Z"
+      },
+      {
+       "title": "PGL Major Singapore 2026 Stage 1 Preview: Teams, Schedule and Format",
+       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOaEtEUEtsVHNSSlkyS0IzR1c3WmdXUjRFeWlaWHloMlV4SVN2TzNTemh2WHNFVXh1WDlSYXBOS1RJS0hqTE40OU9wbk8wamhxTDhDMkp4TGVXaTh6eThHTE1vR19iVUpQREFzdFIyVkY5VVlnb1oyNWs5djZaak4xaFR6X1RDdmNKOTB1bGFOQ2NBY0tKMXc?oc=5",
+       "source": "EGamersWorld",
+       "lang": "en",
+       "published": "2026-11-23T11:38Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "cs2-1"
+    }
+   ],
+   "note": "",
+   "candidates": 53
+  },
+  {
+   "id": "ekonomi_tr",
+   "title": "Ekonomi - Türkiye",
+   "stories": [],
+   "note": "Kayda değer bir gelişme yok.",
+   "candidates": 139
+  },
+  {
+   "id": "ekonomi_dunya",
+   "title": "Ekonomi - Dünya",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Brent petrol günde %6,3 düşüşle 86,72 dolara geriledi; son 30 gündeki kayıp %25,7.",
+     "title": "Brent petrolde sert düşüş: Son 30 günde %25,7 kayıp",
+     "detail": "Brent petrol, tek günde %6,3 değer kaybederek 86,72 dolara geriledi. Bu, ham petrol fiyatlarında son dönemin en sert günlük düşüşlerinden biri olarak öne çıkıyor.\n\nDüşüş yalnızca günlük değil, aylık ölçekte de dikkat çekici. Son 30 günde Brent'in kaybı %25,7 seviyesine ulaştı; bu oran, petrol piyasasında ciddi bir yeniden fiyatlama anlamına geliyor.\n\nPetrol fiyatlarındaki bu sert gerileme, küresel enflasyon görünümü, enerji şirketlerinin kârlılığı ve petrol ihracatçısı ülkelerin bütçeleri açısından yakından izlenmesi gereken bir gelişme. Fiyatların bu hızla düşmesi, küresel piyasalarda risk iştahını ve emtia bağlantılı varlıkları doğrudan etkileyebilir.",
+     "key_points": [
+      "Brent petrol günlük %6,3 düşüşle 86,72 dolara indi.",
+      "Son 30 gündeki toplam kayıp %25,7 oldu.",
+      "Düşüş, petrol piyasasında sert bir yeniden fiyatlamaya işaret ediyor."
+     ],
+     "sources": [],
+     "read_articles": 0,
+     "sid": "ekonomi_dunya-1"
+    }
+   ],
+   "note": "",
+   "candidates": 121
+  }
+ ],
+ "stats": {
+  "items": 1283,
+  "seconds": 139,
+  "model": "deepseek-flash",
+  "calls": 33,
+  "prompt_tokens": 165451,
+  "completion_tokens": 100146,
+  "cache_hit_tokens": 36096
+ }
+}

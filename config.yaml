@@ -1,0 +1,217 @@
+# Haber Bülteni ayarları
+# Bu dosyayı GitHub'da (telefondan bile) düzenleyebilirsin. Değişiklik bir sonraki çalışmada geçerli olur.
+
+site_url: "https://marjinalbaykus.github.io/haber-bulteni"
+model: deepseek-flash          # sabit: kod sadece deepseek-flash'a izin verir
+lookback_hours: 30             # son kaç saatin haberleri taransın
+max_candidates_per_topic: 220  # bir başlık için modele gönderilecek en fazla aday haber
+
+# Doğrudan RSS kaynakları. Başlıklarda "rss:" altında adıyla kullanılır.
+feeds:
+  theverge:   {url: "https://www.theverge.com/rss/index.xml", lang: en, name: "The Verge"}
+  arstechnica: {url: "https://feeds.arstechnica.com/arstechnica/index", lang: en, name: "Ars Technica"}
+  techcrunch: {url: "https://techcrunch.com/feed/", lang: en, name: "TechCrunch"}
+  tomshardware: {url: "https://www.tomshardware.com/feeds/all", lang: en, name: "Tom's Hardware"}
+  wccftech:   {url: "https://wccftech.com/feed/", lang: en, name: "Wccftech"}
+  pcgamer:    {url: "https://www.pcgamer.com/rss/", lang: en, name: "PC Gamer"}
+  gematsu:    {url: "https://www.gematsu.com/feed", lang: en, name: "Gematsu"}
+  ithome:     {url: "https://www.ithome.com/rss/", lang: zh, name: "IT之家"}
+  cnbeta:     {url: "https://www.cnbeta.com.tw/backend.php", lang: zh, name: "cnBeta"}
+  qbitai:     {url: "https://www.qbitai.com/feed", lang: zh, name: "量子位"}
+
+# Piyasa alarmları: değişim eşiği (yüzde) aşılırsa bültenin en üstünde gösterilir.
+# day = 1 gün, week = 7 gün, month = 30 gün. Eşiğin altındaki hareketler hiç gösterilmez.
+markets:
+  - {symbol: "GC=F",     name: "Altın (ons, USD)", day: 4,  week: 8,  month: 15, group: dunya}
+  - {symbol: "GRAM",     name: "Gram altın (TL)",  day: 4,  week: 8,  month: 15, group: tr}
+  - {symbol: "BZ=F",     name: "Brent petrol",     day: 7,  week: 15, month: 25, group: dunya}
+  - {symbol: "USDTRY=X", name: "Dolar/TL",         day: 3,  week: 5,  month: 10, group: tr}
+  - {symbol: "EURTRY=X", name: "Euro/TL",          day: 3,  week: 5,  month: 10, group: tr}
+  - {symbol: "XU100.IS", name: "BIST 100",         day: 5,  week: 10, month: 20, group: tr}
+  - {symbol: "^GSPC",    name: "S&P 500",          day: 3,  week: 6,  month: 12, group: dunya}
+  - {symbol: "^IXIC",    name: "Nasdaq",           day: 4,  week: 8,  month: 15, group: dunya}
+  - {symbol: "BTC-USD",  name: "Bitcoin",          day: 10, week: 20, month: 35, group: dunya}
+
+# İlgi alanları. Sıra, bültendeki sırayı belirler.
+# min_importance: 1-10 arası; model bu puanın altındakileri göstermez. Yükseltirsen daha seçici olur.
+# criteria: modele "neyin önemli olduğunu" anlatan açıklama. En çok burası işe yarar.
+# google_news / bing_news dilleri: tr, en, es, zh
+topics:
+  - id: real_madrid
+    title: "Real Madrid ve Arda Güler"
+    min_importance: 6
+    max_stories: 4
+    criteria: |
+      Kullanıcı Real Madrid taraftarı ve özellikle Arda Güler'i takip ediyor.
+      Önemli: Arda Güler'in gol/asist/maç performansı, ilk 11'de oynayıp oynamadığı, sakatlık,
+      sözleşme veya transfer gelişmeleri, teknik direktörün onunla ilgili net kararları ve açıklamaları.
+      Real Madrid için: maç sonuçları (özellikle El Clasico, Şampiyonlar Ligi), büyük transferler,
+      teknik direktör değişikliği, ciddi sakatlıklar, kupa/şampiyonluk gelişmeleri.
+      Önemsiz: dedikodu niteliğinde "iddia" haberleri, aynı maçın onlarca ön izleme haberi,
+      tek bir taraftar yorumundan haber çıkarma, Arda Güler'in adı sadece geçtiği alakasız haberler.
+    sources:
+      google_news:
+        - {q: "Arda Güler", lang: tr}
+        - {q: "Arda Güler", lang: es}
+        - {q: "Arda Guler Real Madrid", lang: en}
+        - {q: "Real Madrid", lang: es}
+        - {q: "Real Madrid", lang: en}
+      bing_news:
+        - {q: "Arda Güler", lang: tr}
+
+  - id: pc_donanim
+    title: "PC Donanım, GPU ve Çipler"
+    min_importance: 7
+    max_stories: 5
+    criteria: |
+      Kullanıcının bilgisayarı: AMD Ryzen 7 9800X3D işlemci ve AMD Radeon RX 7800 XT (16 GB) ekran kartı.
+      Önemli: yeni GPU/CPU duyuruları ve çıkışları (AMD, NVIDIA, Intel), büyük fiyat değişimleri,
+      RAM/VRAM fiyatlarında sert hareketler, AMD sürücülerinde önemli güncellemeler veya sorunlar
+      (özellikle RDNA3 / RX 7000 serisini etkileyen), FSR gibi teknolojilerde büyük yenilikler,
+      TSMC, ihracat kısıtları, çip sektöründe büyük olaylar, Çinli GPU/çip üreticilerinde büyük adımlar.
+      Önemsiz: indirim/fırsat haberleri, sıradan aksesuar incelemeleri, küçük söylentiler,
+      tek bir kasa/klavye/fare ürünü tanıtımı.
+    sources:
+      rss: [tomshardware, wccftech, ithome, cnbeta]
+      hackernews: true
+      google_news:
+        - {q: "GPU OR \"graphics card\" OR Radeon OR GeForce", lang: en}
+        - {q: "AMD OR Nvidia OR Intel OR TSMC chip", lang: en}
+        - {q: "显卡 OR 芯片 OR 处理器", lang: zh}
+
+  - id: yerel_llm
+    title: "Yerel LLM (kendi bilgisayarında çalışan modeller)"
+    min_importance: 7
+    max_stories: 5
+    criteria: |
+      Kullanıcı modelleri kendi bilgisayarında çalıştırıyor: AMD RX 7800 XT, 16 GB VRAM.
+      İleride ikinci bir kart alıp toplam 32 GB VRAM'e çıkabilir. AMD olduğu için ROCm, Vulkan,
+      llama.cpp, LM Studio, Ollama desteği önemli.
+      Önemli: 16-32 GB VRAM'e (4-bit veya benzeri quantization ile) sığan yeni açık ağırlıklı modeller,
+      kendi boyutunda rekor kıran küçük/orta modeller, büyük laboratuvarların açık model çıkışları
+      (Qwen, Llama, Mistral, Gemma, DeepSeek, GLM, Phi vb.), AMD GPU'larda performansı ciddi artıran
+      yazılım güncellemeleri, önemli quantization veya çıkarım tekniği gelişmeleri.
+      Her haberde modelin boyutunu ve 16 GB / 32 GB VRAM'e sığıp sığmadığını belirt.
+      Puanlama kuralı: 4-bit ile 32 GB VRAM'e sığmayan modeller normalde en fazla 6 puan alır (bültene girmez).
+      İstisna: alanı gerçekten sarsan çok büyük olaylar yine de girsin (8 ve üstü). Örneğin açık bir modelin
+      en iyi kapalı modelleri (GPT, Gemini, Claude) geçmesi, büyük bir laboratuvarın yeni amiral gemisi açık modeli,
+      ya da yerel LLM dünyasını etkileyecek tarihi bir gelişme. Bu durumda VRAM'e sığmadığını açıkça belirt.
+      Önemsiz: 32 GB'a sığmayan niş veya alan-özel modeller (tıp, hukuk vb.),
+      ufak fine-tune'lar, "uncensored" kopyalar, tanıtım amaçlı içerikler.
+    sources:
+      huggingface: true
+      hackernews: true
+      rss: [qbitai]
+      google_news:
+        - {q: "open-weight model OR \"open source LLM\" OR \"open model\" release", lang: en}
+        - {q: "llama.cpp OR GGUF OR Ollama OR \"LM Studio\" OR ROCm", lang: en}
+        - {q: "开源大模型", lang: zh}
+
+  - id: yapay_zeka
+    title: "Yapay Zeka"
+    min_importance: 7
+    max_stories: 5
+    criteria: |
+      Önemli: büyük yapay zeka modellerinin çıkışı (OpenAI, Google Gemini, Anthropic Claude, xAI, Meta,
+      DeepSeek, Qwen ve diğer Çinli laboratuvarlar), benchmark rekorları ve somut puanlar,
+      sektörü etkileyen büyük şirket hamleleri ve satın almalar, önemli düzenlemeler ve yasaklar,
+      çığır açan araştırmalar.
+      Haberde model puan aldıysa puanı ve hangi testte aldığını yaz.
+      Önemsiz: sıradan ürün özellik güncellemeleri, köşe yazıları, "yapay zeka işimizi alacak mı" yorumları,
+      küçük girişim yatırımları.
+    sources:
+      rss: [theverge, techcrunch, qbitai]
+      hackernews: true
+      google_news:
+        - {q: "OpenAI OR Gemini OR Anthropic OR DeepSeek OR xAI new model", lang: en}
+        - {q: "AI model benchmark record", lang: en}
+        - {q: "大模型 发布", lang: zh}
+        - {q: "yapay zeka", lang: tr}
+
+  - id: teknoloji
+    title: "Genel Teknoloji"
+    min_importance: 8
+    max_stories: 5
+    criteria: |
+      Bu geniş bir başlık; sadece gerçekten büyük olaylar girsin.
+      Önemli: dev şirketlerin büyük hamleleri, büyük satın almalar, önemli ürün çıkışları (telefon, araç, platform),
+      elektrikli araç devlerinin (BYD, Tesla vb.) çığır açan adımları, büyük güvenlik açıkları veya sızıntılar,
+      büyük düzenlemeler, uzay alanında önemli olaylar.
+      Önemsiz: sıradan ürün incelemeleri, indirimler, küçük uygulama güncellemeleri, sıradan araba haberleri.
+      Yapay zeka ve PC donanımı ayrı başlıklarda; burada onlara ancak çok büyükse yer ver.
+    sources:
+      rss: [theverge, arstechnica, techcrunch, cnbeta, ithome]
+      hackernews: true
+      google_news:
+        - {q: "科技 重大", lang: zh}
+
+  - id: oyunlar
+    title: "Oyunlar (Soulslike ve Aksiyon-RPG)"
+    min_importance: 6
+    max_stories: 5
+    criteria: |
+      Kullanıcı özellikle soulslike ve aksiyon-RPG oyunlarını seviyor.
+      Önemli: bu türlerde yeni oyun duyuruları, çıkış tarihleri, büyük fragmanlar, inceleme puanları
+      (Metacritic/OpenCritic), büyük DLC'ler, FromSoftware ve benzeri stüdyolardan haberler,
+      oyun sektöründe büyük olaylar (The Game Awards kazananları, büyük stüdyo kapanışları/satın almaları).
+      Önemsiz: oyun rehberleri, "en iyi 10 oyun" listeleri, indirimler, küçük yamalar,
+      kullanıcının türüyle ilgisiz küçük oyunlar.
+    sources:
+      rss: [gematsu, pcgamer]
+      google_news:
+        - {q: "soulslike OR souls-like", lang: en}
+        - {q: "FromSoftware OR \"action RPG\" OR ARPG", lang: en}
+        - {q: "魂类游戏 OR 动作角色扮演", lang: zh}
+      bing_news:
+        - {q: "soulslike", lang: en}
+
+  - id: cs2
+    title: "CS2"
+    min_importance: 6
+    max_stories: 4
+    criteria: |
+      Önemli: Major ve büyük turnuvaların (IEM, BLAST, ESL Pro League, PGL) sonuçları ve finalleri,
+      büyük kadro değişiklikleri (yıldız oyuncu transferleri), Valve'ın büyük oyun güncellemeleri
+      ve kural değişiklikleri, Türk oyuncu ve takımlarının büyük başarıları.
+      Önemsiz: küçük turnuva elemeleri, sıradan kasa/skin haberleri, kısa süreli deneme oyuncuları.
+    sources:
+      google_news:
+        - {q: "site:hltv.org", lang: en}
+        - {q: "\"Counter-Strike 2\" OR CS2 Major OR tournament", lang: en}
+        - {q: "CS2", lang: tr}
+
+  - id: ekonomi_tr
+    title: "Ekonomi - Türkiye"
+    min_importance: 8
+    max_stories: 3
+    market_group: tr
+    criteria: |
+      Çıta çok yüksek. Sadece hayatı veya piyasaları ciddi etkileyen olaylar girsin.
+      Önemli: TCMB'nin beklenmedik veya büyük faiz kararları, kurda sert hareketler, enflasyonda büyük sürpriz,
+      büyük vergi/düzenleme değişiklikleri, kredi notu değişiklikleri, ekonomiyi sarsan siyasi gelişmeler.
+      Önemsiz: beklentiye uygun olağan kararlar, küçük yüzdelik kur/altın/borsa hareketleri,
+      yorumcu tahminleri, sıradan şirket haberleri.
+      Piyasa verisinde eşik aşılmışsa bunu mutlaka değerlendir.
+    sources:
+      google_news:
+        - {q: "Merkez Bankası faiz OR enflasyon OR TÜİK", lang: tr}
+        - {q: "dolar kur borsa altın", lang: tr}
+        - {q: "ekonomi", lang: tr}
+
+  - id: ekonomi_dunya
+    title: "Ekonomi - Dünya"
+    min_importance: 8
+    max_stories: 3
+    market_group: dunya
+    criteria: |
+      Çıta çok yüksek. Sadece küresel piyasaları ciddi etkileyen olaylar girsin.
+      Önemli: piyasaları sarsan beklenmedik merkez bankası kararları, borsalarda çöküş veya sert yükselişler,
+      büyük ticaret savaşı/gümrük vergisi hamleleri, büyük bankacılık krizleri, petrol şokları.
+      Önemsiz: beklentiye uygun Fed kararları ve ardından gelen küçük hareketler
+      (örneğin "Fed faizi beklendiği gibi değiştirdi, altın yüzde 3 arttı" gibi), analist tahminleri.
+      Piyasa verisinde eşik aşılmışsa bunu mutlaka değerlendir.
+    sources:
+      google_news:
+        - {q: "Federal Reserve OR ECB OR \"rate decision\" surprise", lang: en}
+        - {q: "stock market plunge OR rally OR crash", lang: en}
+        - {q: "tariffs OR \"trade war\" OR recession", lang: en}

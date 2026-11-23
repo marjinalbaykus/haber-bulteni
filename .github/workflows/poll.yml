@@ -1,0 +1,52 @@
+name: Telegram komutları
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # 5 dakikada bir yeni mesaj var mı bakar (GitHub'ın izin verdiği en kısa aralık)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      has: ${{ steps.c.outputs.has }}
+    steps:
+      - id: c
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          n=$(curl -s "https://api.telegram.org/bot${TOKEN}/getUpdates?timeout=0" \
+              | python3 -c "import sys,json; print(len(json.load(sys.stdin).get('result',[])))")
+          echo "Bekleyen mesaj: $n"
+          if [ "$n" -gt 0 ]; then echo "has=true" >> "$GITHUB_OUTPUT"; else echo "has=false" >> "$GITHUB_OUTPUT"; fi
+
+  work:
+    needs: check
+    if: needs.check.outputs.has == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: bulten-yazma
+      cancel-in-progress: false
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Komutları işle
+        run: python -m bulten poll
+      - name: Kaydet ve siteyi güncelle
+        run: bash scripts/commit_push.sh "Telegram komutu $(date -u +%F_%H%M)"
+      - name: Sonuçları gönder
+        run: |
+          if [ -f .pending/notify.json ]; then sleep 60; python -m bulten notify; fi

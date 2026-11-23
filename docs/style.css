@@ -1,0 +1,30 @@
+:root{--bg:#f6f6f3;--card:#fff;--fg:#1d1d1b;--muted:#6b6b66;--line:#e3e2dc;--accent:#1f5fbf;--hl:#fff6d6;--warn:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--card:#1d1d1d;--fg:#ececea;--muted:#9a9a95;--line:#2e2e2c;--accent:#7fb0ff;--hl:#2d2a1c;--warn:#ff8a80}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:760px;margin:0 auto;padding:16px 16px 64px}
+a{color:var(--accent);text-decoration:none}
+h1{font-size:1.45rem;margin:.4rem 0 .2rem}
+h2{font-size:1.1rem;margin:1.6rem 0 .5rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:1.05rem;margin:.1rem 0 .4rem;line-height:1.35}
+.muted{color:var(--muted);font-size:.88rem}
+nav.top{display:flex;justify-content:space-between;gap:8px;font-size:.92rem;margin-bottom:6px}
+ul.sum{padding-left:1.1rem;margin:.3rem 0}
+ul.sum li{margin:.35rem 0}
+.empty{color:var(--muted);font-style:italic;margin:.3rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;margin:12px 0;scroll-margin-top:12px}
+.card:target{background:var(--hl);border-color:var(--accent)}
+.tag{display:inline-block;font-size:.75rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin-right:6px}
+.card p{margin:.55rem 0}
+.kp{margin:.5rem 0;padding-left:1.1rem}
+details{margin-top:.6rem}
+summary{cursor:pointer;color:var(--accent);font-size:.92rem}
+.src{list-style:none;padding:0;margin:.4rem 0 0}
+.src li{margin:.35rem 0;font-size:.92rem;line-height:1.35}
+.src .l{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-right:4px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}
+td:first-child,th:first-child{text-align:left}
+.alarm{color:var(--warn);font-weight:600}
+.alarmbox{border:1px solid var(--warn);border-radius:12px;padding:10px 14px;margin:12px 0}
+.list a{display:block;padding:10px 0;border-bottom:1px solid var(--line)}

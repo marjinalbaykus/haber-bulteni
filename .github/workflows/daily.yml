@@ -1,0 +1,41 @@
+name: Günlük bülten
+
+on:
+  schedule:
+    - cron: "30 5 * * *"  # her gün 05:30 UTC = 08:30 Türkiye; DeepSeek'in ucuz saatine denk gelir (06:00 UTC'den önce)
+  workflow_dispatch:       # Actions sekmesinden elle çalıştırmak için
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bulten-yazma
+  cancel-in-progress: false
+
+jobs:
+  bulten:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Bülteni hazırla
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python -m bulten daily
+
+      - name: Kaydet ve siteyi güncelle
+        run: bash scripts/commit_push.sh "Bülten $(date -u +%F)"
+
+      - name: Telegram'a gönder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          sleep 60   # GitHub Pages'in yeni sayfayı yayınlaması için
+          python -m bulten notify

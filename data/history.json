@@ -1,0 +1,219 @@
+{
+ "cited_urls": {
+  "https://star.com.tr/spor/mourinhodan-arda-guler-karari-real-madridde-tum-hesaplar-degisti-haber-2055294": "2026-11-24",
+  "https://msn.com/tr-tr/haber/diger/mourinho-yine-ortal%C4%B1%C4%9F%C4%B1-kar%C4%B1%C5%9Ft%C4%B1rd%C4%B1-ardaya-b%C3%BCy%C3%BCk-%C5%9Fok/ar-AA2i2WCl": "2026-11-24",
+  "https://milligazete.com.tr/arda-gulere-kotu-haber-mourinhodan-yeni-karar": "2026-11-24",
+  "https://sozcu.com.tr/mourinhodan-arda-guleri-uzecek-karar-p383605": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVmZsUmZSU2FpbDBwMF9jSThHa1FRRnZ2MWN1Z1EzSlduMmhqNHBEUzdDYmxGbnZtbmdSVUxhMFBXMWxJeU9pM1dkTzZYaTJKRlNwOHkwRzF5aFdiNE1heHk2OUJPdnZJQWFTbkNyeTRKdW5sWVFjYlZvdGlSSmdWNmxRd3NCSUFMaEJ1Nm5B?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiigFBVV95cUxOZkxQMjU5TVlsUXd0eGJpX1gxX2NnVG1fS3NEaUp2cmcwWm1LdzY5X3ktNS02R0IyT2FGcU1FLW1WVmNsWkZqeWE2Ykx3UGlyTm1YSGVZTVpyMy1zYlRGaDZySkNTSDdVVlBGU3dJSnhrcU5BUjBpQWVTMGJYMlNHTHdnS1JWQTBWQ3c?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeTNGMC02SjFzSndnS2FFSjRjUUo0UW9lcjVObldHQk9xRk05YXRSeE90a1drQVlSVEhkMW9aSE53MmZNb05tWVlDTDNRMUpLTjY2QTlyWXVNUGNCbUViTGVzOFExWFpsazA3TlpPNDN5bFBfNUJhSEVMM2VXcEdsTFlIXzI?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNVmJGS2tmaGtDXzdPUU9nRnNTSWh3ek5fTC1vRFRRNEpnckhrSV9WZHQ0N3RHaUJObWxvRlZfd3k1NGdoeHpWem85cUFsdU9LREVhV3UxaW1CUVFPZHhmSGVrR2tncXhpeVNwY0JzaW9BYXByNnNHN0h3Nlgxell1eUdqM3lNX2YxVExmR0JoRk5hMm9CQndfY3QwQWVJdTYtaHQ5OHVhajFGTG03QWdZd0c2Y0lQYnN0OURMZk1JTGJlR0Q1cURRb0RSV1Vfek9laHk0Q2EyTzdYSU42Nk5ZOFZ3QQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMizAFBVV95cUxNR0JMcXVwYzFaUjQwZGFaSjh3M0tJR1IzUmRtM0FoYXNLYVpodmhZaGZGczIta2wxOWE4NE02dlhWNmhTVE1IVy12OTIzMlNJaTZoQ1k3Zmh5cW5UYWpZZUJEYTd6eUNLaHN0ZGhrSmtWcncwRmJIM1o2b2lGbFlEWjV2OGRpZFdWUXRnaHMyN1R6eDM4bzhHXzdicWxFV01JblZIdXBxbE1NOW9STURkNHYtX0tsbnU5U2VCMGhUazZGcEdpSDhmbk9fc2k?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNTEtmNVIzTXdIbUtEakVuWnRMaW1kUHk3RUF5TFBwY2lPRkVXeVNkS19YVjFFb3lNNWNqZ2NjMzBvRGtjakV5enNpM2RhU0U2X0UtN0NNMGhNMGpqZ2FLa3lxckNVa0VUaG1vNndoQjhqdk94NFc4MktveVJVS0JicVJhSnYxdllYb2ZTZHN4YnJWZzFoODNZRk4tRmFyd3JTNlU1UGVWbHJINGoxbFB0aFMxckJfUjFDUGlPbWhwV2RyR09sbVlaM0t4ZzRNTFZBeFZ3WXZIajAxRjhEVHlVRFlwenU?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMipAFBVV95cUxOY3R1QUlUQzI3ZkZ5OXA4ek8xVlB1cWItWmNRSWo1dlZGX3pkbWpRaXlYUm14OW82VTJuVHJNcWVmclp3STBoWVZoTlJ2bFBEVlNlbzhKLUZEUXlRWnAyTFctQm9GbWhhVnV1VERhTHJlNl9lZE1VREo2SFlXOWtWbklUTkpZWXBRcVdGMWxlNF85Tm0zbjJfZENQeFRpYVk5NTJtRtIBpAFBVV95cUxOY3R1QUlUQzI3ZkZ5OXA4ek8xVlB1cWItWmNRSWo1dlZGX3pkbWpRaXlYUm14OW82VTJuVHJNcWVmclp3STBoWVZoTlJ2bFBEVlNlbzhKLUZEUXlRWnAyTFctQm9GbWhhVnV1VERhTHJlNl9lZE1VREo2SFlXOWtWbklUTkpZWXBRcVdGMWxlNF85Tm0zbjJfZENQeFRpYVk5NTJtRg?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMirAFBVV95cUxOZDNJTXhnTU1fTjhjR0pRS3FzUkxfNkxiRGs3dW4tWFpRY25ESHVSOEEzWE5lN2hGNTdZbzhib3BEZjFWemNEMmloUjBYWmI4QXpZUThhcUxKU09qVFpObzVoYjlLMXA1SjZKbnl3SmZtOXpIN0tpbjF4Zm1qQ1lyN2c3OG1nblVmRENNcEFNN21Ha0lCZDdocDhJTnhEb2VlQUZmSFRiVFctZlBP0gGsAUFVX3lxTE5kM0lNeGdNTV9OOGNHSlFLcXNSTF82TGJEazd1bi1YWlFjbkRIdVI4QTNYTmU3aEY1N1lvOGJvcERmMVZ6Y0QyaWhSMFhaYjhBellROGFxTEpTT2pUWk5vNWhiOUsxcDVKNkpueXdKZm05ekg3S2luMXhmbWpDWXI3Zzc4bWduVWZEQ01wQU03bUdrSUJkN2hwOElOeERvZWVBRmZIVGJUVy1mUE8?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMirAFBVV95cUxOcjB2VzFrZWJwZHg3bjZwWHVpNG1iSE9Iekl4cUZUUmJ2WXpjODNTZnliYUNkdUZRNVM1X2FLTlNybGlVbk1XQ2RBRWI1aVRfMTFiRlU3ZVE3Mkg5WnQ0akItakU2dWY0dEhGWXVPbE9WbkFLdk5SZ0xtSlZuNHF0dVQ5OG92anlQcV9tZWtQYmtSZ0dCWldDWHk3b1dVSDlNalBHT0xPRnUxTkZT?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPeG5XWEIwb3NXZ1NySlFaczJIWi04OUhkeTRVVWdEcjV0aTRUZW03d1AtSHo2S3d2RHBnWEtRbzMyd19XV2NLZUN0cUx2aEUyc3REcDZyT0tTaVRyNXA2Y0RoaUxXM1FpOTcyN0s4NjVtRGE2MXFxbWtuTHlIR0otUjF0NnB1azh2SExtTDJsNkl5T09va195ZVB2OTUxNWxjeWNEY2VxS0Q5dGJ5SGJ4TmFnOFRla3Vaek5mZmdIU2lqYWJ1VXhsRg?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQMTh5bGxPdE5LMGtuZDVJbWJIYkN0cFNHVHd4SWZzaFN5SjJBVHB3OGFNSC11YzNZczZ5U1pnLW8yVXZDY2RRMndZbG9mWGIzenpnZldaMDNfODBGUHVqWG5xNkZFUzg0eVBucHRZMXRzSFNyVEJ6bGtQcE93dFRadEljaE14OGgxSmxJM3hCZENEd1g3VzA3MW5vX21fSGpEenJzdmlhX0puZWQ1a1NkSDgwOVVKNTdPRXBjcTlKNFhDMkc2bWFpTFJ5YjkwQ3JldzhxaQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiogFBVV95cUxNWTdidXk2OUdQVm1zdUlfQVJYWDZ1NV9VZTgtcXpjcGxaQjB4bjk2QW42MlFEdzhUOVUxQlFldTZ5U2Q4dFJzYnYzcWxmb3Rybi03Y2ZOYnA0ZnJDX3JfVXBjc2E0LTBhOUJyOUVXSnN1NVpCekF4NWh6QVFOaFJ3cDdGMmNHaGU0YmtudmF5bGsweUU5VUJKUTJHNUczSEhWRmc?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdHJ0bDRkNXhDRWd0Q2NzZ1F6NG0yVFlRTVdwZFozMmExZGo1Wml5azNCZVI1TUVNNHdzYmpEc2lEQzVSWkR3UXk1a20wckFFcWVXOEw1ajZaem04TXBSWUZXMDViT0pFR0Q4SGNScTk4YWpMNjB0Mi13OFhHYUQtVnBQRlBhQmwtcU5FSGJDcFJUeVlLNDdGT2hmLUZLXzN6ZnpMZ2Q0Rnk?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdl9OdzRHcXplYUh5LWhrYmdhWjR2TjA4eEZBUXFFUFFWNjBodHNyaURjWk56bDM2dE9oV09kb0Z0NWpxRTY5SEFJd0xCMkhYM19Qa3VXTkd3U082SUJVLTBkSFZzQnE3WlpEaDA4M1drdldheTF4ZjVERUhWQVRNaUV2bTdrRHFmVXlyYmszN1l0YTdzS3Y2TQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMirAFBVV95cUxNcWJEd3ppLVVLdjlHUW9ldDFxN3J1T2QxNVZJZlZ1RWtZLVIwZEJCN3RlTGFfUHIxNDJ5Z093TzZodi1pVEM1cjhEbTl2ODE0Q0VUV1NDcXFFX1c3N0gxNDdhY0I2dVhwd09LeHFMVVh1alE1V25UZlhZcXRuYndJV0t5S0Q1dEdoM3AySVhReXluRkp0Z3U5dEliZEZQckFTcTd3WUZWMW5xSllf?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNVmwwWWpydUJqdWp0S19YaWduOEZsWHhpaHVTazl4UDIwSFpXTW52eGk5dGo2ZGFFRWcwZkdsZjBPUDRhc05sVFhDVlpuSjE4UXdJMXNCS0VXQ3hBU3hxeXowTnZXUzRLMWZZNHVnczVscWREbTBWTHJieFVuemtlaVdGVFJkdU94UHduUzc2WUoyVzMyNFRxR2dKS0pPNU5rNURyR3pVLWVQb0t0N0M5U0NmRnk1UW9xQjdfYV9BdG5MNm4wWVdXTl9yM1hhREdxQmNqd1pURUVOMHJIcDl5WmpGRjdrMjRKNUhn?oc=5": "2026-11-24",
+  "https://sozcu.com.tr/arda-guler-o-listede-zirveye-cikti-galatasarayli-batrakov-takipte-p383852": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWmZ3YldqWjJQcU1Ha2ZIQWlpMU9CTDNzbUtKTXBPbWYwYzNQYUpGczZKUlVDMF9RbkNmbXJYdEpoNDZybDJkbC12cjliWDRWU05vVjJpcWtxLThaYXMxOE1KY29ESm14WnlzaElsbUtNS1NyaXVWcGc3Ym5yX2VLbkpDaDJkV3RQbkZWeUF4WVJsSU1lTHhOWVV6VHBlNkJrb2RIZUJ5MzNjQjVXd0VBdTJDc2t4eUNqNFRQLUkyc0LSAcYBQVVfeXFMT25EdkZ1SjEwNUNreVpyR2g0YmxPNXhBNkQ1SVFGb2JKX01BNVFsSUNLbkNRTEhfM3JpTS1uWnhiMWN6RDF2OE9jLVdKdVVEUGQyZUJob2JlZGtfZzQ0cnM1eTBSUldtc1VMX3dhY0tpQmRrdU1sZkhXT3ZNeWh0NEZ2d2l4Rzhkc3l0c2dxclFCcWFBTDhYZGxrMnoxUllmM2c4WUUtNk0yYTNDc3U3RmE1YUs4N2tMRGZjX1U2NU1ZQmJaaVF3?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMitAFBVV95cUxQRW1HQ1d3U0tkYlBES28tWWdiMkNUeXhaWEJLV2N4ZHFOcWdIVEI1UVhJTHpvaWlrTjJ3M18yai10S3JpZzRnaC0zdDUzXzhXWE5kcnpRYkhyX0JVU2h3RmhYZ2RENU5JZFdIM2ZWb1JFVWF4UWRzWTNpWi03YVhNbV8ydGtudUtzRGZKNGR0WVpROU9LVU1udmtYMGJ0WWdBbWlOeHhmTTJ3S2hteGdFQ0NFTWM?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMixAFBVV95cUxPc0t6bnFqUHZKVlVOeWJFTlNuX1A3N182WEF1aENqc042UDh4WG1WZVRISEZ1M055dWNjVDQ1c1ZOMlNOUkFjRUVZUExsdlY1cFdKYXltRmdPOUk2T1FWdE9UM3RqTVpFal9HUzJUREFkTzU3T1oxMExwT25DdTY3SHBramJ3eVYwR29NdkVTY1NoTmpVWHMyYkk3Nm5EeE5Mb0wxZU1SakEyZF9Rb1JXU2xOb0J5cU96cElNQVVBWkxaUVVZ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMi4wFBVV95cUxORnl3ZGdhNkJjT3VzUXlMaXByT2Z0ZlUzUUUzTVpwZFNIa01USTdjemthelVPM0VDLUZKZTU5NGM5eFlnWGVDRTdYa3M3NXJKSHd3OUdXTG5Ta1YyRm0wWmpUTWkwZFFGV1BfTjduODJxMkUwVW1ySmZiYTRPa2Ixcm1wMzV2UTgyRFpadHI4UGZRQjRvOXUxZFZocGxQaHlsajZMeDMxUzZqY1VHWC10WDVkNXo2bzEzTHAzeTczZlFrRVNBbWJLM1NyRWJVOWZsLXRWU1I4eWVLQmJUZmdFVm5mRQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMikwFBVV95cUxQT0hBZ21rNENfY0lkM0FFbnlGVGtTaWZUbU96aWF0REhDZjlKenVGcVVXYU9YOGhsejgza1BsdEt2WjJvREpNbHZIbThOYS14bGdYSXdVd2Q5M0RpWkZNc3ZpSmJMTk5sclB6NUxyXzlpTnZmbXExLTVuekEyYkRQajlpdTA4X2pSbXVEeGVmM0lJOE0?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMihgFBVV95cUxOTGZtRkw1Rl9oZnhIdmtXbkcwVHBEWU90M3FUaUNFejhTcGpvdmZKUm5BMmx6TlZXNlh1cS1IZWhSZDFTa0U0Y3NmNlFKMWJqMktraE90UGJ6c0FXUGVoT2I0bEZsU1V6LW5ZTF9vbXJqSkZ1RjhJeUFJS0YxYzJVQ1lSZmYxdw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMijAFBVV95cUxQcjlySUlBSGJkWlhuWWM4Ylo4U3VPdkxrQVM4QXNVaFR4MEswRzE5Nm90OUVheTZEOXdEcXVpbThPUzZZamJ0Z0NrZ0ZReTROeG5lU01oSUhMZ2xacWpuUDdQNWM1b1A3Q2lSbnJOZmpTWmpVaXF1Q3Zrbk45OFVMZGdhTUVxbGlYdGZTRg?oc=5": "2026-11-24",
+  "https://sports.yahoo.com/articles/real-madrid-star-earn-significantly-201700901.html": "2026-11-24",
+  "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director": "2026-11-24",
+  "https://cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html": "2026-11-24",
+  "https://tomshardware.com/tech-industry/nvidia-reinstates-jensen-huang-as-ceo-following-unanimous-vote-by-company-board-11-day-exit-from-company-saw-stock-prices-fall-by-24-percent-after-affair-scandal": "2026-11-24",
+  "https://wccftech.com/nvidia-reinstates-jensen-huang-ceo-board-of-director": "2026-11-24",
+  "https://wccftech.com/__trashed-17": "2026-11-24",
+  "https://ithome.com/1/031/218.htm": "2026-11-24",
+  "https://ithome.com/1/031/216.htm": "2026-11-24",
+  "https://ithome.com/1/031/217.htm": "2026-11-24",
+  "https://ithome.com/1/031/211.htm": "2026-11-24",
+  "https://ithome.com/1/031/209.htm": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZ3ZUR1ZCZXpLTkNjVFA5cm1ueHd6VjlHUzZSZWUtNE40NndKNFNWQVJqV3k4WHA5SU5BQTBvWmw5dlN3S1RZZHQ5WG5LRGhWMDFxUk83RjdGV0dqWUtjU3c4RlVkdkFBVlhfbXdiVm1WWW44dEtpUXY0Yjk0ZndBN2w3MURmNkVJLUlvM3ZpSmRfV3RTeUJYNHQtS29HaUFwejF2SlVtR2lpY0NqX3BYMg?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMibEFVX3lxTFAwb1pxRDlYekFUbVpRdnA0eHdjV3Zrd2JvdHZoSFNjeW9nLTdyRzF2cGExbEZ5bU53MVBOX1h2M2xzTGhkMG12aE1SY2JMSW9ybThwdW93NmdYSGx0eGhBTTZjQ1FfaS1BQVNDdw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMidkFVX3lxTE1yV0RFWUVqS21tSEhHZS1MNWhWVGFSZzY4d2dacktsU1lYVEtYcFJMWkl1QVhEMEt0NHduZFhLb1BYOEVVNFlTcmxwZW1IUnBGV2N6YWE2dTAxUjFSRXNCZk4xTmprMVBhaDNLb1RXUF9fQVNWSWc?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiogFBVV95cUxNclBUWFR5amRzOFJZRlBOT1BhOVdVWXhDVkRnTGZaSDVTTlRKazRaZEMxMURXanBVbDBFMFRpQjRONjB4Z1NiLVpjV1ZQQ0RMM0k2LWlwMHJZRTRQcHE0akxVZ3pOSU5wQnAzM25lZWNjSEh4VTJiSE5reWF1RUN6YTczMjExU0hDY3owVTJDNEhUMm5CUEktcms4eHRqbTA4RVE?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMicEFVX3lxTE1CWWhXVHBwWVJzZi0xQlFfT1dWZEpUU2dUTWJrZWVJTmtaN0ZVcGcxRkp3RFJUUEFDcS1fWDlveS1PQ3BXb216ek9seXpaZHVpNFVRVFJ1ZVhIRnBjZE5pUlZaR1ZMMkVKdmJ4NDQ0cV8?oc=5": "2026-11-24",
+  "https://cnbeta.com.tw/articles/tech/1587712.htm": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSW9zRUxERXlUX09PVTh0T3lnVFRMZWZQZWJncjVEQl93dVRmcWlaRk5odWFhQTJReUNncXJ6Z0dicHJsSm5jZkR0aDN3UkZHV0dKZWpfc3BFb3k4RnUtX184Qjd0YnNlM3hNc1FhZnZtTGpWbVQ4LXRMbWc2WTRKVklrRVNlR1lpcTRIanZRTTBrQW5kbTJsa0hoaWZ1WmsyYWRkR0sycmpRdHBnMEtidE1SNUMtUFHSAbcBQVVfeXFMT0lvc0VMREV5VF9PT1U4dE95Z1RUTGVmUGViZ3I1REJfd3VUZnFpWkZOaHVhYUEyUXlDZ3FyemdHYnBybEpuY2ZEdGgzd1JGR1dHSmVqX3NwRW95OEZ1LV9fOEI3dGJzZTN4TXNRYWZ2bUxqVm1UOC10TG1nNlk0SlZJa0VTZUdZaXE0SGp2UU0wa0FuZG0ybGtIaGlmdVprMmFkZEdLMnJqUXRwZzBLYnRNUjVDLVBR?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQSmhGM1lkclhPWUNNOEtqSm12OWZ5ZGlrWjlMcVhPd3VWcHdiMHNVMkVHcnRSOVd0cHRaU0sxQnNMODVhR001eXN3bEtxRklFSU5vZnNKZTA3S2hyMU9NQWJLZ0xIMXFRX2hFbUhuQ25oSDhuN1RMM1E1dFVNc0F0c0lZaF90RDZFQlE5TkR4SjFBZWpfYmd1LWNsU0xva3BRVzNBRWt6SUNER1lweUowaGliWHdPRzhCbFJN0gG-AUFVX3lxTE1EVXVXQ0JLNDBzVG41ZmlYNURTOWZwbVA1amI2OWhub1NWOXhyd29NN0ZUU09ZN1RISjF0aUk1MDNWTjlqVnExOW5hMjVQNEpxRkx4MU9vMVI4VTZtazU5NWhxejNjb0hyT01UMFllRzBSankzU2pTT05WNXV2MFVjaXZETy1XbHZ2ZXhKbWR6eGxwcGJVcmJHWERpdEI4S1VjS0F1LVlGQkx6QnBVYlF3Z2JkZ21iZnpWZ2dRMlE?oc=5": "2026-11-24",
+  "https://tomshardware.com/tech-industry/big-tech/ai-server-makers-hike-prices-up-to-45-percent-months-after-contracts-are-signed-as-ram-shortage-triples-memory-heavy-cpu-node-costs-financial-firms-still-pay-up-as-the-compute-is-valuable": "2026-11-24",
+  "https://cnbeta.com.tw/articles/tech/1587722.htm": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMingFBVV95cUxPQTdIdlg4WUU0cTJmTXphUVF0RkRTOXg3SXRabHRIYnpTNWg3aHIwRUV2eS02Z2JwX3ZKV2JYdVNCdDBoMzhicjJSR2dTOF8wLTE5OERyN05UMG53TUJFVkpCempwdXBtbmw3aWFQZXlHNm5qOHlGOEp4aXVGUmQtTUhYbG1aWDdma3dVaHd6dXAtSFUtY0praXFRSlB3Zw?oc=5": "2026-11-24",
+  "https://huggingface.co/thinkingmachines/Inkling-2-Mini": "2026-11-24",
+  "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiigFBVV95cUxObWZnOE1FOVFIMndMTm1BZTFZTVNEUXlKRWF1dEhsa19DSmF6NEVqeFRldm41NnlXempYWUppUGhObHk0R2JrdVhzcXlNM29IS1daTzRKU3c1YXNLSGdyNW9xSjcyRWV6VVlTRGFQRUg2b0xsdWJVMm9ZdDFYNDBJOEFueWVZOGx0cXc?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMirgFBVV95cUxPZVBnUmFiRUM4aWhrVzFSMzdJTXlBSjZ0eEU2Z0xfWFlkbUJ3ajZwMEVxQkdOQTJXaDB5T3J0M3hpWDVlM201Q1NvNlJ6WERPRmVlajNsOGZ6T2JkUlluTGJvOEtvVDVMRHNhREhkR251OG5KbkUtY0NyeVU0Um1hSWxSVHRrQ3hnWUpTQXBYZDlfR09HVHZlQWZfdG8tMWNJQWJ4aFRLUGRnRkVXN1E?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMilAFBVV95cUxQeXZaN2lEdkhiNnkzN2ZsbWpKak83MkhSMmloZXNjU0t6akdKWlNDRjB6cHlGWGtrVm5UbV9KZ1Qzem9Tdy1RcUJfWWxoWEROMTItaGpMTWxUdjUxY3ZHMllSRXdVWDRjSXgtU1lNTm1yb3FCdEpmX1JGV0E0U3lBaHJkV1ZOcC1mNmkxOGc4azVpVTVz?oc=5": "2026-11-24",
+  "https://gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMic0FVX3lxTFA0RWhyOGlkanlGeGcyWUV3WHFoQl9rMXQxWkxoVEh4N3pGX2pwTUliclVpeWY5TW12VFNsQWhrV1p0ai1oQ2VrNnViWE1TVHdyeDRoZEtaazEzdUtKeHVOVmp3aEV6NkZscnlscDl0TVgwVDQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZ21xZFRYLVNMNTVCOWowbWpJT2JoNHhSSzFaU0Z4cVdoUE5fdFdoTVFWSGNUNXhTSFcxT1cyOGFkUTNiY2U5T29EeFhKSWFWMU9OdDlPNTlIVVdteWNQUzg0RWphRGlQQzJOek9NeFBjaVBLT0taNHlSQV9NLVJQOFAyN3lhT0dycjA0ZDlGcFJ0Zw?oc=5": "2026-11-24",
+  "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo": "2026-11-24",
+  "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNa0MtdVlkaUJxZS16aG8tYlpfR3dmcGZia0NvSkptRGYxOFR5ZllHSDhQTDV2Ui1wOTcwZFNsMmV4Vm9FWm9tTG1rU3kzYUpBUWg5d2oxOGU4OVgybGV2XzZYUmIxeGVyQUowTjR5TUl2Z0dIbTU0Rkozcl9hZjFFMTlUNTM3YW9kNno0NzdHcUwxSWttM283czFWVXJzNlBhUlctcG5kRnNrdm1lUllYXzlqWXFHREpQcWtVTHcxc0Y0RXpWWjZrZjU2Y0F0UnZ5Q2NaUFRvQjdKUQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMitgFBVV95cUxPS2E0Z3BTOW5XM2d2QmcxZXZfUTZEbk1XLVBQSkR5R1NWM0p6S1hERkdIa2RlWGo3MmpzU0JRRmpHZE1aSXBhXzgxeWxCUXJKeE1uTmlmYkZjVlpMczduZEl2c1pUdzFfQ0syeUNzUzE1WlIwblF4WkpLNlg1czBMeFljQXdBaVZVSG5idGFtSHJrMVNaYWNWMjRtQWtyUUdjYkNqWW9yNHpsVDhxSy1vc0RNc2pmdw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMirgFBVV95cUxNdmFpcTk4ZTgzSXJSa1k2cHZzMEVOTkw4WVBtaENPSmpKdHJwYmNjSlRvVGpyOU9vU3AzYm1tN2ZNWmpXcW9WZlByeDFpbXVzRjNQVGk1MDlfWVg2YWZpa3J4WDhJUlJxRlhzbkU4OFdHb1dCSzhPUnpZd2wwdmRkYlFQUmNzMFJJdHktZjlrNFQ2ZG5pMkdvZmh6d0VsS24yUzZIclNNRnJmYi1yVWc?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiugFBVV95cUxQWC02MFdIa1hrVlNiYnFuaTBlNl9YNDl1QWp2cHk1QV9yNFl4X0Vyd2tjYmMwMmxVUmhzUjl3VkJXYWJERUJuM2tmY1AxaXNRQnN4QlRfTTZrRE1haDd1N2FIcWtGQnhkcGpCa3gtWm1Hb0hhUzBJbGhWRXk1bXVrX05jMUNVZmNkTlJIcFA2bjhDZ2dleFZ1TWVfNTluQms5SkNNNXpiS25QbE9JQ1lLVUdYMEpkU3JUVXc?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBRYkxyR19GRWJWMnREX0Q5QW5GaUplSlJrYTA4SEdTSFQzN1VmdlgtZ19LM19QTE1MLW1YUEx4Z2E4amJqUVVnQXYtUnc5TlhodGRnQWRaY0FNcFVPb2R6WWVFbEc?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBET1NDVWVpNlRoZTExT3FOdHQxR2Z4M0VMaGJGb240NmNVYWpNbmFfOS05OGZZUFNvZkpVVTlmbzBjWnRrWlBkNnJ4QkFEQjVTOTBjbzNQVW4?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiYEFVX3lxTE91OWpEZXU1Um9vYVJKQlZCZlRIZFJoYmRkeElqX29TU0YxcnpaUnd5VnRzdXBuZi1NLTh1aTNLaElZMUFDd2szSndURjhzZHR6R1NxUUhjM1hieF9ycmdFZQ?oc=5": "2026-11-24",
+  "https://z.ai/blog/glm-5.4": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaWpsRHQwN1U1VFRVZWNmaG9RRzJ0YjA5NnV3VUItblJTQ0FKRkJtck9QZHZZSXpieGd0blhOakJ3R3VHSlI2NElVZi0wQXEzTUJQc2g5OWlqNXZkMUQ1QkRzV0tiVFh3WXIwY1BSMFd2cFZrT3E3TUN0SnhmaGRQZlowR0NqeTNEc2dEQTRhX3ZOd3pPeXNOT0FJcThmSzRaYzRFN25ZQ05rWXJyUVE?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMia0FVX3lxTE9iNktnU3JGMUdTamh3RlhTN2RacGR2dGVSYnV5Sm9hblVZUFZ5OUxsQmxOMUZHbVRXNXVNUC1rTHhOOEdrVnZkQmFZMkhKcWxrQkp0VjdnNUdtWm91MWoyUUVQNGNMYkFNaVNR?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBDT1lDS3hfTkYtUEF3WE5Wa0NTV2hNLXFwbHJQMm5QZnFBOEtVcVF0WEpCVkFkQWFPVzhsZnZtY0d5dWJEMUtBUFJZTThEakRjZ3BmaklhUklubEpvNW1rV20zeXlhanM?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNU1hGVmRUUGVLaWxpVGN4Nm1MaEpxQ0pwSGxXeU8zeWFVSDRoV3FiakxKY2g2WVRPdzNEVEFla0h6ZTM1MG5ZMURmVU9nS3Y5T0piWnRHYm82VWpNNENVREpVMXAwbnlvTVBkZmdpaHNXVjNic3pYbUhOSXJXQnNvS0lrYmxBUjdOUk1Z?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMia0FVX3lxTE8ya1lETldKVG9XcGRfY0ZfN3pSX0FPN3lQQ0lGZlNJejJUZlNBemNwZHNfdWotMEs5cjd0RjFCV2N2NDlmMlpYdEpGcWF6OXgzVUpVc2xia2FEUFJMR0U4bVdLdFZiamxCd0VJ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRGhhTXcyYTRzNWFmN2c2d05xVjBfY0FNbzNrWFpUclhYNTFZUDJtZEt6cFBhazJaTWJnaE91ekVONUoyWV9DYTFDSGZxbXFVa1VUWEhUNzUwSkV6ZkF0U20zNXRHekhjLVNHaVJjU0JGRUZWbDItLXdjTjdjVVk0dFZR?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZktIcXVsbzNJbVEyTVAzYlZwV1lPZXB4Y25yQVJLOEFiWFEzbW1hTlFhbXpYWmREOGR5UEJfMGFIOG1wMGxHbENTM19NWlRQM05uQXB3d2xqa1oxNnNQNVRKcVF5WE9qTkhwOUZGM09ZcFlvVV8yVEhCTThLcjd3amQ2OEhPMGNPSEdzb2VYeHF5S2ZxbmVXNEl6TjVYOXdLMElvS2JwTGEwX3ZZRDB3SkhWdWx2ZFRVSWpiVWU3UkhYYWo0cEFjcQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMilgFBVV95cUxNd2YyUDJld29wX2dRQ204ZVQzdW5QNTBZWmE0UW4zRXdlNS1NZnhVTHg1SENlUVVvYk5MdWd3U2NsSWpubmRrZ1ZzTzRXX0N2X2xCWVpySjJKdDJraHNMVWxuZVpRQUVqVUt6ckxESVliV3RYc1psdFNLajFLVzVEbEdmT3ZnYkR3VkJkZTRFQzJfMTJWVHc?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPWE9IeGUyUlI1QzMxLWgwc25xUlpCZG9wMzNwdUhDMV8tUVp0UU1GZnNoLU12S1hvSF80TnBhOW9RTWs0UzZYM0pmcURGS1pWeUR5NXYxYy1JZ3FHLWtqdXBrRlBVLTR4VEgxVnFjbHlYWVB0Y0g1RXRRRkZTaDNKV0lNeGxwVnIwQnY4Y1pGYWVJZnZ6MzhyVEhSQkdHRVowelBlSjY2QUpQUW5GRzZoVnYxYzYwX0dXWXRfRXUwYjVGN3lZRjFzWlBoc3lVVVNwRV9V?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZ3ZmRWdRUEh2aUk2VmJ1VC1jNDBFN2pILU40d1NodURqQ1BzNkg2N1pFSmhfYW84dUw5dmk5U1JzcVNWcGl1NUNnVWRXeFM0YzJpcGpnN2JpVm82REJ1eFhYQzVRSGtkekFiREtZRDVYYUtjNzR4WXZKUThTeGxLREt3ZTM2dw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRHphN3RHUmwxdVhoR3RvLUp6aTRJcUdWc1NYNy1Qd2NzVkJ0V1Q1VWtMRTlRcktXMFZ2SDYwNUhZWGNfa2VEOTZIYk1ZY3VJVTJZa3VWdVdMSHBUdVJ3c2JsZmx0RWFxYUVrOFNFdDdvZXFlcExMZWhkVEc1N3lBU3hubVRFemQtanM5U3pQQ1RhOHNjN0VRQ01GQnBBU1lfZTl2d3FBVEJ2M3JrMi1xalBR?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSEd2bmc4T3NtY2NISkR3c1g2U1JzUkwzRER2MnlKYmdGeUNtclRfRnZGZnNzMER1S0JObEx2TUMzdEVFa251bkk1NExBNTRoSGNSYzBRQU1kN2F1c3p5VHJOd0JuWGdSVkJOMzc4STQ0YVdkZ21abTRsT3k3SVNaRFBLWDIya0w5d3Z3S2s0ZkhfNWdXZV9Ga2RfdmFfMGlDRUlDT2tFWQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiREFVX3lxTE1NbUJyVDhIWjlmcXdqVTNwZVE4aS1SVUJGV3hYOG1SSVNNV21XTHJxVmRORXFpeW5QRU5zRGRFMWRyX1Ft?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMidEFVX3lxTFBSUVNXdEZ0ZFJsYUltSUN0ci1ZWE1lQ0tPWUdtSGNRaGZCNDgxdXA0bE1XVDh4eXA2STNkM1RfSC1NT19iYXBwUi00OEJjRzF4NThCMktCcDJ5U0hUOFd2ZTBKOFhaR09pY0JXWThEZzlqNDA0?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9TQkM4aGt5cldEWEQxZ2RiU0J2NDJLZjJISzFnQlZvdWVXMDBoUFlFbDA3SVFLRXlHNHo5cTU4SmpTcEY4R2tXeGtORUlRMmlrN2pOWENxMjBBUzhDemVQR01R?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4zcWFFUUNFRmY3ZmJmTXVzMzJLRi1TVlY3LVhNekpjcXdmNWttbGtjOXVOV3VrNnlkWVo0MkhWNU9UeXlySEpKUXNRLV9UYkc5cU1zbVVsRTY4dG5IRUhENHgwTQ?oc=5": "2026-11-24",
+  "https://ithome.com/1/031/188.htm": "2026-11-24",
+  "https://techcrunch.com/2026/11/23/crowdstrike-to-acquire-zscaler-for-44-billion": "2026-11-24",
+  "https://cnbeta.com.tw/articles/tech/1587634.htm": "2026-11-24",
+  "https://arstechnica.com/space/2026/11/russia-may-launch-a-nuclear-armed-satellite-far-sooner-than-we-thought": "2026-11-24",
+  "https://pcgamer.com/gaming-industry/former-dragon-age-boss-questions-whether-bioware-should-have-become-a-one-project-studio-dropping-either-mass-effect-or-dragon-age-to-survive-ea": "2026-11-24",
+  "https://pcgamer.com/gaming-industry/dragon-ages-former-boss-explains-that-poor-management-from-ea-led-to-bioware-shutting-down-because-the-options-on-the-table-were-all-terrible": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiggFBVV95cUxQVDdFSFJtbHhPRXJQNThxdzJxbEZGOW81VWQ5VnlpYk9JZmtzVGxYWVBoWkx1X015cmV2QW9RSmIxRW5hS095bERadUJSeFJWTUFmaDBnYjhaZVNzYXcxUVBGT1lWX3UtSF9yQ3JRbW44M01iM2ROdGxUYWtEbkdGUy1B?oc=5": "2026-11-24",
+  "https://kitguru.net/gaming/mustafa-mahmoud/nioh-3-complete-edition-has-been-officially-rated-in-korea": "2026-11-24",
+  "https://psu.com/tag/nioh-3-complete-edition": "2026-11-24",
+  "https://psu.com/news/nioh-3-complete-edition-rated-in-korea": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBoYlNDZTIwQjNvWkxHYVNncG8zanBfWThPNDdhN0xiczBpTldIVmE0OUVzSXBYVmFtNnlzNUpzMjItQzBzalFNOUc4Q1VJTkFtQXBuV2Q3NHdhdHlQR2lYSXMzOHJmRVU?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1zREVUVlluSjRQb2ZjRWxTTHZEUGNjbl93RVJLNjBWYkJtSU0wTVI0YnVibkI4enExdElzRTRuQ1J0Z1dXSDJtMGk5bEhoTC1UMEt5MHFKX1J4Zw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMigwFBVV95cUxObllNNk1mUEZSbV9Gd3hDOXdfeC1TTmVvcTFiZmVyLVc2ajJlOWRNQklvUkFNS25EbHUtbmpCREMzQ3hGSENIeHUzbWd0U09fUW1zemdObzcyOHdybWpGZTlBeDlsRWhzTUJ5Zzd6T3FwOTAtT1hCanZyTmVQb1d2LXBlaw?oc=5": "2026-11-24",
+  "https://eurogamer.net/queens-domain-review": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1pSEdRaUR3ZUcwb3FKUFA3M1ZzV080V3BaV01nM2NxT3BKRlpOYTBlOHV2NzNUVXFjVTN6S1l0dWFaRmlfT21LTEdKeFhDS0ZMVkFZY1V0QVM?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWFVOUG9PU25USExIZzdDLUdBMFNKVkNIcjRscHM3NWwzSUlCaWV4SGRYaDAyRGRLQnh1ZGNXdzh4N3o5SkJrN25MTjRFeVhRbVg0M2U1dXR5cVNWaHFiMTczV3M3dlJZQko5SE00aDItQ1VNci0td21PZlFwZTlla0x0WW1BQVItTzREeVp6NENMUVJxUHNjYXZsXzRoN2lKVnZldjVrb29sMU8wa09pVGZkOA?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMicEFVX3lxTE5fRGNpaC1qdERJTEN6cG5Ua2wzYU92WWRyMHNqOTA1TGpWaGdHYWIzb0wxWmNXNndHYjVLUlNHX19MSnRjQk50bFQ4Z0xnLXJubnVrakkzelA0YU1kMkhoTExxTW9oLWlPQ0tMZV9xOXU?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMigwFBVV95cUxNY2pxZ2pRbzVjaEtJWVFjaFk2QVROTnRMNTh1S19wenlVMUM1cGlhMk00MnpPR2hnc2lDX2MyNGk3bk9yeHNRZzktVDNpbFlySXhTS2huc0J3UmlzZ3RNUnY3OEhMTUNaem8xWS1HQ1VKUGhpdVRsWjAtRFMtVFlZbzVzaw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMimwFBVV95cUxNamRjZk5ZR3QzbHlvLTdqT1hGU2ZCWGJLak5xaWZRcnN3YUhFWjdTdVIycFRWeVVsWm5iTDVjbHJPLWlzb1A3RXZpb3BHN0lMX0N2TVM0Z19rS3QtamhoaWxhbEJBM3NKdmV2Tm5MMGZzYlVLajFwM0xRRVJkVGpEYjBCcWljZGFlUERaRkU0MEhvUDFBSXBwcFdiZw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMib0FVX3lxTE5RRlYxZWNnS0RXUDh0ZV85bVhpNDA3RTQ1VW1IdF83NzdBWXRodTVNaktyUWZZS0gyWFBodlF0Yy1FSzNxOWU4enFkQnNBY01aOVhxS3RNZUdnNWxxYkxSVFFaTlpFRFF3QkV4NngtRQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMigwFBVV95cUxPdHd2aHBnVDZfUVUyME9ZTkZXQWstMzlyU2dvSDFZa28ycTdjMURoV1VpVG80ZFVmZjBwS3NLVGMxWDFtWWVNbDIzQW1aVjNYLVEzcnY5Sk1xNHFCUk5kWHBlX0FZOWgzZW5IZGFVRXhFX3BQNjFqVG9lLVQxTVZvRGZQYw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMikgFBVV95cUxPRDh3eEdMRTZqcVZkNFJoX0tvNWVINFhjdFQxV1pHaTZWanNKRFlabTVaMm94bGtIZEhxS2xTR3NFTUl1LVZXdzZhUDZBX2lsbUZfUUlnNzZTNTlCUmxWOVd4YTJvSFlQZ0VoYzN6Q19va2EtWkR3YjYxaDd0dGh2YU0yRWJvZXJyZXI3a2NwNmlfdw?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMiywFBVV95cUxQQUtjTVBLdVhEYklVVjA4eUVaWEpGSW9HYWZGTmFndGhwNk9Gc2hadU5nX2steE04MzQ5MzZOUTlENHhnYXdaNFFVaVNJdkZHWU1PRTVFQzJQeTlJY2FESlNoSWlBa21kT3R2OWFKZlRXV3BoMko1d3BqRklYNmZSd3c3MGx6T2hJQjI2T1B5TVQyUzNveEJBOWhYVHBpUkFjY3lMcjB1QmJsaXM3YTFEUGFSdWJ6ZS10akdTR0p4bl9zenEyS0JENFhiRQ?oc=5": "2026-11-24",
+  "https://news.google.com/rss/articles/CBMilgFBVV95cUxOaEtEUEtsVHNSSlkyS0IzR1c3WmdXUjRFeWlaWHloMlV4SVN2TzNTemh2WHNFVXh1WDlSYXBOS1RJS0hqTE40OU9wbk8wamhxTDhDMkp4TGVXaTh6eThHTE1vR19iVUpQREFzdFIyVkY5VVlnb1oyNWs5djZaak4xaFR6X1RDdmNKOTB1bGFOQ2NBY0tKMXc?oc=5": "2026-11-24"
+ },
+ "headlines": {
+  "real_madrid": [
+   {
+    "date": "2026-11-24",
+    "headline": "Mourinho, PSV maçı öncesi Arda Güler'i dinlendirme kararı aldı; İspanyol basını Arda ile Bellingham'ın yedek kalabileceğini yazıyor."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Real Madrid'de Endrick kas sakatlığı nedeniyle yaklaşık üç hafta yok; PSV kadrosunda yer almıyor, takımda dört sakat bulunuyor."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Arda Güler, CIES'in 32 Avrupa ligindeki 22 yaş altı futbolcular için 90 dakika başına asist beklentisi listesinde birinci oldu."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Bellingham'ın Real Madrid ile uzun vadeli sözleşme yenilemesinde sona yaklaşılıyor; yıllık kazancı 15 milyon euronun belirgin üzerine çıkacak."
+   }
+  ],
+  "pc_donanim": [
+   {
+    "date": "2026-11-24",
+    "headline": "NVIDIA, Trump'ın baskısıyla Jensen Huang'ı CEO'luğa geri getirdi; hisseler %32 yükseldi, piyasa değeri 1 trilyon dolar arttı, Kongre'de tepki büyüdü."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "ABD, Nvidia çiplerinin Çin'e aktarıldığı soruşturmada Singapur merkezli Megaspeed'i kara listeye aldı; Huang 3 Aralık'ta Senato'da ifade verecek."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "RAM kıtlığı AI sunucu maliyetlerini üçe katladı; Dell, HPE, Lenovo ve Supermicro sözleşme sonrası fiyatları %45'e varan oranda artırdı."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "TSMC, ABD düzenlemeleri nedeniyle bazı müşterilere ileri çip sevkiyatını durdurdu; hisseleri %15 yükseldi."
+   }
+  ],
+  "yerel_llm": [
+   {
+    "date": "2026-11-24",
+    "headline": "Mira Murati'nin Thinking Machines Lab'ından Inkling-2-Mini: 26,4B parametreli MoE model, 4-bit ile 16 GB VRAM'de çalışabiliyor."
+   }
+  ],
+  "yapay_zeka": [
+   {
+    "date": "2026-11-24",
+    "headline": "Anthropic, 81,3 milyar dolarlık rekor halka arzla sermaye topladı; yapay zeka balonu tartışması büyüdü."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Amazon, Decart'ın yapay zeka optimizasyon teknolojisini ve araştırma ekibini 7,5 milyar dolara satın alıyor."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Zhipu, açık kaynak GLM-5.4'ü yayımladı; Opus 5.5'e yüzde 5'ten yakın performans ve aralıkta 3 trilyon parametreli GLM-5.5 duyurdu."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "OpenAI, GPT-6.2 Astra ve Sol'u yayımladı; Astra, Fable 5.2 karşılaştırmasında 62'ye 65 alırken bilgisayar kontrolü ve siber güvenlikte öne çıktı."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Google, Gemini 4 Neon'u AI Pro kullanıcılarına 1 milyon token bağlamla sunuyor."
+   }
+  ],
+  "teknoloji": [
+   {
+    "date": "2026-11-24",
+    "headline": "CrowdStrike, Zscaler'i 44 milyar dolarlık tamamı hisse senedi işlemiyle satın alacağını açıkladı."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Raporlara göre Rusya, önümüzdeki ay yörüngeye nükleer silah yerleştirebilir; bu binlerce uyduda ciddi kayba yol açabilir."
+   }
+  ],
+  "oyunlar": [
+   {
+    "date": "2026-11-24",
+    "headline": "Dragon Age'in eski patronu Mark Darrah, BioWare'nin kapanışını EA'nın kötü yönetimine bağladı: 'Masaya konan tüm seçenekler berbattı.'"
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Nioh 3 Complete Edition, Kore derecelendirme kurulunda listelendi; yeni sürüm için çıkış sinyali."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Elden Ring: Rot & Sorcery'nin 2027 için resmen onaylandığı açıklandı."
+   },
+   {
+    "date": "2026-11-24",
+    "headline": "Eurogamer, Queen's Domain'i 'gerçek bir merak uyandıran etkileyici aksiyon-RPG' diye övdü; oyun 300 bin sattı."
+   }
+  ],
+  "cs2": [
+   {
+    "date": "2026-11-24",
+    "headline": "PGL Major Singapore 2026'da Stage 1 başladı; ilk İsviçre turu maçlarının sonuçları alındı."
+   }
+  ],
+  "ekonomi_tr": [],
+  "ekonomi_dunya": [
+   {
+    "date": "2026-11-24",
+    "headline": "Brent petrol günde %6,3 düşüşle 86,72 dolara geriledi; son 30 gündeki kayıp %25,7."
+   }
+  ]
+ }
+}
