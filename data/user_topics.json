@@ -12,7 +12,7 @@
  "added": [
   {
    "id": "turkiye_siyaseti_ve_gundem",
-   "title": "Türkiye Siyaseti ve Gündem",
+   "title": "Türkiye Siyaseti",
    "min_importance": 7,
    "max_stories": 5,
    "criteria": "Kullanıcı Türkiye siyasetini günlük olarak yakından takip eden, karar ve gelişmeleri kaçırmak istemeyen bir okuyucudur.\nÖnemli: Cumhurbaşkanlığı, hükümet ve bakanlıkların somut kararları; TBMM'de kabul edilen yasalar, teklifler ve oylamalar; seçim, adaylık ve parti yönetimiyle ilgili resmi gelişmeler; atama ve görevden almalar; yargı kararları ve soruşturmalar; muhalefet partilerinin resmi açıklamaları ve ittifak/kongre süreçleri; ekonomi ve dış politikada açıklanan politika değişiklikleri.\nÖnemsiz: Doğrulanmamış kulis iddiaları, dedikodu ve söylenti haberleri, sosyal medya tartışmaları ve polemikler, magazinel siyasi kavgalar, tek kaynaklı spekülasyonlar, clickbait başlıklar ve gündemi olmayan yorum yazıları.\nAynı olayın farklı kaynaklardaki tekrarları yerine gelişmenin doğrulanmış özü ve resmi makam açıklamaları esas alınır.\n",
@@ -48,7 +48,7 @@
   },
   {
    "id": "barcelona_gunluk_haberleri",
-   "title": "Barcelona Günlük Haberleri",
+   "title": "Barcelona",
    "min_importance": 8,
    "max_stories": 3,
    "criteria": "Barcelona hakkında günlük haber takibi yapan okur.\nÖnemli: resmi maç sonuçları, La Liga ve Şampiyonlar Ligi performansı, transfer ve sözleşme gelişmeleri, sakatlık/ceza haberleri, kulüp yönetimi ve teknik direktör kararları.\nÖnemsiz: doğrulanmamış transfer dedikoduları, sosyal medya söylentileri, tıklamayla yanıltıcı başlıklar, magazin ve küçük söylentiler.\n",

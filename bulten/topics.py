@@ -170,7 +170,9 @@ def change(cfg_raw: dict, action: str, topic_id: str = "", text: str = "", level
         from .llm import DeepSeek
         res = DeepSeek(cfg_raw.get("model", "deepseek-flash")).json(GEN_SYSTEM, f"User's description: {text}",
                                                                    max_tokens=3000)
-        title = (res.get("title") or text)[:60]
+        # Kullanıcı kısa bir ad yazdıysa (ör. "Barcelona") başlık aynen o olsun; uzun açıklamada modelinki
+        short = len(text) <= 40 and len(text.split()) <= 5
+        title = (text if short else (res.get("title") or text))[:60]
         tid = _slug(title)
         while tid in base_ids | added_ids:
             tid += "_2"

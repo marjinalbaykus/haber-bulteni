@@ -85,6 +85,13 @@ class TopicsDraft {
     internal val restoreIds = mutableStateListOf<String>()
     internal val adds = mutableStateListOf<Any>()   // NewTopic
     internal var groups by mutableStateOf<List<TopicGroup>?>(null)
+
+    // Kaydedildi, sunucunun işlemesi bekleniyor: before = kaydetmeden önceki sunucu listesi,
+    // shown = ekranda gösterilen (kaydedilmiş varsayılan) liste, waiting = eklenmekte olan konular
+    internal var before by mutableStateOf<Topics?>(null)
+    internal var shown by mutableStateOf<Topics?>(null)
+    internal var savedAt = 0L
+    internal var waiting by mutableStateOf<List<String>>(emptyList())
 }
 
 /** Ad sorma penceresi (konu adı, grup adı, yeni grup). */
@@ -110,8 +117,7 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
     val restoreIds = draft.restoreIds
     @Suppress("UNCHECKED_CAST") val adds = draft.adds as MutableList<NewTopic>
     var groupsDraft by draft::groups
-    var waiting by remember { mutableStateOf<List<String>>(emptyList()) }   // kaydedildi, sunucuda ekleniyor
-    var customBefore by remember { mutableIntStateOf(0) }
+    var waiting by draft::waiting
 
     var addOpen by remember { mutableStateOf(false) }
     var newText by remember { mutableStateOf("") }
@@ -122,15 +128,38 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
     var confirmRemove by remember { mutableStateOf<TopicInfo?>(null) }
     var failed by remember { mutableStateOf<String?>(null) }   // son kaydetme hatası (alt çubukta gösterilir)
 
+    // Sunucudan oku. Kaydetme bekleniyorsa sunucudaki liste değişene kadar 20 saniyede bir tekrar bakar
+    // (GitHub'daki iş ve site güncellemesi genelde 2-3 dakika sürer), değişince ekranı ve ana sayfayı günceller.
     LaunchedEffect(reload) {
-        runCatching { repo.topics().value }
-            .onSuccess { t ->
+        if (server == null) draft.shown?.let { server = it }
+        val t = runCatching { repo.topics().value }
+            .onFailure { if (server == null) error = it.message ?: it.javaClass.simpleName }
+            .getOrNull()
+        val before = draft.before
+        when {
+            before == null -> if (t != null) {
                 server = t
                 error = null
                 repo.topicsCache = t
-                if (t.active.count { it.custom } >= customBefore + waiting.size) waiting = emptyList()
             }
-            .onFailure { if (server == null) error = it.message ?: it.javaClass.simpleName }
+            t != null && t != before -> {
+                server = t
+                repo.topicsCache = t
+                onSaved(t)
+                draft.before = null
+                draft.shown = null
+                waiting = emptyList()
+                message = "Sunucuda kaydedildi. Seviyeler ve yeni konular yarınki bültenden itibaren geçerli olur."
+            }
+            System.currentTimeMillis() - draft.savedAt < 10 * 60_000L -> {
+                delay(20_000)
+                reload++
+            }
+            else -> {
+                draft.before = null
+                message = "Sunucudan henüz sonuç gelmedi. Biraz sonra Konular'a tekrar girince güncellenir."
+            }
+        }
     }
 
     val s = server
@@ -192,17 +221,16 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                     removed = removed.filter { !it.custom },
                     groups = groups.filter { g -> g.topics.any { id -> active.any { it.id == id } } || g.topics.isEmpty() },
                 )
-                if (adds.isNotEmpty()) {
-                    customBefore = s.active.count { it.custom }
-                    waiting = waiting + adds.map { it.text }
-                }
+                waiting = waiting + adds.map { it.text }
+                if (draft.before == null) draft.before = s
+                draft.shown = now
+                draft.savedAt = System.currentTimeMillis()
                 server = now
                 repo.topicsCache = now
                 onSaved(now)
                 clearDraft()
-                message = "Kaydedildi. Sunucu 1-2 dakikada işler; seviyeler ve yeni konular yarınki bültenden itibaren " +
-                    "geçerli olur. Adlar ve gruplar ana sayfaya hemen yansır."
-                launch { delay(300_000); reload++ }   // sunucu işleyip site güncellenince tekrar oku
+                message = "Gönderildi. Sunucu işliyor (genelde 2-3 dakika), bitince bu ekran kendiliğinden yenilenir."
+                reload++
             } catch (e: Exception) {
                 failed = e.message ?: e.javaClass.simpleName
             }
