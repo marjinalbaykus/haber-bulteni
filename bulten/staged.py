@@ -180,6 +180,8 @@ def next_step() -> None:
         print(f"{len(jobs)} haber için makale metinleri çekiliyor...")
         with ThreadPoolExecutor(8) as ex:
             grounds = list(ex.map(lambda ts: _grounding_texts(pool, ts[1]["ids"], since), jobs))
+        with_text = sum(1 for texts, _ in grounds if texts)
+        print(f"MAKALE METNİ BULUNAN HABER: {with_text}/{len(jobs)}")
         names, detail_jobs = [], []
         for n, ((t, s), (texts, extra)) in enumerate(zip(jobs, grounds)):
             names.append(_write_task(f"detay-{n:02d}", DETAIL_SYSTEM, detail_prompt(t, s, pool, texts)))
