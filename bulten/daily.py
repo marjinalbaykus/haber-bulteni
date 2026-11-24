@@ -138,6 +138,12 @@ def pick_candidates(pool: S.Pool, groups: list[list[int]], limit: int, exclude: 
 
 def select_stories(llm: DeepSeek, topic: dict, pool: S.Pool, ids: list[int],
                    prev_headlines: list[dict], markets: list[dict]) -> list[dict]:
+    res = llm.json(SELECT_SYSTEM, select_prompt(topic, pool, ids, prev_headlines, markets), max_tokens=12000)
+    return parse_selection(res, ids)
+
+
+def select_prompt(topic: dict, pool: S.Pool, ids: list[int],
+                  prev_headlines: list[dict], markets: list[dict]) -> str:
     parts = [f"TOPIC: {topic['title']}", f"CRITERIA:\n{topic['criteria'].strip()}"]
     if topic.get("market_group") and markets:
         parts.append("MARKET DATA (thresholds marked):\n" + market_lines(markets, topic["market_group"]))
@@ -145,7 +151,10 @@ def select_stories(llm: DeepSeek, topic: dict, pool: S.Pool, ids: list[int],
         parts.append("ALREADY REPORTED ON PREVIOUS DAYS:\n" +
                      "\n".join(f"- {h['date']}: {h['headline']}" for h in prev_headlines[-25:]))
     parts.append("CANDIDATE ITEMS:\n" + ("\n".join(_line(pool[i]) for i in ids) or "(none)"))
-    res = llm.json(SELECT_SYSTEM, "\n\n".join(parts), max_tokens=12000)
+    return "\n\n".join(parts)
+
+
+def parse_selection(res: dict, ids: list[int]) -> list[dict]:
     valid = set(ids)
     stories = []
     for s in res.get("stories", []):
@@ -166,12 +175,19 @@ def dedupe_across_topics(llm: DeepSeek, topics: list[dict], kept: dict[str, list
     flat = [(t, s) for t in topics for s in kept[t["id"]]]
     if len(flat) < 2:
         return kept
-    listing = "\n".join(f"[{n}] {t['title']}: {s['headline']}" for n, (t, s) in enumerate(flat))
     try:
-        res = llm.json(DEDUPE_SYSTEM, listing, max_tokens=6000)
+        res = llm.json(DEDUPE_SYSTEM, dedupe_listing(flat), max_tokens=6000)
     except Exception as e:
         print("  tekilleştirme hatası:", e)
         return kept
+    return apply_dedupe(res, topics, flat)
+
+
+def dedupe_listing(flat: list[tuple]) -> str:
+    return "\n".join(f"[{n}] {t['title']}: {s['headline']}" for n, (t, s) in enumerate(flat))
+
+
+def apply_dedupe(res: dict, topics: list[dict], flat: list[tuple]) -> dict[str, list]:
     drop = set()
     for g in res.get("groups", []):
         for d in g.get("drop", []):
@@ -210,18 +226,26 @@ def _grounding_texts(pool: S.Pool, ids: list[int], since: datetime, max_texts: i
     return texts, extra
 
 
-def detail_story(llm: DeepSeek, topic: dict, story: dict, pool: S.Pool, since: datetime) -> dict:
-    texts, extra = _grounding_texts(pool, story["ids"], since)
+def detail_prompt(topic: dict, story: dict, pool: S.Pool, texts: list) -> str:
     related = "\n".join(_line(pool[i]) for i in story["ids"]) or "(no news item; market data only)"
     parts = [f"TOPIC: {topic['title']}", f"CRITERIA:\n{topic['criteria'].strip()}",
              f"HEADLINE: {story['headline']}", f"RELATED ITEMS:\n{related}"]
     for n, (it, txt) in enumerate(texts, 1):
         parts.append(f"ARTICLE {n} ({it.source}, {it.lang}):\n{txt}")
+    return "\n\n".join(parts)
+
+
+def detail_story(llm: DeepSeek, topic: dict, story: dict, pool: S.Pool, since: datetime) -> dict:
+    texts, extra = _grounding_texts(pool, story["ids"], since)
     try:
-        res = llm.json(DETAIL_SYSTEM, "\n\n".join(parts), max_tokens=8000, effort="none")
+        res = llm.json(DETAIL_SYSTEM, detail_prompt(topic, story, pool, texts), max_tokens=8000, effort="none")
     except Exception as e:
         print(f"  detay hatası: {e}")
         res = {}
+    return build_detail(story, res, pool, len(texts), extra)
+
+
+def build_detail(story: dict, res: dict, pool: S.Pool, n_texts: int, extra: list) -> dict:
     src_items = [pool[i] for i in story["ids"]] + [it for it in extra if it.url not in {pool[i].url for i in story["ids"]}]
     return {
         "importance": story["importance"],
@@ -231,8 +255,49 @@ def detail_story(llm: DeepSeek, topic: dict, story: dict, pool: S.Pool, since: d
         "key_points": [p for p in res.get("key_points", []) if isinstance(p, str)][:6],
         "sources": [{"title": it.title, "url": it.url, "source": it.source, "lang": it.lang,
                      "published": it.published} for it in src_items[:10]],
-        "read_articles": len(texts),
+        "read_articles": n_texts,
     }
+
+
+def keep_stories(topics: list[dict], sel: dict) -> dict[str, list]:
+    """Eşik altını atar; aynı haberi (ortak id) iki başlıkta kullanmaz, önemi yüksek olan kalır."""
+    flat = []
+    for ti, t in enumerate(topics):
+        st, _ = sel[t["id"]]
+        for s in st or []:
+            if s["importance"] >= t.get("min_importance", 7):
+                flat.append((s["importance"], ti, s))
+    flat.sort(key=lambda x: (-x[0], x[1]))
+    used, kept = set(), {t["id"]: [] for t in topics}
+    for imp, ti, s in flat:
+        t = topics[ti]
+        if s["ids"] and used & set(s["ids"]):
+            continue
+        if len(kept[t["id"]]) >= t.get("max_stories", 5):
+            continue
+        used |= set(s["ids"])
+        kept[t["id"]].append(s)
+    return kept
+
+
+def assemble(topics: list[dict], sel: dict, jobs: list, details: list) -> list[dict]:
+    by_topic: dict[str, list] = {t["id"]: [] for t in topics}
+    for (t, _), d in zip(jobs, details):
+        by_topic[t["id"]].append(d)
+    out_topics = []
+    for t in topics:
+        st, n = sel[t["id"]]
+        stories = sorted(by_topic[t["id"]], key=lambda d: -d["importance"])
+        for k, d in enumerate(stories, 1):
+            d["sid"] = f"{t['id']}-{k}"
+        note = ""
+        if st is None:
+            note = "Bu başlık bugün işlenemedi (teknik hata)."
+        elif not stories:
+            note = "Kayda değer bir gelişme yok."
+        out_topics.append({"id": t["id"], "title": t["title"], "stories": stories,
+                           "note": note, "candidates": n})
+    return out_topics
 
 
 def run_daily(cfg: dict) -> dict:
@@ -272,46 +337,13 @@ def run_daily(cfg: dict) -> dict:
     with ThreadPoolExecutor(6) as ex:
         sel = {tid: (st, n) for tid, st, n in ex.map(stage1, topics)}
 
-    # Aynı olayın birden fazla başlıkta çıkmasını engelle: önemi yüksek olan kalır.
-    flat = []
-    for ti, t in enumerate(topics):
-        st, _ = sel[t["id"]]
-        for s in st or []:
-            if s["importance"] >= t.get("min_importance", 7):
-                flat.append((s["importance"], ti, s))
-    flat.sort(key=lambda x: (-x[0], x[1]))
-    used, kept = set(), {t["id"]: [] for t in topics}
-    for imp, ti, s in flat:
-        t = topics[ti]
-        if s["ids"] and used & set(s["ids"]):
-            continue
-        if len(kept[t["id"]]) >= t.get("max_stories", 5):
-            continue
-        used |= set(s["ids"])
-        kept[t["id"]].append(s)
-    kept = dedupe_across_topics(llm, topics, kept)
+    kept = dedupe_across_topics(llm, topics, keep_stories(topics, sel))
 
     print("Detaylar yazılıyor...")
     jobs = [(t, s) for t in topics for s in kept[t["id"]]]
     with ThreadPoolExecutor(6) as ex:
         details = list(ex.map(lambda ts: detail_story(llm, ts[0], ts[1], pool, since), jobs))
-    by_topic: dict[str, list] = {t["id"]: [] for t in topics}
-    for (t, _), d in zip(jobs, details):
-        by_topic[t["id"]].append(d)
-
-    out_topics = []
-    for t in topics:
-        st, n = sel[t["id"]]
-        stories = sorted(by_topic[t["id"]], key=lambda d: -d["importance"])
-        for k, d in enumerate(stories, 1):
-            d["sid"] = f"{t['id']}-{k}"
-        note = ""
-        if st is None:
-            note = "Bu başlık bugün işlenemedi (teknik hata)."
-        elif not stories:
-            note = "Kayda değer bir gelişme yok."
-        out_topics.append({"id": t["id"], "title": t["title"], "stories": stories,
-                           "note": note, "candidates": n})
+    out_topics = assemble(topics, sel, jobs, details)
 
     alarms = [m for m in markets if m["alarms"]]
     bulletin = {

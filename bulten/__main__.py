@@ -5,6 +5,7 @@
   python -m bulten render               docs/ sitesini yeniden üret
   python -m bulten notify               sıradaki Telegram mesajlarını gönder
   python -m bulten chatid               bota yazan sohbetlerin id'lerini göster
+  python -m bulten staged prep|next     API'siz adımlı bülten (seçimi dışarıdaki ajan yapar)
 """
 from __future__ import annotations
 
@@ -142,6 +143,9 @@ def main(argv: list[str]) -> None:
         cmd_chatid()
     elif c == "resend":
         cmd_resend()
+    elif c == "staged":
+        from .staged import main as staged_main
+        staged_main(args[1:])
     else:
         print(__doc__)
         sys.exit(1)

@@ -115,10 +115,13 @@ def render_bulletin(b: dict) -> str:
                 f'<div class="muted" style="margin-top:.5rem"><a href="#">Başa dön</a></div></article>')
     out.append("<h2>Piyasalar</h2>" + (market_table(b.get("markets", [])) or '<p class="empty">Veri yok.</p>'))
     st = b.get("stats", {})
-    out.append(f'<p class="muted">Taranan haber: {st.get("items", "?")} | Model: {e(st.get("model"))} | '
-               f'Token: {st.get("prompt_tokens", 0):,} girdi, {st.get("completion_tokens", 0):,} çıktı'
+    usage = (f'Token: {st.get("prompt_tokens", 0):,} girdi, {st.get("completion_tokens", 0):,} çıktı'
+             if "prompt_tokens" in st else f'Görev: {st.get("tasks", "?")}, girdi: {st.get("task_chars", 0):,} karakter')
+    out.append(f'<p class="muted">Taranan haber: {st.get("items", "?")} | Model: {e(st.get("model"))} | {usage}'
                f'{" | Tahmini maliyet: $" + str(st["cost_usd"]) if "cost_usd" in st else ""}</p>')
-    return page(f"Bülten {tr_date(d)}", "".join(out), 1)
+    title = f"Bülten {tr_date(d)}" + (f" ({b['variant']})" if b.get("variant") else "")
+    out[1] = out[1].replace("<h1>Günün Özeti</h1>", f"<h1>Günün Özeti{' - ' + e(b['variant']) if b.get('variant') else ''}</h1>")
+    return page(title, "".join(out), 1)
 
 
 def render_research(r: dict) -> str:
@@ -148,6 +151,11 @@ def render_all() -> None:
         b = json.loads(p.read_text(encoding="utf-8"))
         _write(DOCS / "b" / f"{b['date']}.html", render_bulletin(b))
         bulletins.append(b)
+    trials = []  # model denemeleri (data/compare): ana listeye ve Telegram'a karışmaz
+    for p in sorted((DATA / "compare").glob("*.json"), reverse=True):
+        b = json.loads(p.read_text(encoding="utf-8"))
+        _write(DOCS / "b" / f"{p.stem}.html", render_bulletin(b))
+        trials.append((p.stem, b))
     research = []
     for p in sorted((DATA / "research").glob("*.json"), reverse=True):
         r = json.loads(p.read_text(encoding="utf-8"))
@@ -162,6 +170,11 @@ def render_all() -> None:
         f'<a href="b/{b["date"]}.html">{e(tr_date(b["date"]))} '
         f'<span class="muted">({sum(len(t["stories"]) for t in b["topics"])} haber)</span></a>'
         for b in bulletins[:60]) + "</div>")
+    if trials:
+        body.append('<h2>Model denemeleri</h2><div class="list">' + "".join(
+            f'<a href="b/{stem}.html">{e(tr_date(b["date"]))} - {e(b.get("variant", ""))} '
+            f'<span class="muted">({sum(len(t["stories"]) for t in b["topics"])} haber)</span></a>'
+            for stem, b in trials[:30]) + "</div>")
     if research:
         body.append('<h2>Araştırmalar</h2><div class="list">' + "".join(
             f'<a href="r/{r["id"]}.html">{e(r["title"])} <span class="muted">{e(r["created"])}</span></a>'
