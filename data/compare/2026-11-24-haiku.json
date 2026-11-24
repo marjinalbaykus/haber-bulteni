@@ -1,0 +1,1387 @@
+{
+ "date": "2026-11-24",
+ "variant": "haiku",
+ "generated_at": "2026-11-24T09:11Z",
+ "markets": [
+  {
+   "symbol": "GC=F",
+   "name": "Altın (ons, USD)",
+   "group": "dunya",
+   "value": 3615.0,
+   "changes": {
+    "day": -1.0,
+    "week": -6.45,
+    "month": -9.8
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "GRAM",
+   "name": "Gram altın (TL)",
+   "group": "tr",
+   "value": 5883.51,
+   "changes": {
+    "day": -0.91,
+    "week": -6.07,
+    "month": -8.19
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "BZ=F",
+   "name": "Brent petrol",
+   "group": "dunya",
+   "value": 86.18,
+   "changes": {
+    "day": -3.57,
+    "week": -7.47,
+    "month": -26.17
+   },
+   "alarms": [
+    {
+     "window": "month",
+     "label": "30 günde",
+     "pct": -26.2
+    }
+   ]
+  },
+  {
+   "symbol": "USDTRY=X",
+   "name": "Dolar/TL",
+   "group": "tr",
+   "value": 50.62,
+   "changes": {
+    "day": 0.09,
+    "week": 0.4,
+    "month": 1.79
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "EURTRY=X",
+   "name": "Euro/TL",
+   "group": "tr",
+   "value": 55.32,
+   "changes": {
+    "day": -0.38,
+    "week": -0.29,
+    "month": -0.94
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "XU100.IS",
+   "name": "BIST 100",
+   "group": "tr",
+   "value": 11073.13,
+   "changes": {
+    "day": -0.28,
+    "week": -5.04,
+    "month": -0.39
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "^GSPC",
+   "name": "S&P 500",
+   "group": "dunya",
+   "value": 7237.17,
+   "changes": {
+    "day": 4.73,
+    "week": -2.42,
+    "month": -5.07
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 4.7
+    }
+   ]
+  },
+  {
+   "symbol": "^IXIC",
+   "name": "Nasdaq",
+   "group": "dunya",
+   "value": 24089.56,
+   "changes": {
+    "day": 6.51,
+    "week": -1.71,
+    "month": -7.19
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 6.5
+    }
+   ]
+  },
+  {
+   "symbol": "BTC-USD",
+   "name": "Bitcoin",
+   "group": "dunya",
+   "value": 60180.82,
+   "changes": {
+    "day": -1.68,
+    "week": -7.26,
+    "month": -24.8
+   },
+   "alarms": []
+  }
+ ],
+ "market_alarms": [
+  {
+   "symbol": "BZ=F",
+   "name": "Brent petrol",
+   "group": "dunya",
+   "value": 86.18,
+   "changes": {
+    "day": -3.57,
+    "week": -7.47,
+    "month": -26.17
+   },
+   "alarms": [
+    {
+     "window": "month",
+     "label": "30 günde",
+     "pct": -26.2
+    }
+   ]
+  },
+  {
+   "symbol": "^GSPC",
+   "name": "S&P 500",
+   "group": "dunya",
+   "value": 7237.17,
+   "changes": {
+    "day": 4.73,
+    "week": -2.42,
+    "month": -5.07
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 4.7
+    }
+   ]
+  },
+  {
+   "symbol": "^IXIC",
+   "name": "Nasdaq",
+   "group": "dunya",
+   "value": 24089.56,
+   "changes": {
+    "day": 6.51,
+    "week": -1.71,
+    "month": -7.19
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 6.5
+    }
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "real_madrid",
+   "title": "Real Madrid ve Arda Güler",
+   "stories": [
+    {
+     "importance": 7,
+     "headline": "Haberlere göre Mourinho, PSV maçında Arda Güler'i dinlendirecek ve Brahim Díaz'ın ilk 11'de başlaması bekleniyor.",
+     "title": "Mourinho, PSV maçında Arda Güler'i dinlendirebilir",
+     "detail": "Real Madrid'in Celta Vigo deplasmanındaki galibiyetinde Arda Güler ilk 11'de başladı ve maçı 90 dakika boyunca sahada tamamladı. Maç sonrası açıklama yapan teknik direktör Jose Mourinho, ikinci golün ardından takımın dengesinin bozulduğunu belirtti ve Arda Güler ile Jude Bellingham'ın orta sahada fiziksel olarak tükendiğini söyledi.\n\nİspanyol basınına yansıyan haberlere göre Mourinho, yoğun maç temposu nedeniyle Arda Güler ve Bellingham'ı Şampiyonlar Ligi'nde Santiago Bernabeu'da oynanacak PSV maçında dinlendirmeyi düşünüyor. İki oyuncunun ilk 11'de değil yedek kulübesinde başlaması bekleniyor. Bu henüz kulüpten resmi bir açıklama değil; kararın son hali teknik heyetin son değerlendirmesine bağlı.\n\nArda Güler bu sezon Real Madrid formasıyla 15 maçta süre aldı; bunların ikisi Şampiyonlar Ligi maçıydı. Bu maçlarda 4 gol ve 7 asist kaydetti. Avrupa'daki ilk maçını kart cezası nedeniyle kaçıran oyuncu, son AEK maçında da kadroya alınmamış ve Yunanistan kafilesine dahil edilmemişti. Real Madrid ise Şampiyonlar Ligi'nde 4 maçtan 4 galibiyetle PSV karşısına çıkacak.",
+     "key_points": [
+      "Arda Güler, Celta Vigo maçında ilk 11'de başladı ve 90 dakika sahada kaldı.",
+      "Mourinho, ikinci golden sonra Arda Güler ve Bellingham'ın fiziksel olarak tükendiğini söyledi.",
+      "İspanyol basınına göre Arda Güler ve Bellingham PSV maçında dinlendirilebilir; resmi bir açıklama yok.",
+      "Brahim Díaz'ın PSV maçında ilk 11'de başlaması bekleniyor.",
+      "Arda Güler bu sezon 15 maçta 4 gol ve 7 asist kaydetti; son AEK maçında kadro dışı kalmıştı."
+     ],
+     "sources": [
+      {
+       "title": "Mourinho'dan Arda Güler kararı! Real Madrid'de tüm hesaplar değişti",
+       "url": "https://www.star.com.tr/spor/mourinhodan-arda-guler-karari-real-madridde-tum-hesaplar-degisti-haber-2055294/",
+       "source": "STAR",
+       "lang": "tr",
+       "published": "2026-11-23T13:26Z"
+      },
+      {
+       "title": "Arda Güler'e kötü haber! Mourinho'dan dinlendirme kararı",
+       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONDdvMTNfS2V6WkhQcXljWGZKaUkwNklSMFpjeWNvN2JpM2pIMzl1eWp0dHFjVS1GSDlJN1QwTlRGNGNYSnZiT0U2WmJHSFRFNmQ5SUJOZjhac2ljU0tkX3NCS1ZSWUJybUlBNWhZZDhVZkNMMnpiaEg5RlNCSEcyNEx0ODV4Z21s?oc=5",
+       "source": "Ege Saati",
+       "lang": "tr",
+       "published": "2026-11-23T13:09Z"
+      },
+      {
+       "title": "Bad news for Arda Güler! Mourinho is doing what he said.",
+       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOZkxQMjU5TVlsUXd0eGJpX1gxX2NnVG1fS3NEaUp2cmcwWm1LdzY5X3ktNS02R0IyT2FGcU1FLW1WVmNsWkZqeWE2Ykx3UGlyTm1YSGVZTVpyMy1zYlRGaDZySkNTSDdVVlBGU3dJSnhrcU5BUjBpQWVTMGJYMlNHTHdnS1JWQTBWQ3c?oc=5",
+       "source": "Haberler.com",
+       "lang": "en",
+       "published": "2026-11-23T12:50Z"
+      },
+      {
+       "title": "Jose Mourinho dan Arda Güler e kötü haber PSV maçında",
+       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNVjBLeUoyS2VacjF2cXI4YnI2bVduemRwOGxaeE1CWnlEeElWdmxfV2Z5VFh6ZEZxdXdyTkJyRWxEMi1YelBPS3AxWll4dzNKUHhXVXBRUThudE9KeFVCYnhRTVlYcExXcmctb0k5bWRmd1V5SXIzRU9xdkhoSTdzOGxMSVBTVk9JU2s40gGTAUFVX3lxTFBxbS1yR0pXWGJRYUdJZlFRQm9wREEwd216bjlEZnJsTEl4SWM3YVFoYWtpTHZHMFo2NW5jdU1OSDc0c2VUN2UtUlY4N2Q2c2RNLVE0NFNTdlhsX2k5MTAtaDdMcUp0VnVLaFNqSi1oWHZXV2F4OHFxY3NjTndIclVXa1R5WFI2eWhUUzhHLUVIUVZQYw?oc=5",
+       "source": "beinsports.com.tr",
+       "lang": "tr",
+       "published": "2026-11-23T12:43Z"
+      },
+      {
+       "title": "Mourinho'dan sürpriz Arda Güler kararı",
+       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE54S2hTczR5bl95Rm9SSTBpNXVoU0Zzcm5VZnVpSkRqNlNxNzRQUHhTOEYwMEMyVkpCQVF2eENRWXJGMGxnNXJxZVRnYVNMQVA2WjlQY3FfZVQ5TXo0dTlFX0h6QUtacEtWMEVBODFrTDdndVVJLTc0YXlGdjctdWM?oc=5",
+       "source": "Odatv",
+       "lang": "tr",
+       "published": "2026-11-23T10:17Z"
+      },
+      {
+       "title": "Jose Mourinho'dan Arda Güler kararı",
+       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMVWt3am5KZlkwQ2UwWlh0NkRYZmIxUFZBbjdPQmpUZE9tZ3NNZENBX2VNd2d3VGlvTXl4aE1mQkNfZFhzZ3lZU00taXFUdFFWU0plb2ZWS2ZmdzZBdkk1TEtSZGpzaWRRRE8wOVY0dw?oc=5",
+       "source": "Notbir",
+       "lang": "tr",
+       "published": "2026-11-23T09:35Z"
+      },
+      {
+       "title": "Jose Mourinho’dan Arda Güler kararı! Celta Vigo maçında sinyali vermişti...",
+       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMWs2MmdMQW9HWWd4Tk5mbXVORU5mb2Uxa042SV9TdDB1N1I0S0V6MF9xa3FsNHQ2WVRTSnpEQThjaEhrTE1aZHJ4eC0zTUtQbVVaLVZqcXliYTQ0WEI3QzIzUlBfeGtVQnBJcm1aRExyN055LXVFVGk4Z1ZrejlfeWNrbGpnWGlmVVAwb2ZyZEVnMjVIZGJPU1YyT3lodXN3c3J1N245TlhnT2htX2hiSkZFU25yQdIBtgFBVV95cUxOMWs2MmdMQW9HWWd4Tk5mbXVORU5mb2Uxa042SV9TdDB1N1I0S0V6MF9xa3FsNHQ2WVRTSnpEQThjaEhrTE1aZHJ4eC0zTUtQbVVaLVZqcXliYTQ0WEI3QzIzUlBfeGtVQnBJcm1aRExyN055LXVFVGk4Z1ZrejlfeWNrbGpnWGlmVVAwb2ZyZEVnMjVIZGJPU1YyT3lodXN3c3J1N245TlhnT2htX2hiSkZFU25yQQ?oc=5",
+       "source": "Sabah",
+       "lang": "tr",
+       "published": "2026-11-23T09:02Z"
+      },
+      {
+       "title": "Mourinho maç sonu açıklamıştı! Arda Güler için kararını verdi",
+       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOam9NVnlCWWM3TnF4Q3FnVHpXYTJOTnF3ZS1GT0NfSWYxclZESFNXNjI0UGd3TnlXTjlYZWNCUU0xMXhTeE52MlYyM21EQWtLZTdQckRvR3l0dDdwQ1JGd0M5Tjc5VlZSSWs2UmFMUnE5dkQyeWZMTzBQM3hobzZmajRPcTFrXzlhdjBETjUzRFEtQnZyVnpraXBlYzVWM0hqZVZCQXBkeEo0RUVzMkZqemM0d04zUmVHMGlSMVItSE40aWc0dTNIWHdjY9IBugFBVV95cUxPQzdXOG1ZYkFiVFk1cVotcy1ka3hNVHpFOXFMR3Fmdl9URnhvSVRDdTJjNWlRajFsLW85aWpMaHJld1NYVDNpam1rbzVsVUFUYzNVVlcyY2VFaTF6OUVUUV9sd2xLT3ZaNDBEdkVTajRhT0p4Q0psMWZWQ3Flck9BYXpVd2hPLTFZZ05vZGQxWDR6aHFFTHZXVzFyeUtUSHJnSmFLSUFIWlJkRjJpTjUyVVJVU25COHplMkE?oc=5",
+       "source": "Haber 7",
+       "lang": "tr",
+       "published": "2026-11-23T15:14Z"
+      },
+      {
+       "title": "Mourinho, Arda Güler için kararını duyurdu",
+       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWFFlSnptTm5DbGVDUDlDaERIX2NvSFRIM3p1NTZ1U2lQdFhuVExjdDV6LVRGRkdVdkhyLWxRRjRzYVJjamNEZnIzaXJaaXktNjR2a0dhVW9DemNOcjhzZnU1UDRYYXI1UmxSOXBoVjJGYThNLXhiUGlQVzRaanZpZlA3ZUtaS19B0gGHAUFVX3lxTFBnd0lSbUw1Ym1IQWdVSkpCY1VNdGE5aEFPdjZOa2JMSGVqR25FYzVPWFotZzZFam1XQ3JoejdTTTFFakFQeVJQYnVpUUMzMXFwN3JiMnpBQmExb0lsTmRRa2s0WTZCd2tYTHhpaFE1cEs4VFVWYTlMZi1JNkh5elJQek5ZaVBuSQ?oc=5",
+       "source": "Haberler",
+       "lang": "tr",
+       "published": "2026-11-23T15:06Z"
+      },
+      {
+       "title": "5 yıllık sözleşmesi bulunuyordu: Real Madrid'de Mourinho'dan Arda Güler'i kararı",
+       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNNFdQY2RZRmRVQUUwV2sta25DOGxSeVlkdm5mbzJCZURuYnVvZ3ZRNFhKVmk1RzdvNUFJN0VfUC1JMWVwcHd6QkZ1ZHVTaVd1RFozTzFBX1Jqa28xWW16T3R5d3pVTWdBbEtrWTZLY2xDVlFLNEx1WFB6cXVqSmZWSjN2aGJqN2E3Rkl4Q3ZyMnlFUFhUakhlUG5CLVl2N3JzSHhvcFZDUjZiQ3RQX2VBakJYWmTSAbQBQVVfeXFMTTRXUGNkWUZkVUFFMFdrLWtuQzhsUnlZZHZuZm8yQmVEbmJ1b2d2UTRYSlZpNUc3bzVBSTdFX1AtSTFlcHB3ekJGdWR1U2lXdURaM08xQV9SamtvMVltek90eXd6VU1nQWxLa1k2S2NsQ1ZRSzRMdVhQenF1akpmVkozdmhiajdhN0ZJeEN2cjJ5RVBYVGpIZVBuQi1Zdjdyc0h4b3BWQ1I2YkN0UF9lQWpCWFpk?oc=5",
+       "source": "SuperHaber",
+       "lang": "tr",
+       "published": "2026-11-23T13:39Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "real_madrid-1"
+    },
+    {
+     "importance": 6,
+     "headline": "Real Madrid, La Liga’da Celta Vigo’yu 2-1 yenerek üst üste altıncı galibiyetini aldı.",
+     "title": "Real Madrid, Celta Vigo’yu 2-1 yenerek üst üste altıncı galibiyetini aldı",
+     "detail": "Real Madrid, La Liga’da Celta Vigo’yu 2-1 yenerek üst üste altıncı galibiyetini aldı. Maçın özeti Caracol Radio’da yayımlandı.\n\nBirGün’ün haftalık La Liga değerlendirmesinde Barcelona’nın da geri döndüğüne dikkat çekiliyor; Real Madrid’in üst üste altı galibiyeti ise haftanın öne çıkan gelişmeleri arasında yer alıyor. Bu seri, takımın lig yarışındaki formunun sürdüğünü gösteriyor.\n\nKaynaklarda Arda Güler’in bu maçtaki performansı ya da ilk 11’deki yeri hakkında bilgi bulunmuyor.",
+     "key_points": [
+      "Real Madrid, Celta Vigo’yu 2-1 yendi",
+      "Takım üst üste altı La Liga galibiyeti aldı",
+      "BirGün’e göre Barcelona da formuna geri döndü",
+      "Arda Güler’in performansına dair bilgi kaynaklarda yok"
+     ],
+     "sources": [
+      {
+       "title": "Real Madrid 2-1 Celta: resultado, resumen y goles",
+       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZHZ5cjVucU1jX2V6d3p0VlJaYWhEZlRFYnRwRnVEWmp6WlhRX0RRWnpVY01SVUlXNjVPUGRWdTFhY1JQNzRQczh5TWJGVUl2MWFvc2RRelkzM0tLZm9ZbmlCT0hoSkdaSnA2TWpENmpGd2FxekVXVms4X3JHRW43cFpjX04zN0Ytd09GTEllNm52TFBVWUNmbzN4YjM?oc=5",
+       "source": "Caracol Radio",
+       "lang": "es",
+       "published": "2026-11-23T18:38Z"
+      },
+      {
+       "title": "La Liga’da haftanın görünümü: Barcelona geri döndü, Real Madrid’den üst üste altıncı galibiyet",
+       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOU09QcFdySjRnZElZR1dmV3FuRFpvSHBCT09fY3ZNdWdoc19aQ2V6RDdOSUpwdTdVZUJpNFNuYVhUQklSQzBQbmZ0bjhwRFNtcF9MSklMV3RodUdTdURmTUNFR1lkWHF3WVFvNjRHS0tMX2Z0YlpyNEdmcWZROUdoQ1pjLXBBazZPQV8zQTlLMk5udHBDT2dIUnBtSDhSXzRkTjNXVjgwV0JIMC1HczhFbzdldXJ3R1UwUkFrYW9lXzl4SzVy?oc=5",
+       "source": "BirGün Gazetesi",
+       "lang": "tr",
+       "published": "2026-11-23T10:05Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "real_madrid-2"
+    },
+    {
+     "importance": 6,
+     "headline": "Jude Bellingham’ın Real Madrid ile uzun vadeli sözleşme yenileme görüşmelerinin ileri aşamada olduğu bildiriliyor.",
+     "title": "Bellingham’ın Real Madrid ile sözleşme yenilemesi ileri aşamada",
+     "detail": "Jude Bellingham’ın Real Madrid ile uzun vadeli sözleşme yenileme görüşmelerinin ileri aşamada olduğu New York Times ve Yahoo Sports’ta bildirildi. Yahoo Sports, kulüpteki önemli bir yıldızla anlaşmanın yakında duyurulabileceğini yazıyor.\n\nRoundtable.io, oyuncunun geleceğini kulübe bağlamaya hazırlandığını aktarıyor. Kaynaklarda sözleşmenin süresi, maaşı veya bonuslara dair bir bilgi yer almıyor; görüşmelerin sonucu henüz kesinleşmiş değil.\n\nKulüp için temel bir oyuncunun uzun vadeli kalışı anlamına gelebileceği için bu gelişme takip edilmeye değer.",
+     "key_points": [
+      "New York Times ve Yahoo Sports’a göre görüşmeler ileri aşamada",
+      "Yahoo Sports, yakında bir duyuru yapılabileceğini yazıyor",
+      "Roundtable.io, oyuncunun geleceğini kulübe bağlamaya hazır olduğunu bildiriyor",
+      "Sözleşme detayları kaynaklarda yer almıyor"
+     ],
+     "sources": [
+      {
+       "title": "Real Madrid Star Jude Bellingham Set to Commit Future to the Club",
+       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQOURlMDBXWDRVQlpvaUtRTFJVQXl4MDVxSmZ2OWRKcVBjTFp1QXFnX253aFh6dFBwampyekVEbmZleXRtV0hhNmRfeWFseGQ3YVFTa3FfeG84RGZzSFcxaFVhejBSZVFyNzY5b0I2ZUdTQmJHYTU4QVhfYkNZOXZCajM3WFJOUkZPdUlabXFUSjlvdE5XeEZLNUFfZDcwVUhHUDBMdmNpdTVLTkpELXYxVjI2VG9HRnZ5S0tXcTBRLUswdmpJ?oc=5",
+       "source": "roundtable.io",
+       "lang": "en",
+       "published": "2026-11-23T23:22Z"
+      },
+      {
+       "title": "Jude Bellingham in advanced talks over Real Madrid long-term contract renewal",
+       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQT0hBZ21rNENfY0lkM0FFbnlGVGtTaWZUbU96aWF0REhDZjlKenVGcVVXYU9YOGhsejgza1BsdEt2WjJvREpNbHZIbThOYS14bGdYSXdVd2Q5M0RpWkZNc3ZpSmJMTk5sclB6NUxyXzlpTnZmbXExLTVuekEyYkRQajlpdTA4X2pSbXVEeGVmM0lJOE0?oc=5",
+       "source": "The New York Times",
+       "lang": "en",
+       "published": "2026-11-23T18:45Z"
+      },
+      {
+       "title": "Real Madrid in advanced talks with key superstar over renewal; announcement to follow soon",
+       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOTGZtRkw1Rl9oZnhIdmtXbkcwVHBEWU90M3FUaUNFejhTcGpvdmZKUm5BMmx6TlZXNlh1cS1IZWhSZDFTa0U0Y3NmNlFKMWJqMktraE90UGJ6c0FXUGVoT2I0bEZsU1V6LW5ZTF9vbXJqSkZ1RjhJeUFJS0YxYzJVQ1lSZmYxdw?oc=5",
+       "source": "Yahoo Sports",
+       "lang": "en",
+       "published": "2026-11-23T18:59Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "real_madrid-3"
+    }
+   ],
+   "note": "",
+   "candidates": 125
+  },
+  {
+   "id": "pc_donanim",
+   "title": "PC Donanım, GPU ve Çipler",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Nvidia yönetim kurulu Jensen Huang'ı CEO olarak yeniden atadı; hisseler sert yükseldi ve Trump'ın desteği dikkat çekti.",
+     "title": "Nvidia, Jensen Huang'ı CEO olarak yeniden atadı",
+     "detail": "Nvidia yönetim kurulu, Jensen Huang'ı 23 Kasım'da şirketin başkanı ve CEO'su olarak yeniden atadı. Karar oybirliğiyle alındı ve hemen yürürlüğe girdi. Huang, kişisel ilişkilerine dair iddialı haberlerin ardından bu ayın içinde görevinden istifa etmişti; geçici CEO olarak atanan Colette Kress ise CFO görevine devam edecek. Yönetim kurulu başkanı Harvey Jones, Huang'a güvendiklerini açıkladı.\n\nPiyasa tepkisi çok sert oldu. Nvidia hisseleri kapanışta yaklaşık yüzde 31 yükseldi ve birkaç saat içinde şirketin piyasa değerine 1 trilyon doların üzerinde değer eklendi. Çip hisselerinde de yükseliş görüldü; Yahoo Finance'in işlem gününün başındaki verilerine göre Intel yaklaşık yüzde 13, AMD ise yaklaşık yüzde 7 kazandı. Başkan Trump kararı destekledi ve hükümetin Huang'ın ulusal güvenlik riski taşıdığına dair bir delili olmadığını söyledi.\n\nSorular ise sürüyor. Yönetim kurulunun bağımsız komitesi, Huang hakkındaki soruşturmayı sonuçlandıracağını açıkladı. Huang'ın 1 Aralık'ta Temsilciler Meclisi'nin ilgili paneli önünde kapalı kapı bir görüşmeye, 3 Aralık'ta ise Senato Bankacılık Komitesi'nde kamuoyu önünde ifade vermesi bekleniyor. Nvidia'nın çip satışları, özellikle Çin ve Güneydoğu Asya'ya yönelik ihracat kontrolleri de mercek altında; Senatör Elizabeth Warren kararı eleştirdi.",
+     "key_points": [
+      "Jensen Huang, Nvidia başkanı ve CEO'su olarak oybirliğiyle yeniden atandı; karar hemen yürürlüğe girdi.",
+      "Nvidia hisseleri kapanışta yaklaşık yüzde 31 yükseldi; Intel ve AMD de yükseldi.",
+      "Trump kararı destekledi; ihracat kontrolleri ve bağımsız soruşturma sürüyor.",
+      "Huang, 1 Aralık'ta kapalı kapı, 3 Aralık'ta Senato'da kamuoyu önünde ifade verecek."
+     ],
+     "sources": [
+      {
+       "title": "Jensen Huang returns to applause from employees at Nvidia HQ",
+       "url": "https://www.tomshardware.com/tech-industry/big-tech/jensen-huang-returns-to-applause-from-employees-at-nvidia-hq-some-employees-reportedly-disgruntled-by-return-saying-this-is-the-worst-outcome",
+       "source": "Tom's Hardware",
+       "lang": "en",
+       "published": "2026-11-23T21:00Z"
+      },
+      {
+       "title": "NVIDIA Employees Give Reinstated CEO, Jensen, A Hero’s Reception At Endeavor HQ, Hopes To Get An RTX Spark To Work On As His New PC",
+       "url": "https://wccftech.com/nvidia-employees-give-reinstated-ceo-jensen-a-heros-reception-at-endeavor-hq/",
+       "source": "Wccftech",
+       "lang": "en",
+       "published": "2026-11-23T19:45Z"
+      },
+      {
+       "title": "英伟达董事会恢复黄仁勋职务据悉未事先征询公司高级管理层意见",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587716.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T19:38Z"
+      },
+      {
+       "title": "CEO's return to Nvidia caps comeback bid with White House help",
+       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVFc3clpjdlROc004SEd0eVdlbHR4Q3l4SXVoZFFmQmNzSTZfeEpzN0xIYl9objdad0pTekNRVU1YcmtBc01hajRjS2ZOVV85bnpoZlR3Nm1ERG5TZmF5c0Y4Z2xZVlB2WHFYQUprT2ZaakRJNmhtQlhsUFIzWGtvYUtlYTFjUENXZ0hIZzFocks5Z0NtajhmaGtqQ2JUSzdTZ3dsUw?oc=5",
+       "source": "Dallas News",
+       "lang": "en",
+       "published": "2026-11-23T23:41Z"
+      },
+      {
+       "title": "Jensen Huang Was Reinstated As NVIDIA CEO In A Sunday Board Decision That Kept Interim CEO Collette Kress Out Of The Loop, Says Bloomberg",
+       "url": "https://wccftech.com/__trashed-17/",
+       "source": "Wccftech",
+       "lang": "en",
+       "published": "2026-11-23T18:49Z"
+      },
+      {
+       "title": "黄仁勋重返英伟达总部",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587714.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T19:38Z"
+      },
+      {
+       "title": "英伟达恢复黄仁勋CEO背后：特朗普强势施压相助",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587696.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T16:19Z"
+      },
+      {
+       "title": "黄仁勋时隔12天重回英伟达CEO宝座 苹果乔布斯等了12年",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587702.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T16:22Z"
+      },
+      {
+       "title": "特朗普对黄仁勋重返英伟达表示祝贺",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587700.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T16:22Z"
+      },
+      {
+       "title": "黄仁勋复职带动AI相关股票普涨 英伟达市值数小时增逾1万亿美元",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587698.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T16:21Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "pc_donanim-1"
+    },
+    {
+     "importance": 7,
+     "headline": "Kongre, Huang'ın geri dönüşüne tepki gösteriyor; Senato Bankacılık Komitesi 3 Aralık'ta ihracat kontrolleri konulu dinleme yapacak.",
+     "title": "Kongre, Huang'ın Nvidia'ye dönüşüne sert tepki gösteriyor",
+     "detail": "Kongre üyeleri, Nvidia yönetim kurulunun Jensen Huang'ı yeniden CEO olarak atamasına sert tepki gösteriyor. Politico, Kongre'nin Nvidia ile 'savaşa girdiğini' yazarken; Reuters ve PBS milletvekillerinin kararı eleştirdiğini ve dinleme süreçlerini ilerlettiğini bildirdi. Huang'ın 3 Aralık'ta Senato Bankacılık Komitesi önünde, ABD'nin ihracat kontrolleri ve ulusal güvenlik konulu bir dinlemeye katılması bekleniyor.\n\nForeign Policy'de yayımlanan sert eleştirel bir köşe yazısı, Huang'ın Alice Huang ile ilişkisinin ortaya çıkmasının ardından 12 Kasım'da istifa ettiğini hatırlatıyor ve kararı ABD tarihinin en büyük ulusal güvenlik skandallarından biri olarak niteliyor. Yazıdaki iddiaya göre, milletvekillerinin açıkladığı bilgilere göre Nvidia, 11 Mayıs itibarıyla Çinli şirketlere 800.000'den fazla gelişmiş çip sevk etti. Yazar ayrıca Trump'ın Cuma günü, anlaşmaya ilişkin Kongre soruşturmasını engellemeyi amaçlayan bir kararname imzaladığını yazıyor.\n\nNew York Times'a göre ABD yetkilileri, Alice Huang'ın Çin istihbarat teşkilatıyla temaslarını izlemişti. Kaliforniya Başsavcısı'nın Nvidia'nın çip akışlarına ilişkin soruşturması ise Huang'ın dönüşüyle sürüyor. Bu gelişmeler doğrudan RX 7800 XT gibi tüketici ekran kartlarını etkilemiyor; ancak çip ihracat kurallarındaki değişiklikler yarı iletken sektörünün geneli için önemli olabilir.",
+     "key_points": [
+      "Kongre, Nvidia'nın Jensen Huang'ı yeniden CEO yapmasına sert tepki gösteriyor.",
+      "Huang, 3 Aralık'ta Senato Bankacılık Komitesi'nin ihracat kontrolleri konulu dinlemesine katılacak.",
+      "Yazara göre Nvidia, 11 Mayıs itibarıyla Çinli şirketlere 800.000'den fazla gelişmiş çip sevk etti.",
+      "Kaliforniya Başsavcısı'nın çip akışlarına ilişkin soruşturması sürüyor; doğrudan tüketici GPU'larını etkilemiyor."
+     ],
+     "sources": [
+      {
+       "title": "Congress is going to war with Nvidia",
+       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeVR4X1QxSE5QdndMMENMQXhvbElkOXN1R3VyUWNhRzRBTjdORnlPZG5QcUNkUGhGM3ZWQmF4cmRDTkhBSWJmcFVqUy14WFJoQk56cXJoZWQ3bVEyY0tuc1hLTXNQYXlKUWJzM3BRN3AwRXVXeGFSZVo5eVJKM3FKMDdoaklhbTZfcXRodUpCNA?oc=5",
+       "source": "Politico",
+       "lang": "en",
+       "published": "2026-11-23T23:58Z"
+      },
+      {
+       "title": "US lawmakers criticize Nvidia decision to reinstate Huang as CEO",
+       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQY290QTRyd09iaGNpaWpuNmlnOHQ2MVZSMm43Q29tS05BSE00ekxCeF9DZ013THRtUzVsTUItS2FIa1R6UzdOQ2FlOFlscXRLVUdfNkhLNS1JZ0FNNTZuOEgxdVVhN2JnaDBYdVFJQXBhSUNxeFBnR0V2XzZLTzZBaEh4NVUxLWRhZjJHOGR5NGVZOXpjWGZjaVFWR0NobElUaUE?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-23T22:30Z"
+      },
+      {
+       "title": "Huang's reinstatement at Nvidia sparks fury in Congress as lawmakers move forward with hearings",
+       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQbXZ3YzNRdzlhQ2tnRzk2RG5mRUNNRk92WU41VkwtNFg0WWFoc3BjbUpYZzNmR2FXdmZOZkRFM3BOSlllNXdUQWZrYXdaUmRNVmtNTG9BVnRjSVRWNGFxUkoxVVNxRFd3dUJYLW9SSHpYeElfVFB5R01DLWU0UEtHczF1WFlYWENfWV9wWWdIMVl6OF82X2dyM012M2pyYkRXY25Qa0ltSHBqclVXdlNqekZRTE1oeEhWcENLQUxzdEdjaEdqM3hnNEMySG8?oc=5",
+       "source": "PBS",
+       "lang": "en",
+       "published": "2026-11-23T22:06Z"
+      },
+      {
+       "title": "Huang's return as Nvidia CEO raises questions about its board, experts said",
+       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE44S3prU3pkZ3RPRnZCZ21uRzAwNHE3ZHlxcjF1VkN6NHdNSFIyY3NwX0xpbUpZRHNXdTREQkZNNnlxMnZBOG1fcEN0bVZmRWtENE1wdmVaTFo1QlRqZWJWajc4YjAzSUx5cVlxbXRZbkhNQjVKQzd6Z2d3?oc=5",
+       "source": "CBS News",
+       "lang": "en",
+       "published": "2026-11-23T23:10Z"
+      },
+      {
+       "title": "Jensen Huang went to war with Washington — and won a path to China",
+       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQQ01rTDUyQUlHbDdURmstWlM2VWZFTkk3OTBNWWdOUWpfM3BKeE5yMXpEbUlzNGxLZUx2b0pOZWZZUm53WDFSUjhCMjJDTHdfbGJ3SmVGVG1wNzhRV1YwVnVYNkFtRG42LTVSVUNjZUw4UU5LdXRaZktCUzF6ZndpUFdFM2lZdmh5OTFVcG9BYkRZUEdyMC02T0RvNTJQcnJGUjZxMHgxaERRT0t1NFRIYk91OVZBdVU?oc=5",
+       "source": "The Washington Post",
+       "lang": "en",
+       "published": "2026-11-23T22:43Z"
+      },
+      {
+       "title": "U.S. Tracked Alice Huang’s Contacts With China Spy Agency During Nvidia Affair",
+       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVzVyaXo0aXJLT2VuWXdDRlJIWEw1RDBlTWtxcG9RN2ZydEN0T2U5dnlCRnJXWFVKeVZ2X2JXUmpHUTQ5d0tCNHFGc0VKZHE4TFdVQXFId1k5YkRGU29pdF9VM3FES1ZDbEItTW9rQWRYQTVTakxtMG1uVnZwV1ZTRmc4XzV0MmtVX2NWYUhvWHM?oc=5",
+       "source": "The New York Times",
+       "lang": "en",
+       "published": "2026-11-23T14:35Z"
+      },
+      {
+       "title": "Jensen Huang's Return Doesn't Stop California AG's Probe Into NVIDIA Chip Flows, Three Key Questions in Focus",
+       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBvc1BjSndYUFdVUEZidk1Bcm96aFJJSXByTVpWa3JzaTFCcHN6NGFoTDl1R1hvZHBodnJpWElWdnVra0Y3a0RuU0tKZGcydWpQN0FobGpyT0ZUaVBBTldVQkdEal9XNWR2X081Wl94azRpRHUweXc?oc=5",
+       "source": "BigGo Finance",
+       "lang": "en",
+       "published": "2026-11-23T22:55Z"
+      },
+      {
+       "title": "黄仁勋复任英伟达CEO后将出席美国参议院听证会 12月3日接受质询",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587712.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T18:27Z"
+      },
+      {
+       "title": "Huang's Return Is the Biggest National Security Scandal in U.S. History",
+       "url": "https://foreignpolicy.com/2026/11/23/jensen-huang-nvidia-return-ceo-national-security-scandal/",
+       "source": "foreignpolicy.com",
+       "lang": "en",
+       "published": "2026-11-23T23:11Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "pc_donanim-2"
+    },
+    {
+     "importance": 7,
+     "headline": "ABD, Nvidia çip skandalıyla bağlantılı Megaspeed ve bir Alibaba yan kuruluşunu kara listeye aldı.",
+     "title": "ABD, Megaspeed ve bir Alibaba yan kuruluşunu kara listeye aldı",
+     "detail": "ABD, Nvidia çip skandalıyla bağlantılı olduğu belirtilen Megaspeed şirketini ve bir Alibaba yan kuruluşunu kara listeye aldı. Haberi Reuters duyurdu.\n\nKaynakta kara listeye alma kararının gerekçesi ve şirketlerin faaliyetlerine dair ayrıntı yer almıyor. Yine de ihracat kısıtlamaları ve çip sektörü üzerindeki baskılar açısından takip edilmesi gereken bir gelişme.",
+     "key_points": [
+      "ABD, Megaspeed ve bir Alibaba yan kuruluşunu kara listeye aldı",
+      "Megaspeed, Nvidia çip skandalıyla bağlantılı gösteriliyor",
+      "Kararın gerekçesi kaynakta ayrıntılı olarak yer almıyor"
+     ],
+     "sources": [
+      {
+       "title": "US blacklists Alibaba subsidiary and Megaspeed linked to Nvidia scandal",
+       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZ3ZUR1ZCZXpLTkNjVFA5cm1ueHd6VjlHUzZSZWUtNE40NndKNFNWQVJqV3k4WHA5SU5BQTBvWmw5dlN3S1RZZHQ5WG5LRGhWMDFxUk83RjdGV0dqWUtjU3c4RlVkdkFBVlhfbXdiVm1WWW44dEtpUXY0Yjk0ZndBN2w3MURmNkVJLUlvM3ZpSmRfV3RTeUJYNHQtS29HaUFwejF2SlVtR2lpY0NqX3BYMg?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-23T20:51Z"
+      },
+      {
+       "title": "US blacklists Alibaba subsidiary and Megaspeed linked to Nvidia scandal",
+       "url": "https://www.msn.com/en-ca/news/other/us-blacklists-alibaba-subsidiary-and-megaspeed-linked-to-nvidia-scandal/ar-AA2i6Bmx",
+       "source": "Reuters on MSN",
+       "lang": "en",
+       "published": "2026-11-23T23:41Z"
+      },
+      {
+       "title": "US blacklists Singapore chip firm linked to Nvidia scandal",
+       "url": "https://www.msn.com/en-my/news/other/us-blacklists-singapore-chip-firm-linked-to-nvidia-scandal/ar-AA2i4laE",
+       "source": "Free Malaysia Today on MSN",
+       "lang": "en",
+       "published": "2026-11-23T14:15Z"
+      },
+      {
+       "title": "US blacklists Alibaba-linked Apex Enterprise, Megaspeed, 5 others amid probe over chips diversion to China | Full list",
+       "url": "https://www.msn.com/en-in/news/other/us-blacklists-alibaba-linked-apex-enterprise-megaspeed-5-others-amid-probe-over-chips-diversion-to-china-full-list/ar-AA2i5k4H",
+       "source": "Mint on MSN",
+       "lang": "en",
+       "published": "2026-11-23T19:55Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "pc_donanim-3"
+    },
+    {
+     "importance": 7,
+     "headline": "Beyaz Saray, Nvidia için yeni çip kısıtlamasına gerek olmadığını söylerken Trump Çin'e görece eski çip satmak istediğini belirtti.",
+     "title": "Beyaz Saray: Nvidia için yeni çip kısıtlaması gerekmiyor",
+     "detail": "Beyaz Saray, Nvidia için artık yeni bir çip kısıtlamasına ihtiyaç olmadığını söyledi (Cheddar). Aynı tartışmada Trump’ın Çin’e görece eski çipler satmak istediğini belirttiği bildiriliyor.\n\nÇin Dışişleri Bakanlığı, Trump’ın bu açıklamasına yanıt verdi (Dongfang Caifu). Ayrıca Bessent’in, hükümetin çiplerin Çin’e akışına ilişkin Nvidia’nın bir açıklamasını hâlâ beklediğini söylediği aktarılıyor (Voice of America).\n\nKaynaklarda bu açıklamaların uygulamaya nasıl yansıyacağına dair bir bilgi yok. Çin’e çip satışı politikası izlenmeye değer bir konu.",
+     "key_points": [
+      "Beyaz Saray, Nvidia için yeni çip kısıtlaması gerekmediğini söyledi",
+      "Trump, Çin’e görece eski çip satmak istediğini belirtti",
+      "Çin Dışişleri Bakanlığı açıklamaya yanıt verdi",
+      "Bessent, Nvidia’nın çip akışına dair açıklamasını beklediklerini söyledi"
+     ],
+     "sources": [
+      {
+       "title": "White House Says No More Nvidia Chip Restrictions Needed",
+       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPeGczMkFqUExiSXB0V3FydXFrVXVtOGFGYUFFVVFseURXUDdFQTQ0NDlXRVFOSGV3UFNUQUMyS2RuRUIwaTdKcExiYmNFQ2lRcDZxT01sRy1XUUZPTXFxQ0FXa3ktVFpsb280OHVISi1sdnRLM1F2MmtrZm5UaS1vNG1vaUxvTkVKb0xUdWczMkk?oc=5",
+       "source": "Cheddar",
+       "lang": "en",
+       "published": "2026-11-23T17:08Z"
+      },
+      {
+       "title": "特朗普称只想向中国出售相对落后的芯片 外交部回应",
+       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1CdXIxQU9wWTByMXRMSktlX2RfWm0weWVCYlU3NDVGOW5vZnJqZmFNVXBSYnlNNXJWMHFuVUJZQnZXQTVNTTlTbF9JS2gzQVpidzlHUnZrSnJyY09FWUhjcGNSRC1rQQ?oc=5",
+       "source": "东方财富网",
+       "lang": "zh",
+       "published": "2026-11-23T17:03Z"
+      },
+      {
+       "title": "贝森特：政府仍在等待英伟达就其芯片流入中国问题作出解释",
+       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSW9zRUxERXlUX09PVTh0T3lnVFRMZWZQZWJncjVEQl93dVRmcWlaRk5odWFhQTJReUNncXJ6Z0dicHJsSm5jZkR0aDN3UkZHV0dKZWpfc3BFb3k4RnUtX184Qjd0YnNlM3hNc1FhZnZtTGpWbVQ4LXRMbWc2WTRKVklrRVNlR1lpcTRIanZRTTBrQW5kbTJsa0hoaWZ1WmsyYWRkR0sycmpRdHBnMEtidE1SNUMtUFHSAbcBQVVfeXFMT0lvc0VMREV5VF9PT1U4dE95Z1RUTGVmUGViZ3I1REJfd3VUZnFpWkZOaHVhYUEyUXlDZ3FyemdHYnBybEpuY2ZEdGgzd1JGR1dHSmVqX3NwRW95OEZ1LV9fOEI3dGJzZTN4TXNRYWZ2bUxqVm1UOC10TG1nNlk0SlZJa0VTZUdZaXE0SGp2UU0wa0FuZG0ybGtIaGlmdVprMmFkZEdLMnJqUXRwZzBLYnRNUjVDLVBR?oc=5",
+       "source": "美国之音",
+       "lang": "zh",
+       "published": "2026-11-23T13:40Z"
+      },
+      {
+       "title": "White House says no more Nvidia chip restrictions needed",
+       "url": "https://www.msn.com/en-us/news/other/white-house-says-no-more-nvidia-chip-restrictions-needed/vi-AA2i3SMY",
+       "source": "Dailymotion on MSN",
+       "lang": "en",
+       "published": "2026-11-23T09:11Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "pc_donanim-4"
+    },
+    {
+     "importance": 7,
+     "headline": "TSMC, Teksas’ın Brazos County bölgesinde 22,6 milyar dolarlık yeni çip fabrikası için başvuru yaptı.",
+     "title": "TSMC, Teksas’ta 22,6 milyar dolarlık yeni fabrika için başvurdu",
+     "detail": "TSMC, Teksas’ın Brazos County bölgesinde önerdiği 22,6 milyar dolarlık yeni çip fabrikası için başvuru yaptı. kcentv.com’un haberine göre şirket bu proje için başvuruyu resmen sundu.\n\nKBTX News 3, dünyanın önde gelen yarı iletken üreticisinin 3.200 akreden fazla bir alanlı tesis için Brazos County’yi değerlendirdiğini aktarıyor.\n\nKaynaklarda tesisin ne zaman faaliyete geçeceği ve istihdam sayısına dair bilgi yer almıyor. Yine de bu yatırım, ABD’deki çip üretim kapasitesi açısından önemli bir adım.",
+     "key_points": [
+      "Yatırım tutarı 22,6 milyar dolar",
+      "Tesis için Teksas’ın Brazos County bölgesi değerlendiriliyor",
+      "Arazi büyüklüğü 3.200 akreden fazla"
+     ],
+     "sources": [
+      {
+       "title": "TSMC files application for proposed $22.6 billion chip plant in Brazos County",
+       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOc2hiZVdfcU1OcmswdVZHRy1XRDVnQ2laWmEwUXBNWHlJUDhHTW5CcThNSkp3SnA2YzJXSEduTkdOZGVsLXlUeV9UYXctYzc0MnlYZEVXWmpBMEVpT1VBdlhwLTVaRXdENVVkRzJjdHZGTGl0b3ZnQWxBZUM3ejBjbVBnekc0NWdlZVdDdkZSRlJBS2hvOXV4amRtLWt1OWtyU3l4T0lraGdtaW9zQVVSeG5lSUJjU1ZWYmVXazBHNkdVdUd5WUtaUTM1S1FLTUhi?oc=5",
+       "source": "kcentv.com",
+       "lang": "en",
+       "published": "2026-11-23T22:51Z"
+      },
+      {
+       "title": "World’s leading semiconductor manufacturer eyes Brazos County for 3,200+ acre facility",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSjU4d25EaC1DdU9ZUHZvZlA0N0I4ZHNWU1h6UVRoQzNzVlh4UGtDLVNPV2RWVU1renE5Ukc0ZVhScm1ZSnRTVVlSeThKVEl2a09mQmhXNHAtbDRkendfSGZEM0pjekt6M1hsWmdwMndCU0cwUEs1U2JPNjdYV3F0UnFfbURoUElMcDcybjBnaUthTUM5dWdKb05teldqWDB1VlVKTzkwblRrZndyNkxuN1FB?oc=5",
+       "source": "KBTX News 3",
+       "lang": "en",
+       "published": "2026-11-23T22:40Z"
+      },
+      {
+       "title": "TSMC files application for proposed $22.6 billion chip plant in Brazos County",
+       "url": "https://www.msn.com/en-us/technology/tech-companies/tsmc-files-application-for-proposed-22-6-billion-chip-plant-in-brazos-county/ar-AA2i4Bxp",
+       "source": "KCEN-TV on MSN",
+       "lang": "en",
+       "published": "2026-11-23T14:50Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "pc_donanim-5"
+    }
+   ],
+   "note": "",
+   "candidates": 220
+  },
+  {
+   "id": "yerel_llm",
+   "title": "Yerel LLM (kendi bilgisayarında çalışan modeller)",
+   "stories": [
+    {
+     "importance": 7,
+     "headline": "NariQ, Qwen3.8-27B'yi 10 GB'lık dosyaya sıkıştırdı; BF16 kalite iddia ediyor, ancak AMD GPU'lar henüz desteklenmiyor.",
+     "title": "NariQ, Qwen3.8-27B'yi 10 GB'a sıkıştırdı",
+     "detail": "NariQ, Qwen3.8-27B açık ağırlıklı modelini 3 bit, 2,5 bit ve 2 bit ağırlık yoğunluğunda GGUF dosyaları olarak yayımladı. Şirkete göre 3 bit ve 2,5 bit sürümler, uzun süreli ajan görevlerinde, matematikte ve görüntü anlamada BF16 (tam hassasiyetli) modelle eşleşiyor; 2 bit sürüm ise belirgin biçimde daha düşük puan alıyor. Başlıktaki 10 GB'lık dosya boyutu sıkıştırmanın ölçeğini gösteriyor. Yöntem, gerçek kodlama ajanı izleriyle kalibre edilmiş, trellis kodlu bir eğitim sonrası kuantizasyon (PTQ) tekniği.\n\nDeepSWE testinde yeni testlerin geçme oranı BF16 için yüzde 83,1, 3 bit için yüzde 82,9, 2,5 bit için yüzde 83,2 ve 2 bit için yüzde 77,2 olarak ölçüldü. Bu sonuçlar şirketin kendi ölçümü ve yayımlanan teknik rapora dayanıyor. Modeli çalıştırmak için NariQ'yu destekleyen şirketin kendi llama.cpp fork'u gerekiyor; standart llama.cpp, Ollama ve LM Studio bu yeni tensör türlerini henüz yükleyemiyor.\n\nKullanıcının 16 GB VRAM'li AMD RX 7800 XT kartı için bu haber şu an pratik bir kullanım sunmuyor. Makaleye göre desteklenen GPU'lar arasında NVIDIA RTX PRO 6000, H100, L4 ve A10 test edildi; AMD ve Intel GPU'lar henüz desteklenmiyor. Hızlı başlangıç betiği de yalnızca sürücüsü 570 veya üzeri olan NVIDIA GPU'lar için sunuluyor. Dosya boyutu 16 GB'a sığacak düzeyde, ancak makalede 16 GB VRAM ile yapılmış bir test yer almıyor. Yazarlar, KV önbellek kuantizasyonunun ileride 16 GB tüketici kartlarında uzun bağlamı mümkün kılmasını hedefliyor.",
+     "key_points": [
+      "Qwen3.8-27B, NariQ ile 3 bit ve 2,5 bit sürümlerde yaklaşık 10 GB'lık dosyalara sıkıştırıldı.",
+      "Şirkete göre 3 bit ve 2,5 bit sürümler BF16 ile eşleşiyor; 2 bit sürüm DeepSWE'de yüzde 77,2'ye düşüyor (BF16: yüzde 83,1).",
+      "Çalıştırmak için NariQ destekli, şirketin llama.cpp fork'u gerekiyor; Ollama ve LM Studio henüz desteklemiyor.",
+      "AMD ve Intel GPU'lar desteklenmiyor; RX 7800 XT ile şu an pratik değil, 16 GB'da test sonucu yok."
+     ],
+     "sources": [
+      {
+       "title": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+       "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+       "source": "huggingface.co",
+       "lang": "en",
+       "published": "2026-11-23T13:42Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yerel_llm-1"
+    },
+    {
+     "importance": 7,
+     "headline": "Thinking Machines'in 26,4 milyar parametreli Inkling-2-Mini modeli yayımlandı; Unsloth 4 bit dosyası 17,6 GB, 32 GB VRAM'e sığar.",
+     "title": "Inkling-2-Mini açık modeli yerel kullanıma açıldı",
+     "detail": "Thinking Machines Lab, 17 Kasım 2026'da 26,4 milyar parametreli Inkling-2-Mini modelini Apache 2.0 lisansıyla yayımladı. Model görüntü desteği ve 1 milyon jetonluk bağlam penceresi sunuyor. Unsloth, modelin GGUF sürümlerini yerel kullanıma açtı. Modelin 5,4 milyar parametresi her jetonda aktif olan bir karma uzman (MoE) yapısı kullanıyor.\n\nUnsloth'un önerdiği UD-Q4_K_XL dosyası 17,6 GB boyutunda ve 32 GB VRAM'li bir kartta bağlam için yaklaşık 14 GB boş bırakıyor. Unsloth'un tablosuna göre 2 bit sürüm (10-11 GB) ve 3 bit sürüm (13-15 GB) 16 GB'lık kartlara uygun; 4 bit sürüm (17-18 GB) ise 24 GB kartlar için öneriliyor. 4 bit dosya 16 GB'lık karta yüklenebiliyor, ancak fazlası sistem RAM'ine taşındığı için biraz yavaş çalışıyor. Bu rakamlar yalnızca modelin kendisi içindir; uzun bağlam ek bellek gerektirir. Makalede modelin kalitesine dair bağımsız bir karşılaştırma yer almıyor.\n\nKullanıcının 16 GB VRAM'li AMD RX 7800 XT kartı için 3 bit sürüm sınırda sığıyor, 4 bit sürüm ise RAM'e taşmak zorunda kalıyor. Rehberdeki kurulum RTX 5090 ve Windows üzerinde yapılmış; AMD kartlar için ROCm veya Vulkan desteğine dair bir bilgi yok. Aynı ailenin Inkling 2 Small modeli 594 milyar parametreli ve en küçük dosyası 171,7 GB; tüketici ekran kartlarına sığmıyor.",
+     "key_points": [
+      "Inkling-2-Mini: 26,4 milyar parametre, Apache 2.0 lisansı, görüntü desteği ve 1 milyon jetonluk bağlam.",
+      "Unsloth'un önerdiği 4 bit dosyası 17,6 GB; 32 GB VRAM'e sığar ve bağlam için yaklaşık 14 GB boş kalır.",
+      "3 bit sürüm (13-15 GB) 16 GB VRAM'e sığar; 4 bit sürüm 16 GB'ta RAM'in bir kısmını kullanır ve biraz yavaştır.",
+      "Rehber RTX 5090 üzerinde denenmiş; AMD RX 7800 XT için ROCm/Vulkan bilgisi yok ve bağımsız kalite ölçümü yayımlanmamış."
+     ],
+     "sources": [
+      {
+       "title": "Hugging Face trend modeli: thinkingmachines/Inkling-2-Mini",
+       "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-17T00:26Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: unsloth/Inkling-2-Mini-GGUF",
+       "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-20T13:09Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: strata-engine/Inkling-2-Mini-Strata",
+       "url": "https://huggingface.co/strata-engine/Inkling-2-Mini-Strata",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-21T18:46Z"
+      },
+      {
+       "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+       "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+       "source": "gpupartner.com",
+       "lang": "en",
+       "published": "2026-11-22T21:01Z"
+      },
+      {
+       "title": "What is a looped transformer and why Inkling 2 Mini uses one",
+       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQeXZaN2lEdkhiNnkzN2ZsbWpKak83MkhSMmloZXNjU0t6akdKWlNDRjB6cHlGWGtrVm5UbV9KZ1Qzem9Tdy1RcUJfWWxoWEROMTItaGpMTWxUdjUxY3ZHMllSRXdVWDRjSXgtU1lNTm1yb3FCdEpmX1JGV0E0U3lBaHJkV1ZOcC1mNmkxOGc4azVpVTVz?oc=5",
+       "source": "Pasquale Pillitteri",
+       "lang": "en",
+       "published": "2026-11-23T12:12Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yerel_llm-2"
+    }
+   ],
+   "note": "",
+   "candidates": 106
+  },
+  {
+   "id": "yapay_zeka",
+   "title": "Yapay Zeka",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Anthropic halka arz dosyasında yapay zekanın insanlık için ‘varoluşsal riskler’ doğurabileceği uyarısında bulundu.",
+     "title": "Anthropic halka arz belgesinde “varoluşsal risk” uyarısı yaptı",
+     "detail": "Anthropic’in halka arz başvurusunda, yapay zekanın insanlık için “varoluşsal riskler” doğurabileceği uyarısı yer alıyor (DD News). TechCrunch’a göre şirket halka arzda 81,3 milyar dolar toplayarak tarihin en büyük halka arzını gerçekleştirdi; tam seyreltilmiş değer yaklaşık 1,5 trilyon dolar. Hisseler ertesi gün işlemlere başladı.\n\nHalka arzdan önce yatırım yapan fonlar da önemli kazanç elde etmiş görünüyor. Notable Capital, Series E turunda 61,5 milyar dolar değerlemeyle yatırım yaptı ve bu yatırımın kağıt üzerinde yaklaşık 15 katlık bir getiriye ulaştığı aktarılıyor. Singapur’un egemen fonu GIC, üç turda 4,5 milyar doların üzerinde yatırım yaptı; Baillie Gifford ise üç turda toplam 1,5 milyar dolar yatırdı.\n\nKaynaklarda uyarının ayrıntılı içeriği yer almıyor. Yine de yapay zeka güvenliği tartışmaları ile şirketin halka arz sonrası değerlemesi birlikte izlenmeye değer.",
+     "key_points": [
+      "Anthropic, halka arz başvurusunda “varoluşsal riskler” uyarısı yaptı",
+      "Halka arzda 81,3 milyar dolar toplandı; tarihin en büyüğü",
+      "Tam seyreltilmiş değer yaklaşık 1,5 trilyon dolar",
+      "GIC ve Baillie Gifford, şirkete üç turda milyarlarca dolar yatırdı"
+     ],
+     "sources": [
+      {
+       "title": "Anthropic warns AI may pose ‘existential risks to humanity’ in IPO filing",
+       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOeFhwaS1VQ2Y0YThDQ3d0SVRoczZ4S3Q1SF80ZV82UHFaUmpZVGhrd0ltc3RCRTNBOVdLaVZab3ZrM3hUcjRHQ0pPcm5SbUFuVW1ralhibklJdmE3T2UwbkZDbENaeUFHeThHcTZFaEJJRDl5c25vYXpaanM4Q2dGcUR2TmlQeHM3dnZpdnhNWnlhNFJVNjNHTnpKTUEyZw?oc=5",
+       "source": "DD News",
+       "lang": "en",
+       "published": "2026-11-23T12:37Z"
+      },
+      {
+       "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
+       "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T01:25Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yapay_zeka-1"
+    },
+    {
+     "importance": 7,
+     "headline": "OpenAI Baş Bilim İnsanı Jakub Pachocki, rakipler arasında ortak sınırlar ve ölçülebilir bir perplexity skoru önerdi.",
+     "title": "OpenAI, yapay zeka için perplexity tabanlı sınır önerdi",
+     "detail": "OpenAI Baş Bilim İnsanı Jakub Pachocki, 22 Kasım'da yayımladığı 'Perplexity and Intelligence' başlıklı blog yazısında, gelişmiş yapay zeka modellerinin ilerlemesini karşılaştırmak için perplexity ölçüsünü kullanmayı önerdi. Perplexity, bir modelin metindeki bir sonraki jetonu ne kadar iyi tahmin ettiğini ölçer; düşük puan daha iyi tahmin anlamına gelir. Pachocki, araştırmacılar yapay zeka davranışını anlayıp izleyebilene kadar geliştiricilerin aşmayı taahhüt edeceği ortak sınırlar konulmasını istiyor. Sam Altman bu yazıyı OpenAI'ın uzun süredir yayımladığı en önemli açıklama olarak nitelendirdi.\n\nPachocki'nin aktardığına göre log-perplexity puanı GPT-3.5'te yaklaşık 0,99, GPT-4'te yaklaşık 0,91 idi; daha yeni modellerde 0,8'in altına indi ve bu düşüş matematik ve siber güvenlikteki gelişmelerle aynı döneme denk geldi. Yaklaşık 0,76 puanlı bir model, açık matematik problemlerinde 'çığır açan sonuçlar' verdi. Pachocki, puanlar 0,68-0,7 aralığına yaklaştıkça yeni dönüştürücü yeteneklerin beklendiğini yazdı. Ancak önerinin sınırları da var: OpenAI'ın puanları kendi iç kod veri setine dayanıyor ve şirketler farklı veri ve yöntem kullandığı için puanlar doğrudan karşılaştırılamıyor. Microsoft AI CEO'su Mustafa Suleyman, farklı laboratuvarların farklı tokenizer kullandığını ve karşılaştırma için başka bir birim gerekebileceğini belirtti. Google DeepMind araştırmacıları ise bir Ocak makalesinde, düşük perplexity puanının bir modelin doğru olduğunu kanıtlamadığını savundu.\n\nYazıda matematik iddialarıyla da bağlantı kuruluyor. OpenAI, 8 Eylül'de yayımlanmamış bir modelinin Clay Matematik Enstitüsü'nün Binyıl Problemlerinden biri olan Navier-Stokes problemini çözdüğünü açıklamıştı. Anthropic araştırmacısı Levent Alpöge ise 20 Kasım'da Claude kullanarak Riemann hipotezini kanıtladığını iddia etti; Anthropic 23 Kasım itibarıyla resmi bir açıklama yapmamıştı. Ayrıca OpenAI, Ağustos'ta Astra modelinin eğitimini, modelin siber güvenlik için 'kritik' eşiği aşmış olabileceği belirlendikten sonra askıya almıştı. Anthropic CEO'su Dario Amodei de Eylül'de yayımladığı bir makalede bağımsız değerlendiriciler ve Çin'in de dahil olduğu uluslararası bir anlaşma çağrısı yapmıştı.\n\nPachocki, ilk sınırın ne olacağını ve ne zaman yürürlüğe gireceğini belirtmedi; algoritmalardaki atılımların 2027 gibi erken bir tarihte izleme yöntemlerini geride bırakabileceğini söyledi. Bu öneri henüz bir taslak niteliğinde ve yazıda bu sınırları kabul eden başka bir geliştirici yer almıyor.",
+     "key_points": [
+      "Pachocki, perplexity ile ilerlemeyi izlemeyi ve geliştiriciler arasında ortak sınırlar konulmasını önerdi.",
+      "Log-perplexity puanı GPT-3.5'te yaklaşık 0,99, GPT-4'te 0,91; yeni modeller 0,8'in altında, 0,76 puanlı model açık matematik problemlerinde sonuç verdi.",
+      "Puanlar farklı veri ve tokenizer nedeniyle şirketler arasında doğrudan karşılaştırılamıyor.",
+      "OpenAI'ın Navier-Stokes iddiası ve Anthropic araştırmacısının Riemann hipotezi iddiası resmi olarak doğrulanmış değil."
+     ],
+     "sources": [
+      {
+       "title": "OpenAI Pitches Perplexity Score to Set AI Safety Limits",
+       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdHlMalVqVFZXTWVIMmdLZDVFLUYtZUk3aW5uTEJQUEhRdFdUUlVreGJ2SmlQM2FVOWtORkNDakc4bU8xUHVkUUR0dnZYcDJ5MldYWXNRNk1zSGxpUXZJTmszUnQ1RWdub3RRRkNCOUMtRTJzTm5OUHBfazlYS2RlbTQwWGVnVDVuVnp0Um5UaTE2MmxGLURvU1dtNGNsWU1IOWY1OC1fZDhfVFp4WHhKSkFjdw?oc=5",
+       "source": "PYMNTS.com",
+       "lang": "en",
+       "published": "2026-11-23T21:56Z"
+      },
+      {
+       "title": "OpenAI warns that upcoming AI systems could outpace safety checks and urges rivals to agree on shared limits",
+       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWklYb014OWxkU0l4ZkdiYkJVSHhYNGJxbFpaZ1d6LXJJalBtOHFzcWY0YWd3TzRSdk9uTXp5Sm5NS3RrWlo1enBpb0E4Mm8zZ05WU2Z2XzNDWlgtdzBlQnNoWnR0VmJmdkdpSm41YzBTVDlrMFFqaTRsY1JtS1c2T1FQX0VpRnlIT1I4djFiZUVURzEwRDVpb25MenIyZGJRQW16bWdnWVEyUGQxakE5Y2ctckhfRDI1bjY2azVFcDR4M05Eb1lhS1B6OUhiUQ?oc=5",
+       "source": "The Decoder",
+       "lang": "en",
+       "published": "2026-11-23T18:42Z"
+      },
+      {
+       "title": "OpenAI scientist calls for shared limits on AI development amid growing safety concerns",
+       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNT1pKVUlRVjNkN09RZXRwWUdwUExsa1B2bEh2WUtYM3N0cldhOHAya0dOZW0xZ2ttcVRMN1JCaGlXLUFINUxrQmhqRjdPOFZTcEg1ZTE1dDRTc09OTmZnUzI1SmNQSF82Wl91bnd5YjNuVlJiQmZjcjdNT2QxcVpILTRfQlh3cXlUY2dGNndMRU1IeGZ4akFUNmY2SUUzQjVPNnlXOFhFbTVxOW9ncl9iN0NtOUZOeVJ4SzJSb1FMUVNscFVBejdjZw?oc=5",
+       "source": "De Último Minuto",
+       "lang": "en",
+       "published": "2026-11-23T18:00Z"
+      },
+      {
+       "title": "OpenAI Chief Scientist Wants New Limits on AI Development",
+       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPOGdaT25xV3VwN3VNVlBvN3VGR0d0RnVkbkRwajVseUtreGx6RmR6ZUtiY0RvMFp3TE0wUmY3bTZqODBUUTByY1EwMWFUc0ZPNnUyWEtYa1F3bGk1bDE5UXZTc01tNWowdGJvNG5pWHNHbDlCbU5hVWo2dWpfWmZLTjdzOVJ1X1pIYTF3NS1RbUw2THExeFE?oc=5",
+       "source": "The Mac Observer",
+       "lang": "en",
+       "published": "2026-11-23T14:35Z"
+      },
+      {
+       "title": "OpenAI's chief scientist called for industrywide limits on AI development",
+       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE0xS0k4VVVpM0RvOXRBWm5nMXQ4aWc2cjd2cmh2MU5Ic1V2V2VsQnNDZTBEVG9JUlVaMmd4clZFNGgxV1hxZ1JUUk5lVkZLdlA2ZVp0WHcxek5tUVA1b2F4MFF3OGV5SDZWekxkMUtkTWUzSnNjdThoUXRVa1A?oc=5",
+       "source": "Quartz",
+       "lang": "en",
+       "published": "2026-11-23T13:26Z"
+      },
+      {
+       "title": "OpenAI chief scientist proposes measurable limits on advanced AI development",
+       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQMnBoTUYta2VMQUI1TVRsNGRPZkEtUEIxUHU2WnY5SEozUnIwWDQzRS1YcVhMUkJWY0F6S2xDMFZsNkh6LUg2VWlZVHExUzJuamhTcEJiU3M5cU5OUG9ZVVdRWWdVek1WQzdQRkl0VXMwbkIyN1JLY29DcndETTBhbDQzbEpXVDFMVFVtNWJnN0J6RVJRVFFJUHMxX2xaaHJfTWc?oc=5",
+       "source": "ForkLog",
+       "lang": "en",
+       "published": "2026-11-23T08:54Z"
+      },
+      {
+       "title": "OpenAI Proposes Limiting AI Development Until Companies Learn to Control It",
+       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE4yR0cwOXktelBHUnpDWDZudkxXa0xtR3RyVWNWV3NBWnhCYm5GY2VJbHI2VHdGUXdQMDJpSUV4QThUb0hfNTF6YVhkWXMzOUNCZUd3aXhmM3FxeTFPRnAxOGJlbjRJSi1Y0gFuQVVfeXFMTnpOUUsxT1EzVTczd0hxMW5fdm1nTlpWNVBZLXlFcDVSYjZtdUpGWWZhTVdkZk95SlNYQU15d3cwaGx0SEhBSjVfVUM3X1lIQV9WWlpJeGRsb1hJUUh2SW5rTGFQX0hBTlJCNnNZdFE?oc=5",
+       "source": "Mezha",
+       "lang": "en",
+       "published": "2026-11-23T12:20Z"
+      },
+      {
+       "title": "OpenAI Urges Common Limits on AI Development",
+       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9vZmRnNndndTd6a2F4SjJmYkFjZ3o4OVFDMDliUmFWbVZQZWdsMlUtc05jX3E3REVZZi05Y0Y5NG5mMHlFUzVxSDJUb3JiM0JPTThLUnNqNWtreHZKSWdWaFZVLW4yY0ZfUzh4RVo3UW5WYXVQVWtOUEd6N0xPUlk?oc=5",
+       "source": "Dawan Africa",
+       "lang": "en",
+       "published": "2026-11-23T10:09Z"
+      },
+      {
+       "title": "OpenAI Chief Scientist Reveals Model Progress Metrics, Urges Shared Safety Thresholds",
+       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQ0JZQWlRY1d1WmEzS2RMVzllTHZNN3VXSXpCa3NJVzJPcVBMbmoyQWRvck45c2lmUjU5T1ZzemJvUGtJbnJNSk50cHNLNEN5MjNJbF9QSGpyLThyZGNURzRQeTE2RTRXNWNRbGU0OWMwQ3ZJU3hIeUNoVXROdWh4V2dvNnp1UGVWeDNEb005LWFBYVlMaFlNazZDRUN5eEFDdHEybVg3MjBrakNWbVZKRlhVTS1tRktMSzlwdWxMeEFrR2xaMHdLVA?oc=5",
+       "source": "وكالة سوا الإخبارية",
+       "lang": "en",
+       "published": "2026-11-23T10:06Z"
+      },
+      {
+       "title": "OpenAI AI Scientist Argues for Establishing the Perplexity Metric to Evaluate the Performance of AI Model...",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPLWVCUDFGY0NsaDJESWtfTGZuYVNzQXBCWFJ4TnE4TmZNeklqTFZ4Ql94SXg2Y1AzaDlLc0Q2UkJtcjU2MTN0MjBsSHh0X2J5b19PaTE5TU1xUldaNkd6c05pclVLdFd4bjFiU1lXemNjT0dpYXdUN3BHOS0zc1ZoMENzZHplYmtqaHZSNHpvVmxYbU9qaEoxeXUzR2tkbUNHUm45dVpVOTU4c2g3RUlxYUVn0gG3AUFVX3lxTE9YRExhaURrdlAzQVo3NDcwWktkbWxYX2gxUGp0dmtMeVE2U010bUJ2OTd2V2x6Q0hnTGtSOUl4NUZ6S2ZuUmNyM054LVUtRWhWSFJoUnNRSEJfUTNZdzQ4akVFalJkSUFQNGRtYVd1ekNqb0tPeGdBck5BcXBKeUg5R0YxaF9CS3o4NlZhQ015WUdORWRFLVEycFl2TGF4QXZRalBndVdwNzVqOXJyUE11cDJmOVhsSQ?oc=5",
+       "source": "Gadgets 360",
+       "lang": "en",
+       "published": "2026-11-23T09:53Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yapay_zeka-2"
+    },
+    {
+     "importance": 7,
+     "headline": "Z.ai, döngüsel 'loop transformer' mimarisine sahip GLM-5.4 modelini tanıttı; şirket modelin 4 kat büyük modeller kadar düşünebildiğini iddia ediyor.",
+     "title": "Z.ai, döngüsel “loop transformer” mimarili GLM-5.4 modelini tanıttı",
+     "detail": "Z.ai, yeni GLM-5.4 modelini tanıttı. Modelin yeni bir “döngüsel (loop) transformer” mimarisine dayandığı aktarılıyor; The Decoder, modelin 750 milyar parametreli amiral gemisi olduğunu yazıyor.\n\nDecrypt’in aktardığına göre şirket, modelin kendisinden dört kat büyük modeller kadar düşünebildiğini iddia ediyor. Wccftech ise lansmanda standart yapay zeka benchmark testlerine yer verilmediğini belirtiyor. Çince bir kaynak ise modelin açık kaynaklı modeller arasında en güçlü olduğunu ve Opus 5.5’e yaklaşık yüzde 5 mesafede olduğunu bildiriyor.\n\nBu iddiaları destekleyen bağımsız bir test sonucu kaynaklarda yer almıyor. Verimlilik odaklı bu yaklaşım, doğrulandığı takdirde model maliyetleri tartışmasında da önem kazanabilir.",
+     "key_points": [
+      "GLM-5.4, döngüsel “loop transformer” mimarisine dayanıyor",
+      "Z.ai, modelin 4 kat büyük modeller kadar düşündüğünü iddia ediyor",
+      "Wccftech, lansmanda standart benchmark testlerine yer verilmediğini yazıyor",
+      "Bir Çin kaynağı, açık kaynaklı modeller arasında en güçlü olduğunu bildiriyor"
+     ],
+     "sources": [
+      {
+       "title": "Z.ai Debuts GLM-5.4 With a Novel Looped Transformer Architecture, Skipping AI Benchmarks Entirely",
+       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbmFGUjlOUkoxMHpJQ29PQ192ZmVGbkxxNmhtMWI4MXRvVDA0ajZpeGxXSndTcnhtZmZ6ajVUSWd4VlVUNkQ4a0kyazFMcmx4c1dyRUJ6Y2FhX1RueXM5c1g2TTRrMkJCd09rQzEyT2pKd0FtX2Z1TkZIT1VhMUVzS0dpeEg4QWJvWWxxOFhkWVhxV3NzS0FWaDhoX1dyUHpTb2diYXZPWndNbXItVFZEVm9rZlBBeHY4cGfSAb8BQVVfeXFMUDRCemJndUVpUzRtbGRzbnB0c19WMmxVM1l0UjhoR0NZQ0gzOHYtUkN2SWY2OFNZa3FqSVZfUm5BSXdKVlZNYjNLRDc4TW9sQ2ZnT1hEOTQtQUZ6NXlWb1dETVZ6YmRpSGUyUzJKOEFocHVnZUdPMnVteG1kTXcwT3BmWHVXMnZ5Q3owY043MURNakZQS3BlS1JSMEpXdVBQQXpJUERkckJSM0NjcFo4RW1CSGg0RzdvUFZJSVQ0bk0?oc=5",
+       "source": "Wccftech",
+       "lang": "en",
+       "published": "2026-11-23T14:32Z"
+      },
+      {
+       "title": "智谱发布GLM-5.4旗舰模型",
+       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB6eG5KVmpaOUdzTGZZSmtEcU9NTnViLTl6RjhWS014N2tfYUo4c3JJaWl6bUlLRnVDLXNQSmZNLUVhWFZoY1l1czZ1UkVYMEdyamk1aFQ1NnQ2bk16X0pmLVNabU5OUQ?oc=5",
+       "source": "东方财富网",
+       "lang": "zh",
+       "published": "2026-11-23T13:45Z"
+      },
+      {
+       "title": "智谱正式发布新一代大模型GLM-5.4",
+       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBRYkxyR19GRWJWMnREX0Q5QW5GaUplSlJrYTA4SEdTSFQzN1VmdlgtZ19LM19QTE1MLW1YUEx4Z2E4amJqUVVnQXYtUnc5TlhodGRnQWRaY0FNcFVPb2R6WWVFbEc?oc=5",
+       "source": "东方财富网",
+       "lang": "zh",
+       "published": "2026-11-23T11:18Z"
+      },
+      {
+       "title": "Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model",
+       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaWpsRHQwN1U1VFRVZWNmaG9RRzJ0YjA5NnV3VUItblJTQ0FKRkJtck9QZHZZSXpieGd0blhOakJ3R3VHSlI2NElVZi0wQXEzTUJQc2g5OWlqNXZkMUQ1QkRzV0tiVFh3WXIwY1BSMFd2cFZrT3E3TUN0SnhmaGRQZlowR0NqeTNEc2dEQTRhX3ZOd3pPeXNOT0FJcThmSzRaYzRFN25ZQ05rWXJyUVE?oc=5",
+       "source": "The Decoder",
+       "lang": "en",
+       "published": "2026-11-23T15:13Z"
+      },
+      {
+       "title": "China's Z.ai Says Its New AI Model Can Think Like One Four Times Its Size",
+       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPMnFpYUdjNTlxMW5jQ0ZiZ0huLVlCcGFJQ3YwVzNnRng2RVpIb182UTBCWFJBX2M1ajRrVk1vT1JEX1I1dFlMUW96bmpDS3dvaHRBY2cwWHdqLXBxUHpTLXBySUJjZHMydFhoTURGZlhOTWxyRUx5TGdaY25UbW5LVXdINENGSDA?oc=5",
+       "source": "Decrypt",
+       "lang": "en",
+       "published": "2026-11-23T23:06Z"
+      },
+      {
+       "title": "智谱GLM-5.4大模型发布：仍是开源最强、比Opus 5.5差距5%内_人工智能",
+       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBZbDMtVEN6eVM1QUtGbUJoUFJKNlJJOXY0RXJRcV80cmJOcFIzZ2hZbnhGVC1TUGJPTURvbFphbWU1Ri1DQnFKbS14VkphSUM3M3J2MFVZbVV5ekZM?oc=5",
+       "source": "www.anfangnews.com",
+       "lang": "zh",
+       "published": "2026-11-23T11:10Z"
+      },
+      {
+       "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+       "url": "https://z.ai/blog/glm-5.4",
+       "source": "z.ai",
+       "lang": "en",
+       "published": "2026-11-23T10:06Z"
+      },
+      {
+       "title": "智谱发布新一代大模型",
+       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB1QjJGZ3lBZEpfRHlSOVd4SktuaGUwNGtsZUVTTEM4bU9rdFB1M3FYaFRFc2szdUE4SjM0NlhMWHNsejRsQ3IwNFA2OTVhdkNMdWc?oc=5",
+       "source": "Sohu",
+       "lang": "zh",
+       "published": "2026-11-23T23:17Z"
+      },
+      {
+       "title": "智谱 重大发布！-证券之星",
+       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE83alZWUmVPV2tXaGM5eEsyS0gtOWZaTjloUGRLMlFuaVhBOWNyTU5Ua3JMcHJzOHFWLXFBaE5QS193S1o3b3JVcFVCSWxVSnZDMFo1UmVwVTQ0aER3S3c?oc=5",
+       "source": "证券之星",
+       "lang": "zh",
+       "published": "2026-11-23T15:26Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "yapay_zeka-3"
+    },
+    {
+     "importance": 7,
+     "headline": "Google Gemini 4 Neon ve OpenAI GPT-6.2 Astra-Sol modelleri, daha büyük kurumsal iş yükleri ve verimlilik hedefiyle duyuruldu.",
+     "title": "Gemini 4 Neon ve GPT-6.2 Astra-Sol kurumsal iş için duyuruldu",
+     "detail": "Google, 18 Kasım’da Gemini 4 Neon’u tanıttı. Model; Google AI Studio, Gemini for business, Google Antigravity ve Gemini uygulamasında kullanıma sunuldu. Tablolar, PDF’ler, grafikler, ses ve video gibi kurumsal iş akışlarını birleştirmeyi ve uzun süren ajan iş akışlarını desteklemeyi hedefliyor. TechTarget’a göre bu, Google’ın Eylül’den bu yana tanıttığı altıncı model.\n\nOpenAI de aynı gün GPT-6.2 Astra ve GPT-6.2 Sol modellerini duyurdu. Astra, en zor projeler için tasarlanmış amiral gemisi model; Sol ise günlük iş akışları için. OpenAI, modellerin daha az token ile daha iyi sonuç verdiğini ve Sol’un öncülü GPT-6.1 Sol’dan daha verimli olduğunu söylüyor. Astra’nın hukuk, satış, finans ve muhasebe gibi alanlarda kaliteli slayt, tablo ve belge üretebildiği belirtiliyor.\n\nAlibaba ise 17 Kasım’da Qwen4-Max’i tanıttı; model kodlama ve ajan akıl yürütmesinde güçlü olmasının yanında 3D modelleme, oyun geliştirme ve video üretimi için de uygun. Analist Bradley Shimmin’e göre bu modeller tam yükseltme değil, mevcut modellerin keskinleştirilmiş sürümleri. Kaynaklarda modellerin fiyat avantajına dair net bir veri yok.",
+     "key_points": [
+      "Gemini 4 Neon, 18 Kasım’da Google tarafından duyuruldu",
+      "OpenAI, en zor işler için Astra ve günlük işler için Sol modellerini tanıttı",
+      "Alibaba, Qwen4-Max’i 17 Kasım’da duyurdu",
+      "Analistlere göre bu modeller tam yükseltme değil, keskinleştirilmiş sürümler"
+     ],
+     "sources": [
+      {
+       "title": "Model Release: Gemini 4 Neon, GPT-6.2-Astra-Sol target business productivity",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRHphN3RHUmwxdVhoR3RvLUp6aTRJcUdWc1NYNy1Qd2NzVkJ0V1Q1VWtMRTlRcktXMFZ2SDYwNUhZWGNfa2VEOTZIYk1ZY3VJVTJZa3VWdVdMSHBUdVJ3c2JsZmx0RWFxYUVrOFNFdDdvZXFlcExMZWhkVEc1N3lBU3hubVRFemQtanM5U3pQQ1RhOHNjN0VRQ01GQnBBU1lfZTl2d3FBVEJ2M3JrMi1xalBR?oc=5",
+       "source": "TechTarget",
+       "lang": "en",
+       "published": "2026-11-23T13:15Z"
+      },
+      {
+       "title": "Google's Gemini 4 Neon Takes on Bigger AI Jobs but Is It Actually Cheaper?",
+       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZ3ZmRWdRUEh2aUk2VmJ1VC1jNDBFN2pILU40d1NodURqQ1BzNkg2N1pFSmhfYW84dUw5dmk5U1JzcVNWcGl1NUNnVWRXeFM0YzJpcGpnN2JpVm82REJ1eFhYQzVRSGtkekFiREtZRDVYYUtjNzR4WXZKUThTeGxLREt3ZTM2dw?oc=5",
+       "source": "SoaplandTV",
+       "lang": "en",
+       "published": "2026-11-23T22:02Z"
+      },
+      {
+       "title": "Model Release: Gemini 4 Neon, GPT-6.2-Astra-Sol target business productivity",
+       "url": "https://www.techtarget.com/news/model-release-gemini-4-neon-gpt-62-astra-sol-target-business-productivit/875440/",
+       "source": "TechTarget",
+       "lang": "en",
+       "published": "2026-11-22T23:36Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yapay_zeka-4"
+    }
+   ],
+   "note": "",
+   "candidates": 145
+  },
+  {
+   "id": "ai_kodlama",
+   "title": "Yapay Zeka Kodlama Araçları ve Fiyatlar",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Anthropic, GitHub pull request'lerini inceleyip düzelten ve ekip politikasına göre onaylayan Claude Ship'i Team ve Enterprise planlarına açtı.",
+     "title": "Anthropic, Claude Ship ile PR incelemesini otomatikleştirdi",
+     "detail": "Anthropic, 23 Kasım 2026'da Claude Ship'i beta olarak duyurdu. Paket üç ajandan oluşuyor: genel kullanıma açık Code Review ile beta aşamasındaki PR Steward ve Claude Approvals. Code Review, kod değişikliklerindeki mantık hatalarını, güvenlik açıklarını ve bozuk kenar durumlarını bulup önem derecesine göre satır içi yorum bırakıyor. PR Steward, başarısız CI kontrollerini, birleştirme çakışmalarını ve inceleme geri bildirimlerini düzeltmek için commit gönderebiliyor, ama birleştirme yetkisi yok. Claude Approvals ise ekibin depoya yazdığı bir politika dosyasına göre onay veriyor. Hizmet şu an yalnızca GitHub depolarında Claude Team ve Enterprise planlarında sunuluyor; Anthropic onay özelliğini önce gözlem modunda çalıştırmayı öneriyor.\n\nClaude Ship kullanımı, plana dahil kullanım hakkından ayrı olarak token üzerinden faturalanıyor. Maliyet PR sayısına, boyutuna, inceleme seviyesine ve sıklığına göre değişiyor; yöneticiler harcama limiti koyabiliyor. Onay politikası için temel ücret yok, ancak sınıflandırıcı çalışmaları ve politikanın istediği incelemeler ücretlendiriliyor. Kaynakta Claude Ship için 1 milyon token başına bir fiyat verilmiyor. /ship komutu normal Claude Code kullanımı sayılıyor. Kullanıcının bireysel bir Claude aboneliği varsa Claude Ship'in ekip ve kurumsal kısmı doğrudan kullanılamayabilir. Uygun kurumsal müşteriler 15 Ocak 2027'ye kadar en az 10.000 dolarlık kredi talep edebiliyor.\n\nAnthropic herkese açık bir benchmark yayımlamadı; kendi ölçümlerini paylaştı. Claude Code ekibinde birleştirilen PR sayısı Haziran-Eylül 2026 arasında iki katından fazla arttı, geri alınan değişikliklerin oranı yüzde 40'tan fazla düştü. Kayda değer inceleme yorumu alan PR oranı yüzde 16'dan yüzde 54'e, bir inceleme-düzeltme turunda geçen PR oranı yüzde 65'ten yüzde 78'e çıktı. Ortalama inceleme sayısı 2,08'den 1,32'ye düştü. Bu veriler Anthropic'in kendi bildirimi; kesinlik ve duyarlılık metrikleri paylaşılmadı. Claude'un incelemesi ekipteki daha geniş sürecin yalnızca bir katmanı olarak tanımlanıyor.",
+     "key_points": [
+      "Claude Ship; Code Review (genel kullanıma açık) ile PR Steward ve Claude Approvals (beta) agentlarından oluşuyor; yalnızca GitHub ve Team/Enterprise planlarında.",
+      "Faturalama token üzerinden ve plan kullanım hakkından ayrı; onay için temel ücret yok, ama sınıflandırıcı ve politika incelemeleri ücretli.",
+      "Anthropic'in kendi verileri: birleştirilen PR sayısı 2 katından fazla arttı, geri alma oranı yüzde 40'tan fazla düştü; bağımsız benchmark yok.",
+      "Uygun kurumsal müşterilere 15 Ocak 2027'ye kadar en az 10.000 dolarlık kredi; ZDR, HIPAA ve CMEK kullanan kuruluşlarda kullanılamıyor."
+     ],
+     "sources": [
+      {
+       "title": "Anthropic launches Claude Ship to review and approve PRs",
+       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQcE9vRWhlb1Z0dnFuSWZwZXNIaVBTM3l5clRHYVllWlNZbXd2NHNuUWdpaF84T2NCb2hiZ2g4QUpZT2tIY3VSY0MxLXlJRUtIN1pfSXpWQ1UxU1hWenp4S1ZlMlNDak0xMnBJT0dUS1AybFl5andvRkJvZEZyNWcxTVhPdzBLNkRIYmZ6ZFNSeW8zUQ?oc=5",
+       "source": "TestingCatalog AI News",
+       "lang": "en",
+       "published": "2026-11-23T23:29Z"
+      },
+      {
+       "title": "Anthropic launches Claude Ship to automate code reviews and approvals",
+       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5lUVEtbnN1LTJyYm5CdmZCV1BTX3dnb3dMdGQya3pGQXdPSTkzYVItNENNcHNvUmQ2NnREdWtITzA0YUMzTzZaZVpuTURXUXAyWmNhbkxITlRzV1pxSmwzay0xcw?oc=5",
+       "source": "Crypto Briefing",
+       "lang": "en",
+       "published": "2026-11-23T21:31Z"
+      },
+      {
+       "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+       "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPOUdkSUFqUUdSaDIwclBOdjhNS2ltR3hsOW4tQTlMTzAzVjVrazZLN3J1eWJsYm02NDBOcUFlLXdoRV9CY3F2OHdwb215cm5mamdRZTBBS19keDhieXZiQ080SnJlTFVsNEpjNkEzMlBjOUhTSHNHTzZwNHJiYTBzSnpDemUwdFNxTXNDRHB3VEs5cnhIUTJpZ1FMd3Z1OTBXRG00Q0dlSmlqUW53eEd2dDJKaVJlRDVQdXFB?oc=5",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T22:05Z"
+      },
+      {
+       "title": "Anthropic Launches Claude Ship to Automate Code Reviews, Fixes, and PR Approvals: 11 outlets compared",
+       "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQQ1U0Mm9hQ0VDQnJJTW9lUTFCeDNoaE95Q3d4aEoxblBBQ19EaS05ZWt2WXdhWW5YU2d0VUphaUoyRHFqeU9yVmZNeHF4OExrcWNoeUR6TW1POWFpbUJGSkI0anZtMkwtam9KTGpVUEpTcldYY09ad3cwaFJoTFgzaEhpc0hpVGFYdkYwWG1zb21uNW14Zk5GQ0RyQVlkSU8yUHY4bHI1b2Q0WUFYOG1oTkt1N2VDRHZsRWdpeTR2cVlyRnpnVFk1ZXpiZWIyZzhQT210NHV4aFZES1JPQmQ3cTNlZ3Bubk0?oc=5",
+       "source": "NewsCord",
+       "lang": "en",
+       "published": "2026-11-23T23:24Z"
+      },
+      {
+       "title": "Anthropic expands Claude Code’s review tools with automated fixes and approvals",
+       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBYRDNKYTFMeVVBUk11a2VKNVlXMDlSUUhXWkNCRGVhdEJwbWExQ05BX0hlelhQblRoYUxtcU9IZWpYLWRZOFo2ZmlqYTBLSHotNDBoeGE5bHRHWk5BQ3MtRWF5M19lanUtY202T3F3YXJER2ZzejE5c2JRdS1IZTA?oc=5",
+       "source": "Digital Trends",
+       "lang": "en",
+       "published": "2026-11-23T20:51Z"
+      },
+      {
+       "title": "Claude Ship: Anthropic Now Lets Claude Approve Code, Too",
+       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE8tUFJ5TTJyZnRpZ0dKRlJfOERJNW5tSE9RUlZJd3h4UXZVQnJuZ0RfLTVHbkZJMTVMRENLZHNGLS1LNTJiNzdPZG1udWRPMGJkUURDLXZwdU5STzAtY2NvdjBuOEVMd25Tekc1RFdKSTlNblVs?oc=5",
+       "source": "www.trendingtopics.eu",
+       "lang": "en",
+       "published": "2026-11-23T22:13Z"
+      },
+      {
+       "title": "Anthropic Launches Claude Ship to Automate Code Reviews, Fix Pull Requests and Accelerate Software Development",
+       "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNbnNqcWJCd3B4c1k0aWp4UHRQbXB2VUJ6Uy1jMElOdGdxWTluR0hRM1hVa1ZWXzIweTd1RTV2cGcxcF9pRW9DTHZPUGo5NlkzMC1udllYcUNGMm1CT0xPaHB2VHRDUzI5d2dtZkc5d25STjM4NXVVRkJ0OThQWkw3MThwczZOeFhmbk10S29RRTA4aWYtRkdjU0ktN3BrNmxnU09QTkxJNUkyNHhtSFplZDNVbUJmWXJZaERVM3dWSGNERko0b2ZJNjV0N3lrTTE1N2pSaFJJUG13UW96cUhkQUF3?oc=5",
+       "source": "citybiz",
+       "lang": "en",
+       "published": "2026-11-23T21:02Z"
+      },
+      {
+       "title": "Anthropic’s Claude Ship Puts 3 Agents on Pull Requests",
+       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNZ2Z2d1ZVZE9KNXhOa2tfb3h6SmREY19hT2ZHd2xUemZ4V3pOcGUwWEZySjl3ZVVSYXlmdGthc2V1ckVnRGxFQkZUVTd3cnBWbkprT0Jqc3JnWTl1VzFRMXpPRkhaTEZmdXZib2F6N3N2NUVqWVUtV1ExUVctOEVDSVhpanhVeUE5?oc=5",
+       "source": "FourWeekMBA",
+       "lang": "en",
+       "published": "2026-11-23T21:00Z"
+      },
+      {
+       "title": "Anthropic Debuts Claude Ship to Automate Pull Request Reviews and Merges",
+       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9OLTg4SmZvamlvOFpiT1V2bW5ocTV5RURwQkhlQjljckwzU2l4bXBMZXJ0Mm1zeUtHM0s1dHVqS0dSbDJtTjVxNXp5aUdvUzFqMF9LY2FONW5VMFRQRk9BcHZfdWRVN3g4OG9laTJuWjhtNHgtclE?oc=5",
+       "source": "BigGo Finance",
+       "lang": "en",
+       "published": "2026-11-23T20:55Z"
+      },
+      {
+       "title": "Claude Ship, Anthropic Automates Pull Requests",
+       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPQ1AxZlNjMWhYbnFhTG1lVEpfUG9yczNsMHRuc2pyWHZvUmlsTFRPVzlNQ1Q3d3JIQWxxTTVRbWhreHpKeHM2YjNQZDRMM1NQdEtXS2k1OVJzRkdaQm1MSEFTdHItZThmam42VWd3bVlIWS1ET3ZraU5VelF3dS05bVBLS1F0SnZiWWpfOU9HWEc2UWU2WUpybg?oc=5",
+       "source": "Meteora Web",
+       "lang": "en",
+       "published": "2026-11-23T20:55Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "ai_kodlama-1"
+    },
+    {
+     "importance": 7,
+     "headline": "DeepSeek ücretsiz kullanım kotasını daralttı; yorumcular ücretsiz yapay zeka döneminin sona erip ermediğini tartışıyor.",
+     "title": "DeepSeek ücretsiz kullanım kotasını daralttı",
+     "detail": "DeepSeek, ücretsiz kullanım kotasını daralttı. DoNews’in haberinde bu değişiklik, sektörün çip sayısıyla yarışmaktan maliyet hesabına geçişi olarak yorumlanıyor. Huxiu’ya göre ise büyük şirketler ajan (agent) ve token tüketimi üzerinden liderlik için yarışıyor.\n\n21 Finans, ücretsiz yapay zeka döneminin sona erip ermediğini tartışıyor. Kaynaklarda yeni kotanın sınırlarına, fiyatlara veya kullanıcıların nasıl etkileneceğine dair rakam yer almıyor.\n\nDeepSeek API kullanan geliştiriciler için bu değişiklik, kullanım maliyetlerini ve fiyat/performans dengesini yeniden gözden geçirmeyi gerektirebilir.",
+     "key_points": [
+      "DeepSeek ücretsiz kullanım kotasını daralttı",
+      "Yorumcular ücretsiz yapay zeka döneminin sona erip ermediğini tartışıyor",
+      "Büyük şirketler ajan ve token tüketimi üzerinden yarışıyor",
+      "Yeni kota ve fiyat rakamları kaynaklarda yer almıyor"
+     ],
+     "sources": [
+      {
+       "title": "从英伟达换帅到DeepSeek限额：AI行业不再“拼卡”、开始“算账”",
+       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1kUUZWTGNBV0FqQTBGdV94LVdEcm00NGkyLUVpMFk1cTloeEVpODdoYWdpQlZyMnRsaEdTWVM4TDZnOHd4Vng0TnloYjFxaGxTaHhLcWdUTEg3dUZmek9WbWdqTXU?oc=5",
+       "source": "DoNews",
+       "lang": "zh",
+       "published": "2026-11-23T09:57Z"
+      },
+      {
+       "title": "DeepSeek免费额度收紧，大厂围绕AI智能体与Token消耗争夺“第一”",
+       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1ZNExCdmlFcFQxTlV0M2dveTJwWVU4RktYdzNVU0M1WWw2RFB1UHh3dVduaEtCQWhGcWozeVd3THktaG0xbkFoZ2QyWmtSVXJ6YzlOdg?oc=5",
+       "source": "虎嗅网",
+       "lang": "zh",
+       "published": "2026-11-23T09:15Z"
+      },
+      {
+       "title": "免费AI的好日子，到头了？",
+       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOZ0otR1VfZ2VkMDdSb3FJbThCWkJCUXF1YU1qbV9rVXFFNHBtaXJNLTNtUC1rVktsbXU3VHozdDRUTlljUGlTNDlISjM5dV9YWmF2RTFBc2pqQ2VkQTE0Nk1mdU1oTW1nSEtlVWNLSlNZVzNtM0wtTXFQaFZfZjNwT3lDVnFrdWh2Y1FES2NPRQ?oc=5",
+       "source": "21财经",
+       "lang": "zh",
+       "published": "2026-11-23T11:50Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "ai_kodlama-2"
+    },
+    {
+     "importance": 7,
+     "headline": "DeepSeek V4 model ailesinin tamamı yayına girdi; DeepSeek Harness geliştirici önizleme sürümü test için açıldı.",
+     "title": "DeepSeek V4 ailesi tamamlandı, Harness önizlemesi açıldı",
+     "detail": "DeepSeek V4 model ailesinin tamamı yayına girdi. 财联社’in haberine göre bu duyurunun ardından DeepSeek Harness geliştirici önizleme sürümü test için kullanıcılara açıldı.\n\nKaynakta modellerin fiyatları, performans testleri ya da Harness’in özellikleri hakkında bilgi yer almıyor. Yine de tüm V4 ailesinin yayına girmesi, DeepSeek API kullanan geliştiriciler için yeni seçenekler anlamına geliyor.",
+     "key_points": [
+      "DeepSeek V4 model ailesinin tamamı yayınlandı",
+      "DeepSeek Harness geliştirici önizlemesi test için açıldı",
+      "Fiyat ve performans bilgisi kaynakta yok"
+     ],
+     "sources": [
+      {
+       "title": "V4全系列模型上线后，DeepSeek Harness开发者预览版开放测试",
+       "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE4wd0JWNXNkT3NmUy1UV09ldm1iSXY3dTllQ1o1ZFg5MFZPS1BRY3RCTUJLc05UYWJTb1R6VHhoT0NXM3hJQU5xLQ?oc=5",
+       "source": "财联社",
+       "lang": "zh",
+       "published": "2026-11-23T21:28Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "ai_kodlama-3"
+    },
+    {
+     "importance": 7,
+     "headline": "Claude Code'a gerçek zamanlı maliyet kontrolleri geldi; Uber da Claude Code maliyet ayarlarının sonuçlarını paylaştı.",
+     "title": "Claude Code’a gerçek zamanlı maliyet kontrolleri geldi",
+     "detail": "Claude Code’a gerçek zamanlı yapay zeka maliyet kontrolleri eklendi (Techzine Global). Bu özellikler, geliştiricilerin kodlama oturumlarındaki harcamalarını anlık olarak takip edip kontrol etmesine yardımcı oluyor.\n\nNeoTeo, Uber’in Claude Code maliyet ayarlarını ve bu ayarların sonuçlarını paylaştığını yazıyor. Haberin özetinde Uber’in elde ettiği rakamlar yer almıyor.\n\nClaude aboneliğiyle Claude Code kullanan ve DeepSeek’i işçi model olarak değerlendirmeyi planlayan biri için maliyet kontrolleri kullanım planlamasında doğrudan işe yarayabilir.",
+     "key_points": [
+      "Claude Code’a gerçek zamanlı maliyet kontrolleri geldi",
+      "Uber, Claude Code maliyet ayarlarının sonuçlarını paylaştı",
+      "Uber’in rakamları kaynakta yer almıyor"
+     ],
+     "sources": [
+      {
+       "title": "Developers get real-time AI coding cost controls inside Claude Code",
+       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOSzV2SGR3WVhTaklPZWFaRXNSd25lcFVKVDNXejlvdGdDcnJ0SWQzMHhhMm9ReHNOV1lENTNZZ2ZwTm1Zb0dmMzFKendaNEFMcTJ4R29sMS13TjlQSi1vdm9qQTNSZnduZzdoREZER0VYUkswY1c1QXhYOTlrTGNBcjhpdVhiekRJNEw3Y1JlQ1ZvNzVVZHQ3VXdIYWwyZFVwZUZpNER2cG9oZGJoOVlSc00wRzk4Z1Q2N2c?oc=5",
+       "source": "Techzine Global",
+       "lang": "en",
+       "published": "2026-11-23T09:23Z"
+      },
+      {
+       "title": "Uber Claude Code cost controls: settings and results",
+       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE84Ul9FNDNZWktScUxjTnlBOGVIaDJ4bmxpLU1OcEdVTVBRbHNRWGxaUmFBbXpqNEFqYlBhdFdleTJwNng0T3c4V0hwUTBxWFhjNEZhc0xBTGJ0bU1xVDFNQXoyX0Y1V3gyRTRxTmxMRWtucmRE?oc=5",
+       "source": "NeoTeo",
+       "lang": "en",
+       "published": "2026-11-23T15:52Z"
+      },
+      {
+       "title": "Developers get real-time AI coding cost controls inside Claude Code",
+       "url": "https://www.techzine.eu/blogs/applications/145971/developers-get-real-time-ai-coding-cost-controls-inside-claude-code/",
+       "source": "Techzine Europe",
+       "lang": "en",
+       "published": "2026-11-23T01:23Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "ai_kodlama-4"
+    }
+   ],
+   "note": "",
+   "candidates": 136
+  },
+  {
+   "id": "teknoloji",
+   "title": "Genel Teknoloji",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "CrowdStrike, bulut güvenliği şirketi Zscaler’ı yaklaşık 44 milyar dolara satın almak için anlaştı.",
+     "title": "CrowdStrike, Zscaler’ı yaklaşık 44 milyar dolara satın almak için anlaştı",
+     "detail": "CrowdStrike, bulut güvenliği şirketi Zscaler’ı yaklaşık 44 milyar dolara satın almak için anlaştı. TechCrunch, 43,9 milyar dolarlık tamamen hisse senedi karşılığı bir anlaşmadan söz ediyor. Anlaşma düzenleyici onaya tabi ve önümüzdeki yılın aynı dönemine kadar tamamlanması bekleniyor.\n\nZscaler, yaklaşık 8.000 kurumsal müşteriye bulut tabanlı güvenlik ürünleri sunuyor ve “sıfır güven” (zero trust) teknolojisine odaklanıyor. CrowdStrike ise bilgisayar, dizüstü ve telefon gibi cihazları koruyan uç nokta güvenliği yazılımlarıyla bilinen bir şirket. İki şirket bu ürünleri birleştirerek daha güçlü bir koruma ve “en büyük tek adreslenebilir pazar” vaat ediyor.\n\nŞirketler, anlaşmanın kurumların yapay zekayı güvenli biçimde benimsemesine yardımcı olacağını söylüyor. Çince cnBeta haberine göre CrowdStrike, anlaşmanın 2029’a kadar hedef pazarı 185 milyar dolara çıkarmasını bekliyor.",
+     "key_points": [
+      "Anlaşma tamamen hisse senedi karşılığı, yaklaşık 43,9 milyar dolar",
+      "Zscaler, yaklaşık 8.000 kurumsal müşteriye hizmet veriyor",
+      "Anlaşma düzenleyici onaya tabi",
+      "Şirketler, kurumların yapay zekayı güvenli kullanmasının hedeflendiğini söylüyor"
+     ],
+     "sources": [
+      {
+       "title": "CrowdStrike to acquire Zscaler for $44 billion",
+       "url": "https://techcrunch.com/2026/11/23/crowdstrike-to-acquire-zscaler-for-44-billion/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T16:20Z"
+      },
+      {
+       "title": "CrowdStrike将以440亿美元收购云安全公司Zscaler",
+       "url": "https://www.cnbeta.com.tw/articles/tech/1587634.htm",
+       "source": "cnBeta",
+       "lang": "zh",
+       "published": "2026-11-23T11:48Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "teknoloji-1"
+    }
+   ],
+   "note": "",
+   "candidates": 184
+  },
+  {
+   "id": "oyunlar",
+   "title": "Oyunlar (Soulslike ve Aksiyon-RPG)",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı resmen doğrulandı.",
+     "title": "Elden Ring: Rot & Sorcery’nin 2027’de çıkacağı doğrulandı",
+     "detail": "Elden Ring: Rot & Sorcery’nin 2027’de çıkacağı resmen doğrulandı. ScreenRant’ın 23 Kasım’da yayımladığı habere göre oyunun çıkış yılı bu şekilde açıklandı.\n\nKaynakta oyunun platformları, kesin çıkış tarihi, fragmanı ya da fiyatı gibi ayrıntılar yer almıyor. Soulslike ve aksiyon-RPG takipçisi için bu, takip edilmesi gereken yeni bir oyunun resmi doğrulamasıdır.",
+     "key_points": [
+      "Oyunun 2027’de çıkacağı resmen doğrulandı",
+      "ScreenRant haberini 23 Kasım’da yayımladı",
+      "Platform, kesin tarih ve fragman bilgisi kaynakta yok"
+     ],
+     "sources": [
+      {
+       "title": "Elden Ring: Rot & Sorcery Officially Confirmed For 2027",
+       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xQXpidGszdmhXWEtZNzcwYXVqS0gzYUVfdHdtd1F5c3JBQ0RpYXdZNE83OEdtQmhsZ1Q2eS1SdDdZT0o1c1pJd2pRMXRUMFcxeV8xa2YzdUY2dG44cndMbFp6RkIwd2NTMF80NW5GNnI?oc=5",
+       "source": "ScreenRant",
+       "lang": "en",
+       "published": "2026-11-23T11:55Z"
+      },
+      {
+       "title": "Elden Ring: Rot & sorcery officially confirmed for 2027",
+       "url": "https://www.msn.com/en-ca/news/other/elden-ring-rot-sorcery-officially-confirmed-for-2027/ar-AA2i4yUS",
+       "source": "Screen Rant on MSN",
+       "lang": "en",
+       "published": "2026-11-23T03:55Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "oyunlar-1"
+    },
+    {
+     "importance": 6,
+     "headline": "Queen's Domain 300 binden fazla adet sattı; Eurogamer incelemesi oyunu etkileyici bir aksiyon-RPG olarak övdü.",
+     "title": "Queen’s Domain 300 binden fazla sattı, inceleme övgü topladı",
+     "detail": "Queen’s Domain, 300.000’den fazla adet satarak ilgi topladı (VGChartz). Aynı dönemde Eurogamer’ın incelemesi oyunu “gerçek bir merak uyandıran, etkileyici bir aksiyon-RPG” olarak övdü. Oyun, FromSoftware’in King’s Field serisinden ilham alan Freshly Baked Games tarafından geliştirildi.\n\nEurogamer’a göre oyunun başlangıcı Dark Souls’u andırıyor; ancak ilerledikçe Zelda ruhu ve Metroidvania öğeleri de belirginleşiyor. Dövüş, düşmanların saldırı kalıplarını öğrenmeyi ve doğru anda geri adım atıp karşı saldırı yapmayı gerektiriyor. Oyunda 100’ü aşkın düşman ve yaklaşık 100 silah bulunuyor. Retro görsel tarzı ve sırlarla dolu dünyası da incelemede öne çıkan yönler.\n\nİncelemeye göre oyun ilerledikçe Soulslike kalıplarından uzaklaşıp daha hızlı ve yoğun bir dövüş sunuyor. Kaynakta Metacritic veya OpenCritic puanı yer almıyor.",
+     "key_points": [
+      "300.000’den fazla adet satıldı (VGChartz)",
+      "Eurogamer, oyunu etkileyici bir aksiyon-RPG olarak övdü",
+      "Başlangıç Dark Souls’a benziyor, ilerledikçe daha hızlı bir dövüşe dönüşüyor",
+      "Geliştirici Freshly Baked Games; 100’ü aşkın düşman ve yaklaşık 100 silah"
+     ],
+     "sources": [
+      {
+       "title": "Queen's Domain review - a stunning action-RPG of genuine wonder",
+       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1zREVUVlluSjRQb2ZjRWxTTHZEUGNjbl93RVJLNjBWYkJtSU0wTVI0YnVibkI4enExdElzRTRuQ1J0Z1dXSDJtMGk5bEhoTC1UMEt5MHFKX1J4Zw?oc=5",
+       "source": "Eurogamer.net",
+       "lang": "en",
+       "published": "2026-11-23T10:04Z"
+      },
+      {
+       "title": "Queen's Domain Sales Top 300,000 Units",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxObllNNk1mUEZSbV9Gd3hDOXdfeC1TTmVvcTFiZmVyLVc2ajJlOWRNQklvUkFNS25EbHUtbmpCREMzQ3hGSENIeHUzbWd0U09fUW1zemdObzcyOHdybWpGZTlBeDlsRWhzTUJ5Zzd6T3FwOTAtT1hCanZyTmVQb1d2LXBlaw?oc=5",
+       "source": "VGChartz",
+       "lang": "en",
+       "published": "2026-11-23T19:51Z"
+      },
+      {
+       "title": "Queen's Domain review - a stunning action-RPG of genuine wonder",
+       "url": "https://www.eurogamer.net/queens-domain-review",
+       "source": "Eurogamer",
+       "lang": "en",
+       "published": "2026-11-23T02:04Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "oyunlar-2"
+    }
+   ],
+   "note": "",
+   "candidates": 55
+  },
+  {
+   "id": "cs2",
+   "title": "CS2",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "PGL Major Singapore 2026 Stage 1 başladı; turnuvanın ilk İsviçre sistemi maçları oynanmaya başlandı.",
+     "title": "PGL Major Singapore 2026 Stage 1 başladı; İsviçre sistemi maçları oynanıyor",
+     "detail": "CS2’nin PGL Major Singapore 2026 turnuvasının Stage 1 bölümü başladı. Esports.gg, turnuvanın ilk İsviçre sistemi maçlarının oynandığını ve erken maçların sonuçlarını paylaştı.\n\nYayımlanan haberlerin çoğu turnuvanın ön izlemesi niteliğinde; takım listesi, format, program ve izleme bilgileri üzerinde duruyor. Ön izleme haberleri ayrıca Pick’Em tahminleri ve bahis analizleri de içeriyor. Stage 1 sonuçlarına dair bilgi ise yalnızca erken İsviçre maçları için bildirilmiş durumda.\n\nKaynaklarda Türk takım veya oyuncularının bu turnuvadaki durumuna dair bilgi yer almıyor.",
+     "key_points": [
+      "Stage 1, turnuvanın ilk aşaması ve İsviçre sistemiyle başladı",
+      "Esports.gg, erken İsviçre maçlarının sonuçlarını paylaştı",
+      "Haberlerin çoğu takım, format ve program ön izlemesi",
+      "Türk takım veya oyuncu bilgisi kaynaklarda yok"
+     ],
+     "sources": [
+      {
+       "title": "PGL Major Singapore 2026 Starts Tomorrow — Schedule, Ukrainians and Tournament Format",
+       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOd09Wc2psMk1YRkRJTjNMei0xbVFwTkc0Rjg1U2JsMjNWVTNMdlRwSFFQUlJ5Z3YzTlhkazZXS2tKZmxwSEdMbFBjMUdPYjZXZFc5c0N6NXVHWmRoVkRSUC02aW14VGF3TExDc3BWRXNBYy1RLWM0b0hQck52TzNwbWhTYWtWUGtXUmpreFZVVVFaRDA1OUJ6UG1lUWt1Q1ZMRWU0VHU2YnhCU0VGbG8zXzVQWXfSAbwBQVVfeXFMUFJDcTZNZEJzcmljSmlXVk5TUl90UHJ1bzNwdnk2cV9XSWMtdGgwVDJCbTVwaTRyS29hOG1JY0NfWGloaVRpS2FsekpwanRFNS04ZDRRWEpSMWpDY0phMmdMeUxFR0pzX1c3eTVoY3JlVGNQdFRZYzNubEFmcTI1YXVUUVFmYW1hMWY1N1JaZkFhNGZySjBWNENycU15RUg0Vl92dnZWaUMzNkhQVG1TTXJmMnVVSGtNTnkzUmg?oc=5",
+       "source": "Players",
+       "lang": "en",
+       "published": "2026-11-23T20:11Z"
+      },
+      {
+       "title": "Stage 1 kicks off CS2 Singapore Major 2026: Results from the early Swiss clashes",
+       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNamRjZk5ZR3QzbHlvLTdqT1hGU2ZCWGJLak5xaWZRcnN3YUhFWjdTdVIycFRWeVVsWm5iTDVjbHJPLWlzb1A3RXZpb3BHN0lMX0N2TVM0Z19rS3QtamhoaWxhbEJBM3NKdmV2Tm5MMGZzYlVLajFwM0xRRVJkVGpEYjBCcWljZGFlUERaRkU0MEhvUDFBSXBwcFdiZw?oc=5",
+       "source": "Esports.gg",
+       "lang": "en",
+       "published": "2026-11-23T17:20Z"
+      },
+      {
+       "title": "PGL Major Singapore 2026 Stage 1 Preview: Teams, Schedule and Format",
+       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOaEtEUEtsVHNSSlkyS0IzR1c3WmdXUjRFeWlaWHloMlV4SVN2TzNTemh2WHNFVXh1WDlSYXBOS1RJS0hqTE40OU9wbk8wamhxTDhDMkp4TGVXaTh6eThHTE1vR19iVUpQREFzdFIyVkY5VVlnb1oyNWs5djZaak4xaFR6X1RDdmNKOTB1bGFOQ2NBY0tKMXc?oc=5",
+       "source": "EGamersWorld",
+       "lang": "en",
+       "published": "2026-11-23T11:38Z"
+      },
+      {
+       "title": "PGL Major Singapore 2026",
+       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1pSEdRaUR3ZUcwb3FKUFA3M1ZzV080V3BaV01nM2NxT3BKRlpOYTBlOHV2NzNUVXFjVTN6S1l0dWFaRmlfT21LTEdKeFhDS0ZMVkFZY1V0QVM?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-23T21:49Z"
+      },
+      {
+       "title": "CS2 Singapore Major 2026 Starts Today: Stage 1 Teams, Schedule, and Where to Watch",
+       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxORi1NN2c0YmFkaEJ2T09tNTJiNGFUdHNBYlJha2RDSmc1emJjenNXTG03a1RjTGxEMGNKbjB1V0QtdEVZejhkSHVQR0JMZUplV215RFlxcW9yeTUwYW90VzExS2ZPVjhrNXVHRkFrOXFRc2xfNE9qM3hLUXM0ZVBGcFF6VXA?oc=5",
+       "source": "TalkEsport",
+       "lang": "en",
+       "published": "2026-11-23T12:20Z"
+      },
+      {
+       "title": "Pick’Ems for CS2 Singapore Major 2026: Prediction ideas and bracket analysis",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPdHd2aHBnVDZfUVUyME9ZTkZXQWstMzlyU2dvSDFZa28ycTdjMURoV1VpVG80ZFVmZjBwS3NLVGMxWDFtWWVNbDIzQW1aVjNYLVEzcnY5Sk1xNHFCUk5kWHBlX0FZOWgzZW5IZGFVRXhFX3BQNjFqVG9lLVQxTVZvRGZQYw?oc=5",
+       "source": "Esports.gg",
+       "lang": "en",
+       "published": "2026-11-23T14:40Z"
+      },
+      {
+       "title": "CS2 PGL Major Singapore 2026 - All participating teams, format, prize pool, and more",
+       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQQUtjTVBLdVhEYklVVjA4eUVaWEpGSW9HYWZGTmFndGhwNk9Gc2hadU5nX2steE04MzQ5MzZOUTlENHhnYXdaNFFVaVNJdkZHWU1PRTVFQzJQeTlJY2FESlNoSWlBa21kT3R2OWFKZlRXV3BoMko1d3BqRklYNmZSd3c3MGx6T2hJQjI2T1B5TVQyUzNveEJBOWhYVHBpUkFjY3lMcjB1QmJsaXM3YTFEUGFSdWJ6ZS10akdTR0p4bl9zenEyS0JENFhiRQ?oc=5",
+       "source": "GosuGamers",
+       "lang": "en",
+       "published": "2026-11-23T10:42Z"
+      },
+      {
+       "title": "PGL Major Singapore teams, format, schedule, talent, fantasy",
+       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPRDh3eEdMRTZqcVZkNFJoX0tvNWVINFhjdFQxV1pHaTZWanNKRFlabTVaMm94bGtIZEhxS2xTR3NFTUl1LVZXdzZhUDZBX2lsbUZfUUlnNzZTNTlCUmxWOVd4YTJvSFlQZ0VoYzN6Q19va2EtWkR3YjYxaDd0dGh2YU0yRWJvZXJyZXI3a2NwNmlfdw?oc=5",
+       "source": "HLTV.org",
+       "lang": "en",
+       "published": "2026-11-23T10:10Z"
+      },
+      {
+       "title": "CS2 Singapore Major Stage 1 Betting Analysis For Opening BO1s",
+       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWFVOUG9PU25USExIZzdDLUdBMFNKVkNIcjRscHM3NWwzSUlCaWV4SGRYaDAyRGRLQnh1ZGNXdzh4N3o5SkJrN25MTjRFeVhRbVg0M2U1dXR5cVNWaHFiMTczV3M3dlJZQko5SE00aDItQ1VNci0td21PZlFwZTlla0x0WW1BQVItTzREeVp6NENMUVJxUHNjYXZsXzRoN2lKVnZldjVrb29sMU8wa09pVGZkOA?oc=5",
+       "source": "Legal Sports Betting",
+       "lang": "en",
+       "published": "2026-11-23T21:20Z"
+      },
+      {
+       "title": "Who can win the Singapore Major? Five teams, one favourite",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNY2pxZ2pRbzVjaEtJWVFjaFk2QVROTnRMNTh1S19wenlVMUM1cGlhMk00MnpPR2hnc2lDX2MyNGk3bk9yeHNRZzktVDNpbFlySXhTS2huc0J3UmlzZ3RNUnY3OEhMTUNaem8xWS1HQ1VKUGhpdVRsWjAtRFMtVFlZbzVzaw?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-23T16:00Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "cs2-1"
+    }
+   ],
+   "note": "",
+   "candidates": 30
+  },
+  {
+   "id": "ekonomi_tr",
+   "title": "Ekonomi - Türkiye",
+   "stories": [],
+   "note": "Kayda değer bir gelişme yok.",
+   "candidates": 55
+  },
+  {
+   "id": "ekonomi_dunya",
+   "title": "Ekonomi - Dünya",
+   "stories": [],
+   "note": "Kayda değer bir gelişme yok.",
+   "candidates": 83
+  }
+ ],
+ "stats": {
+  "items": 1503,
+  "model": "haiku",
+  "seconds": 1725,
+  "tasks": 33,
+  "task_chars": 406958
+ }
+}
