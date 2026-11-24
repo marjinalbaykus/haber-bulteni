@@ -1,5 +1,5 @@
 {
- "stage": "dedupe",
+ "stage": "detail",
  "variant": "haiku",
  "date": "2026-11-24",
  "compare": true,
@@ -17829,8 +17829,8 @@
    "alarms": []
   }
  ],
- "task_chars": 258324,
- "tasks": 11,
+ "task_chars": 406958,
+ "tasks": 33,
  "sel": {
   "real_madrid": [
    [
@@ -18812,5 +18812,560 @@
     "reason": "Büyük teknoloji hisselerindeki sert toparlanma ve Nvidia'nın piyasa değerinde yaklaşık 1 trilyon dolarlık artış, borsa genelinde geniş etki yaratıyor."
    }
   ]
- }
+ },
+ "jobs": [
+  {
+   "topic": "real_madrid",
+   "story": {
+    "ids": [
+     114,
+     771,
+     91,
+     761,
+     774,
+     775,
+     783,
+     772,
+     802,
+     803,
+     801,
+     116,
+     119
+    ],
+    "importance": 7,
+    "headline": "Haberlere göre Mourinho, PSV maçında Arda Güler'i dinlendirecek ve Brahim Díaz'ın ilk 11'de başlaması bekleniyor.",
+    "reason": "Arda Güler'in Şampiyonlar Ligi'nde ilk 11'de yer alıp almayacağı doğrudan takip edilen bir gelişme."
+   },
+   "n_texts": 2,
+   "extra": []
+  },
+  {
+   "topic": "real_madrid",
+   "story": {
+    "ids": [
+     70,
+     786
+    ],
+    "importance": 6,
+    "headline": "Real Madrid, La Liga'da Celta Vigo'yu 2-1 yenerek üst üste altıncı galibiyetini aldı.",
+    "reason": "Takımın form grafiğini gösteren net bir maç sonucu."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "real_madrid",
+   "story": {
+    "ids": [
+     95,
+     220,
+     239
+    ],
+    "importance": 6,
+    "headline": "Jude Bellingham'ın Real Madrid ile uzun vadeli sözleşme yenileme görüşmelerinin ileri aşamada olduğu bildiriliyor.",
+    "reason": "Kadronun önemli bir yıldızının geleceğine dair büyük bir kulüp gelişmesi."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "pc_donanim",
+   "story": {
+    "ids": [
+     596,
+     697,
+     1409,
+     374,
+     699,
+     1410,
+     1419,
+     1416,
+     1417,
+     1418,
+     1423,
+     1425,
+     1424,
+     1420,
+     606,
+     727,
+     726,
+     332,
+     357,
+     369,
+     360,
+     339,
+     376,
+     1414,
+     372,
+     704
+    ],
+    "importance": 8,
+    "headline": "Nvidia yönetim kurulu Jensen Huang'ı CEO olarak yeniden atadı; hisseler sert yükseldi ve Trump'ın desteği dikkat çekti.",
+    "reason": "Nvidia'daki liderlik değişikliği çip sektöründe büyük bir olay; hisse ve piyasa değeri hareketi yarattı, ihracat politikasıyla bağlantılı tartışmalar sürüyor."
+   },
+   "n_texts": 3,
+   "extra": []
+  },
+  {
+   "topic": "pc_donanim",
+   "story": {
+    "ids": [
+     345,
+     334,
+     328,
+     341,
+     321,
+     317,
+     362,
+     1411,
+     715
+    ],
+    "importance": 7,
+    "headline": "Kongre, Huang'ın geri dönüşüne tepki gösteriyor; Senato Bankacılık Komitesi 3 Aralık'ta ihracat kontrolleri konulu dinleme yapacak.",
+    "reason": "Çin'e çip akışına ilişkin soruşturmalar ve ihracat kontrolü tartışması bu dinlemeyle derinleşebilir; California Başsavcısı incelemesini sürdürüyor."
+   },
+   "n_texts": 2,
+   "extra": []
+  },
+  {
+   "topic": "pc_donanim",
+   "story": {
+    "ids": [
+     331
+    ],
+    "importance": 7,
+    "headline": "ABD, Nvidia çip skandalıyla bağlantılı Megaspeed ve bir Alibaba yan kuruluşunu kara listeye aldı.",
+    "reason": "Çip ihracat kısıtlarının somut bir uygulaması; Nvidia çiplerinin Çin'e akışına ilişkin incelemenin yeni adımı."
+   },
+   "n_texts": 0,
+   "extra": [
+    {
+     "title": "US blacklists Alibaba subsidiary and Megaspeed linked to Nvidia scandal",
+     "url": "https://www.msn.com/en-ca/news/other/us-blacklists-alibaba-subsidiary-and-megaspeed-linked-to-nvidia-scandal/ar-AA2i6Bmx",
+     "source": "Reuters on MSN",
+     "lang": "en",
+     "published": "2026-11-23T23:41Z",
+     "snippet": "By Karen Freifeld, David Shepardson and Xinghui Kok WASHINGTON/SINGAPORE, Nov 23 (Reuters) - The US Commerce Department on Monday added Megaspeed and Alibaba's Singapore subsidiary, which has business ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "US blacklists Singapore chip firm linked to Nvidia scandal",
+     "url": "https://www.msn.com/en-my/news/other/us-blacklists-singapore-chip-firm-linked-to-nvidia-scandal/ar-AA2i4laE",
+     "source": "Free Malaysia Today on MSN",
+     "lang": "en",
+     "published": "2026-11-23T14:15Z",
+     "snippet": "Megaspeed's addition follows revelations that Nvidia CEO Jensen Huang had a relationship with the company's controlling shareholder Alice Huang, an alleged Chinese spy.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "US blacklists Alibaba-linked Apex Enterprise, Megaspeed, 5 others amid probe over chips diversion to China | Full list",
+     "url": "https://www.msn.com/en-in/news/other/us-blacklists-alibaba-linked-apex-enterprise-megaspeed-5-others-amid-probe-over-chips-diversion-to-china-full-list/ar-AA2i5k4H",
+     "source": "Mint on MSN",
+     "lang": "en",
+     "published": "2026-11-23T19:55Z",
+     "snippet": "The US has blacklisted Alibaba-linked Apex Enterprise Solutions, Megaspeed International, and five other entities over concerns about the possible diversion of advanced AI chips to China. Alibaba has ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "pc_donanim",
+   "story": {
+    "ids": [
+     367,
+     291,
+     295
+    ],
+    "importance": 7,
+    "headline": "Beyaz Saray, Nvidia için yeni çip kısıtlamasına gerek olmadığını söylerken Trump Çin'e görece eski çip satmak istediğini belirtti.",
+    "reason": "Çin'e çip ihracatı konusunda çelişkili sinyaller var; Bessent hükümetin Nvidia'dan çiplerin Çin'e akışına dair açıklama beklediğini söyledi."
+   },
+   "n_texts": 0,
+   "extra": [
+    {
+     "title": "White House says no more Nvidia chip restrictions needed",
+     "url": "https://www.msn.com/en-us/news/other/white-house-says-no-more-nvidia-chip-restrictions-needed/vi-AA2i3SMY",
+     "source": "Dailymotion on MSN",
+     "lang": "en",
+     "published": "2026-11-23T09:11Z",
+     "snippet": "The battle over American artificial intelligence technology is heating up, but the Trump administration says its latest restrictions on China are enough.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "pc_donanim",
+   "story": {
+    "ids": [
+     337,
+     330
+    ],
+    "importance": 7,
+    "headline": "TSMC, Teksas'ın Brazos County bölgesinde 22,6 milyar dolarlık yeni çip fabrikası için başvuru yaptı.",
+    "reason": "TSMC'nin ABD'deki yeni üretim yatırımı; çip tedarik zinciri açısından büyük bir adım."
+   },
+   "n_texts": 0,
+   "extra": [
+    {
+     "title": "TSMC files application for proposed $22.6 billion chip plant in Brazos County",
+     "url": "https://www.msn.com/en-us/technology/tech-companies/tsmc-files-application-for-proposed-22-6-billion-chip-plant-in-brazos-county/ar-AA2i4Bxp",
+     "source": "KCEN-TV on MSN",
+     "lang": "en",
+     "published": "2026-11-23T14:50Z",
+     "snippet": "A proposed TSMC semiconductor plant could bring a $22.6 billion investment and thousands of jobs to Brazos County.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "yerel_llm",
+   "story": {
+    "ids": [
+     728
+    ],
+    "importance": 7,
+    "headline": "NariQ, Qwen3.8-27B modelini 10 GB'lık dosyaya sıkıştırarak BF16 düzeyinde kalite sunduğunu iddia ediyor; 16 GB VRAM'e sığar.",
+    "reason": "27B boyutundaki model 4-bit benzeri sıkıştırmayla 16 GB VRAM kartta rahatça çalışabilir; Hacker News'te 163 puan aldı."
+   },
+   "n_texts": 1,
+   "extra": []
+  },
+  {
+   "topic": "yerel_llm",
+   "story": {
+    "ids": [
+     1075,
+     1076,
+     1085,
+     746,
+     145
+    ],
+    "importance": 7,
+    "headline": "Açık ağırlıklı Inkling-2-Mini modeli yayımlandı ve Unsloth GGUF sürümleri yerel kullanıma açıldı; model boyutu haberlerde belirtilmiyor.",
+    "reason": "Büyük bir laboratuvarın yeni açık modeli; 16 GB VRAM'e sığıp sığmadığı boyut bilgisi olmadan doğrulanamıyor."
+   },
+   "n_texts": 1,
+   "extra": []
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     530,
+     921
+    ],
+    "importance": 8,
+    "headline": "Anthropic halka arz dosyasında yapay zekanın insanlık için 'varoluşsal riskler' doğurabileceği uyarısında bulundu.",
+    "reason": "Önemli bir AI laboratuvarının halka arz süreci; yatırımcı ve risk uyarıları sektör açısından büyük önem taşıyor."
+   },
+   "n_texts": 1,
+   "extra": []
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     499,
+     506,
+     540,
+     507,
+     518,
+     526,
+     505,
+     529,
+     543,
+     539,
+     522,
+     549
+    ],
+    "importance": 7,
+    "headline": "OpenAI, gelişmiş yapay zeka sistemleri için rakiplerin ortak sınırlar üzerinde anlaşmasını ve ölçülebilir bir Perplexity skoru kullanılmasını önerdi.",
+    "reason": "Büyük bir laboratuvardan sınırlandırma çağrısı; Tech Times, ölçütün yalnızca OpenAI'nin çalıştırabildiği özel bir testle puanlanacağını belirtiyor."
+   },
+   "n_texts": 1,
+   "extra": [
+    {
+     "title": "OpenAI Pitches Perplexity Score to Set AI Safety Limits",
+     "url": "https://www.pymnts.com/news/artificial-intelligence/2026/openai-pitches-perplexity-score-to-set-ai-safety-limits/",
+     "source": "PYMNTS.com",
+     "lang": "en",
+     "published": "2026-11-23T13:46Z",
+     "snippet": "Artificial intelligence developers often learn what a new model can do only after they have built it. OpenAI Chief Scientist Jakub Pachocki wants the ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "OpenAI pitches an industry brake days after Anthropic's IPO",
+     "url": "https://www.msn.com/en-us/news/money/openai-pitches-an-industry-brake-days-after-anthropics-ipo/ar-AA2i4tAS",
+     "source": "TheStreet on MSN",
+     "lang": "en",
+     "published": "2026-11-23T13:17Z",
+     "snippet": "OpenAI's chief scientist wants frontier labs to agree on common limits. The pitch lands days after Anthropic's IPO, and the costs fall unevenly.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     578,
+     554,
+     559,
+     497,
+     498,
+     163,
+     732,
+     556,
+     557
+    ],
+    "importance": 7,
+    "headline": "Z.ai, döngüsel 'loop transformer' mimarisine sahip GLM-5.4 modelini tanıttı; şirket modelin 4 kat büyük modeller kadar düşünebildiğini iddia ediyor.",
+    "reason": "Çince kaynaklara göre model açık kaynaklılar arasında en güçlüsü ve Opus 5.5'e yüzde 5 mesafede; Wccftech şirketin AI kıyaslama testlerini atladığını yazıyor."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     500,
+     544
+    ],
+    "importance": 7,
+    "headline": "Google Gemini 4 Neon ve OpenAI GPT-6.2 Astra-Sol modelleri, daha büyük kurumsal iş yükleri ve verimlilik hedefiyle duyuruldu.",
+    "reason": "İki büyük laboratuvar aynı anda kurumsal segmente yöneldi; Gemini 4 Neon'un maliyet avantajı henüz net değil."
+   },
+   "n_texts": 1,
+   "extra": [
+    {
+     "title": "Model Release: Gemini 4 Neon, GPT-6.2-Astra-Sol target business productivity",
+     "url": "https://www.techtarget.com/news/model-release-gemini-4-neon-gpt-62-astra-sol-target-business-productivit/875440/",
+     "source": "TechTarget",
+     "lang": "en",
+     "published": "2026-11-22T23:36Z",
+     "snippet": "Google introduced Gemini 4 Neon on Nov. 18, rolling it out across Google AI Studio, Gemini for business, Google Antigravity and the Gemini app. Google said the new model can consolidate across ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "ai_kodlama",
+   "story": {
+    "ids": [
+     881,
+     688,
+     863,
+     868,
+     828,
+     865,
+     870,
+     897,
+     871,
+     885,
+     878,
+     886,
+     867
+    ],
+    "importance": 8,
+    "headline": "Anthropic, Claude Ship'i duyurdu; AI ajanları kod değişikliklerini inceleyip düzeltebilecek ve pull request'leri onaylayabilecek.",
+    "reason": "Claude Code'da büyük bir yenilik; birçok bağımsız kaynakta aynı anda haberleşildi."
+   },
+   "n_texts": 3,
+   "extra": [
+    {
+     "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+     "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+     "source": "TechCrunch",
+     "lang": "en",
+     "published": "2026-11-23T14:06Z",
+     "snippet": "As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "Anthropic Launches Claude Ship to Review, Fix and Approve PRs",
+     "url": "https://www.unite.ai/anthropic-launches-claude-ship-to-review-fix-and-approve-prs/",
+     "source": "Unite.AI",
+     "lang": "en",
+     "published": "2026-11-23T13:25Z",
+     "snippet": "Anthropic launched Claude Ship on November 23, 2026, making the beta product available to Claude Team and Enterprise organizations for GitHub repositories. It pairs the generally available Code Review ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "Anthropic Launches Claude Ship for GitHub Pull Request Review and Fixes",
+     "url": "https://www.marktechpost.com/2026/11/23/anthropic-claude-ship-pull-request-agents/",
+     "source": "MarkTechPost",
+     "lang": "en",
+     "published": "2026-11-22T16:00Z",
+     "snippet": "Anthropic's Claude Ship adds 3 agents that review, fix and approve GitHub pull requests on Team and Enterprise.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "ai_kodlama",
+   "story": {
+    "ids": [
+     815,
+     817,
+     813
+    ],
+    "importance": 7,
+    "headline": "DeepSeek ücretsiz kullanım kotasını daralttı; yorumcular ücretsiz yapay zeka döneminin sona erip ermediğini tartışıyor.",
+    "reason": "DeepSeek API kullanımında ücretsiz hakkın azalması maliyet planlamasını doğrudan etkiler."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "ai_kodlama",
+   "story": {
+    "ids": [
+     808
+    ],
+    "importance": 7,
+    "headline": "DeepSeek V4 model ailesinin tamamı yayına girdi; DeepSeek Harness geliştirici önizleme sürümü test için açıldı.",
+    "reason": "DeepSeek kullanan iş akışı için doğrudan ilgili; yeni geliştirici aracı test aşamasında."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "ai_kodlama",
+   "story": {
+    "ids": [
+     843,
+     844
+    ],
+    "importance": 7,
+    "headline": "Claude Code'a gerçek zamanlı maliyet kontrolleri geldi; Uber da Claude Code maliyet ayarlarının sonuçlarını paylaştı.",
+    "reason": "Claude kullanımında harcama izleme ve sınırlama; abonelik ve kota yönetimi için doğrudan ilgili."
+   },
+   "n_texts": 0,
+   "extra": [
+    {
+     "title": "Developers get real-time AI coding cost controls inside Claude Code",
+     "url": "https://www.techzine.eu/blogs/applications/145971/developers-get-real-time-ai-coding-cost-controls-inside-claude-code/",
+     "source": "Techzine Europe",
+     "lang": "en",
+     "published": "2026-11-23T01:23Z",
+     "snippet": "Developers, please use some AI services to code. That’s been the message from frontier lab companies, from team leaders and from the wider collective Revenium Sidekick brings real-time AI budget ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "teknoloji",
+   "story": {
+    "ids": [
+     916,
+     1450
+    ],
+    "importance": 8,
+    "headline": "CrowdStrike, bulut güvenliği şirketi Zscaler'ı yaklaşık 44 milyar dolara satın almak için anlaştı.",
+    "reason": "Siber güvenlik sektöründe büyük birleşme; tamamı hisse senedi ile yapılıyor."
+   },
+   "n_texts": 2,
+   "extra": []
+  },
+  {
+   "topic": "oyunlar",
+   "story": {
+    "ids": [
+     1230
+    ],
+    "importance": 8,
+    "headline": "Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı resmen doğrulandı.",
+    "reason": "FromSoftware'in Elden Ring evreninden büyük yeni içerik; tam olarak ilgilenilen soulslike türü."
+   },
+   "n_texts": 0,
+   "extra": [
+    {
+     "title": "Elden Ring: Rot & sorcery officially confirmed for 2027",
+     "url": "https://www.msn.com/en-ca/news/other/elden-ring-rot-sorcery-officially-confirmed-for-2027/ar-AA2i4yUS",
+     "source": "Screen Rant on MSN",
+     "lang": "en",
+     "published": "2026-11-23T03:55Z",
+     "snippet": "Elden Ring fans looking to explore the Lands Between in a brand-new adventure should mark their calendars for 2027's Rot & Sorcery.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "oyunlar",
+   "story": {
+    "ids": [
+     1228,
+     1233
+    ],
+    "importance": 6,
+    "headline": "Queen's Domain 300 binden fazla adet sattı; Eurogamer incelemesi oyunu etkileyici bir aksiyon-RPG olarak övdü.",
+    "reason": "Aksiyon-RPG türünde güçlü satış ve olumlu inceleme; tür sevgisine uygun bir yeni oyun."
+   },
+   "n_texts": 1,
+   "extra": [
+    {
+     "title": "Queen's Domain review - a stunning action-RPG of genuine wonder",
+     "url": "https://www.eurogamer.net/queens-domain-review",
+     "source": "Eurogamer",
+     "lang": "en",
+     "published": "2026-11-23T02:04Z",
+     "snippet": "Where to start with Queen's Domain? It's tempting to begin with King's Field; after all, FromSoftware's seminal ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "cs2",
+   "story": {
+    "ids": [
+     948,
+     949,
+     953,
+     954,
+     955,
+     946,
+     947,
+     982,
+     952,
+     961,
+     962,
+     972
+    ],
+    "importance": 8,
+    "headline": "PGL Major Singapore 2026 Stage 1 başladı; turnuvanın ilk İsviçre sistemi maçları oynanmaya başlandı.",
+    "reason": "Yılın büyük Major turnuvasının açılışı; takımlar, format ve program netleşti."
+   },
+   "n_texts": 0,
+   "extra": []
+  }
+ ]
 }
