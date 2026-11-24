@@ -29,7 +29,8 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Siteyi güncelle
-        run: bash scripts/commit_push.sh "Site: $(date -u +%F) bülteni"
+        run: |
+          bash scripts/commit_push.sh "Site - $(date -u +%F) bülteni"
 
       - name: Telegram'a gönder
         env:
