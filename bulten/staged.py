@@ -4,8 +4,11 @@ Akış:
   python -m bulten staged prep [--variant haiku] [--until 2026-11-23T23:58Z] [--date 2026-11-24] [--compare]
       haberleri toplar, work/tasks/ altına görev dosyaları yazar
   (ajan her work/tasks/X.md dosyasını okuyup cevabını work/out/X.json olarak yazar)
-  python -m bulten staged next
-      cevapları okur, sonraki görevleri yazar; en sonda bülteni kaydeder ve "BİTTİ" yazar
+  python -m bulten staged next [--no-fetch]
+      cevapları okur, sonraki görevleri yazar; en sonda bülteni kaydeder ve "BİTTİ" yazar.
+      --no-fetch: makale çekme adımına gelince "YEREL ADIM GEREKLİ" yazıp durur (ağı olmayan makineler için)
+  python -m bulten staged pending
+      cevabı yazılmamış görevleri paketler hâlinde listeler (her paket = bir alt ajan)
 
 --compare: karşılaştırma modu. Bülten data/compare/ altına yazılır, geçmiş (history.json) değişmez,
            o günün mevcut bülteni "önceden verilmiş" sayılmaz, Telegram'a hiçbir şey gitmez.
@@ -52,11 +55,44 @@ def _write_task(name: str, system: str, user: str) -> str:
     return name
 
 
+PACK_CHARS = 90_000  # bir alt ajana verilecek en fazla görev metni (karakter)
+
+
+def _packs(names: list[str]) -> list[list[str]]:
+    """Görevleri boyutlarına göre paketler; her paket tek bir alt ajana verilir (sabit ek yükü azaltır)."""
+    sized = sorted(((TASKS / f"{n}.md").stat().st_size, n) for n in names)
+    packs: list[list] = []  # [toplam, [isimler]]
+    for size, n in reversed(sized):
+        best = min((p for p in packs if p[0] + size <= PACK_CHARS), key=lambda p: p[0], default=None)
+        if best is None:
+            packs.append([size, [n]])
+        else:
+            best[0] += size
+            best[1].append(n)
+    return [sorted(p[1]) for p in packs]
+
+
 def _print_tasks(names: list[str]) -> None:
-    print(f"GÖREVLER ({len(names)}):")
-    for n in names:
-        print(f"  work/tasks/{n}.md -> work/out/{n}.json")
+    packs = _packs(names)
+    print(f"GÖREVLER ({len(names)} görev, {len(packs)} paket):")
+    for k, p in enumerate(packs, 1):
+        print(f"  PAKET {k}: " + ", ".join(f"work/tasks/{n}.md" for n in p))
+    print("Her görevin cevabı work/out/<görev adı>.json dosyasına yazılır.")
     print("Hepsini bitirince: python -m bulten staged next")
+
+
+def pending() -> None:
+    """Cevabı henüz yazılmamış görevleri paketler hâlinde gösterir (aşama ilerletmez)."""
+    if not TASKS.exists():
+        raise SystemExit("Önce: python -m bulten staged prep")
+    stage = (read_json(STATE) or {}).get("stage")
+    names = sorted(p.stem for p in TASKS.glob("*.md") if not (OUT / f"{p.stem}.json").exists())
+    if stage == "done":
+        print("BİTTİ")
+    elif names:
+        _print_tasks(names)
+    else:
+        print("BEKLEYEN GÖREV YOK. Sıradaki: python -m bulten staged next")
 
 
 def _read_out(name: str) -> dict | None:
@@ -137,7 +173,8 @@ def prep(variant: str, until: str | None, date: str | None, compare: bool) -> No
     _print_tasks(names)
 
 
-def next_step() -> None:
+def next_step(no_fetch: bool = False) -> None:
+    """no_fetch: makale çekme (ağ) gerektiren adıma gelince durur; o adım ağı olan bir makinede yapılır."""
     state = read_json(STATE)
     if not state:
         raise SystemExit("Önce: python -m bulten staged prep")
@@ -165,7 +202,13 @@ def next_step() -> None:
             _print_tasks(names)
             return
         stage = "dedupe"
-        state["skip_dedupe"] = True
+        state.update(stage="dedupe", skip_dedupe=True)
+        _save(state)
+
+    if stage == "dedupe" and no_fetch:
+        print("YEREL ADIM GEREKLİ: makale metinleri ağı olan bir makinede çekilmeli "
+              "(python -m bulten staged next)")
+        return
 
     if stage == "dedupe":
         kept = state["kept"]
@@ -237,10 +280,12 @@ def next_step() -> None:
 
 
 def main(args: list[str]) -> None:
-    if not args or args[0] not in ("prep", "next"):
+    if not args or args[0] not in ("prep", "next", "pending"):
         raise SystemExit(__doc__)
     if args[0] == "next":
-        return next_step()
+        return next_step(no_fetch="--no-fetch" in args)
+    if args[0] == "pending":
+        return pending()
     opts = {"--variant": "claude", "--until": None, "--date": None}
     compare = False
     rest = args[1:]
