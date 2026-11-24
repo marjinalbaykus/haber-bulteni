@@ -1,0 +1,1478 @@
+{
+ "date": "2026-11-24",
+ "generated_at": "2026-11-24T12:35Z",
+ "markets": [
+  {
+   "symbol": "GC=F",
+   "name": "Altın (ons, USD)",
+   "group": "dunya",
+   "value": 3625.2,
+   "changes": {
+    "day": -0.72,
+    "week": -6.18,
+    "month": -9.55
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "GRAM",
+   "name": "Gram altın (TL)",
+   "group": "tr",
+   "value": 5900.4,
+   "changes": {
+    "day": -0.62,
+    "week": -5.8,
+    "month": -7.92
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "BZ=F",
+   "name": "Brent petrol",
+   "group": "dunya",
+   "value": 86.8,
+   "changes": {
+    "day": -2.88,
+    "week": -6.81,
+    "month": -25.63
+   },
+   "alarms": [
+    {
+     "window": "month",
+     "label": "30 günde",
+     "pct": -25.6
+    }
+   ]
+  },
+  {
+   "symbol": "USDTRY=X",
+   "name": "Dolar/TL",
+   "group": "tr",
+   "value": 50.62,
+   "changes": {
+    "day": 0.1,
+    "week": 0.41,
+    "month": 1.8
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "EURTRY=X",
+   "name": "Euro/TL",
+   "group": "tr",
+   "value": 55.55,
+   "changes": {
+    "day": 0.03,
+    "week": 0.12,
+    "month": -0.53
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "XU100.IS",
+   "name": "BIST 100",
+   "group": "tr",
+   "value": 10987.18,
+   "changes": {
+    "day": -1.06,
+    "week": -5.78,
+    "month": -1.17
+   },
+   "alarms": []
+  },
+  {
+   "symbol": "^GSPC",
+   "name": "S&P 500",
+   "group": "dunya",
+   "value": 7237.17,
+   "changes": {
+    "day": 4.73,
+    "week": -2.42,
+    "month": -5.07
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 4.7
+    }
+   ]
+  },
+  {
+   "symbol": "^IXIC",
+   "name": "Nasdaq",
+   "group": "dunya",
+   "value": 24089.56,
+   "changes": {
+    "day": 6.51,
+    "week": -1.71,
+    "month": -7.19
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 6.5
+    }
+   ]
+  },
+  {
+   "symbol": "BTC-USD",
+   "name": "Bitcoin",
+   "group": "dunya",
+   "value": 60235.48,
+   "changes": {
+    "day": -1.59,
+    "week": -7.18,
+    "month": -24.73
+   },
+   "alarms": []
+  }
+ ],
+ "market_alarms": [
+  {
+   "symbol": "BZ=F",
+   "name": "Brent petrol",
+   "group": "dunya",
+   "value": 86.8,
+   "changes": {
+    "day": -2.88,
+    "week": -6.81,
+    "month": -25.63
+   },
+   "alarms": [
+    {
+     "window": "month",
+     "label": "30 günde",
+     "pct": -25.6
+    }
+   ]
+  },
+  {
+   "symbol": "^GSPC",
+   "name": "S&P 500",
+   "group": "dunya",
+   "value": 7237.17,
+   "changes": {
+    "day": 4.73,
+    "week": -2.42,
+    "month": -5.07
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 4.7
+    }
+   ]
+  },
+  {
+   "symbol": "^IXIC",
+   "name": "Nasdaq",
+   "group": "dunya",
+   "value": 24089.56,
+   "changes": {
+    "day": 6.51,
+    "week": -1.71,
+    "month": -7.19
+   },
+   "alarms": [
+    {
+     "window": "day",
+     "label": "1 günde",
+     "pct": 6.5
+    }
+   ]
+  }
+ ],
+ "topics": [
+  {
+   "id": "real_madrid",
+   "title": "Real Madrid ve Arda Güler",
+   "stories": [
+    {
+     "importance": 7,
+     "headline": "Arda Güler'in bugünkü Real Madrid-PSV maçında ilk 11'de başlamayabileceği, Mourinho'nun onu ve Bellingham'ı dinlendirmesinin beklendiği yazılıyor; bazı haberler ise kadroda olduğunu belirtiyor.",
+     "title": "Arda Güler PSV maçında yedek başlayabilir",
+     "detail": "Şampiyonlar Ligi 5. hafta maçında Real Madrid, bu akşam TSİ 23:00'te Santiago Bernabéu'da PSV Eindhoven'ı konuk edecek. Milliyet, Milli Gazete ve STAR'ın aktardığı İspanyol basını haberlerine göre Jose Mourinho, Arda Güler ve Jude Bellingham'ı dinlendirmeyi düşünüyor. Milliyet'in paylaştığı muhtemel 11'de Arda Güler yer almıyor.\n\nGüler, hafta sonu Celta Vigo maçında ilk 11'de başlamış ve 90 dakika oynamıştı. Mourinho maç sonunda, ikinci golden sonra takımın dengesini kaybettiğini söyleyip \"Arda ve Jude orta sahada fiziksel olarak tükendi ama işleri nasıl yoluna koyacağımızı biliyorduk\" demişti. Haberler dinlendirme beklentisini bu açıklamaya dayandırıyor.\n\nGüler bu sezon 15 maçta 4 gol ve 7 asist üretti. Şampiyonlar Ligi'nde yalnızca iki maçta forma giydi; ilk maçı kart cezası nedeniyle kaçırmış, son AEK maçında ise Yunanistan'a giden kafilede yer almamıştı. Öte yandan Haber Gündemim ve Timeturk gibi bazı siteler sabah saatlerinde onun kadroda olduğunu yazdı; kesin durum maç kadrosu açıklanınca netleşecek.",
+     "key_points": [
+      "Mourinho'nun Celta Vigo sonrası Güler ve Bellingham'ın yorulduğunu söylediği aktarılıyor",
+      "İspanyol basınına göre ikilinin PSV maçında dinlendirilmesi bekleniyor",
+      "Güler bu sezon 15 maçta 4 gol, 7 asist yaptı; Şampiyonlar Ligi'nde 2 maça çıktı",
+      "Bazı haberler Güler'in kadroda olduğunu yazıyor, ilk 11 durumu belirsiz"
+     ],
+     "sources": [
+      {
+       "title": "ARDA GÜLER İLK 11'DE YER ALMAYABİLİR! Real Madrid-PSV Eindhoven Şampiyonlar Ligi maçı bu akşam saat kaçta hangi kanalda canlı olarak yayınlanacak? (Muhtemel 11'ler)",
+       "url": "https://www.milliyet.com.tr/skorer/real-madrid-psv-eindhoven-sampiyonlar-ligi-maci-bu-aksam-saat-kacta-hangi-kanalda-arda-guler-ilk-11de-7706737",
+       "source": "Milliyet",
+       "lang": "tr",
+       "published": "2026-11-23T17:07Z"
+      },
+      {
+       "title": "Arda Güler İçin PSV Maçı Öncesi Sürpriz Karar! İlk 11'de Olmayabilir!",
+       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdkQxaGFxcjJlV0J5c05saXdkcGNJX0dlSFBLLVIxbk1vRDBRM05jNWQ1Q3MwcFVjVEduSEpSci1wNEliWlAzS2Rwc0ZPb3lKTTdBWng1VFlnT1E2MF9GeWMtR1ZyTlN3c0ZkbGVRRXlRQmZiU2xXaFhpYThuTWtRbFJmYzh4TVR2X0twbG1UblMtUUdoY2p2ZkpsRmJ2MlQ3STFlOG9QSTU?oc=5",
+       "source": "ABC Haber",
+       "lang": "tr",
+       "published": "2026-11-23T18:45Z"
+      },
+      {
+       "title": "Arda Güler için sürpriz karar",
+       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9tZGE0WlRHSllOejBhQlRuRDJBR191U1l6ZU1hc2tpY08zeC1IVGpILWZYTWZ2SVNpcGwzZTd5dUY0YTBXX1ZyNW83S2RCM2gxZ0t0TzZPc1VhTHlCMnl0UU5UYUFiYks1NkVZZE0ta2tKcU5tMTdwOUhQOGl3TWM?oc=5",
+       "source": "KARAR",
+       "lang": "tr",
+       "published": "2026-11-23T18:36Z"
+      },
+      {
+       "title": "Jose Mourinho dan Arda Güler e kötü haber PSV maçında",
+       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNVjBLeUoyS2VacjF2cXI4YnI2bVduemRwOGxaeE1CWnlEeElWdmxfV2Z5VFh6ZEZxdXdyTkJyRWxEMi1YelBPS3AxWll4dzNKUHhXVXBRUThudE9KeFVCYnhRTVlYcExXcmctb0k5bWRmd1V5SXIzRU9xdkhoSTdzOGxMSVBTVk9JU2s40gGbAUFVX3lxTFByWWdLYjBleDkwbWMzVTZEU3JBNnJMc3NPVUVVYXU1TXlieHhRTG5rbVJLNWRjY3ptUkdVUU04dnE0aUdrcFAtTnhHdFljVS1wam9LRzZER1BoS1VaRF80WW1UUEwtX2Y2RDhNUU1mWDVLS0Q0NWtzRGg4V3NXUHZwVUZmaGgzdUpkRnNxeWs2RFdUQ1FfSzNHTENv?oc=5",
+       "source": "beinsports.com.tr",
+       "lang": "tr",
+       "published": "2026-11-23T12:43Z"
+      },
+      {
+       "title": "Arda Güler'e kötü haber: Mourinho kararını verdi",
+       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQeE5scnpTTXhHTUVxRHpiLXM1Y3VBaWFfWWdNanIwdEYtc2JQbURlMGFvUThwOC1lLW8zcmd4OElidkVldkpySU5OaXVrT3JrRDZqbkRtU2FGV1kxRHk4MlVlZFhlUzFqQ0pGWUw5RVVuVk5sWEFuTGx4V1F6VVpEZ3RTZFNHclZYTlRMYmdabDZsUEFyaVdwaFdR?oc=5",
+       "source": "Türkiye Gazetesi",
+       "lang": "tr",
+       "published": "2026-11-23T15:52Z"
+      },
+      {
+       "title": "Arda Güler'e kötü haber! Mourinho'dan dinlendirme kararı",
+       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONDdvMTNfS2V6WkhQcXljWGZKaUkwNklSMFpjeWNvN2JpM2pIMzl1eWp0dHFjVS1GSDlJN1QwTlRGNGNYSnZiT0U2WmJHSFRFNmQ5SUJOZjhac2ljU0tkX3NCS1ZSWUJybUlBNWhZZDhVZkNMMnpiaEg5RlNCSEcyNEx0ODV4Z21s?oc=5",
+       "source": "Ege Saati",
+       "lang": "tr",
+       "published": "2026-11-23T13:09Z"
+      },
+      {
+       "title": "İspanyol basını duyurdu: Arda Güler ve Bellingham yedek kalabilir",
+       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOZzMwelladEwzN2diZFFraU1jVEE4M0VMSEpuOHQxZ3NTQzNzajVUeDRkZG9wOWJjaHJIb2JBT0FMYWdjU2R4SnM3M19GQlRNRmJsUDhwMXB6eHpSZHBleUxfV2RkQVlXSUtwSkxfSVFCUHZuZ1d6V1JxNjVKT0h6cjJsWFgwakZRWTJYdzlBcEhaN2k4VF9QZDFFQ01KS0Q5RHY5Mg?oc=5",
+       "source": "Türkgün",
+       "lang": "tr",
+       "published": "2026-11-23T22:15Z"
+      },
+      {
+       "title": "NO GÜLER, NO BELLINGHAM! | REAL MADRID vs PSV Eindhoven PREVIEW",
+       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNcFJHdURjSnY0dU1aMWVBSWx1SXYyQTE1S0ppSGJQWUxZX2dlTHNUcUFfUGFhTEJJWmVFMEp6ODZXVnJPVGFnMHVKU3JscmNWbHVLVFhRcDRuNWhLeF9LWmN2ektad1pwQlBPaERFcERyYTEwRU51NU5wR3RRUGNjalMxcUUwbWYyT1MxNGFoR1V4OVpWTTB6UVZHTkNpVkhiMkI1Yg?oc=5",
+       "source": "OneFootball",
+       "lang": "en",
+       "published": "2026-11-24T06:06Z"
+      },
+      {
+       "title": "Arda Güler'e kötü haber! Mourinho'dan yeni karar",
+       "url": "https://www.milligazete.com.tr/arda-gulere-kotu-haber-mourinhodan-yeni-karar",
+       "source": "Milli Gazete",
+       "lang": "tr",
+       "published": "2026-11-23T08:47Z"
+      },
+      {
+       "title": "Mourinho yine ortalığı karıştırdı! Arda'ya büyük şok",
+       "url": "https://www.msn.com/tr-tr/haber/diger/mourinho-yine-ortal%C4%B1%C4%9F%C4%B1-kar%C4%B1%C5%9Ft%C4%B1rd%C4%B1-ardaya-b%C3%BCy%C3%BCk-%C5%9Fok/ar-AA2i2WCl",
+       "source": "Haberler.com on MSN",
+       "lang": "tr",
+       "published": "2026-11-23T07:36Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "real_madrid-1"
+    },
+    {
+     "importance": 7,
+     "headline": "Jude Bellingham, Real Madrid ile beş yıllık yeni sözleşme imzalamaya yaklaştı; yıllık maaşının 15 milyon euronun belirgin şekilde üzerinde olacağı belirtiliyor.",
+     "title": "Bellingham Real Madrid ile beş yıllık yeni sözleşmeye yakın",
+     "detail": "Fabrizio Romano'ya dayandırılan habere göre Jude Bellingham ile Real Madrid arasında prensipte anlaşma sağlandı. Oyuncunun beş yıllık yeni bir sözleşme imzalaması bekleniyor; resmi duyuru öncesinde kalan formalitelerin tamamlanması gerekiyor. The Athletic de taraflar arasında uzun vadeli yenileme görüşmelerinin ileri aşamada olduğunu yazmıştı.\n\nGet Spanish Football News ve Forza Football'a göre yeni maaş yıllık 15 milyon euronun anlamlı biçimde üzerinde olacak. Goal.com ise Madrid'in Bellingham'ı tarihi bir maaşla bağlamaya hazırlandığını yazıyor.\n\nİngiliz yıldız bu sezon tüm organizasyonlarda 17 maça çıktı, 6 gol ve 3 asist kaydetti. Arda Güler ile orta sahada birlikte oynayan Bellingham'ın uzun vadeli kalması, Madrid'in orta saha planlaması açısından önem taşıyor.",
+     "key_points": [
+      "Romano'ya göre prensipte anlaşma sağlandı",
+      "Sözleşme beş yıllık olacak",
+      "Yıllık maaşın 15 milyon euronun belirgin şekilde üzerinde olması bekleniyor",
+      "Bu sezon 17 maçta 6 gol, 3 asist"
+     ],
+     "sources": [
+      {
+       "title": "Jude Bellingham set to sign new five-year contract with Real Madrid",
+       "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBoQXFoNFRxZ3dhLUxIMkV3eG9zcjVXUmRMNjFuang0U053Zkg0ZEd1Y1kzWng3UEFBS2VULTl3RTRZcmhYYWtpeWtodS1PR3ZPcGJrSg?oc=5",
+       "source": "AzerNews",
+       "lang": "en",
+       "published": "2026-11-24T11:52Z"
+      },
+      {
+       "title": "Bellingham, a un paso de renovar con el Real Madrid: subida de sueldo y anuncio inminente",
+       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQdjVqNUdXVWNJRFZYbkdSOHpCU1FlMXNfUU9ITmVzeHFnQkJILTZSeDNIYUtITGVSUkdiMkR4eWF5bkR6LWpOLVY0QV9FUWQxNlJwdzZpTU1JY2Y5alh5RWFBZG1pZ3R0eDB1YjRCQ1J3VHExT1AwbnF6c1IxTDdXSnFHTVJHcEZpczQtR0dfcjZaaGs50gGUAUFVX3lxTE9jZ3JOcHNzMU9GUm5KaWt3UzRTUU4xQkRvOF9ydWtxWVgzQlBLc2lCUzBMX0F4UEFTYnpjQ1owMWNmeGJwRDM2RHJMekdSSll5czJoMFBMUDhuZ2hETjY2V0ppUWN0TktuTkV5X0JEZXdSLWE4LWIwRXN5NU94YUFfZXA3WTBtV2o5MHl1eDBEalhCbXY?oc=5",
+       "source": "SPORT",
+       "lang": "es",
+       "published": "2026-11-24T11:34Z"
+      },
+      {
+       "title": "Real Madrid Nears New Deal With Jude Bellingham",
+       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSXlsZjBtSnRDQmQ3clNtY2ZsZkJNbjV2R2pVenFLTGtIUHRxaFhEX095cDhpeFlwVGdMMVdZUUdocWdDT3B5ak5UVzJ6TTlqV2JSMEFvVUZ6M2djSFFmZ1pZRGhiamhaODE2QUF4ams5VGpsSWlZOXBnQ1lhdzJRLVRhQVR0d0Zu?oc=5",
+       "source": "Wisevoter",
+       "lang": "en",
+       "published": "2026-11-24T03:20Z"
+      },
+      {
+       "title": "Real Madrid Star Jude Bellingham Set to Commit Future to the Club",
+       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQOURlMDBXWDRVQlpvaUtRTFJVQXl4MDVxSmZ2OWRKcVBjTFp1QXFnX253aFh6dFBwampyekVEbmZleXRtV0hhNmRfeWFseGQ3YVFTa3FfeG84RGZzSFcxaFVhejBSZVFyNzY5b0I2ZUdTQmJHYTU4QVhfYkNZOXZCajM3WFJOUkZPdUlabXFUSjlvdE5XeEZLNUFfZDcwVUhHUDBMdmNpdTVLTkpELXYxVjI2VG9HRnZ5S0tXcTBRLUswdmpJ?oc=5",
+       "source": "roundtable.io",
+       "lang": "en",
+       "published": "2026-11-23T23:22Z"
+      },
+      {
+       "title": "‘Significant’—How Jude Bellingham’s Proposed Real Madrid Salary Compares to Vinicius Jr, Mbappe",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxON2ZybFVSaHZVUnlTMld5UzdtMjgtUW1GRFJrRnRDMWZURDJQTUFaYW5McnlLWW5lZ1Nrdk5WMTRVaDZ4NHc5c1p3a0N1Skp3dkNqS2ZhX0t6ZGtPSEgwdkhmY1pLVHliMmRyTTlDWWlfRGJOTGFka0w5QXU1QTdWYld1MDZ3Nm1ONVZxU3hUc2swQ0RKM19EM3QyTkt1cllpdlFqazhiVXRQVlRT?oc=5",
+       "source": "Forza Football",
+       "lang": "en",
+       "published": "2026-11-24T11:30Z"
+      },
+      {
+       "title": "A reward befitting his status: Real Madrid ready to tie down Bellingham with historic salary",
+       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNMFdLZGFUejkzeldJREVPeHZCLUpZVjVRdUxHR0U2Sno1QkMtQW5Yc0NIZUxhc1Y4a3AyYThTT0Z2a1A4dXNRUnBGYTBKc2JacWRyRlBrdngxRnQzMVlVNWdFV0xoLTZzX0hhQTVwMjBLc2ZfT2F6WUJOY0xiSVJ0enVXb2hMRUF5bUNaMlZ5UDJUaTRMLTV5cXIxRTFtQjdQSFB0SGdLdHIyVWpWQ1JSelZpLV91SnRkZkNRaWN1TW43Qm5IdE40VlIyT0J2UHZHaW5oY05QTQ?oc=5",
+       "source": "Goal.com",
+       "lang": "en",
+       "published": "2026-11-24T09:27Z"
+      },
+      {
+       "title": "Una recompensa a la altura de su estatus: el Real Madrid se prepara para blindar a Bellingham con un salario histórico",
+       "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPa1liNVNfLVFSSHJuQVQwajFIM2VzcERaNVlKMDgyNWlwa2pJQXoyWXBpUUJVR2NDc3djdnRDZGlsV1M0MmpTQ0RxUkJVNzVBTVBZbGc3enRQcElOd1BxRS1yUjFTWG1QbDd3bHpPSkEzTVVoTDNEMHFia1QwaGZCRVVoTzdoMU0xaXNTWWlITkhYZW13bGd3OVp0SkV0TmM3VGZVSmcyUFo2Nm1pMzNqSDNpNGIwZDNBZno1cHo4ZzIxdjhDc1EzcDNKMjFONUJONXdvaFJJbDF3bW03SnBfZEtnUC1kZEhKN3lCSllRemQ4emFxb2xsNzM1YjZXdms?oc=5",
+       "source": "Goal.com",
+       "lang": "es",
+       "published": "2026-11-24T09:27Z"
+      },
+      {
+       "title": "Jude Bellingham in advanced talks over Real Madrid long-term contract renewal - The Athletic",
+       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQT0hBZ21rNENfY0lkM0FFbnlGVGtTaWZUbU96aWF0REhDZjlKenVGcVVXYU9YOGhsejgza1BsdEt2WjJvREpNbHZIbThOYS14bGdYSXdVd2Q5M0RpWkZNc3ZpSmJMTk5sclB6NUxyXzlpTnZmbXExLTVuekEyYkRQajlpdTA4X2pSbXVEeGVmM0lJOE0?oc=5",
+       "source": "The New York Times",
+       "lang": "en",
+       "published": "2026-11-23T18:45Z"
+      },
+      {
+       "title": "Real Madrid star will earn ‘significantly’ more than €15m-per-year as part of contract renewal",
+       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPc0t6bnFqUHZKVlVOeWJFTlNuX1A3N182WEF1aENqc042UDh4WG1WZVRISEZ1M055dWNjVDQ1c1ZOMlNOUkFjRUVZUExsdlY1cFdKYXltRmdPOUk2T1FWdE9UM3RqTVpFal9HUzJUREFkTzU3T1oxMExwT25DdTY3SHBramJ3eVYwR29NdkVTY1NoTmpVWHMyYkk3Nm5EeE5Mb0wxZU1SakEyZF9Rb1JXU2xOb0J5cU96cElNQVVBWkxaUVVZ?oc=5",
+       "source": "Get Spanish Football News",
+       "lang": "en",
+       "published": "2026-11-23T20:17Z"
+      },
+      {
+       "title": "Jude Bellingham set to sign new five-year contract with Real Madrid",
+       "url": "https://www.azernews.az/sports/268015.html",
+       "source": "AzerNews",
+       "lang": "en",
+       "published": "2026-11-23T17:53Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "real_madrid-2"
+    },
+    {
+     "importance": 6,
+     "headline": "Real Madrid, Endrick'in kas sakatlığı nedeniyle yaklaşık üç hafta forma giyemeyeceğini açıkladı; PSV maçı kadrosunda yer almayacak.",
+     "title": "Endrick kas sakatlığı nedeniyle yaklaşık üç hafta yok",
+     "detail": "Real Madrid, Brezilyalı forvet Endrick'in sağ uyluğundaki kas sakatlığı nedeniyle sahalardan uzak kalacağını pazartesi günü yaptığı açıklamayla duyurdu. Sportstar'ın aktardığına göre oyuncunun iki ila üç hafta forma giyememesi bekleniyor. Endrick, salı günkü Şampiyonlar Ligi maçında PSV Eindhoven karşısında kadroda yer almayacak.\n\nSportstar'a göre Endrick'in Alaves, Real Sociedad, Athletic Bilbao, Arsenal ve Osasuna maçlarını da kaçırma riski var. Genç forvet son dört maçta da yedek kulübesinden çıkmıştı; bu sezon sekiz maçta bir gol ve bir asist kaydetti.\n\nMadrid'de eksikler yalnızca Endrick'le sınırlı değil: Ferland Mendy, Raul Asencio ve Rodrygo da sakatlıkları nedeniyle takımda yok. Sports Illustrated bu durumu Şampiyonlar Ligi öncesinde ikili sakatlık darbesi olarak yorumladı. Sağlanan haberlerde Arda Güler'in adı geçmiyor; ancak hücum kadrosundaki eksikler teknik direktörün ofansif seçeneklerini daralttığı için takibe değer.",
+     "key_points": [
+      "Endrick'in sağ uyluğunda kas sakatlığı var; yaklaşık 2-3 hafta yok.",
+      "PSV Eindhoven ile oynanacak Şampiyonlar Ligi maçı kadrosunda yer almayacak.",
+      "Alaves, Real Sociedad, Athletic Bilbao, Arsenal ve Osasuna maçları da risk altında.",
+      "Mendy, Asencio ve Rodrygo da sakat; Madrid'de eksik sayısı artıyor."
+     ],
+     "sources": [
+      {
+       "title": "Endrick ruled out for three weeks",
+       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOY3R1QUlUQzI3ZkZ5OXA4ek8xVlB1cWItWmNRSWo1dlZGX3pkbWpRaXlYUm14OW82VTJuVHJNcWVmclp3STBoWVZoTlJ2bFBEVlNlbzhKLUZEUXlRWnAyTFctQm9GbWhhVnV1VERhTHJlNl9lZE1VREo2SFlXOWtWbklUTkpZWXBRcVdGMWxlNF85Tm0zbjJfZENQeFRpYVk5NTJtRtIBpAFBVV95cUxOY3R1QUlUQzI3ZkZ5OXA4ek8xVlB1cWItWmNRSWo1dlZGX3pkbWpRaXlYUm14OW82VTJuVHJNcWVmclp3STBoWVZoTlJ2bFBEVlNlbzhKLUZEUXlRWnAyTFctQm9GbWhhVnV1VERhTHJlNl9lZE1VREo2SFlXOWtWbklUTkpZWXBRcVdGMWxlNF85Tm0zbjJfZENQeFRpYVk5NTJtRg?oc=5",
+       "source": "Mundo Deportivo",
+       "lang": "en",
+       "published": "2026-11-23T15:05Z"
+      },
+      {
+       "title": "Real Madrid says striker Endrick will be sidelined with a muscle injury",
+       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNWTM4OEZWWlg2RThYOXlPOGRTazR6SG1oendoa3dra1BIbE9uNURhNUNVMDhPRnF6VWc0LWUyMVVXdjctemlLc0dETGNydlBGVmNqbzM4N0MyZ3FwNnBydVQ1MDFMYnBSc1dDRWhXbXZmM3RfaS1VTEhNNmM1Z1ZjeDJCdmtVZw?oc=5",
+       "source": "AP News",
+       "lang": "en",
+       "published": "2026-11-23T16:12Z"
+      },
+      {
+       "title": "Endrick será baja en el Real Madrid para el partido de Champions League",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOZDNJTXhnTU1fTjhjR0pRS3FzUkxfNkxiRGs3dW4tWFpRY25ESHVSOEEzWE5lN2hGNTdZbzhib3BEZjFWemNEMmloUjBYWmI4QXpZUThhcUxKU09qVFpObzVoYjlLMXA1SjZKbnl3SmZtOXpIN0tpbjF4Zm1qQ1lyN2c3OG1nblVmRENNcEFNN21Ha0lCZDdocDhJTnhEb2VlQUZmSFRiVFctZlBP0gGsAUFVX3lxTE5kM0lNeGdNTV9OOGNHSlFLcXNSTF82TGJEazd1bi1YWlFjbkRIdVI4QTNYTmU3aEY1N1lvOGJvcERmMVZ6Y0QyaWhSMFhaYjhBellROGFxTEpTT2pUWk5vNWhiOUsxcDVKNkpueXdKZm05ekg3S2luMXhmbWpDWXI3Zzc4bWduVWZEQ01wQU03bUdrSUJkN2hwOElOeERvZWVBRmZIVGJUVy1mUE8?oc=5",
+       "source": "Diario de México",
+       "lang": "es",
+       "published": "2026-11-23T19:49Z"
+      },
+      {
+       "title": "Convocatoria del Real Madrid ante el PSV: Endrick, la única novedad respecto al Celta",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOcjB2VzFrZWJwZHg3bjZwWHVpNG1iSE9Iekl4cUZUUmJ2WXpjODNTZnliYUNkdUZRNVM1X2FLTlNybGlVbk1XQ2RBRWI1aVRfMTFiRlU3ZVE3Mkg5WnQ0akItakU2dWY0dEhGWXVPbE9WbkFLdk5SZ0xtSlZuNHF0dVQ5OG92anlQcV9tZWtQYmtSZ0dCWldDWHk3b1dVSDlNalBHT0xPRnUxTkZT?oc=5",
+       "source": "Bernabéu Digital",
+       "lang": "es",
+       "published": "2026-11-23T14:26Z"
+      },
+      {
+       "title": "Real Madrid Rocked by Double Injury Blow Ahead of Crucial Champions League Push",
+       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdl9OdzRHcXplYUh5LWhrYmdhWjR2TjA4eEZBUXFFUFFWNjBodHNyaURjWk56bDM2dE9oV09kb0Z0NWpxRTY5SEFJd0xCMkhYM19Qa3VXTkd3U082SUJVLTBkSFZzQnE3WlpEaDA4M1drdldheTF4ZjVERUhWQVRNaUV2bTdrRHFmVXlyYmszN1l0YTdzS3Y2TQ?oc=5",
+       "source": "Sports Illustrated",
+       "lang": "en",
+       "published": "2026-11-23T20:30Z"
+      },
+      {
+       "title": "Soccer-Real Madrid striker Endrick ruled out with thigh injury",
+       "url": "https://www.msn.com/en-gb/news/other/soccer-real-madrid-striker-endrick-ruled-out-with-thigh-injury/ar-AA2i36CP",
+       "source": "Reuters on MSN",
+       "lang": "en",
+       "published": "2026-11-23T12:17Z"
+      },
+      {
+       "title": "Real Madrid injury update — Endrick ruled out with thigh injury",
+       "url": "https://sportstar.thehindu.com/football/real-madrid-endrick-update-thigh-injury-ruled-out-psv-champions-league/article71734967.ece",
+       "source": "Sportstar",
+       "lang": "en",
+       "published": "2026-11-23T05:49Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "real_madrid-3"
+    },
+    {
+     "importance": 6,
+     "headline": "Mourinho'nun Real Madrid'i bu akşam Bernabéu'da PSV'yi ağırlayarak Şampiyonlar Ligi'nde 4'te 4'lük seriyi 5'e çıkarmaya çalışacak.",
+     "title": "Real Madrid bugün PSV'yi ağırlıyor, hedef 5'te 5",
+     "detail": "Real Madrid, Şampiyonlar Ligi 5. hafta maçında bu akşam Santiago Bernabéu'da PSV Eindhoven'ı konuk ediyor (TSİ 23:00). Takım dört maçta dört galibiyet aldı ve hedef, zirvedeki yerini korumak için beşinci galibiyeti elde etmek. Madrid bu sezon Bernabéu'da oynadığı tüm maçları kazandı ve evinde 25 gol attı; bunların altısı Inter (2-1) ve Leipzig (4-1) galibiyetlerinde geldi.\n\nMourinho basın toplantısında \"12 puan bize huzur veriyor ama Şampiyonlar Ligi play-off'unu oynamak istemiyoruz\" dedi. Courtois Roma'daki geri dönüşün kendilerine inanç kazandırdığını söyledi. Kadroda, dört Şampiyonlar Ligi maçında da gol atan Mbappé de var. Madrid cumartesi günü yine evinde Alavés'i ağırlayacak.\n\nPeter Bosz'un çalıştırdığı PSV Şampiyonlar Ligi'nde 4 puanda; Porto'yu yendi, Shakhtar ile berabere kaldı, Leipzig ve Brugge'e yenildi. Hollanda'da lider olan takım ligde NEC Nijmegen'i deplasmanda 4-1 yendi. En skorer ismi 9 golle Sven Mijnans.",
+     "key_points": [
+      "Maç bu akşam TSİ 23:00'te Bernabéu'da",
+      "Madrid Şampiyonlar Ligi'nde 4'te 4 yaptı, sezon boyunca evinde yenilmedi",
+      "Mbappé dört maçın hepsinde gol attı",
+      "PSV Şampiyonlar Ligi'nde 4 puanda, Hollanda ligi lideri"
+     ],
+     "sources": [
+      {
+       "title": "a mantener el pleno de victorias en la Champions",
+       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTElLM3VJZFVQdG0xd3dGM21qQU9MTG5fSF8zeTNCWUp4T0tQWFBkWnkwSjlqMFBhYVFyVmQ2TG1WYzFEQllVRy1rbzhjRXI0eGw5a21CR0dQN2tFSHl5blN1Q0pIc3BkSFhRdG9ULXBDMi1Td1F0UHE5UkctandfMnpNdFR2RmZ6YTRsOXdLWFExOWNPUkpfaUQ3dmhMbEMzRkc3TW5kUElTanljVm0xeVFpN2U1dWl2cUxNWjZQSnM4OVJiTFZkUmNyQlllVUhBM2R3Vw?oc=5",
+       "source": "Real Madrid CF | Web Oficial",
+       "lang": "es",
+       "published": "2026-11-24T12:13Z"
+      },
+      {
+       "title": "aiming to maintain a perfect Champions League record",
+       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOQmpRczhscHo0SGttZE1HMXVOc2g0VnNLaFZqbnE0MWZDaXduYXZTdG5ONEhPX3AzdmNCY25vQ1F1YWYtRGg5d29VaHpFMm41elB6dGZFYWF2dF9PSE0wa3VRcDhjaUhhZ2ZaZl96VWV5YVFFN3hWalFnNmREbkNHRWZIWHQ2MERrdWFULWdla0dwOXo0R2NodjdELVJNRjJqM1NDWGtKQXhSaHM4MG9XeWRJZzNaZGI3UEpUNlJFWE9lZUZoWDhUaUpEZDEzMWM?oc=5",
+       "source": "Real Madrid CF | Web Oficial",
+       "lang": "en",
+       "published": "2026-11-24T11:06Z"
+      },
+      {
+       "title": "El Real Madrid quiere aumentar su pleno ante el PSV",
+       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQbVU4Qzc0MkRWZDVNOV9zdzF3bUtmZ3dVcExHVGdDNEROVExPSFAzTkM4cXBLNGJITzNsTTQ4cmxmSjVaT1BTcEhqeVViZ0VJTkhyTWw2SG9yQlFXNVE5R2tFUVVuZjZEVkRxM2FWX1dEUC1qdzBBMGk2dEZWYkZUdzZ6bXo5UUpka3JBMzZvX2lQendiYUNOS0ZvdnFCS2pkQUZ6M095bjRGM0nSAbgBQVVfeXFMUDNBbEJUNmZGODMwYjB0akZUMEtZdjhwOU11U01KV0EtUl9zYXJzV2x1MjBrZzFyeVpfN21lZ0xnU245VnRSYmE1MHd1aDFSdVlYOXhiYXZ1ekQtaVFLY2V0U2lQRzNWSlllbm1vMjM5WGNUUlVlYjQxRExhRlg0a21FTFMzZk1SemRqUE9IWGhNMmpIUGc2VHFwNVhtaWtBREdZc3VCMDBHVk1EZVItSmxvc3JRbmhSag?oc=5",
+       "source": "Mundo Deportivo",
+       "lang": "es",
+       "published": "2026-11-24T06:02Z"
+      },
+      {
+       "title": "El 'pleno al cinco' tiene premio",
+       "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNR1pvTzA2OWZOUHVRN1QxeEhKdHFVempUbHM3dFN1WkQ5TExfaW9kVVc5RjVFb0t5blpQS0w3czUyczVpc0Q1eHV3VFVNSVRBWEJGVlVyc3dabU1XN280ekdsNGdYV3BHd0htRWZ6dFpNUG1abUNpRmJCZUpHbVQ5ZNIBgAFBVV95cUxNM3h5YVU4YnhTdnhGREc1REJ0TWMtUmVQR0lxdm0zRnNVc2V2WGMtVnRIQlllakJxcjg0Q28yZi1McWRob1BVU2NVNXp2ZmpVZm9PX1B3Q1ptVHllYnhNOWVtWDhJTVdPZkcxTWpWdkRSVWZPQW4tRm1OUElzb1BjOA?oc=5",
+       "source": "MARCA",
+       "lang": "es",
+       "published": "2026-11-24T08:54Z"
+      },
+      {
+       "title": "El Real Madrid busca el 10 en la Champions",
+       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPSkNGNVI0RTd3ZjdVLU9fdUpkeVJIWUFrWDNJVlk2S2lBS3FXZVBWUG5KallMeHA0QU03cmExR0tfOEptckNYQXVHTHo3MFhneW5sUUtwNlRKbExDVVVkcG5PS19mZzhlUE9fZTVTR2dudXF4Nnc5VGNpSHFDdDFZdGxkLVdmUnNpZnNiOXdjOHHSAZYBQVVfeXFMUDZXaFI2b21RTTlneXFmdDBDMnJqVWNwUERFR3pMZGpQZ0VxVzdvQ3JKNlF6clh1U0t1RHc2WXpkQWxsVlAwbE95QXpyUjFmTDdYcGZKMHFhYkVyM2JtZGVmUnN6Ul9QZ0EyQVJ5OWhvdFIzSWUwZlNzNERFamFaU1NuYjVPdUVRWFV6bTBORlRxdUx2LTNn?oc=5",
+       "source": "OkDiario",
+       "lang": "es",
+       "published": "2026-11-24T07:00Z"
+      },
+      {
+       "title": "How has Jose Mourinho got Real Madrid playing so well?",
+       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPWi1NQmdZZU5tQWtxVFZCNjVYb0hiWEdLLVJQWEo3dWJiRkl2UXVHbE5mWFhGMjB2N0U4bWp2UUUtcTFvVmdSZFBoZW50bzBrNUZoT1d1TzRSSndsdmNUcTg5UWd0cmxONDJ0YmdjeHBKUVZpZmtZSm1PdnhOSHNEejFLWnFIS2pkTHloRzM1TF9FYXZNaHlLclJWSQ?oc=5",
+       "source": "The New York Times",
+       "lang": "en",
+       "published": "2026-11-24T11:30Z"
+      },
+      {
+       "title": "El Real Madrid de Mourinho ya juega en otra dimensión histórica",
+       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQc3lIbWh3dXp5elEySS1jSDJsamxMZWZVcTN1MW85czlSLVdfUXJSLUlNNHZZdk04Wi14d3RCaWM5OERad0ZfZ1ViS3pJeGlLQjA5RE1ER1JlTk92cmE2XzktbHVWWGpkYUJWRVNfOVVXWUwtc0pLQ2dQSFNlRkZkZmFfT1JwSEpUMXk5aU8yZlZmM3pvTjI0MFE5SFg5Nk5CdUdaR3N30gGmAUFVX3lxTE5ZV0VoaXUyYXZ6RGVjNWdsdDk5eURuN3V3WHAxU3QxaS1QUHpaZ19ManUzV3VHczlZMDlRaTRwU0VaRUY5SUhfZE5hN1prSEhCbVZhOGxWUXA5NkpwV3FadWJmSFRaczZPc1NZSGRvZnRGS3BEU19vMmxzLXlEUnJDZUR1WS1yYVQ5MkU3WDRWMDJwTUNwNkJRbm5JTU8xRTRScDFaRXc?oc=5",
+       "source": "MARCA",
+       "lang": "es",
+       "published": "2026-11-24T08:35Z"
+      },
+      {
+       "title": "Real Madrid vs. PSV Eindhoven Predictions: Perfect Los Blancos Aiming for 10th Consecutive Victory",
+       "url": "https://www.msn.com/en-us/news/other/real-madrid-vs-psv-eindhoven-predictions-perfect-los-blancos-aiming-for-10th-consecutive-victory/ar-AA2i4ugx",
+       "source": "Sports Illustrated on MSN",
+       "lang": "en",
+       "published": "2026-11-23T18:00Z"
+      },
+      {
+       "title": "Real Madrid-PSV: aiming to maintain a perfect Champions League record",
+       "url": "https://www.realmadrid.com/en-US/news/football/first-team/fixtures/real-madrid-psv-a-por-la-quinta-victoria-en-la-champions-24-11-2026",
+       "source": "Real Madrid",
+       "lang": "en",
+       "published": "2026-11-23T15:50Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "real_madrid-4"
+    }
+   ],
+   "note": "",
+   "candidates": 220
+  },
+  {
+   "id": "pc_donanim",
+   "title": "PC Donanım, GPU ve Çipler",
+   "stories": [],
+   "note": "Kayda değer bir gelişme yok.",
+   "candidates": 220
+  },
+  {
+   "id": "yerel_llm",
+   "title": "Yerel LLM (kendi bilgisayarında çalışan modeller)",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Inkling 2 Mini açık ağırlıklı model çıktı: 26,4 milyar parametre, 3,4 milyar aktif, Qwen3.8 27B'den daha yüksek performans; 16 GB belleğe sığan nicemlenmiş sürümü de var.",
+     "title": "Inkling 2 Mini açık ağırlıklı model olarak yayımlandı",
+     "detail": "Thinking Machines'in Hugging Face'te yayımladığı Inkling 2 Mini, açık ağırlıklı bir model. Toplam 26,4 milyar parametreye sahip ve çıkarım sırasında yalnızca 3,4 milyar parametre aktif oluyor. GIGAZINE'in aktardığına göre model, Qwen3.8 27B'den daha yüksek performans sunuyor. Model görüntü ve metin girdisini destekliyor (image-text-to-text).\n\nModelin 16 GB bellekte çalışabilen nicemlenmiş bir sürümü de duyuruldu. Boyut olarak, bu nicemlenmiş sürüm 16 GB VRAM'e sığıyor; 32 GB VRAM ise daha geniş pay bırakıyor. Hugging Face'te unsloth tarafından hazırlanmış bir GGUF sürümü var; bu da llama.cpp tabanlı araçlarla kullanım için uygun. Fello AI, Ollama kurulumunu ve Qwen 3.8 27B ile karşılaştırmayı ele alan bir rehber yayımladı. Ancak ROCm veya Vulkan ile AMD kartlardaki performansa dair elimizdeki haberlerde bilgi yok.\n\nHugging Face'te model, 5.634 beğeniyle trend listesinde öne çıktı; unsloth GGUF sürümü de 1.183 beğeni aldı. Bunun yanında 'uncensored' kopyalar da çıktı, ancak onlar ilgi alanınızın dışında. Yerel kullanım için RX 7800 XT'nin 16 GB'ına sığan, 27B sınıfındaki bir rakibini geçtiği söylenen düşük aktif parametreli bir model olması, bu yayını yakından izlemeye değer kılıyor.",
+     "key_points": [
+      "Toplam 26,4 milyar parametre, 3,4 milyar aktif parametre; açık ağırlıklı.",
+      "Qwen3.8 27B'den daha yüksek performans sunduğu bildiriliyor.",
+      "Nicemlenmiş sürüm 16 GB belleğe sığıyor; 32 GB VRAM'e rahatça sığar.",
+      "unsloth GGUF sürümü mevcut; Ollama kurulum rehberi yayımlandı.",
+      "AMD/ROCm performansı hakkında henüz bilgi yok."
+     ],
+     "sources": [
+      {
+       "title": "The 'Inkling 2 Mini,' an American-made open-top model with higher performance than the Qwen3.8 27B, has been unveiled, and a quantized version capable of running on 16GB of memory has also been announced.",
+       "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE41bC1ibWltU1RCN0sweElYa053OGxfS21HWVJVekx5OEkxVDlCbjdIOUhUMmt6WmxZXzRyazRvN0xtU3c1SEVhOGs1TFZ5WVc0Und2SEQ3Mm5SS3pUTi1tSkkwaU1Dekk?oc=5",
+       "source": "GIGAZINE",
+       "lang": "en",
+       "published": "2026-11-24T06:41Z"
+      },
+      {
+       "title": "Inkling 2 Mini on a Mac: Requirements, Ollama Setup and Qwen 3.8 27B Compared",
+       "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBsRXZqZzk2c21fckphM0NQVlFDa25pUUFTaW5PZkNmbnVVRUdBN3pza25VSTJZY0lfSVg3MEQwN2V1TTdVYUdoTlpuc0tzd1k1?oc=5",
+       "source": "Fello AI",
+       "lang": "en",
+       "published": "2026-11-24T03:25Z"
+      },
+      {
+       "title": "Inkling 2 Mini: 26.4B Open Weights, 3.4B Active",
+       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNVl9mQnVRQXJBVTEtZUMwVGRNVW5xR1ctRmhpcVgzOFBjR0QzdW9YTnkxMTBGMmk3dnE4bk5vcGlmZ1lQZ3NpQjhGbkZzZEFOcFpUQ0N5LUN3Q21VM2NsRkcxbF93T2xEX0JjcjVRRHcydnktMzlZMTZhVXFUZnA2V0Z3QkNGZkxrdHh1MTdR?oc=5",
+       "source": "shattered.io",
+       "lang": "en",
+       "published": "2026-11-24T04:42Z"
+      },
+      {
+       "title": "Atomic Engine: Inkling 2 Mini 122 tok/s on M5 Max",
+       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNa3dFLXczdE5aZklCZ2JRVUNOdVpYalE1WWJPcjA2REx2ZnlQYXpZakxkOGkya2VSQzJubDVLNE9PSkVmelRNX29sejdZZXBJb1poTzFPc3pkZzFPNk1GaWgtMm40R0Y5N2ZYTkZwcERrbmxzb3RPRVdqQkFvVDEteXQwVWpnX2FIYjFZVXI5cks5aVJs?oc=5",
+       "source": "explainx.ai",
+       "lang": "en",
+       "published": "2026-11-24T00:00Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: thinkingmachines/Inkling-2-Mini",
+       "url": "https://huggingface.co/thinkingmachines/Inkling-2-Mini",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-17T00:26Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: unsloth/Inkling-2-Mini-GGUF",
+       "url": "https://huggingface.co/unsloth/Inkling-2-Mini-GGUF",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-20T13:09Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: AtomicChat/Inkling-2-Mini-GGUF",
+       "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-GGUF",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-20T20:42Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+       "url": "https://huggingface.co/AtomicChat/Inkling-2-Mini-Uncensored-GGUF",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-20T20:42Z"
+      },
+      {
+       "title": "Hugging Face trend modeli: strata-engine/Inkling-2-Mini-Strata",
+       "url": "https://huggingface.co/strata-engine/Inkling-2-Mini-Strata",
+       "source": "Hugging Face",
+       "lang": "en",
+       "published": "2026-11-21T18:46Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "yerel_llm-1"
+    },
+    {
+     "importance": 7,
+     "headline": "NariQ, Qwen3.8-27B modelini 3 bit ile yaklaşık 10 GB'lık tek dosyada sunuyor ve uzun ajan görevlerinde BF16 düzeyine denk geldiğini söylüyor; Hacker News'te 175 puan aldı.",
+     "title": "NariQ: Qwen3.8-27B tek 10 GB dosyada, BF16 kalitesinde",
+     "detail": "Nari Labs, 20 Kasım'da Qwen3.8-27B için NariQ v1 GGUF dosyalarını yayımladı: ağırlık başına 3, 2,5 ve 2 bit seçenekleri var. Trellis kodlamalı bir eğitim sonrası quantization (PTQ) yöntemi olan NariQ, gerçek kodlama ajanı kayıtlarıyla kalibre edildi. Geliştiriciye göre 3 bit ve 2,5 bit dosyalar uzun ajan görevlerinde, matematikte ve görüntü anlamada BF16 ile eşleşiyor; 2 bit dosya daha düşük skor alıyor. Dosyalar Apache-2.0 lisanslı.\n\nBoyut ve VRAM: 27 milyar parametreli model yaklaşık 10 GB'lık dosyaya sığıyor, dolayısıyla 16 GB VRAM'e ve 32 GB'a rahatça sığar. Ancak kaynak, 131072 bağlamın 24 GB'lık kartta ancak az boşlukla sığdığını söylüyor; 16 GB'ta bağlam düşürülmeli. KV cache hâlâ BF16 olduğu için 16 GB'ta uzun bağlam zor, bunun için KV cache quantization planlanıyor.\n\nÖnemli kısıt, bu kullanıcı için belirleyici: dosyalar yalnızca NariQ'ya özel llama.cpp çatalını gerektiriyor. Standart llama.cpp, Ollama ve LM Studio yeni tensör türlerini henüz yükleyemiyor. Çatal şimdilik NVIDIA SM120 odaklı; AMD ve Intel GPU'lar henüz desteklenmiyor. Yani RX 7800 XT'de bugün kullanılamaz, ancak yöntem upstream'e girerse ilgi çekici hale gelebilir.",
+     "key_points": [
+      "Qwen3.8-27B, 3/2,5/2 bit GGUF; yaklaşık 10 GB, 16 GB ve 32 GB VRAM'e sığar",
+      "3 ve 2,5 bit uzun ajan görevlerinde BF16'ya denk, 2 bit daha zayıf",
+      "Özel llama.cpp çatalı gerekiyor; Ollama ve LM Studio desteklemiyor",
+      "AMD GPU desteği yok, bu yüzden RX 7800 XT'de şimdilik çalışmaz"
+     ],
+     "sources": [
+      {
+       "title": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+       "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+       "source": "huggingface.co",
+       "lang": "en",
+       "published": "2026-11-23T13:42Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yerel_llm-2"
+    },
+    {
+     "importance": 7,
+     "headline": "Reuters kaynaklarına göre Trump, Jensen Huang'ı açık ağırlıklı yapay zekanın koruyucusu olarak gördüğü için dönüşünü destekledi; Yann LeCun ise Dario Amodei'yi açık yapay zeka konusunda eleştirdi.",
+     "title": "Trump, Jensen Huang'ın dönüşünü açık ağırlıklı yapay zeka için destekledi",
+     "detail": "Reuters'ın kaynaklarına dayanan habere göre Trump, Nvidia'nın başındaki Jensen Huang'ı ABD'deki açık ağırlıklı yapay zeka modellerinin koruyucusu olarak görüyor ve bu nedenle Huang'ın görevine dönüşünü destekledi. Dealroom ve The Standard'ın aktardığına göre Trump ile Vance, Huang'ın göreve iade edilmesi sürecine müdahale etti. Haberlerde ABD'nin yapay zeka alanındaki stratejik tercihinin bu isteğin arka planında yer aldığı belirtiliyor.\n\nTradingKey, Huang'ın Nvidia'ya dönüşünün ardından Anthropic hisselerinin yüzde 4'ten fazla düştüğünü, açık ağırlıklı modellerin Claude'un fiyatlama gücünü zayıflatabileceği yorumunun yapıldığını yazdı. Tartışma sosyal medyada da büyüdü: Hacker News'te 1.772 puan ve 1.029 yorum alan bir paylaşımda, Dario Amodei'nin tehlikeleri abartarak açık modellerin yasaklanmasını ve kontrolün kendisinde kalmasını istediği öne sürülüyor. News Karnataka'ya göre Yann LeCun da Amodei'yi açık yapay zeka konusunda eleştirdi.\n\nBu haber belirli bir modelin boyutu veya VRAM gereksinimiyle ilgili değil; ancak yerel LLM kullanıcıları için önemli bir politika sinyali. Açık ağırlıklı modellerin ABD'de siyasi destek görmesi, bu modellerin gelecekte de erişilebilir kalması açısından olumlu olabilir.",
+     "key_points": [
+      "Reuters: Trump, Huang'ı açık ağırlıklı yapay zekanın koruyucusu olarak görüyor.",
+      "Trump ve Vance'in Huang'ın Nvidia'ya dönüşü için devreye girdiği bildirildi.",
+      "Anthropic hisseleri dönüşün ardından yüzde 4'ten fazla düştü.",
+      "Yann LeCun, Dario Amodei'yi açık yapay zeka konusunda eleştirdi."
+     ],
+     "sources": [
+      {
+       "title": "Trump saw Nvidia's Huang as protector of open-weight AI models, sources say",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPam9EWkNKUkVWckNXeXJpWmh0OEhTcy1reWhiOWRkUHllZWZtc1V0N0l1UWJLMEtjSUR5V3F6YXlJdXRYaTZyQ0Z6ZGp2UjJnc1FfSExfaUNtblB5eUg4WG9QQm9XdUxPTmdMb3diZGl5LU53c2l4aXdXaTkyaUJnNVprM1Y3UWdjMjd6M0dLc2RmbXY5ZUFPaWwwRXR2SXZreTdZMmM2M2MtVFJqelI2MmxB?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-23T19:23Z"
+      },
+      {
+       "title": "Trump, Vance intervene to restore Nvidia's Huang over open-weight AI",
+       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSTRFRUJEMWdIYkppQnRFbExqcmZsM2gtUmxjZzNzY21wWDBlNTc5c2h3TXVIZ01panhlSUFidjJoTDBBQnZiM20yT1czT1VwMGVJRGhLa2Jqd1ZURHRTeUduZjdFZUVRa0E5ZnVLd1JOLUltb1Y3aEVPckw1TFNkTmNhYUxQNTViWktUUm13U2QtT3VWbDRYTDUwV2pJV0ZPRTNZ?oc=5",
+       "source": "Dealroom",
+       "lang": "en",
+       "published": "2026-11-24T10:11Z"
+      },
+      {
+       "title": "Trump intervened in Nvidia reinstatement, seeing Huang as key to US open-weight AI, sources say",
+       "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdGhiaTYxT1VfeTZyblZXX3hKTHJuWU1kOVZ2YlBHaVk4MElic0pHYmM0TGRYM2xHdE93ei1aNUhfQ3llcW15ald1M29idFlEcnE2WWE4S1BsYVA1RkwyVmVxWnBYN0JOMm9xeDctbmdCSGR0dnZyd3kzNm1xeld3Y3lsYWlIV2NleGpseUVhT3lUdGhad2s3OW93OUFvbGxmWV8xeHprWUlncXpnYU5qeXUzNmNpaG5DeFZNQ3BEdGlYVWZKVTNRWENJYTVQVHJmWGlZdmc3MWM1aXRGd1E?oc=5",
+       "source": "The Standard (HK)",
+       "lang": "en",
+       "published": "2026-11-23T15:58Z"
+      },
+      {
+       "title": "The backdrop behind Trump and Vance’s desire for Jensen Huang’s return… intertwined with the U.S. strategic choice on AI",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNSVhTeDUtd1NkYmNfVWl1WDJhNUF5N05zc2VSaU1hSXBYNDBNZXhfSm5BY3lIZ3FfRngyQjJJQmxKWnBpNHpzZDJSZEdiR2YxeGVvNzNRSEx5X1JhWk5pd0RaTUxFYXRGTlZrcVJCdDNoZlFLV2g3d2drc0hudlgtbWN3Yw?oc=5",
+       "source": "스타뉴스",
+       "lang": "en",
+       "published": "2026-11-24T03:55Z"
+      },
+      {
+       "title": "Anthropic Shares Drop Over 4% After Jensen Huang Returns to Nvidia: Open-Weight Models May Weaken Claude's Pricing Power",
+       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQU3BmSWxGaGZqUExERGNmb053QjM5MWhkUXFuYU9vNi1JSlBFWnZ1ZjMydzBMWWVQVm9DNlViRUV6cE9JcDF6U3Y3SnJPMjVpMUdTRE5NSmQ3T3V5UkFHckFFSEZXLTV3UWNuZGRNS21ZQ1ZtZ0JadE54czRQRG5QcEVTS1lUeXN4d3RjcmswR21aWHo1VlRaTmwtYjhBMHZsZ0tyTHBIbmM3S2NTNGRRbVQ2YWw5MUN1UEJrN0JIR2IwREc2WUZIRA?oc=5",
+       "source": "TradingKey",
+       "lang": "en",
+       "published": "2026-11-23T21:21Z"
+      },
+      {
+       "title": "\"Dario is hyping the dangers so OSS models are illegal and he stays in control\"",
+       "url": "https://twitter.com/ylecun/status/2124550037912920090",
+       "source": "twitter.com",
+       "lang": "en",
+       "published": "2026-11-23T17:07Z"
+      },
+      {
+       "title": "Yann LeCun Criticises Dario Amodei Over Open AI",
+       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObWhWT0VSR25kUmh1OTQ1dDAwd2FHd2ZxVXNRZnVkbzIxT2MzR2FFdUZBWXN5SXdTMlU1RTRTWEtiRUduRXRDTlVFUThGUjNfSTRWZ0dNMDRpVE9jV3RkenJZYVpZa2FsUzFKNmhHRDFuYWRSTFRTU0duZzB5NnVTRTd4M05iNmkyLUc5b19qOTRqRzZYTjh4RHRn?oc=5",
+       "source": "News Karnataka",
+       "lang": "en",
+       "published": "2026-11-24T11:30Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yerel_llm-3"
+    }
+   ],
+   "note": "",
+   "candidates": 84
+  },
+  {
+   "id": "yapay_zeka",
+   "title": "Yapay Zeka",
+   "stories": [
+    {
+     "importance": 7,
+     "headline": "Axios'a göre Anthropic ve OpenAI çalışanları, henüz yayımlanmamış bazı modellerin güvenli biçimde yayımlanamayacak kadar riskli olabileceğinden endişe ediyor.",
+     "title": "Anthropic ve OpenAI çalışanları yayımlanmamış modellerin güvenliğinden endişeli",
+     "detail": "Axios'un özel haberine göre Anthropic ve OpenAI çalışanları, şirketlerin henüz yayımlamadığı bazı yapay zeka modellerinin güvenle piyasaya sürülemeyecek kadar riskli olabileceğinden endişe ediyor. Haber MLQ.ai, Mezha.net, The Defiant ve Türkçe yayın yapan Unite.AI ile Foreks gibi birçok yayın tarafından aktarıldı.\n\nNDTV Profit, haberi \"Bizi kandırabilecekler\" başlığıyla verdi ve çalışanların uyarısına dikkat çekti. Elimizdeki başlık ve özetlerde modellerin adları, somut risk türleri veya şirketlerin yanıtı yer almıyor; bu nedenle ayrıntılar belirsiz.\n\nHaber, iki büyük laboratuvarın en gelişmiş modellerinin yayımlanma sürecine dair iç tartışmaları gösterdiği için sektör açısından önem taşıyor.",
+     "key_points": [
+      "Kaynak: Axios'un özel haberi.",
+      "Anthropic ve OpenAI çalışanları yayımlanmamış modellerin riskinden endişeli.",
+      "Modellerin adları ve somut riskler haberlerde belirtilmiyor.",
+      "Haber çok sayıda yayında, Türkçe olanlar dahil, yer aldı."
+     ],
+     "sources": [
+      {
+       "title": "Scoop: Anthropic and OpenAI employees fear unreleased AI models are too unsafe to release",
+       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNWnJmY2hLTWlhTHcwN3pVSEhYOXlYUThYQXJ3RWxobVlPR2lweWpSQUY1NklSLVNVUHI4c0wwdnN3azBiV05wTVV6ZmRMTllRR1dvcmNYdjRheHZDOUNVaTBxUFpuS3BZUVBvZ2tpMlpTSS1oYWZ3SC16RVZEME51a0FB?oc=5",
+       "source": "Axios",
+       "lang": "en",
+       "published": "2026-11-24T10:49Z"
+      },
+      {
+       "title": "Anthropic and OpenAI staff fear some unreleased models are too unsafe to release",
+       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSXBPRFhrdC1paWJIOFdySm5PeTN5bllySEpfalh4Vi0yUm1MNGdFSEkwdDZJbllzNzV3akpVVS1PaGpyLUpyWnMzSDdWUklmWXg4eXE1RVlGR0pvTnBoWm5MeURpNHd4STdaMWlPV29vdWdrd0lSeUEwTFpWUmF4b3NGb2RrQUJJR0hWV204ZGU4VFNURzRnYzVUWXRWZlRyUWdz?oc=5",
+       "source": "MLQ.ai",
+       "lang": "en",
+       "published": "2026-11-24T12:16Z"
+      },
+      {
+       "title": "OpenAI Anthropic Models Too Unsafe to Release? Nov 2026",
+       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQZ042ZGxJd012UnZDODRZM3p5cl9RdGhfOWFzOW82YnQ2SmFQbnp3b3hQZEhkYUtvcjZJSmZzNTJxcjc4Rk0wY3AxQ2pCYm1VcmFTZEVmN2I1OUtUMDZYYV9BVHdEQmlEWnp6ZFFaRTQ2TTBKRHl2UVRuMUktVjRzMW12QTVid01tM196TDBnRUJVOHRiM1g4?oc=5",
+       "source": "explainx.ai",
+       "lang": "en",
+       "published": "2026-11-24T12:28Z"
+      },
+      {
+       "title": "OpenAI and Anthropic face AI model safety risks",
+       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPdk5hcy1DdG03ZU1iR0hZbml5VGRSR0JkS1pOc1VpdXZXb2ZnOTFKWFZWRjdfMC1MSzJLWXRUd3Q0VWpDRnpDSVJZQkJJTGxnTG80dDdPYVNoVWJ0elJpSkR5LUlvbXk2OTJOakpGajc0QllTckdSdC1pbXR4Vkt1LXFwX0lPV0VuUjUxNVQ5dTc5Vi1yUEIzRWFlci1Nam0z?oc=5",
+       "source": "samaa tv",
+       "lang": "en",
+       "published": "2026-11-24T12:10Z"
+      },
+      {
+       "title": "'Will Be Able To Trick Us': Anthropic, OpenAI Staff Sound Alarm Over Unreleased AI Models",
+       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPLU9vWFVIM2lGVzFOMnA1WkVYdVRTZDdoeHlQYXFBeEdJUnRGRVJxUEhWZXV3VmJUT3VCRmxCMVQzWEdYeXZ0QUxacWpxVXZxRHI3Y2RUcV9uY1RpT2I3ZE9WdnFxY1RBaW1FOTlBeUx0Ny1paTNzN1UxeHF4b3N2d1dzZUtQMThxU0dzMV9sYWtueVBmS0pad29nSXVjQkZ1Tms5QnJiZmtvY0txcXByY0h2VTc1U21tejR3SkpvWklHSDhUcnk4RHFnQlg?oc=5",
+       "source": "NDTV Profit",
+       "lang": "en",
+       "published": "2026-11-24T11:14Z"
+      },
+      {
+       "title": "Anthropic and OpenAI employees fear unreleased models may be unsafe to release",
+       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPblRaSU9Ia1NhOVpfREpTNHdKbXNtUm9XSFRjOGdmNU1ueWlPQVhDblN3TmVUZnFfZ2hRWHBhakx3UUdVOVJPd0lRSmdoMjY3Q0RkSDcwWTBqVGo1WVRwLXRvRENpWkZ2dVdPUno5MFBXTDU3UVNfc2o3ZHNlTTM5RzJzdEwxUQ?oc=5",
+       "source": "Mezha.net",
+       "lang": "en",
+       "published": "2026-11-24T11:01Z"
+      },
+      {
+       "title": "Anthropic ve OpenAI Çalışanları İleri Düzey Yapay Zekâ Modellerinin Yayımlanmasını Sorguluyor",
+       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOaFBZQXhjS0dwanVSOEl4VEdoOEdKcHFRbHhfbWdmS3RBNmZmQlY0ZzQxSUttZFNBUmg0aTFZVUhEdERvYjdHSUFqaFllYzhEZHc4Mk9xbHVxeEZmNnI4Szh5ZWstUFpWSEgyZm5qTUwzOWl4RWk1WkwtbThpWDg0cjJRbTY2Z1VQY0dRTklFdFVnTnc?oc=5",
+       "source": "Unite.AI",
+       "lang": "tr",
+       "published": "2026-11-24T11:16Z"
+      },
+      {
+       "title": "OpenAI ve Anthropic'te yapay zeka alarmı: Yeni modellerin güvenli şekilde yayımlanması tartışılıyor",
+       "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQUGU0NkFvZ2c4bFdfeGMwcGhGdGN6bWVXOHhUZE9nNE9wTHRvenpOV0FvTGJPdnN5MDA5NEwtSDJDb3dEWFo4VlNBWFhOLXZBTjdmUXlkUTJpOHRQbDd6cV9qcUhwbFV1MW9xVGpqTk1zOUIwaDczUkh3dEYwN0d1ZzhjOW9qcTFlOWd2SDdvSzVSbUJPTUx4cHlOVElWazZCUnZHZTlBaGtfY3JENEhLc0laa0ZfR19zUjNXcGNWbG9OcEM1NDh6VVFvRXg3em1hQ3lQUGM1ZXNFRFdGRTN1NVlqb2YyS1Q4bVB2Wi1adjBST0dSZy0yczVUd2RORDBXWllrNGhURlZrOFU?oc=5",
+       "source": "Foreks.com",
+       "lang": "tr",
+       "published": "2026-11-24T11:14Z"
+      },
+      {
+       "title": "OpenAI, Anthropic Staff Fear New Model Releases: Axios",
+       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNWU5NMlpSOThwZ0N4LXBLQ0hfQS02LUlmUUZjeUlhVzhQZFpvRWJadzF4ZzcyQm5XeXVGOU5PVm9tRWFGb1lTdEhqUkd4VW1Cc2ZtSXAzU1ZaWEdXczBDM2h1OF8wVldFTUZsZ3FoV2sxQW41UDVuMV82bGRTdTZQSFhlQS1mMTMtWG80YlYzcw?oc=5",
+       "source": "The Defiant",
+       "lang": "en",
+       "published": "2026-11-24T07:08Z"
+      },
+      {
+       "title": "Scoop: Anthropic and OpenAI employees fear unreleased AI models are too unsafe to release",
+       "url": "https://www.msn.com/en-us/news/other/scoop-anthropic-and-openai-employees-fear-unreleased-ai-models-are-too-unsafe-to-release/ar-AA2i7Gho",
+       "source": "Axios on MSN",
+       "lang": "en",
+       "published": "2026-11-24T02:45Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "yapay_zeka-1"
+    },
+    {
+     "importance": 7,
+     "headline": "Z.ai, her katmanı iki kez çalıştıran döngülü transformer mimarisiyle 750 milyar parametreli GLM-5.4'ü tanıttı; model benchmark puanı paylaşmadan çıktı.",
+     "title": "Z.ai GLM-5.4: döngülü transformer mimarisiyle 750 milyar parametre",
+     "detail": "Z.ai, GLM-5.4 modelini tanıttı. Model, token'ları aynı transformer bloğundan ve aynı ağırlıklardan birden fazla kez geçirerek parametre sayısını şişirmeden çıktıyı iyileştiriyor. GLM-5.4'te GLM-5 temel modelinden 28 katmanlık çekirdek blok her token için iki kez çalıştırılıyor. Z.ai modeli sıfırdan eğitmek yerine önceden eğitilmiş GLM-5 modelini sürdürülen eğitimle döngüye uyarladı. The Decoder haberi, Z.ai'nin bu adımla OpenAI'ın ardından döngülü transformer alanına girdiği şeklinde yorumladı.\n\nİkinci geçişte KV cache ve seyrek dikkat haritaları yeniden kullanılıyor; token başına geçitleme ve birleştirilmiş çekirdekler hızı koruyor (yoğun olmayan saatlerde 200 token/sn'ye kadar). Akıl yürütmenin bir kısmı döngü içinde sessizce yapıldığı için karmaşık matematik ve bilim testlerinde çıktı token sayısı yüzde 10-14 azalıyor. Model, selefi GLM-5.3'ün aksine görüntü de kabul ediyor; kodu görsel alanlara köprü olarak kullanıp 3D shader, CAD modeli ve oyun üretebildiği belirtiliyor.\n\nZ.ai standart benchmark puanı paylaşmadı, modeli doğrudan rakiplerle karşılaştırdı; bu yüzden somut skor yok. Model ağırlıkları ve API fiyatı henüz açıklanmadı. Şirket ayrıca 1B, 4B ve 30B boyutlu modeller çıkarmayı planlıyor; 30B sınıfı yerel kullanım için ilgi çekici olabilir.",
+     "key_points": [
+      "750 milyar parametre; 28 katmanlık blok token başına iki kez çalışıyor",
+      "Çıktı token sayısı karmaşık matematik/bilim testlerinde yüzde 10-14 azalıyor",
+      "Görüntü girdisi destekliyor; benchmark puanı paylaşılmadı",
+      "Ağırlıklar ve API fiyatı henüz yok; 1B, 4B ve 30B modeller planlanıyor"
+     ],
+     "sources": [
+      {
+       "title": "Z.ai Debuts GLM-5.4 With a Novel Looped Transformer Architecture, Skipping AI Benchmarks Entirely",
+       "url": "https://wccftech.com/z-ai-debuts-glm-5-4-with-a-novel-looped-transformer-architecture-skipping-ai-benchmarks-entirely/",
+       "source": "Wccftech",
+       "lang": "en",
+       "published": "2026-11-23T14:32Z"
+      },
+      {
+       "title": "Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model",
+       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNaWpsRHQwN1U1VFRVZWNmaG9RRzJ0YjA5NnV3VUItblJTQ0FKRkJtck9QZHZZSXpieGd0blhOakJ3R3VHSlI2NElVZi0wQXEzTUJQc2g5OWlqNXZkMUQ1QkRzV0tiVFh3WXIwY1BSMFd2cFZrT3E3TUN0SnhmaGRQZlowR0NqeTNEc2dEQTRhX3ZOd3pPeXNOT0FJcThmSzRaYzRFN25ZQ05rWXJyUVE?oc=5",
+       "source": "The Decoder",
+       "lang": "en",
+       "published": "2026-11-23T15:13Z"
+      },
+      {
+       "title": "China's Z.ai Says Its New AI Model Can Think Like One Four Times Its Size",
+       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQdU9sTHQ4N2dkal9BZXVUUTJrZTFqRjhocXEwbC1WQ1oyWThCVGJLNlJNN3dYZ3ZqVndfSGFqZFNlbjNDZ1hwdmRQdDVVR3hEWm1saFVUeWkzWG5HOXNrRzNRZ0NkNzlkSVcwSHJOSGpnc2w0anNxRE51YUd3a0hfaHBSX1ZWNWo4?oc=5",
+       "source": "Decrypt",
+       "lang": "en",
+       "published": "2026-11-23T23:06Z"
+      },
+      {
+       "title": "智谱发布新一代大模型GLM-5.4",
+       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOckFyY010N3FEeG9rcXU1UU56aFFuMzhrLWRZS3ExZjc1MFU3Vkt4RkczZGVoN3dLcFRDTEkwaGRtU3hFOVpLbUUxekhNc3dKd1BrS2hfRXJwdHQ3Y1JLQXlyOWVqVWprMlRMTjVsem54YVRkUHIybHo0VG9KNGdiV05ybF9tTl95?oc=5",
+       "source": "Sohu",
+       "lang": "zh",
+       "published": "2026-11-24T08:14Z"
+      },
+      {
+       "title": "智谱发布GLM-5.4旗舰模型",
+       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFB6eG5KVmpaOUdzTGZZSmtEcU9NTnViLTl6RjhWS014N2tfYUo4c3JJaWl6bUlLRnVDLXNQSmZNLUVhWFZoY1l1czZ1UkVYMEdyamk1aFQ1NnQ2bk16X0pmLVNabU5OUQ?oc=5",
+       "source": "东方财富网",
+       "lang": "zh",
+       "published": "2026-11-23T13:45Z"
+      },
+      {
+       "title": "智谱发布新一代大模型",
+       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB1QjJGZ3lBZEpfRHlSOVd4SktuaGUwNGtsZUVTTEM4bU9rdFB1M3FYaFRFc2szdUE4SjM0NlhMWHNsejRsQ3IwNFA2OTVhdkNMdWc?oc=5",
+       "source": "Sohu",
+       "lang": "zh",
+       "published": "2026-11-23T23:17Z"
+      },
+      {
+       "title": "智谱，重大发布！",
+       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9NR3VPb1ZOUW1tRWpZRDI2N1J4MG05UGMyeElnN0NSSXlKT2VlcmxHZWZtT3dtbloySUJMZEJtOVhqUTlNenEyZ2VYOFc3a0lWa3V4RzliTEsxX3JjbVlzb3VR?oc=5",
+       "source": "证券之星",
+       "lang": "zh",
+       "published": "2026-11-23T15:03Z"
+      },
+      {
+       "title": "AI进化速递 | 智谱GLM-5.4上线Coding Plan",
+       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBfUjdreWFWWXhXbHFhWjNfbExBeHJfZGdjOTlGRWtyUDlHRHZtVHJ4MUpCTzh6Xzc3MWhMUGU5eGJDdGI4RWpRODNsUjBab050MjJKTWlKWl9SNl9lR1RZaUk1SWpaeV94X0paNmFnZw?oc=5",
+       "source": "新浪新闻_手机新浪网",
+       "lang": "zh",
+       "published": "2026-11-23T18:41Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yapay_zeka-2"
+    },
+    {
+     "importance": 7,
+     "headline": "Amazon, Trainium çiplerini satmaya hazırlanırken Decart'ın yapay zeka optimizasyon teknolojisini ve araştırma ekibini bildirildiğine göre 7,5 milyar dolara satın alıyor.",
+     "title": "Amazon, Decart'ı 7,5 milyar dolara satın alıyor",
+     "detail": "Amazon, İsrailli girişim Decart'ın önemli bir bölümünü satın almak üzere anlaştı. Bloomberg'e dayandırılan habere göre Amazon 7,5 milyar dolar ödeyecek. Decart, etkileşimli gerçek zamanlı dünya modelleri (son olarak Oasis 3) ve yapay zeka video üretim araçlarıyla tanınıyor. Şirketi öne çıkaran asıl unsur ise yapay zeka modellerinin Nvidia, Amazon ve Google donanımlarında verimli çalışmasını sağlayan Decart Optimization Stack (DOS) yazılımı.\n\nAmazon'un blog yazısına göre anlaşmayla DOS teknolojisi, Decart'ın kurucu ekibi ile yapay zeka araştırmacı ve mühendis ekibi Amazon'a geçecek. Amazon'dan Peter DeSantis, daha verimli işlem gücünün daha iyi eğitim, daha hızlı çıkarım ve müşteriler için daha düşük maliyetle daha iyi modeller anlamına geldiğini söyledi.\n\nAmazon, Trainium çiplerini şimdiye kadar yalnızca kendi veri merkezlerinde kullandı; şimdi bunları Nvidia'ya rakip olarak müşterilere satmaya hazırlanıyor. TechCrunch'a göre Decart'ın teknolojisi, müşterilerin iş yüklerini altın standart olan Nvidia yerine Amazon çiplerinde çalıştırmasını kolaylaştırabilir.",
+     "key_points": [
+      "Anlaşma bedeli Bloomberg'e göre 7,5 milyar dolar.",
+      "Amazon, Decart Optimization Stack teknolojisini ve kurucu ile araştırma ekibini alıyor.",
+      "Amaç, Trainium çiplerinin Nvidia'ya rakip olarak satışını kolaylaştırmak.",
+      "Decart, Oasis 3 dünya modeli ve video üretim araçlarıyla biliniyor."
+     ],
+     "sources": [
+      {
+       "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+       "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T17:14Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "yapay_zeka-3"
+    }
+   ],
+   "note": "",
+   "candidates": 220
+  },
+  {
+   "id": "ai_kodlama",
+   "title": "Yapay Zeka Kodlama Araçları ve Fiyatlar",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Anthropic, yapay zeka ajanlarının pull request'leri inceleyip düzeltmesine ve onaylamasına izin veren Claude Ship'i beta olarak duyurdu; şirket hata ve güvenlik açığı kaçırabileceği uyarısı yaptı.",
+     "title": "Anthropic Claude Ship'i beta olarak duyurdu",
+     "detail": "Anthropic, pazartesi günü kod incelemesi, düzeltme ve rutin değişikliklerin onayını otomatikleştiren bir ajan paketi olan Claude Ship'i duyurdu. TechCrunch'a göre asıl yenilik, ekibin belirlediği politikalara göre kod değişikliklerini kendiliğinden onaylayabilen bir ajanın bulunması. Code Review zaten genel kullanıma açık; iki yeni ajan beta aşamasında.\n\nPR Steward başarısız CI kontrolleri, birleştirme çakışmaları ve Code Review geri bildirimlerini ele alıyor, her push sonrası neyi değiştirdiğini ve nasıl geri alınacağını yorumluyor. Claude Approvals ise ekibin depoda dosya olarak yazdığı, doğal dille hazırlanan onay politikasını uyguluyor. Anthropic, onay özelliğinin önce yalnızca gözlem modunda denenmesini, tek depoyla başlanmasını ve aylık harcama limiti koyulmasını öneriyor. Şirket aracın hata veya güvenlik açığı kaçırabileceği uyarısını da yaptı (IT Pro).\n\nClaude Ship, GitHub depoları için Claude Team ve Enterprise planlarında kullanıma sunuluyor. Bireysel Claude aboneliği olan bir kullanıcı için şimdilik kapsam dışı; fiyat bilgisi haberlerde verilmedi. Haber, kodlama ajanlarının üretimden onaya kadar tüm süreci üstlenmeye yöneldiğini gösteriyor.",
+     "key_points": [
+      "Code Review genel kullanımda; PR Steward ve Claude Approvals beta",
+      "Onay politikası depoda doğal dille yazılan bir dosyayla tanımlanıyor",
+      "Önce gözlem modu, tek depo ve aylık harcama limiti öneriliyor",
+      "Yalnızca GitHub ve Claude Team/Enterprise planları"
+     ],
+     "sources": [
+      {
+       "title": "Anthropic's new Claude Ship service hands the reins to agents to fix and review code changes – but the company warns it may 'miss bugs, security vulnerabilities, or other issues'",
+       "url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxQRlVDcmpneVpsMmotbGRGTlMwdE8tYm5ZcXVmQTZQTDB5WnV1UFZDU1dnQktoRUYtSFd1MEt3dExuNXVOSF9hbV9CWkJDQVNlU1hYV1ZfWjhZT3NMUTA0LU9XbGk4QjFSVWFTVHlQVWo0UUdETUZkWXhWWDNCRWhMY2VENFE5SlpOQ1BrSjhZOElwMldZbmt4WmIyNmFzZ2JSbjRVaHlIMXhYRWUybktVMzVvUHQwUWpyNnNidm5pTTBCc3dNT3ZIYXRSam9YT010QzBRamlJclJ1T2txLWREaVFCdDI4LTZYV0dkQVVCNmllUnhWeGg3QTE1YTBQeEdkVlozZTdkOXdpZHhIN2N2QUgyWW9rejZ6Nl9BemZ1ZG4xaDlvVWMyeS0xSTA4Zk4wZW9JSXEtRElJdw?oc=5",
+       "source": "IT Pro",
+       "lang": "en",
+       "published": "2026-11-24T11:38Z"
+      },
+      {
+       "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+       "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T22:05Z"
+      },
+      {
+       "title": "Anthropic's Claude Ship lets AI agents review, fix, and approve pull requests on their own",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQMjByMkk5NUVrVi13T1pkcE05SXlXS0JSd3JMeVRNZnZBalFYTFhISEYtbWxJMEQ0V2Nsa3JDVktMSzhRWXVpdXFzUFNkTExkZzRoUk5KR0daY2VEaGZCOVlfZVdDTXVKbUVBZXVsdlBlZGcwYnFQUk5EV0hxU0xIQmhZVVowbHZ1bWNVN3RsV01LOEx1a2s1cVJKdmdDSnBLSTd2NzRCNWJQa0s5Yzkzbzh3?oc=5",
+       "source": "The Decoder",
+       "lang": "en",
+       "published": "2026-11-24T11:26Z"
+      },
+      {
+       "title": "Claude Ship: All About Anthropic’s New Tool To Ship Code Faster",
+       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQdHk3SVZ5RXZNYjZKdUp1bkNMcnVUT19VMktVdEIwQ2JiVW41ektGLUM4bVRIVGMxdGFxUjZPWExVeC1sZTJGaGZzdENLcDg0ZEZyeHZmeUp6d25Db1RHZWZrcHd6TGVzWTNoRlZwYkNfeEhRcnUtZUM0UXR6VF9qWERxZ2lIajBkb1hHQTU2R0dMOG5CdDZNWFhqcGxJRlJBNUVwNHB4WnE2LTB0SEE?oc=5",
+       "source": "NDTV Profit",
+       "lang": "en",
+       "published": "2026-11-24T10:23Z"
+      },
+      {
+       "title": "Anthropic’s Claude Ship goes beyond AI coding to let agents approve, push code: How it works",
+       "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNZDlBMDhkZGN2M2ZhRUZOc19ad2ZGN3BYRFRXeEJLU0czb1lwd0pBaU9jc2xwR1c0N1dNT0g1Ti1KVTJVT01UWDdnQ2xGSXpBdV9rUDBtTF84YkVQblNzcE9WUTA1Z0NwNEUwakFHMllOZ2kwdi1BcFBPOF9KV3h6YzQzaHVjUmpPc0hQM1FBQk9SbGZ2SDZ4cjBNSFhpanpGVUFGU0NKY2NpNHN1N1hOb0hlSnF3NnBMdnFWdDhfOUoxLVhsVVFjdNIByAFBVV95cUxNZDlBMDhkZGN2M2ZhRUZOc19ad2ZGN3BYRFRXeEJLU0czb1lwd0pBaU9jc2xwR1c0N1dNT0g1Ti1KVTJVT01UWDdnQ2xGSXpBdV9rUDBtTF84YkVQblNzcE9WUTA1Z0NwNEUwakFHMllOZ2kwdi1BcFBPOF9KV3h6YzQzaHVjUmpPc0hQM1FBQk9SbGZ2SDZ4cjBNSFhpanpGVUFGU0NKY2NpNHN1N1hOb0hlSnF3NnBMdnFWdDhfOUoxLVhsVVFjdA?oc=5",
+       "source": "The Indian Express",
+       "lang": "en",
+       "published": "2026-11-24T09:54Z"
+      },
+      {
+       "title": "Anthropic Unveils Claude Ship as Autonomous AI Agents Take Over Code Review, Remediation, and Approval Pipelines + Video",
+       "url": "https://news.google.com/rss/articles/CBMiO0FVX3lxTE5vNUVqWTRlTmp6UGtzUS14YVhfelh5a3JSdXlETXNBQjh1aGFFZ0NZWjhPam5fZmlaYk0w?oc=5",
+       "source": "Howl.Link",
+       "lang": "en",
+       "published": "2026-11-24T09:40Z"
+      },
+      {
+       "title": "Anthropic launches Claude Ship to automate code reviews and approvals",
+       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5lUVEtbnN1LTJyYm5CdmZCV1BTX3dnb3dMdGQya3pGQXdPSTkzYVItNENNcHNvUmQ2NnREdWtITzA0YUMzTzZaZVpuTURXUXAyWmNhbkxITlRzV1pxSmwzay0xcw?oc=5",
+       "source": "Crypto Briefing",
+       "lang": "en",
+       "published": "2026-11-23T21:31Z"
+      },
+      {
+       "title": "Anthropic Unveils Claude Ship That Reviews Pull Requests, Works Fixes, and Approves Them",
+       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQN2I2Sk1sZDI3dlB4SHpOZV8tSXVXWjZtZVotS0VIZGRIQ1h6UWk4Sjk5QUswLWZLd3RaVnNJblNvaEVjYXRXOFNTZ1MwUFE3YTZpUno0XzBOaGdlelpTOXhqRkJGTHh5Y3BzQy10a3dsWHhoU1FzV2FVMDB3ZTV1a05uLTdZTDVsRklkR3FFb3YtZUtt0gGaAUFVX3lxTE4zV0RjSDJqTVBpaVdYSUNwT1J2QU1lVnVMM0VwMERyNGtsVmRjUERJNnBabU9kUXRSa3FvTkRkU3BkV3hrb19mZE5janRjRnlGY3BjY1gzSEZYTGZUc09zczZ6dmFkeDllbExoajQ0UGRiMFJ6aTFpVm8zVHh0eE40b2gxdmZLR2dzQXdacXp0cy1YNU9UYzVNLWc?oc=5",
+       "source": "CyberSecurityNews",
+       "lang": "en",
+       "published": "2026-11-24T09:43Z"
+      },
+      {
+       "title": "Claude Ship gives AI a seat on both sides of code review",
+       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE15cW84NGlOMmY4UXltYWxENFlMWVY3MENnWGdlNWVvbm5nLS0wVEI4ZGs5b0NQR0t5UTE0Y2U3NzlaTlVOdzZubHJRUWZsT2dSMG14dVY2akVhbXN4OHYtbTBYN1dyemtnNDFmNVBrUC1lZEJidUVMcXdn?oc=5",
+       "source": "Help Net Security",
+       "lang": "en",
+       "published": "2026-11-24T09:02Z"
+      },
+      {
+       "title": "Claude Ship reviews, fixes, and approves pull requests",
+       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNN3FPVEplS0lkRVhOeDVva3FVVlV0OTMyTTZxb1JYYmdDRXpzZEhRV0hpZjY0cDQ3RHl5TGFOZ1c2dEZVZ21CS1BQUzRLeThaMnVIYjNmeEFURzJvWUd5UjBlOHBEa2VLbllxUDlrNEM5LU9pNTN0YVJUVVlvdkxxYU4xRDdITVR0V0VXeUJ5VjdyYnNia2c3QWFuUXg?oc=5",
+       "source": "Techzine Global",
+       "lang": "en",
+       "published": "2026-11-24T08:04Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "ai_kodlama-1"
+    }
+   ],
+   "note": "",
+   "candidates": 173
+  },
+  {
+   "id": "teknoloji",
+   "title": "Genel Teknoloji",
+   "stories": [
+    {
+     "importance": 9,
+     "headline": "Nvidia, istifasından 11 gün sonra Jensen Huang'ı Trump'ın müdahalesiyle yeniden CEO yaptı; hisse sert yükseldi, Huang gelecek hafta Senato'da ifade verecek.",
+     "title": "Jensen Huang yeniden Nvidia CEO'su oldu",
+     "detail": "Nvidia yönetim kurulu, Jensen Huang'ı oybirliğiyle hemen geçerli olacak şekilde başkan, CEO ve yönetim kurulu üyeliğine geri getirdi. Kurul, kararı alırken ABD hükümetinin üst düzey yetkililerinden görüş aldığını ve Huang'ın göreve dönüşünün ulusal güvenlik riski oluşturmadığına inandığını açıkladı. Huang'ın, Megaspeed yöneticisi Alice Huang ile ilişkisini kabul etmesinin ardından görevden ayrılmıştı. Başkan Trump, CNBC'ye verdiği röportajda geri dönüşü sağlamak için devreye girdiğini ve bunu \"ülke için\" yaptığını açıkladı. The Verge ve The New York Times kurulun fiilen devre dışı kaldığını yazdı.\n\nPiyasa karşılık verdi. cnBeta'nın aktardığına göre Nvidia hissesi yüzde 31 yükselirken piyasa değeri tek günde 950 milyar dolar arttı; TSMC yüzde 9,9 yükselerek günlük sınıra ulaştı. Asya'daki tedarikçi ve müşteriler dönüşü memnuniyetle karşıladı. Geçici CEO Colette Kress mali işlerden sorumlu CFO olarak devam ediyor.\n\nAncak tartışma sürüyor. Huang gelecek hafta Senato'da ifade verecek; iki partiden siyasetçiler kararı eleştirdi. Kurulun bağımsız üyelerden oluşan soruşturma komitesi çalışmasını sürdürecek, şirket bir Baş Uyum Sorumlusu arıyor. Megaspeed'in ise ABD kara listesine gireceği belirtiliyor. Analistler yönetişim ve halefiyet planlaması konusundaki soruların sürdüğünü söylüyor.",
+     "key_points": [
+      "Kurul oybirliğiyle Huang'ı CEO, başkan ve kurul üyesi olarak geri getirdi",
+      "Trump müdahalesini CNBC'de kabul etti",
+      "Hisse yüzde 31 yükseldi, TSMC günlük sınıra çıktı (cnBeta)",
+      "Huang gelecek hafta Senato'da ifade verecek; soruşturma sürüyor"
+     ],
+     "sources": [
+      {
+       "title": "Jensen Huang Reinstated as Nvidia CEO",
+       "url": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director",
+       "source": "nvidianews.nvidia.com",
+       "lang": "en",
+       "published": "2026-11-23T14:01Z"
+      },
+      {
+       "title": "华硕 ROG“XG27ACMSR”27 英寸显示器上架：QHD 360Hz / FHD 420Hz / HD 640Hz 三模，2199 元",
+       "url": "https://www.ithome.com/1/031/722.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-24T09:51Z"
+      },
+      {
+       "title": "五菱缤果 Pro 宁德版上市：5.98 万-7.38 万元，旗舰款可选装 AEB、智能泊车",
+       "url": "https://www.ithome.com/1/031/804.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-24T10:56Z"
+      },
+      {
+       "title": "消息称 OpenAI 与 Anthropic 员工警告：内部 AI 模型能力过于强大，无法安全发布",
+       "url": "https://www.ithome.com/1/031/811.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-24T11:18Z"
+      },
+      {
+       "title": "达尔优 COOL68 V2 磁轴键盘上架：配钻石灯箱 2.0 氛围灯效，349 元起",
+       "url": "https://www.ithome.com/1/031/826.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-24T12:03Z"
+      },
+      {
+       "title": "Bored.com: Fun, interesting and cool websites to explore when bored",
+       "url": "https://www.bored.com/",
+       "source": "bored.com",
+       "lang": "en",
+       "published": "2026-11-23T21:01Z"
+      },
+      {
+       "title": "Nvidia reverses course and brings Jensen Huang back as CEO",
+       "url": "https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T14:21Z"
+      },
+      {
+       "title": "Trump engineered a risky comeback for Jensen Huang",
+       "url": "https://www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated",
+       "source": "The Verge",
+       "lang": "en",
+       "published": "2026-11-23T22:25Z"
+      },
+      {
+       "title": "Nvidia CEO Jensen Huang is back. What happens next?",
+       "url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+       "source": "The Verge",
+       "lang": "en",
+       "published": "2026-11-23T22:10Z"
+      },
+      {
+       "title": "Welcome to elite impunity, Jensen Huang",
+       "url": "https://www.theverge.com/ai-artificial-intelligence/1040819/welcome-to-elite-impunity-jensen-huang",
+       "source": "The Verge",
+       "lang": "en",
+       "published": "2026-11-23T22:09Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "teknoloji-1"
+    },
+    {
+     "importance": 8,
+     "headline": "CrowdStrike, siber güvenlik şirketi Zscaler'ı yaklaşık 43,9 milyar dolarlık tamamı hisse senedi olan anlaşmayla satın alıyor.",
+     "title": "CrowdStrike, Zscaler'ı 44 milyar dolara satın alıyor",
+     "detail": "Siber güvenlik devi CrowdStrike, Zscaler'ı 43,9 milyar dolarlık tamamı hisse senedi olan bir anlaşmayla satın almak üzere anlaştı. Şirketler anlaşmayı pazartesi günü duyurdu. TechCrunch'a göre taraflar, birleşmenin siber güvenlikte \"en büyük tekil adreslenebilir pazarı\" yaratacağını ve şirketleri yapay zeka çağına daha iyi hazırlayacağını söyledi.\n\nKaliforniya'nın San Jose kentinde bulunan Zscaler, yaklaşık 8.000 kurumsal müşteriye bulut tabanlı siber güvenlik ürünleri sunuyor ve sıfır güven (zero-trust) teknolojisiyle tanınıyor. CrowdStrike ise şirket ağına bağlı bilgisayar, telefon ve diğer cihazları koruyor. İki şirket, uç nokta koruması ile sıfır güven platformunu birleştirerek veri ihlallerine karşı daha güçlü koruma sunacaklarını belirtti. Şirketler ayrıca anlaşmanın müşterilerin yapay zekayı güvenle benimsemesine yardımcı olacağını söyledi.\n\nAnlaşma düzenleyici onaya tabi ve gelecek yıl bu zamanlarda tamamlanması bekleniyor.",
+     "key_points": [
+      "Anlaşma değeri 43,9 milyar dolar, tamamı hisse senedi.",
+      "Zscaler yaklaşık 8.000 kurumsal müşteriye bulut güvenliği sunuyor.",
+      "Şirketler yapay zeka çağında müşterilere güvenli kullanım sunmayı hedefliyor.",
+      "Düzenleyici onay gerekiyor; kapanışın gelecek yıl bu zamanlara beklendi."
+     ],
+     "sources": [
+      {
+       "title": "CrowdStrike to acquire Zscaler for $44 billion",
+       "url": "https://techcrunch.com/2026/11/23/crowdstrike-to-acquire-zscaler-for-44-billion/",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-23T16:20Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "teknoloji-2"
+    }
+   ],
+   "note": "",
+   "candidates": 220
+  },
+  {
+   "id": "akilli_telefon",
+   "title": "Akıllı Telefonlar",
+   "stories": [],
+   "note": "Kayda değer bir gelişme yok.",
+   "candidates": 220
+  },
+  {
+   "id": "oyunlar",
+   "title": "Oyunlar (Soulslike ve Aksiyon-RPG)",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı resmen doğrulandı.",
+     "title": "Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı doğrulandı",
+     "detail": "OpenCritic'in aktardığına göre Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı resmen doğrulandı. Elimizdeki haberde oyunun kesin çıkış tarihi, platformları veya içeriğine dair ek bilgi yer almıyor.\n\nSoulslike ve aksiyon-RPG severler için çıkış yılının netleşmesi, takvimi planlamak açısından önemli bir gelişme.",
+     "key_points": [
+      "Oyunun 2027'de çıkacağı resmen doğrulandı.",
+      "Kesin tarih ve platform bilgisi haberde yer almıyor."
+     ],
+     "sources": [
+      {
+       "title": "Elden Ring: Rot & Sorcery Officially Confirmed For 2027",
+       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPRGFIOXZ6QlFfWkgwa19fTmFoam1fRVlOVlFZb1J1am5ZMHFEZkVQU3FXWlhpQWtYOGRGeWZhT19NTzdSOVBJc1VpZWZzU1MyYmpyUmkyamZPbHZscnkxWXd4RDRJdkpLeHV4NVZScnRWSzA1cE5lS09oU2RHdzE5azdwUHgzWFlxaTE1YVlTVQ?oc=5",
+       "source": "OpenCritic",
+       "lang": "en",
+       "published": "2026-11-23T12:34Z"
+      },
+      {
+       "title": "Elden Ring: Rot & sorcery officially confirmed for 2027",
+       "url": "https://www.msn.com/en-ca/entertainment/general/elden-ring-rot-sorcery-officially-confirmed-for-2027/ar-AA2i4yUS",
+       "source": "Screen Rant on MSN",
+       "lang": "en",
+       "published": "2026-11-23T03:55Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "oyunlar-1"
+    },
+    {
+     "importance": 7,
+     "headline": "Nioh 3'ün Bloody Insurrection DLC'si 17 Aralık'ta, Complete Edition ise 28 Ocak 2027'de Xbox Series sürümüyle birlikte çıkıyor.",
+     "title": "Nioh 3 DLC'si Bloody Insurrection 17 Aralık'ta çıkıyor",
+     "detail": "Koei Tecmo ve Team NINJA, Nioh 3'ün ikinci indirilebilir içeriği Bloody Insurrection'ın 17 Aralık'ta çıkacağını duyurdu. Ana oyun ve iki DLC'yi içeren Complete Edition ise 28 Ocak 2027'de PlayStation 5, Xbox Series ve PC'de (Steam ve Microsoft Store) satışa sunulacak; böylece oyun ilk kez Xbox'a geliyor. Nioh 3, 6 Şubat'ta PS5 ve Steam için çıkmıştı.\n\nDLC'de Takechiyo, Hell Rising'in ardından 1638'deki Shimabara'ya gidiyor; isyancılar, simyacılar ve yokai'lerin şogunluk ordusuna karşı savaştığı bir savaş alanında hikaye ilerliyor. Isyan lideri Amakusa Shiro ve Tachibana Muneshige gibi karakterler yer alıyor. Her silah türü için yeni Martial Arts, ayrıca yeni Transformed Arts, Ninjutsu, Onmyo Magic ve Summoning Seals ekleniyor.\n\nİki DLC'ye sahip oyuncular üçüncü oynayışı (Enlightened One's Journey) bitirince dördüncü oynayış Nioh's Journey ve en yüksek nadirlikteki Ethereal ekipmanlar açılıyor. Yeni endgame modu Battlefield of Carnage'de katlardaki savaş cephelerinin boss'ları yenilerek avantaj sağlayan etkiler kazanılıyor. Complete Edition ayrıca 14 Infernal Weapons ve çeşitli ekipman setlerini de içeriyor.",
+     "key_points": [
+      "Bloody Insurrection DLC: 17 Aralık",
+      "Complete Edition: 28 Ocak 2027, PS5, Xbox Series ve PC",
+      "Yeni sahne Shimabara 1638 ve Battlefield of Carnage endgame modu",
+      "Dördüncü oynayış Nioh's Journey ve Ethereal ekipmanlar"
+     ],
+     "sources": [
+      {
+       "title": "Nioh 3 DLC ‘Bloody Insurrection’ launches December 17; Complete Edition launches January 28, 2027 alongside Xbox Series version",
+       "url": "https://www.gematsu.com/2026/11/nioh-3-dlc-bloody-insurrection-launches-december-17-complete-edition-launches-january-28-2027-alongside-xbox-series-version",
+       "source": "Gematsu",
+       "lang": "en",
+       "published": "2026-11-24T01:41Z"
+      },
+      {
+       "title": "Nioh 3: Complete Edition Sees Team Ninja's Soulslike Samurai Fantasy Coming to Xbox in January 2027",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbFNEOVJ3SmhZMFUxMk5iNDB3Y0gxNGtlUHhERjB3MG9XUHVVcWlsUjVMdFBBU2FtQWhnYzFtMDczc1hIWGlaRjRiMHFVQndaeWRMRy1OUDMzTEJvWFptWnVzelEwempXcGt1dW5RdTNpTVkyeWUxalh1V21vM09TS3NMdlBYRy1rRjMzajMyaDZjYWROajQ5TU5uTzA1X1M3QlRvUmhaY3JOblJH?oc=5",
+       "source": "Xbox Achievements",
+       "lang": "en",
+       "published": "2026-11-24T12:09Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "oyunlar-2"
+    },
+    {
+     "importance": 6,
+     "headline": "Phantom Blade Zero'nun Denuvo korumasının, süren davaya rağmen Voices38 tarafından kırıldığı bildirildi.",
+     "title": "Phantom Blade Zero'nun Denuvo koruması kırıldı",
+     "detail": "OtakuKart'ın haberine göre Phantom Blade Zero'nun Denuvo koruması, Voices38 adlı grup tarafından kırıldı. Haberde bunun, süren bir davaya rağmen gerçekleştiği belirtiliyor.\n\nElimizdeki kaynakta davanın ayrıntıları veya kırılmanın oyunun satışlarına etkisi hakkında bilgi yok. Aksiyon-RPG severler için oyunun koruma durumu açısından dikkate değer bir gelişme.",
+     "key_points": [
+      "Voices38 Denuvo korumasını kırdığını bildirdi.",
+      "Bu, süren davaya rağmen gerçekleşti.",
+      "Davanın ayrıntıları haberde yer almıyor."
+     ],
+     "sources": [
+      {
+       "title": "Phantom Blade Zero’s Denuvo Protection Cracked by Voices38 Despite Ongoing Lawsuit",
+       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNR2pNSHViNXE3bHg3QjJCY1dVczZLSzFRTE9jUlVEa011OGc3dXVfUDNkcnB1a1kteHhFQXlFWmNvQTlJVE53RkNrSVk4cmlneTREbDBWSUFYVDJjSC1oZDBJREdoQ05vQU52MWplSE5UbkNuNTBVY2hXOWo2Z2NWTGIxV3JteVZBMWFhS2t4THd5UmVVNTJJLVRQTzBVZXhCSTA1QXNLTEt6Uk52S1QtTUNSZ0N5SmM?oc=5",
+       "source": "OtakuKart",
+       "lang": "en",
+       "published": "2026-11-23T15:10Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "oyunlar-3"
+    },
+    {
+     "importance": 6,
+     "headline": "Demon's Souls Remake'in resmi olmayan PC portu Regaliant geniş grafik ayarları sunuyor ancak 60-80 dakikalık shader hazırlığıyla rekor kırıyor.",
+     "title": "Demon's Souls Remake'in resmi olmayan PC portu: Regaliant",
+     "detail": "Bluepoint Games'in Demon's Souls Remake'i resmi olarak PS5'e özel kaldı ve Sony'nin PC pazarından uzaklaşması nedeniyle muhtemelen öyle kalacak. Oyun KyTy PS5 emülatörüyle PC'de oynanabiliyordu; şimdi Regaliant adlı resmi olmayan port ikinci bir seçenek sunuyor. Port, oyunun kendi PS5 programını CPU emülasyonu olmadan çalıştırıyor, PS5 sistem kütüphanelerini Windows için yeniden yazıyor ve grafikler için Vulkan kullanıyor.\n\nÖzellikler arasında pencere, çerçevesiz ve tam ekran seçenekleri, 16:9'dan 32:9'a kadar en-boy oranları, HDR çıkışı, DLSS, FSR ve XeSS desteği, render ölçeği, gölge mesafesi ve 30, 60 veya sınırsız kare hızı sınırı yer alıyor. Port erken geliştirme aşamasında: Ryzen 9 5900X ve RTX 4090'lı test PC'sinde birçok yerde 60 fps'e yakın, yoğun bölümlerde 40-55 fps alınıyor.\n\nBedeli ise ilk çalıştırmadaki shader hazırlığı: hızlı bir PC'de yaklaşık bir saat, RTX 4070 SUPER'de 80 dakikaya yakın sürüyor. Bu işlem yalnızca bir kez gerekiyor, sürücü veya port güncellemesinden sonra yeniden derleniyor. Wccftech'e göre oyunun mekan tasarımı hâlâ FromSoftware oyunlarının en iyileri arasında ve bu port emülasyona başvurmadan deneyim imkanı sunuyor.",
+     "key_points": [
+      "Regaliant, Vulkan tabanlı resmi olmayan PC portu; emülasyon kullanmıyor",
+      "DLSS, FSR, XeSS, HDR ve ultra geniş ekran desteği var",
+      "Test PC'sinde (5900X, RTX 4090) 40-55 fps ile 60 fps arası",
+      "İlk shader hazırlığı 60-80 dakika sürüyor, bir kez yapılıyor"
+     ],
+     "sources": [
+      {
+       "title": "FromSoftware and Bluepoint Games’ Demon’s Souls Remake Unofficial PC Port Delivers Extensive Graphics Settings, But Its 80-Minute-Long Shader Preparation Shatters Every Record",
+       "url": "https://wccftech.com/fromsoftware-demons-souls-remake-unofficial-pc-port/",
+       "source": "Wccftech",
+       "lang": "en",
+       "published": "2026-11-24T11:37Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "oyunlar-4"
+    }
+   ],
+   "note": "",
+   "candidates": 61
+  },
+  {
+   "id": "oyun_genel",
+   "title": "Oyun Dünyası",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Sony'ye göre GTA VI, PlayStation'da en yüksek eşzamanlı oyuncu sayısına ulaştı ve PS5'te 39 milyondan fazla oyuncuyla tarihin en büyük lansmanı oldu; ilk gün satışı 3,79 milyar dolar bildirildi.",
+     "title": "GTA VI PlayStation tarihinin en büyük lansmanı oldu",
+     "detail": "Sony Interactive Entertainment, 22 Kasım itibarıyla 39 milyondan fazla tekil oyuncunun PS5'te Grand Theft Auto VI oynadığını ve bunun PlayStation tarihinin üç on yıl ve beş konsol neslindeki en büyük lansmanı olduğunu duyurdu. Oyun, çok oyunculu, ücretsiz ve tek oyunculu tüm oyunları geride bırakarak PlayStation'daki en yüksek eşzamanlı oyuncu rekorunu da kırdı. Sony eşzamanlı oyuncu sayısını paylaşmadı.\n\nPS5 oyuncuları toplamda 683 milyon saat oynadı ve ilk günlerde kişi başına ortalama 17,4 saat harcadı. Lansman, yıl sonu tatilleri dışında PS5'in çıkışından beri tek günde en çok yeni bağlanan konsol sayısına da yol açtı; yeni PS5'lerin yüzde 70'inde ilk oynanan oyun GTA VI oldu.\n\nOyun 19 Kasım'da PS5 ve Xbox Series için çıktı. Rockstar 20 Kasım'da 32,5 milyon ön satışın ardından ilk gün 3,79 milyar dolar perakende satış bildirdi. Rockstar kesin adet vermedi; 79,99 ve 99,99 dolarlık sürüm fiyatlarına göre Gematsu bunun yaklaşık 37,9-47,3 milyon kopyaya denk geldiğini hesaplıyor. PC Gamer, bunun satış rekoru olmadığını, GTA V'in 230 milyon kopyalık satışının hâlâ çok uzakta olduğunu belirtiyor.",
+     "key_points": [
+      "PS5'te 39 milyondan fazla tekil oyuncu (22 Kasım itibarıyla)",
+      "PlayStation'da en yüksek eşzamanlı oyuncu sayısı rekoru",
+      "683 milyon saat oynanma, kişi başı ortalama 17,4 saat",
+      "Rockstar: ilk gün 3,79 milyar dolar satış, 32,5 milyon ön satış"
+     ],
+     "sources": [
+      {
+       "title": "Sony: GTA 6 set record for 'highest number of concurrent players for any game on PlayStation' ever",
+       "url": "https://www.pcgamer.com/games/grand-theft-auto/sony-gta-6-set-record-for-highest-number-of-concurrent-players-for-any-game-on-playstation-ever/",
+       "source": "PC Gamer",
+       "lang": "en",
+       "published": "2026-11-24T00:14Z"
+      },
+      {
+       "title": "Grand Theft Auto VI for PS5 tops 39 million players",
+       "url": "https://www.gematsu.com/2026/11/grand-theft-auto-vi-for-ps5-tops-39-million-players",
+       "source": "Gematsu",
+       "lang": "en",
+       "published": "2026-11-23T23:45Z"
+      },
+      {
+       "title": "GTA 6 was the ‘biggest launch in PlayStation history’ with over 39 million players",
+       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPVXpGQ1k0NExobkxtTFVxRXJoY3RqeEIzNEZEZ3ZBYUR3eDd0aXhvTWxqX0JMM0tRbnB4NjdCMElqUlMyR3NHOEdYNnNYWlVJdkQ4NDh4TW41WEJLVWxRS2VDbk5obHBja2pnUm4wd0FxSXBmcUJVanhrQ0FUbTVWcmtrZ3RPZVJMVHBlQ2duYkZaTTNlQlh2Yml0YWJkLXNSWjJkNGh5NHBwZ085TjJjR0JodzhPOUhFM3ZCVXRERQ?oc=5",
+       "source": "Video Games Chronicle",
+       "lang": "en",
+       "published": "2026-11-23T23:55Z"
+      },
+      {
+       "title": "Grand Theft Auto 6 is the best game in PlayStation history.",
+       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQdEJzX0RJZDNudmV5QXNpTGdHQXdFanVCWWRtcVVrdFhQeUNYbGg4aW1RYTVEVUtKd2FxRnhzNkFQbkViZWplcGtidURnVTlCVkZodFF3OGQya0pua3RFM2FkM2J6Z1oyNzFRU0xPNVh2ZkoxUlRXcEc2SldzLWtQRFZlazctNndfRFFkU1lTUXU?oc=5",
+       "source": "virus.hr",
+       "lang": "en",
+       "published": "2026-11-24T11:00Z"
+      },
+      {
+       "title": "Fact Check Team: GTA VI generates $3.79 billion in first-day sales",
+       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQLWctSDNWVUptLXZBNHE3YTJMaXdESUxZWWFTcGNvcTI1TUFmcGNsR1RzOHpfSkxkNXJidlBqeW1SN2hTYW90UFEzekVLekFiQldnTHpfcXhIUXNqd3BPZlEyZ19RbktqU0lRQ19OTDZwakViU2phYU1IRkNPM3JGemV0c3RqcUV5a1E0a3FGVFNWanFxeHBLUE9iNndzUUtOLUNldTdGNlhoRVp0M2VzT3lVNW9xRU9Xby13OVJBWQ?oc=5",
+       "source": "KTUL",
+       "lang": "en",
+       "published": "2026-11-24T06:12Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "oyun_genel-1"
+    }
+   ],
+   "note": "",
+   "candidates": 87
+  },
+  {
+   "id": "cs2",
+   "title": "CS2",
+   "stories": [
+    {
+     "importance": 7,
+     "headline": "PGL Major Singapur Stage 1 başladı: Liquid, BC.Game'i 13-1 yendi, Imperial HEROIC'i, FlyQuest PARIVISION'ı, Wildcard FaZe'i ve Lynn Vision 9z'yi geçti.",
+     "title": "PGL Major Singapur Stage 1 başladı, ilk gün sürprizler yaşandı",
+     "detail": "PGL Major Singapur'un Stage 1 aşaması başladı ve ilk gün birkaç sürpriz sonuç getirdi. HLTV'ye göre Liquid, s1mple'ın oynadığı BC.Game'i 13-1 gibi net bir skorla yendi. Imperial, HEROIC'e karşı Mirage'da arka arkaya 12 raunt kazanarak galip geldi. Wildcard, ilk Major haritasında FaZe'i 13-9 yenerek ilk galibiyetini aldı ve FaZe 0-1'e düştü.\n\nLynn Vision, 7-11'lik gerilikten dönerek 9z'yi geçti ve 9z'nin kayıp serisi sekize çıktı. Pley.gg'ye göre FlyQuest, PARIVISION'ı yenerek Stage 2'ye bir galibiyet uzaklığa geldi. 100 Thieves ise Chinggis'i 13-6 yendi; takımın acemi oyuncuları poiii ve sirah öne çıktı.",
+     "key_points": [
+      "Liquid, BC.Game'i 13-1 yendi.",
+      "Imperial, HEROIC'i 12 raunt üst üste kazanarak geçti.",
+      "Wildcard, FaZe'i 13-9 yendi; FaZe 0-1'e düştü.",
+      "Lynn Vision, 7-11'den dönerek 9z'nin kayıp serisini sekize çıkardı.",
+      "FlyQuest, PARIVISION'ı yendi."
+     ],
+     "sources": [
+      {
+       "title": "PGL Major Singapore live: Stage 1 day one",
+       "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1CQnRVQmg3Q2haSFhGaVFucTFQTDQzd2lYRTAyLXN1TnZETnc1ODZKUVAwSFlsSWNjLWZDWlFaajN1QVJHMllMMmZRMFRjZVdtY3hPZXVMbkZDVW5jTHI3VDJ2dHR6S1lETXlCX1JnTFdwUQ?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-24T09:32Z"
+      },
+      {
+       "title": "PGL Major Singapore Stage 1 Day 1 highlights",
+       "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbk5jSVh1OEw0V1QwYmN4VXRYdFFZenBxM3Q4Z3dqQXhZOTI1X1laanJnTlVHdVVWSXFlckxIQ0xGd2g1T1M2Z0JIUGhHMTVYTG5sYi1tZkRQR0RNaXFKeHI2NFlqc21TXzduVVVLakxfQWlWWWpEWUw4WkphRHgzeGtR?oc=5",
+       "source": "HLTV.org",
+       "lang": "en",
+       "published": "2026-11-24T03:43Z"
+      },
+      {
+       "title": "Stage 1 kicks off CS2 Singapore Major 2026: Results from the early Swiss clashes",
+       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNamRjZk5ZR3QzbHlvLTdqT1hGU2ZCWGJLak5xaWZRcnN3YUhFWjdTdVIycFRWeVVsWm5iTDVjbHJPLWlzb1A3RXZpb3BHN0lMX0N2TVM0Z19rS3QtamhoaWxhbEJBM3NKdmV2Tm5MMGZzYlVLajFwM0xRRVJkVGpEYjBCcWljZGFlUERaRkU0MEhvUDFBSXBwcFdiZw?oc=5",
+       "source": "Esports.gg",
+       "lang": "en",
+       "published": "2026-11-23T17:20Z"
+      },
+      {
+       "title": "Liquid annihilate BC.Game 13-1 in Singapore",
+       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE90Z21nLUROcGQ2S0VPYTRRNHhxZmhPejZtZ0lrNmc5cHJHX1huY1hkWkdYcG01U3BhMnJER3hQcEVlZWQ0ZS1NU21OcUZFME1aNE1KdHBQa3gzd1ZFSlZKODZYdWk5UndkZ3NOWE1RNU05akl5aGFtdnNwdjlHcG8?oc=5",
+       "source": "HLTV.org",
+       "lang": "en",
+       "published": "2026-11-24T06:47Z"
+      },
+      {
+       "title": "PGL Major Singapore 2026 Day 1: Liquid Crush s1mple's BC.Game 13-1",
+       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNOFYzMl9LX0RNM1ROU2tmY1pGZ0pfSkhsNmNKYlhkcDBwelF3SEM4cGlXWXdHRVd4N0ZuMzIzTUpKczZQTXJHaGVzRUdiMUY4T1JLY1lQSWFvSXJLVHprdHFSLTdaS0YxZGdrbTYzdmdaM05seHJWb19BMTFoTGhSc0xtVXNyXzVjZ2Jtc180ZlJaVVdtZzVBU2ZJeGR5NW1VTXVUd2s1SGMyR3JZdjRr?oc=5",
+       "source": "EGamersWorld",
+       "lang": "en",
+       "published": "2026-11-24T08:32Z"
+      },
+      {
+       "title": "Major debutant Jorko upstages s1mple as Liquid rout GOSH 13-1",
+       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQRkRKcW1YNFJSRGNMbWp6aU83Sk1LUFYzR1Ztc005aEZ0NkN3NnRwLXlNYmI0MjFacWFMdk5oaTQ1NUJZTkg3cmwxbEhYUnFCbjR4NnZIaWk0VElQM0ZMU09IUnVDZlRwdTRYUm1XOG5fM19aYWhEZTBJdEMwV3pjSUE4N2xsMFpYa1E?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-24T06:44Z"
+      },
+      {
+       "title": "Imperial upset HEROIC in Singapore Major opener",
+       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQQ0x1cHM2UjlFRG93ZFRoT1ZDRHpBMDlSTjJrWU9MQ3lZd2lVaGFNN2JJaGZLdDBhM2YzT0ZHeDNHZDMxQXhremxvQ1F6Nk5faklSU2tsdFJqbXI2bG5LZm5BOE5wWk5RZVliczVkM0VKbTNrZGVpQmxLcU9VZFlYWVNuVUk2UQ?oc=5",
+       "source": "HLTV.org",
+       "lang": "en",
+       "published": "2026-11-24T05:01Z"
+      },
+      {
+       "title": "Imperial win 12 straight rounds to sink HEROIC on Mirage",
+       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdGNiYURCVXo2NmdCcHBtZmN5Q1pXdGtWZDZuM2MzeG12THlVNjdUbVJLSVlwcWFJSDFjR1FGZE9HQS1aaVIzdGhDYlJ3eTV1d19aYkFBRTIyV1RTVUdKOWNyMlIyVTFTSUxVRkxScnRNWGI1Ym1wZHppcGdlSk5Qa3hOZw?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-24T04:52Z"
+      },
+      {
+       "title": "FlyQuest upset PVISION to move one win from Stage 2",
+       "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE14VzNCeTg5dUpzY3pCdnhoQjRjUGtFZkZ1b3FEdk1SQlAzVFFhYkMtRDhHajUycE5DWjNiNVQ1OWVnbVBkTWZVa2xHcDdYbjZSN0tEX3BKajRzTkdMRGUxaGlrMENuU1JnWVhNd3g3bEhUZw?oc=5",
+       "source": "Pley.gg",
+       "lang": "en",
+       "published": "2026-11-24T12:01Z"
+      },
+      {
+       "title": "PARIVISION vs. FlyQuest at PGL Major Singapore 2026 Stage 1",
+       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOOXBNWDFMenctREVOc3FNbC1tSlVRUkJUdDVidGdOS3JRYU1VQVltS2hmQjJoMWtLdUh0T2dvTUdxT1NYWTlCV09WU3NyV1pUakVwbXRFX3ctNDBSU2c1OERJbTlpZWhSeExqOWt2ZHh3RFJaYUl0Z3VTQzd2RFlEcEx3U08ybWUyZWROV0Y1c2xLLThWU01j?oc=5",
+       "source": "HLTV.org",
+       "lang": "en",
+       "published": "2026-11-24T11:30Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "cs2-1"
+    }
+   ],
+   "note": "",
+   "candidates": 52
+  },
+  {
+   "id": "ekonomi_tr",
+   "title": "Ekonomi - Türkiye",
+   "stories": [],
+   "note": "Kayda değer bir gelişme yok.",
+   "candidates": 125
+  },
+  {
+   "id": "ekonomi_dunya",
+   "title": "Ekonomi - Dünya",
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Jensen Huang'ın Nvidia CEO'luğuna dönmesiyle Nasdaq tek günde yüzde 6,5, S&P 500 yüzde 4,7 yükseldi; Nomura zorunlu alımların rallide etkili olduğunu söyledi.",
+     "title": "Huang'ın dönüşüyle Nasdaq tek günde yüzde 6,5 yükseldi",
+     "detail": "ABD borsaları pazartesi günü Jensen Huang'ın Nvidia CEO'su olarak göreve iade edilmesinin ardından sert yükseldi. AP News'e göre hisseler, geçen haftaki düşüşün yarısını telafi etti. Headline'daki rakamlara göre Nasdaq tek günde yüzde 6,5, S&P 500 ise yüzde 4,7 arttı. Reuters, yapay zeka rallisinin Nasdaq-100'e yaklaşık 2 trilyon dolar ekleyeceğini yazdı. Yahoo Finance, ralli sırasında Hazine tahvil getirilerinin de yükseldiğini aktardı.\n\nBloomberg'e göre Nomura, hareketin Nisan 2025'ten bu yana en büyük ralli olduğunu ve zorunlu alımların bunda etkili olduğunu söyledi. Asya piyasalarında da yükseliş sürdü; Investing.com'a göre Tayvan borsası Nvidia öncülüğündeki yapay zeka toparlanmasıyla yüzde 9 yükseldi. investingLive ise yükselişi \"Suckers' Rally 3.0?\" diye sorgularken Huang'ın Beyaz Saray baskısı sonrası göreve döndüğünü belirtti.\n\nBu hareket, küresel piyasaları ciddi etkileyen tek günlük sert yükseliş eşiğini aşıyor ve piyasaların yapay zeka ticaretine ne kadar bağlı olduğunu gösteriyor.",
+     "key_points": [
+      "Nasdaq tek günde yüzde 6,5, S&P 500 yüzde 4,7 yükseldi.",
+      "Ralli, Nisan 2025'ten bu yana en büyüğü; Nomura zorunlu alımlara dikkat çekti.",
+      "Reuters: Nasdaq-100'e yaklaşık 2 trilyon dolar eklenmesi bekleniyor.",
+      "Tayvan borsası yüzde 9 yükseldi."
+     ],
+     "sources": [
+      {
+       "title": "Stocks Surge After Jensen Huang Is Reinstated as Nvidia CEO",
+       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPNXRXMlFUQkJfcnJPMGVlaWZRejZzSnVuRWJiV1E3TUM3c3pkWkxSSGZJaGtCcEc0Uzdja0xzbFFNcWRIZEtZNlFHMHNDclAzVzJqUHU2Z2lFRE51V3AwSWV1cnRoamFsbDVleTdVUFVhSElYMEhXTlhiNkhQNWtSZlRGT1FYQURPeE9RTA?oc=5",
+       "source": "The New York Times",
+       "lang": "en",
+       "published": "2026-11-24T04:58Z"
+      },
+      {
+       "title": "US stocks surge and recover half of last week’s plunge after Jensen Huang returns as Nvidia’s CEO",
+       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNNF9ZLU84V2VPZHBHcGx0V3p5TVVoV21zbUYyQWFOWU96ZjBmcExvQ1lpVmtFRzl5RVpXdFg3TGhUM3ZHM282MkdnMVgxZ2lwUTRkcm9KaWlHMEcyZ3R6amZIM25vMFRRM0l1OXNxMFFSQVVnR3hzY3BNb1NyUWwxa2hLMndRMkpVZ2l2X0N2Z3JFcmRVMzRMZldCbzlEZkpGZjNmTVJZdw?oc=5",
+       "source": "AP News",
+       "lang": "en",
+       "published": "2026-11-23T22:20Z"
+      },
+      {
+       "title": "Wall Street Storms Back as AI Trade Rebounds With Huang’s Return",
+       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNeURSVWpyQXZjLW5UcndZVDJPQnE0NDU2UllUMUI5S29qcFJlWDg1empEbThycVphd2p3dmxJTUJJckZVQXBhaGlmT0JaNkh3SFZHRG5HNHl5ckpheVAzU3JHQldJVGQ2cl9RVWw4Wk96RXNiN0d1dW5iQ1RETTMxRnJVS2tnNFRwOVJkdjhxRHd5ZmJRNkoxaEtUcGNiSmdXRWxtYjRrM2RVcVREUXJneFZMcw?oc=5",
+       "source": "Bloomberg.com",
+       "lang": "en",
+       "published": "2026-11-23T21:42Z"
+      },
+      {
+       "title": "U.S. Stocks Jump as Huang Return Triggers AI Rally",
+       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQajZxMGxpSnJMTmhqWXc3Qk5kcWpab1VMbThnTXRmMHdOLWE1S2YtbUxKdUFQbkpxSElxRWZPRzJHa0NxcUJXbzhVQWZKX1NiVHpFYnBSRHQ4MzFLNTJnZWVjVEw4QzdxbWZtRFlhZnQzM0R1WU5DSGtJVVpZdU5XZFphQl9vUG9MTUI1VXpCS3JITVFQNjR5cA?oc=5",
+       "source": "WSJ",
+       "lang": "en",
+       "published": "2026-11-23T22:01Z"
+      },
+      {
+       "title": "North American stocks soar, recovering half of last week's plunge after Jensen Huang returns as Nvidia's CEO",
+       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE92cGh5RjNacV9JR1lBeTBXQUhNdmxRbmJxb1N0a1Y2a1JUN3dZUDNvR0hLYXJkMzRRZUl5NXhsYkl1Uk1UQnhwdE5xZmlxTHJzbC04Ym02RC1VNnNOSUxjSlFYcnc2Q3hSMFU5cHdMTQ?oc=5",
+       "source": "CBC",
+       "lang": "en",
+       "published": "2026-11-23T21:51Z"
+      },
+      {
+       "title": "Wall Street soars on Huang's return to Nvidia, Treasury yields rise",
+       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNUV8xQS1Xa09sWUwzZlR6YzZyQTBlRk1jRWJNNWFROHY1ZDdicFNhLXkwRWIyV3YtM2NJSXRJY05mTHhyU3JHTFRndEdmQlZEYXJlMVJzMmhmTGdXOFAzZERRdmduRjZXSmpBLWVWQjBxUWNIVDdHZ0M0VXdja3EyZ2xzWGhSVXc0d0VIczl5Y2UyMDlzTzdBbw?oc=5",
+       "source": "Yahoo Finance",
+       "lang": "en",
+       "published": "2026-11-23T22:25Z"
+      },
+      {
+       "title": "AI rally set to add $2 trillion to Nasdaq-100 as Huang returns to Nvidia helm",
+       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQWk01bk9iRUpaaEhTQ1RKTXVXdEQyblBoSjRFb1FBZjBjbzJZdi03REh0RHpKTnFBSnQzRGdoMXNSLWMyVEtQaDBjN2dMVS1zR2otTXhPRzVQeWJaRmZiaXZ6R1dkcUFFSGRYTTRMSWtsWGhEQmhrUmgyaGgtZWRjbjQ5MUl2T3ZuSEhFUDVOY2pNbHRaWG5KMmJydmk3UmZib3djVnV4QXlEcnh2ZUE?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-23T17:48Z"
+      },
+      {
+       "title": "How Good Was Monday’s Stock Rally? Here’s Where It Ranks in History",
+       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRDc0Y0JWMFo2UDhwdG1STGwyWHpZdTlJTDFUVlVGYk9reGpqWXNwUVBTQk43a1BEVHhOUlRCUThYNnd3TWRnNnVWRDNXWmhWTzgwQ1RFeUxtNWN2UkpaZFJxYXBnblh4SFdiS0psMnBFS1RQNFBBd3NEMTRMNFRFbUVwWFBTVVdMQ1ZDNEhLMXBrc2tzRmRhc3Bn?oc=5",
+       "source": "Yahoo Finance",
+       "lang": "en",
+       "published": "2026-11-23T22:26Z"
+      },
+      {
+       "title": "Forced Buying Aided Biggest Rally Since April 2025, Nomura Says",
+       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQYkxUVi1KNzVLNkVmNFBKT3ptTDNCeGI0QmFLQnVfNWhNZ1pacjBNMVZJSElCR0V6SzV2UkFqVTJ6dGc4Z1VuMnNDTi1UYU4tUWpBWmlWU3FveHpsMUJCaWhOcDZoT3BqYkVmaWFUN1Z2aU45QjFaZnFPRHVOSm1wN2Z1QVVFa3doLUdkSk1LWFlYaWlfdDNTUHk0MVhaM0FvMzJ4RXZESW9SUFRuZ3RkWHRFSQ?oc=5",
+       "source": "Bloomberg.com",
+       "lang": "en",
+       "published": "2026-11-24T11:02Z"
+      },
+      {
+       "title": "Suckers' Rally 3.0? Nasdaq surges as Nvidia reinstates Huang following White House pressure",
+       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMGlqQ0RlRlFBTjNwTk5uaVJSaDB4QzU0SzBtQzRxWlZDbV84akk3ZmtacjgxZV81N0JJMzhGYlNaVl92VnJNQjNINjZwd0Y3RTVORjU1c1hEY1VoQ3dxVEdqTkVSUmgzTGRIS2xfeU5GMlRidmw0RWs3bXJfc1dFSmVHZzlueXZXaWk1TmxTZ3hrQWw2Wkp5c05VcElQbWQyR2JCb3Y3NnllaWpOWEN6VUdPQ0o0eFVHVlZXNnd3SmI?oc=5",
+       "source": "investingLive",
+       "lang": "en",
+       "published": "2026-11-24T12:00Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "ekonomi_dunya-1"
+    }
+   ],
+   "note": "",
+   "candidates": 121
+  }
+ ],
+ "stats": {
+  "items": 1710,
+  "model": "canli-deneme",
+  "seconds": 181,
+  "tasks": 33,
+  "task_chars": 536675
+ },
+ "variant": "canli-deneme"
+}
