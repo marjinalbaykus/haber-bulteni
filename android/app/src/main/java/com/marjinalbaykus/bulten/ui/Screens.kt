@@ -114,17 +114,6 @@ fun MenuIcon() {
     }
 }
 
-@Composable
-private fun AllNewsButton(onClick: () -> Unit) {
-    FilledTonalButton(
-        onClick = onClick,
-        contentPadding = PaddingValues(horizontal = 14.dp, vertical = 4.dp),
-        modifier = Modifier.heightIn(min = 34.dp),
-    ) {
-        Text("Tüm haberler", style = MaterialTheme.typography.labelLarge)
-    }
-}
-
 /** Kutuda gösterilen varlıklar, bu sırayla (S&P 500 en altta). */
 private val SHOWN_MARKETS = listOf(
     "USDTRY=X" to "Dolar/TL",
@@ -141,48 +130,56 @@ private fun trNumber(v: Double): String {
     return f.format(v)
 }
 
+private fun trPct(p: Double): String =
+    (if (p < 0) "-" else "+") + String.format(java.util.Locale.forLanguageTag("tr-TR"), "%%%.1f", kotlin.math.abs(p))
+
+/**
+ * Küçük piyasa kutusu: iki sütunda kurlar ve endeksler. Eşiği aşan (gerçek alarm) varlığın hücresinin altında
+ * küçük kırmızı bir etiket çıkar; ayrı bir alarm listesi yok, böylece aynı isim iki kez yazılmaz.
+ */
 @Composable
 private fun MarketCard(bulletin: Bulletin) {
     val bySymbol = bulletin.markets.associateBy { it.symbol }
-    val rows = SHOWN_MARKETS.mapNotNull { (sym, label) -> bySymbol[sym]?.let { label to it } }
-    val shown = SHOWN_MARKETS.map { it.first }.toSet()
-    val alarms = bulletin.alarms.filter { it.symbol in shown }
-    if (rows.isEmpty() && alarms.isEmpty()) return
+    val alarmBySymbol = bulletin.alarms.associateBy { it.symbol }
+    val cells = SHOWN_MARKETS.mapNotNull { (sym, label) -> bySymbol[sym]?.let { Triple(label, it, alarmBySymbol[sym]) } }
+    if (cells.isEmpty()) return
     val up = if (MaterialTheme.colorScheme.background.luminance() < 0.5f) Color(0xFF7BD88F) else Color(0xFF1B7F3B)
     val down = MaterialTheme.colorScheme.error
-    Card(Modifier.fillMaxWidth().padding(top = 12.dp)) {
-        Row(Modifier.padding(12.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Column(Modifier.weight(1f)) {
-                if (alarms.isNotEmpty()) {
-                    Text("Piyasa alarmı", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error)
-                    alarms.forEach { a ->
-                        Text(a.name, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold,
-                            modifier = Modifier.padding(top = 4.dp))
-                        a.lines.forEach { Text(it, style = MaterialTheme.typography.bodySmall) }
-                    }
-                } else {
-                    Text("Piyasalar", fontWeight = FontWeight.Bold)
-                    Text("Büyük hareket yok", style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant)
-                }
-            }
-            if (rows.isNotEmpty()) {
-                Column(horizontalAlignment = Alignment.End) {
-                    rows.forEach { (label, m) ->
-                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 1.dp)) {
-                            Text(label, style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant)
-                            Text(trNumber(m.value), style = MaterialTheme.typography.bodyMedium,
-                                fontWeight = FontWeight.SemiBold, textAlign = TextAlign.End,
-                                modifier = Modifier.padding(start = 8.dp).widthIn(min = 56.dp))
-                            m.dayPct?.let { p ->
-                                Text((if (p < 0) "-" else "+") + String.format(java.util.Locale.forLanguageTag("tr-TR"), "%%%.1f", kotlin.math.abs(p)),
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = if (p >= 0) up else down,
-                                    textAlign = TextAlign.End, modifier = Modifier.padding(start = 4.dp).widthIn(min = 40.dp))
+    val muted = MaterialTheme.colorScheme.onSurfaceVariant
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = MaterialTheme.colorScheme.surfaceContainer,
+        modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+    ) {
+        Column(Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
+            Text("Piyasalar", style = MaterialTheme.typography.labelMedium, color = muted)
+            cells.chunked(2).forEach { pair ->
+                Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                    pair.forEach { (label, m, alarm) ->
+                        Column(Modifier.weight(1f)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(label, style = MaterialTheme.typography.labelSmall, color = muted,
+                                    maxLines = 1, modifier = Modifier.weight(1f))
+                                Text(trNumber(m.value), style = MaterialTheme.typography.labelLarge,
+                                    fontWeight = FontWeight.SemiBold)
+                                Text(m.dayPct?.let(::trPct) ?: "", style = MaterialTheme.typography.labelSmall,
+                                    color = if ((m.dayPct ?: 0.0) >= 0) up else down, textAlign = TextAlign.End,
+                                    modifier = Modifier.widthIn(min = 44.dp))
+                            }
+                            alarm?.points?.forEach { (window, pct) ->
+                                Surface(
+                                    shape = RoundedCornerShape(50),
+                                    color = MaterialTheme.colorScheme.errorContainer,
+                                    modifier = Modifier.padding(top = 2.dp),
+                                ) {
+                                    Text(if (window == "1 günde") "Günlük alarm" else "$window ${trPct(pct)}", style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onErrorContainer,
+                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 1.dp))
+                                }
                             }
                         }
                     }
+                    if (pair.size == 1) Spacer(Modifier.weight(1f))
                 }
             }
         }
@@ -195,12 +192,10 @@ fun BulletinScreen(
     offline: Boolean,
     visible: (Topic) -> List<Story>,
     onOpen: (Item) -> Unit,
-    onAllNews: () -> Unit,
     padding: PaddingValues,
     listState: LazyListState,
 ) {
     val perTopic = bulletin.topics.map { it to visible(it) }
-    val total = perTopic.sumOf { it.second.size }
 
     LazyColumn(
         state = listState,
@@ -209,16 +204,11 @@ fun BulletinScreen(
         modifier = Modifier.fillMaxSize(),
     ) {
         item {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Column(Modifier.weight(1f)) {
-                    Text(trDate(bulletin.date), style = MaterialTheme.typography.titleMedium)
-                    Text(
-                        "Hazırlandı: ${trTime(bulletin.generatedAt)}" + if (offline) "  (çevrimdışı kopya)" else "",
-                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                if (total > 0) AllNewsButton(onAllNews)
-            }
+            Text(trDate(bulletin.date), style = MaterialTheme.typography.titleMedium)
+            Text(
+                "Hazırlandı: ${trTime(bulletin.generatedAt)}" + if (offline) "  (çevrimdışı kopya)" else "",
+                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
         item { MarketCard(bulletin) }
         item { SectionTitle("Kısa özet") }
@@ -243,13 +233,6 @@ fun BulletinScreen(
                             Text(s.headline, style = MaterialTheme.typography.bodyMedium)
                         }
                     }
-                }
-            }
-        }
-        if (total > 0) {
-            item {
-                Row(Modifier.fillMaxWidth().padding(top = 12.dp), horizontalArrangement = Arrangement.End) {
-                    AllNewsButton(onAllNews)
                 }
             }
         }

@@ -17,7 +17,8 @@ data class Story(
 
 data class Topic(val id: String, val title: String, val note: String, val stories: List<Story>)
 
-data class MarketAlarm(val symbol: String, val name: String, val lines: List<String>)
+/** Eşiği aşan hareketler; points: ("1 günde", 4.7) gibi pencere ve yüzde. */
+data class MarketAlarm(val symbol: String, val name: String, val lines: List<String>, val points: List<Pair<String, Double>>)
 
 /** Bir piyasa varlığının son değeri ve 1 günlük yüzde değişimi. */
 data class Market(val symbol: String, val name: String, val value: Double, val dayPct: Double?)
@@ -85,6 +86,7 @@ fun parseBulletin(text: String): Bulletin {
                 val pct = a.optDouble("pct")
                 "${a.optString("label")} " + (if (pct > 0) "+" else "") + String.format(java.util.Locale.US, "%.1f", pct) + "%"
             },
+            points = m.optJSONArray("alarms").objects().map { a -> a.optString("label") to a.optDouble("pct") },
         )
     }
     val markets = o.optJSONArray("markets").objects().map { m ->

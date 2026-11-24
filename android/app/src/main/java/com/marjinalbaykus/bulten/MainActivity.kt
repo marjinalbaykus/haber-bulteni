@@ -15,7 +15,10 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -32,6 +35,7 @@ import com.marjinalbaykus.bulten.data.Bulletin
 import com.marjinalbaykus.bulten.data.Index
 import com.marjinalbaykus.bulten.data.Repo
 import com.marjinalbaykus.bulten.ui.AllNewsScreen
+import com.marjinalbaykus.bulten.ui.AppIcons
 import com.marjinalbaykus.bulten.ui.BulletinScreen
 import com.marjinalbaykus.bulten.ui.Centered
 import com.marjinalbaykus.bulten.ui.DetailScreen
@@ -116,9 +120,17 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
         loading = false
     }
 
-    val canGoBack = stack.size > 1 || date != null
-    fun back() { if (stack.size > 1) pop() else date = null }   // ana sayfada: geçmiş bültenden en son bültene dön
-    BackHandler(enabled = canGoBack) { back() }
+    // Alt çubuktaki sekmeler; yığının ilk elemanı hangi sekmede olunduğunu gösterir
+    val tab = stack.first()
+    val showBackButton = stack.size > 1 || (tab == Screen.Home && date != null)
+    fun back() {
+        when {
+            stack.size > 1 -> pop()
+            tab != Screen.Home -> stack = listOf(Screen.Home)
+            else -> date = null   // ana sayfada: geçmiş bültenden en son bültene dön
+        }
+    }
+    BackHandler(enabled = stack.size > 1 || tab != Screen.Home || date != null) { back() }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -139,16 +151,12 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                     )
                 },
                 navigationIcon = {
-                    if (canGoBack) TextButton(onClick = { back() }) { Text("‹ Geri") }
+                    if (showBackButton) TextButton(onClick = { back() }) { Text("‹ Geri") }
                 },
                 actions = {
                     Box {
                         IconButton(onClick = { menuOpen = true }) { MenuIcon() }
                         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
-                            DropdownMenuItem(text = { Text("Ara (araştırma)") }, onClick = {
-                                menuOpen = false
-                                if (screen != Screen.Search) push(Screen.Search)
-                            })
                             DropdownMenuItem(text = { Text("Yenile") }, onClick = { menuOpen = false; reload++ })
                             DropdownMenuItem(text = { Text("Geçmiş bültenler") }, onClick = {
                                 menuOpen = false
@@ -163,6 +171,22 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 },
             )
         },
+        bottomBar = {
+            NavigationBar {
+                listOf(
+                    Triple(Screen.Home, "Ana sayfa", AppIcons.Home),
+                    Triple(Screen.Search, "Ara", AppIcons.Search),
+                    Triple(Screen.AllNews, "Tüm haberler", AppIcons.List),
+                ).forEach { (target, label, icon) ->
+                    NavigationBarItem(
+                        selected = tab == target,
+                        onClick = { stack = listOf(target) },
+                        icon = { Icon(icon, contentDescription = label) },
+                        label = { Text(label) },
+                    )
+                }
+            }
+        },
     ) { padding ->
         when (screen) {
             Screen.Home, Screen.AllNews -> {
@@ -171,8 +195,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                     loading && b == null -> Centered { CircularProgressIndicator() }
                     error != null && b == null -> ErrorView(error!!) { reload++ }
                     b != null && screen == Screen.Home ->
-                        BulletinScreen(b, offline, repo::visible, { push(Screen.Detail(it)) }, { push(Screen.AllNews) },
-                            padding, homeState)
+                        BulletinScreen(b, offline, repo::visible, { push(Screen.Detail(it)) }, padding, homeState)
                     b != null -> AllNewsScreen(b, repo::visible, { push(Screen.Detail(it)) }, padding, allState)
                 }
             }
