@@ -24,7 +24,7 @@ from . import sources as S
 from .common import ROOT, DATA, read_json, write_json, now_tr, load_config
 from .daily import (SELECT_SYSTEM, DEDUPE_SYSTEM, DETAIL_SYSTEM, collect, pick_candidates,
                     select_prompt, parse_selection, keep_stories, dedupe_listing, apply_dedupe,
-                    _grounding_texts, detail_prompt, build_detail, assemble)
+                    _grounding_texts, detail_prompt, build_detail, assemble, update_history)
 from .markets import fetch_markets
 
 WORK = ROOT / "work"
@@ -253,7 +253,6 @@ def next_step(no_fetch: bool = False) -> None:
         started = datetime.fromisoformat(state["started"])
         bulletin = {
             "date": state["date"],
-            "variant": state["variant"],
             "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
             "markets": markets,
             "market_alarms": [m for m in markets if m["alarms"]],
@@ -262,11 +261,14 @@ def next_step(no_fetch: bool = False) -> None:
                       "seconds": int((datetime.now(timezone.utc) - started).total_seconds()),
                       "tasks": state["tasks"], "task_chars": state["task_chars"]},
         }
-        if state["compare"]:
+        if state["compare"]:  # model denemesi: ayrı listede, geçmişe yazılmaz
+            bulletin["variant"] = state["variant"]
             path = DATA / "compare" / f"{state['date']}-{state['variant']}.json"
+            write_json(path, bulletin)
         else:
             path = DATA / "bulletins" / f"{state['date']}.json"
-        write_json(path, bulletin)
+            write_json(path, bulletin)
+            update_history(out_topics, state["date"])
         state["stage"] = "done"
         _save(state)
         print(f"Kaydedildi: {path.relative_to(ROOT)} "

@@ -300,6 +300,22 @@ def assemble(topics: list[dict], sel: dict, jobs: list, details: list) -> list[d
     return out_topics
 
 
+def update_history(out_topics: list[dict], date: str) -> None:
+    """Son 7 günün başlıklarını ve kaynak adreslerini saklar (ertesi gün tekrar gelmesin)."""
+    hist_path = DATA / "history.json"
+    hist = read_json(hist_path, {"cited_urls": {}, "headlines": {}})
+    keep_after = (now_tr() - timedelta(days=7)).strftime("%Y-%m-%d")
+    for t in out_topics:
+        lst = hist["headlines"].setdefault(t["id"], [])
+        lst.extend({"date": date, "headline": s["headline"]} for s in t["stories"])
+        hist["headlines"][t["id"]] = [h for h in lst if h["date"] >= keep_after][-40:]
+        for s in t["stories"]:
+            for src in s["sources"]:
+                hist["cited_urls"][S.norm_url(src["url"])] = date
+    hist["cited_urls"] = {u: d for u, d in hist["cited_urls"].items() if d >= keep_after}
+    write_json(hist_path, hist)
+
+
 def run_daily(cfg: dict) -> dict:
     started = datetime.now(timezone.utc)
     since = started - timedelta(hours=cfg.get("lookback_hours", 30))
@@ -356,18 +372,7 @@ def run_daily(cfg: dict) -> dict:
                   "model": llm.model, **llm.usage, "cost_usd": estimate_cost(llm.usage, started)},
     }
     write_json(DATA / "bulletins" / f"{date}.json", bulletin)
-
-    # Geçmişi güncelle (7 gün)
-    keep_after = (now_tr() - timedelta(days=7)).strftime("%Y-%m-%d")
-    for t in out_topics:
-        lst = hist["headlines"].setdefault(t["id"], [])
-        lst.extend({"date": date, "headline": s["headline"]} for s in t["stories"])
-        hist["headlines"][t["id"]] = [h for h in lst if h["date"] >= keep_after][-40:]
-        for s in t["stories"]:
-            for src in s["sources"]:
-                hist["cited_urls"][S.norm_url(src["url"])] = date
-    hist["cited_urls"] = {u: d for u, d in hist["cited_urls"].items() if d >= keep_after}
-    write_json(hist_path, hist)
+    update_history(out_topics, date)
     print(f"Bitti: {sum(len(t['stories']) for t in out_topics)} haber, kullanım: {llm.usage}, "
           f"tahmini maliyet: ${bulletin['stats']['cost_usd']}")
     return bulletin

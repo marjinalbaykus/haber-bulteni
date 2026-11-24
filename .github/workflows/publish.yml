@@ -1,0 +1,40 @@
+name: Bülteni yayınla ve bildir
+
+# Claude rutini her sabah data/bulletins/<tarih>.json dosyasını main'e gönderir.
+# Bu iş akışı siteyi üretir ve bildirimi yollar. (GitHub Actions'ın kendi push'ları bunu tetiklemez;
+# DeepSeek iş akışları bildirimi zaten kendisi gönderiyor.)
+on:
+  push:
+    branches: [main]
+    paths: ["data/bulletins/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bulten-yazma
+  cancel-in-progress: false
+
+jobs:
+  yayinla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Siteyi güncelle
+        run: bash scripts/commit_push.sh "Site: $(date -u +%F) bülteni"
+
+      - name: Telegram'a gönder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          sleep 60   # GitHub Pages'in yeni sayfayı yayınlaması için
+          python -m bulten resend

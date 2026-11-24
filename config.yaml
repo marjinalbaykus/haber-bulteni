@@ -166,15 +166,45 @@ topics:
     criteria: |
       Bu geniş bir başlık; sadece gerçekten büyük olaylar girsin.
       Önemli: dev şirketlerin büyük hamleleri, büyük satın almalar, önemli ürün çıkışları (telefon, araç, platform),
-      elektrikli araç devlerinin (BYD, Tesla vb.) çığır açan adımları, büyük güvenlik açıkları veya sızıntılar,
-      büyük düzenlemeler, uzay alanında önemli olaylar.
-      Önemsiz: sıradan ürün incelemeleri, indirimler, küçük uygulama güncellemeleri, sıradan araba haberleri.
-      Yapay zeka ve PC donanımı ayrı başlıklarda; burada onlara ancak çok büyükse yer ver.
+      büyük güvenlik açıkları veya sızıntılar, büyük düzenlemeler, uzay alanında önemli olaylar.
+      Elektrikli araçlar (mutlaka değerlendir, önemli bir şey varsa koy): BYD, Tesla, Xiaomi, NIO, Xpeng,
+      Li Auto, Huawei destekli markalar ve büyük Avrupa/Kore üreticilerinden çığır açan adımlar; batarya
+      teknolojisinde büyük sıçramalar (katı hal batarya, şarj hızı, menzil rekorları), büyük fiyat savaşları,
+      satış rekorları, otonom sürüşte önemli gelişmeler, Türkiye'de Togg ve EV vergisi/teşvik değişiklikleri.
+      Önemsiz: sıradan ürün incelemeleri, indirimler, küçük uygulama güncellemeleri, sıradan araba haberleri,
+      tek bir modelin küçük makyaj güncellemesi.
+      Yapay zeka, PC donanımı ve akıllı telefonlar ayrı başlıklarda; burada onlara ancak çok büyükse yer ver.
     sources:
       rss: [theverge, arstechnica, techcrunch, cnbeta, ithome]
       hackernews: true
       google_news:
         - {q: "科技 重大", lang: zh}
+        - {q: "electric vehicle OR EV battery OR BYD OR Tesla", lang: en}
+        - {q: "电动车 OR 新能源汽车 OR 固态电池", lang: zh}
+        - {q: "elektrikli araç OR Togg", lang: tr}
+
+  - id: akilli_telefon
+    title: "Akıllı Telefonlar"
+    min_importance: 8
+    max_stories: 3
+    criteria: |
+      Sadece çok büyük haberler girsin; önemli bir haber yoksa bu başlık boş kalsın, dolgu haber koyma.
+      Odak markalar: Honor, Oppo, Vivo (en çok bunlar), biraz da Samsung. Kullanıcının telefonu OnePlus 12R
+      (Oppo grubu), bu yüzden OnePlus ve ColorOS/OxygenOS'teki büyük gelişmeler de önemli.
+      Önemli: bu markaların amiral gemisi telefon duyuruları ve çıkışları (özellikle Çin'deki lansmanlar),
+      kamera, batarya veya şarjda çığır açan yenilikler, büyük yazılım güncellemeleri (MagicOS, ColorOS,
+      OriginOS, One UI ana sürümleri), Türkiye'ye geliş ve fiyat bilgisi, pazar payında büyük değişimler.
+      Apple: sadece çok çok önemliyse (yeni iPhone serisinin tanıtımı, sektörü etkileyen büyük karar).
+      Önemsiz: söylenti ve sızıntıların küçük tekrarları, orta/alt segment sıradan modeller, aksesuarlar,
+      indirim ve kampanyalar, "hangi telefonu almalı" listeleri, benchmark sızıntılarının tekrarı.
+    sources:
+      rss: [ithome, cnbeta, theverge]
+      google_news:
+        - {q: "Honor OR Oppo OR Vivo OR OnePlus smartphone launch", lang: en}
+        - {q: "Samsung Galaxy flagship OR \"One UI\"", lang: en}
+        - {q: "荣耀 OR OPPO OR vivo OR 一加 手机 发布", lang: zh}
+        - {q: "三星 Galaxy 发布", lang: zh}
+        - {q: "Honor OR Oppo OR Vivo OR OnePlus telefon", lang: tr}
 
   - id: oyunlar
     title: "Oyunlar (Soulslike ve Aksiyon-RPG)"
@@ -195,6 +225,23 @@ topics:
         - {q: "魂类游戏 OR 动作角色扮演", lang: zh}
       bing_news:
         - {q: "soulslike", lang: en}
+
+  - id: oyun_genel
+    title: "Oyun Dünyası"
+    min_importance: 8
+    max_stories: 3
+    criteria: |
+      Türü ne olursa olsun oyun dünyasındaki sadece büyük olaylar (detayları sonra netleştirilecek).
+      Önemli: çok beklenen büyük oyunların (GTA VI gibi) çıkışları, ertelemeleri ve inceleme puanları,
+      yeni konsol/donanım duyuruları, büyük stüdyo satın almaları veya kapanışları, büyük ödül törenleri,
+      oyuncuları geniş çapta etkileyen fiyat ve platform kararları (Steam, PlayStation, Xbox, Nintendo).
+      Soulslike/aksiyon-RPG ve CS2 haberleri ayrı başlıklarda; onları burada tekrar etme.
+      Önemsiz: küçük oyun duyuruları, indirimler, rehberler, listeler, sıradan yamalar.
+    sources:
+      rss: [pcgamer, gematsu]
+      google_news:
+        - {q: "video game industry OR PlayStation OR Xbox OR Nintendo OR Steam", lang: en}
+        - {q: "游戏 发售 OR 收购", lang: zh}
 
   - id: cs2
     title: "CS2"

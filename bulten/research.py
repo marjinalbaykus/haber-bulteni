@@ -16,12 +16,13 @@ Produce search queries for news search engines.
 - queries: per language lists. "en": 1-3 queries (always), "tr": 0-2, "zh": 0-2 only if Chinese sources are
   likely useful (tech, AI, hardware, China), "es": 0-1 only for Spanish football or Spain.
   Queries must be short keyword queries, not sentences.
-- days: how far back to search: 3 for breaking events, 30 by default, 365 for broad or slow topics.
+- days: how far back to search: 1-3 for breaking or today's events, 30 by default, 365 for broad or slow topics.
 - hn_query: 1-4 English keywords for Hacker News search, or "" if not a tech topic.
 Output JSON: {"title": str, "queries": {"en": [], "tr": [], "zh": [], "es": []}, "days": int, "hn_query": str}"""
 
 SELECT_SYSTEM = """Pick the news items most relevant and informative for the research question.
 Prefer recent, substantive, primary or reputable sources; avoid duplicates and clickbait.
+If the request concerns a current or breaking event, always include the newest relevant items (even from the last hour).
 Return at most 15 ids, best first. Output JSON: {"ids": [int]}"""
 
 REPORT_SYSTEM = """Write a research report in natural, fluent Turkish for a Turkish reader, answering their
@@ -55,6 +56,13 @@ def run_research(cfg: dict, query: str) -> dict:
     print("Plan:", plan)
 
     jobs = []
+    # Önce son 24 saat: o an olan yeni bir olay, geniş aramanın ilgi sıralamasında kaybolmasın
+    last_day = datetime.now(timezone.utc) - timedelta(days=1)
+    for lang, qs in (plan.get("queries") or {}).items():
+        if lang not in S.LANGS:
+            continue
+        for q in (qs or [])[:3]:
+            jobs.append(lambda q=q, lang=lang: S.fetch_google_news(q, lang, last_day, window="1d", limit=30))
     for lang, qs in (plan.get("queries") or {}).items():
         if lang not in S.LANGS:
             continue

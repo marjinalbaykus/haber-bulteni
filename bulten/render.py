@@ -102,17 +102,16 @@ def render_bulletin(b: dict) -> str:
                 f'<li><a href="#{s["sid"]}">{e(s["headline"])}</a></li>' for s in t["stories"]) + "</ul>")
         else:
             out.append(f'<p class="empty">{e(t["note"])}</p>')
-    # Detaylar
+    # Detaylar: tüm haberler önem puanına göre (eşitlikte başlık sırası korunur)
     out.append("<h2>Detaylar</h2>")
-    for t in b["topics"]:
-        for s in t["stories"]:
-            kp = "".join(f"<li>{e(p)}</li>" for p in s.get("key_points", []))
-            out.append(
-                f'<article class="card" id="{s["sid"]}"><div><span class="tag">{e(t["title"])}</span>'
-                f'<span class="tag">Önem {s["importance"]}/10</span></div><h3>{e(s["title"])}</h3>'
-                f'{paras(s.get("detail")) or "<p>" + e(s["headline"]) + "</p>"}'
-                f'{"<ul class=kp>" + kp + "</ul>" if kp else ""}{sources_html(s["sources"])}'
-                f'<div class="muted" style="margin-top:.5rem"><a href="#">Başa dön</a></div></article>')
+    for t, s in sorted(((t, s) for t in b["topics"] for s in t["stories"]), key=lambda ts: -ts[1]["importance"]):
+        kp = "".join(f"<li>{e(p)}</li>" for p in s.get("key_points", []))
+        out.append(
+            f'<article class="card" id="{s["sid"]}"><div><span class="tag">{e(t["title"])}</span>'
+            f'<span class="tag">Önem {s["importance"]}/10</span></div><h3>{e(s["title"])}</h3>'
+            f'{paras(s.get("detail")) or "<p>" + e(s["headline"]) + "</p>"}'
+            f'{"<ul class=kp>" + kp + "</ul>" if kp else ""}{sources_html(s["sources"])}'
+            f'<div class="muted" style="margin-top:.5rem"><a href="#">Başa dön</a></div></article>')
     out.append("<h2>Piyasalar</h2>" + (market_table(b.get("markets", [])) or '<p class="empty">Veri yok.</p>'))
     st = b.get("stats", {})
     usage = (f'Token: {st.get("prompt_tokens", 0):,} girdi, {st.get("completion_tokens", 0):,} çıktı'
@@ -161,6 +160,19 @@ def render_all() -> None:
         r = json.loads(p.read_text(encoding="utf-8"))
         _write(DOCS / "r" / f"{r['id']}.html", render_research(r))
         research.append(r)
+
+    # Telefon uygulaması için JSON (GitHub Pages: /api/...)
+    api = DOCS / "api"
+    for b in bulletins[:60]:
+        _write(api / "b" / f"{b['date']}.json", json.dumps(b, ensure_ascii=False))
+    for r in research[:60]:
+        _write(api / "r" / f"{r['id']}.json", json.dumps(r, ensure_ascii=False))
+    _write(api / "index.json", json.dumps({
+        "bulletins": [{"date": b["date"], "generated_at": b["generated_at"],
+                       "count": sum(len(t["stories"]) for t in b["topics"])} for b in bulletins[:60]],
+        "research": [{"id": r["id"], "title": r["title"], "query": r["query"], "created": r["created"]}
+                     for r in research[:60]],
+    }, ensure_ascii=False))
 
     body = ['<h1>Haber Bülteni</h1>']
     if bulletins:
