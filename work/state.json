@@ -1,5 +1,5 @@
 {
- "stage": "dedupe",
+ "stage": "detail",
  "variant": "sonnet",
  "date": "2026-11-24",
  "compare": true,
@@ -17829,8 +17829,8 @@
    "alarms": []
   }
  ],
- "task_chars": 257902,
- "tasks": 11,
+ "task_chars": 379093,
+ "tasks": 28,
  "sel": {
   "real_madrid": [
    [
@@ -18711,5 +18711,445 @@
     "reason": "Geçen haftaki sert düşüşün yaklaşık yarısı telafi edildi; Nasdaq-100'e yaklaşık 2 trilyon dolar eklendi."
    }
   ]
- }
+ },
+ "jobs": [
+  {
+   "topic": "real_madrid",
+   "story": {
+    "ids": [
+     114,
+     112,
+     119,
+     116,
+     790,
+     801,
+     90,
+     91,
+     772,
+     802,
+     803,
+     771,
+     761,
+     774,
+     775,
+     783,
+     62,
+     67,
+     84,
+     93
+    ],
+    "importance": 8,
+    "headline": "Mourinho, PSV maçı öncesi Arda Güler'i dinlendirme kararı aldığı yönünde haberler çıktı; OkDiario'ya göre Madrid, Vinicius ile başlayan ilk 11'le sahaya çıkıyor.",
+    "reason": "Arda Güler'in Şampiyonlar Ligi'nde ilk 11'de yer alıp almaması kullanıcı için kritik."
+   },
+   "n_texts": 3,
+   "extra": []
+  },
+  {
+   "topic": "real_madrid",
+   "story": {
+    "ids": [
+     95,
+     239,
+     220,
+     94
+    ],
+    "importance": 7,
+    "headline": "Bellingham'ın Real Madrid ile uzun vadeli sözleşme yenileme görüşmeleri ileri aşamada; NYT haberi duyurunun yakında gelebileceğini bildirdi.",
+    "reason": "Takımın önemli oyuncusunun sözleşme gelişmesi."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "real_madrid",
+   "story": {
+    "ids": [
+     64,
+     86,
+     244,
+     229,
+     207,
+     491
+    ],
+    "importance": 6,
+    "headline": "Endrick yeniden sakatlandı ve yaklaşık üç hafta yok; PSV maçında forma giyemeyecek.",
+    "reason": "Real Madrid kadrosu için sakatlık haberi."
+   },
+   "n_texts": 1,
+   "extra": [
+    {
+     "title": "Soccer-Real Madrid striker Endrick ruled out with thigh injury",
+     "url": "https://www.msn.com/en-gb/news/other/soccer-real-madrid-striker-endrick-ruled-out-with-thigh-injury/ar-AA2i36CP",
+     "source": "Reuters on MSN",
+     "lang": "en",
+     "published": "2026-11-23T12:17Z",
+     "snippet": "BARCELONA, Nov 23 (Reuters) - Real Madrid forward Endrick Felipe has been ruled out with an injury to his right thigh, the club said in a statement on Monday. • Endrick is likely to miss between two ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "Real Madrid injury update — Endrick ruled out with thigh injury",
+     "url": "https://sportstar.thehindu.com/football/real-madrid-endrick-update-thigh-injury-ruled-out-psv-champions-league/article71734967.ece",
+     "source": "Sportstar",
+     "lang": "en",
+     "published": "2026-11-23T05:49Z",
+     "snippet": "Endrick Felipe, the Real Madrid forward, has been sidelined by an injury to his right thigh, the club confirmed in a statement on Monday. According to reports, the Brazilian is expected to be out for ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "pc_donanim",
+   "story": {
+    "ids": [
+     610,
+     1406
+    ],
+    "importance": 7,
+    "headline": "Dell, HPE, Lenovo ve Supermicro'nun AI sunucu fiyatlarını sözleşmeden aylar sonra yüzde 25-45 artırdığı bildirildi; RAM kıtlığı bellek ağırlıklı CPU düğümü maliyetini üç katına çıkardı.",
+    "reason": "RAM fiyatlarındaki sert hareket donanım maliyetlerini yukarı çekiyor."
+   },
+   "n_texts": 2,
+   "extra": []
+  },
+  {
+   "topic": "yerel_llm",
+   "story": {
+    "ids": [
+     146,
+     163,
+     139,
+     732,
+     144
+    ],
+    "importance": 8,
+    "headline": "Z.ai, ilk loop transformer modeli GLM-5.4'ü açık ağırlıklı olarak yayımladı; 750 milyar parametreli model 4-bit ile bile 16 GB veya 32 GB VRAM'e sığmaz, açık modellerin en güçlüsü olup Opus 5.5'e yüzde 5'ten az fark atıyor.",
+    "reason": "Yeni amiral gemisi açık model ve çok büyük ilgi (Hacker News 1114 puan); yerelde çalışmaz ama açık-kapalı model farkını gösteriyor."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "yerel_llm",
+   "story": {
+    "ids": [
+     728
+    ],
+    "importance": 7,
+    "headline": "NariQ, Qwen3.8-27B modelini BF16 kalitesinde yaklaşık 10 GB'lık dosyaya sığdırdı; 27B model 16 GB VRAM'e rahatça, 32 GB'a bolca sığıyor.",
+    "reason": "Quantization alanında yerel kullanım için önemli gelişme (Hacker News 163 puan); RX 7800 XT'ye doğrudan uygun."
+   },
+   "n_texts": 1,
+   "extra": []
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     544,
+     500,
+     512,
+     538,
+     525,
+     503
+    ],
+    "importance": 7,
+    "headline": "Google Gemini 4 Neon ve OpenAI GPT-6.2 Astra/Sol modelleri iş verimliliğine odaklanarak çıktı; Google ayrıca yarı fiyatlı Gemini 3.7 Flash'ı duyurdu.",
+    "reason": "İki büyük laboratuvarın yeni model sürümleri arasındaki rekabet."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     506,
+     540,
+     507,
+     518,
+     505,
+     526,
+     529,
+     543,
+     539,
+     522,
+     499,
+     549
+    ],
+    "importance": 7,
+    "headline": "OpenAI baş bilim insanı Jakub Pachocki, gelişmiş sistemler güvenlik kontrollerini aşmadan önce rakiplerin ortak ve ölçülebilir geliştirme sınırlarında anlaşmasını istedi.",
+    "reason": "Sektör genelinde ortak sınır önerisi, düzenleme tartışmasını etkileyebilir."
+   },
+   "n_texts": 1,
+   "extra": [
+    {
+     "title": "OpenAI warns that upcoming AI systems could outpace safety checks and urges rivals to agree on shared limits",
+     "url": "https://the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits/",
+     "source": "THE DECODER",
+     "lang": "en",
+     "published": "2026-11-23T10:42Z",
+     "snippet": "OpenAI chief scientist Jakub Pachocki has released internal perplexity scores for the entire GPT series for the first time, up to an unreleased model beyond the current generation. The metric shows ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     530,
+     921
+    ],
+    "importance": 7,
+    "headline": "Anthropic, halka arz dosyasında yapay zekanın insanlık için varoluşsal riskler doğurabileceğini belirtti; yatırımcılar halka arz öncesi milyarlarca dolarlık bahsi savundu.",
+    "reason": "Önde gelen laboratuvarlardan birinin borsaya açılması sektör için büyük gelişme."
+   },
+   "n_texts": 1,
+   "extra": []
+  },
+  {
+   "topic": "yapay_zeka",
+   "story": {
+    "ids": [
+     912,
+     653
+    ],
+    "importance": 7,
+    "headline": "Amazon, Trainium çiplerini satışa hazırlarken Decart'ın yapay zeka optimizasyon teknolojisini ve araştırma ekibini yaklaşık 7,5 milyar dolara satın alıyor.",
+    "reason": "Büyük satın alma; Nvidia'ya alternatif çip stratejisini güçlendiriyor."
+   },
+   "n_texts": 1,
+   "extra": []
+  },
+  {
+   "topic": "ai_kodlama",
+   "story": {
+    "ids": [
+     881,
+     688,
+     863,
+     868,
+     828,
+     865,
+     897,
+     871,
+     885,
+     878,
+     886,
+     867,
+     870
+    ],
+    "importance": 7,
+    "headline": "Anthropic, yapay zeka ajanlarının çekme isteklerini inceleyip düzeltmesine ve takımın belirlediği kurallara göre onaylamasına izin veren Claude Ship'i duyurdu.",
+    "reason": "Claude Code kullanıcısı için kod inceleme ve PR akışını otomatikleştiren büyük bir yenilik; çok sayıda kaynakta yer aldı."
+   },
+   "n_texts": 2,
+   "extra": [
+    {
+     "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+     "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+     "source": "TechCrunch",
+     "lang": "en",
+     "published": "2026-11-23T14:06Z",
+     "snippet": "As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "Anthropic Launches Claude Ship to Review, Fix and Approve PRs",
+     "url": "https://www.unite.ai/anthropic-launches-claude-ship-to-review-fix-and-approve-prs/",
+     "source": "Unite.AI",
+     "lang": "en",
+     "published": "2026-11-23T13:25Z",
+     "snippet": "Anthropic launched Claude Ship on November 23, 2026, making the beta product available to Claude Team and Enterprise organizations for GitHub repositories. It pairs the generally available Code Review ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "Anthropic launches Claude Ship AI agents to automate code reviews, fixes and approvals: Check details",
+     "url": "https://www.msn.com/en-in/news/other/anthropic-launches-claude-ship-ai-agents-to-automate-code-reviews-fixes-and-approvals-check-details/ar-AA2i6nOV",
+     "source": "Digit on MSN",
+     "lang": "en",
+     "published": "2026-11-23T21:56Z",
+     "snippet": "Anthropic introduces Claude Ship in beta, bringing AI-powered code reviews, automated pull request fixes and policy-based approval decisions.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "teknoloji",
+   "story": {
+    "ids": [
+     726,
+     727,
+     919,
+     906,
+     939,
+     938,
+     908,
+     909,
+     914,
+     915,
+     918,
+     907,
+     911,
+     1220,
+     1409,
+     1410,
+     1411,
+     1415,
+     1416,
+     1417,
+     1418,
+     1419,
+     1420,
+     1422,
+     1423,
+     1424,
+     1425
+    ],
+    "importance": 9,
+    "headline": "Nvidia yönetim kurulu, istifasından 11 gün sonra Jensen Huang'ı CEO olarak geri getirdi; hisse bir ara %35 yükseldi, Huang 3 Aralık'ta Senato'da dinlenecek.",
+    "reason": "Dev bir şirketin liderlik krizi, ABD hükümetinin müdahalesi ve piyasaya etkisi nedeniyle günün en büyük teknoloji olayı."
+   },
+   "n_texts": 3,
+   "extra": []
+  },
+  {
+   "topic": "teknoloji",
+   "story": {
+    "ids": [
+     916,
+     1450
+    ],
+    "importance": 8,
+    "headline": "CrowdStrike, bulut güvenliği şirketi Zscaler'ı yaklaşık 44 milyar dolara satın alıyor.",
+    "reason": "Siber güvenlik sektöründeki en büyük satın almalardan biri."
+   },
+   "n_texts": 2,
+   "extra": []
+  },
+  {
+   "topic": "oyunlar",
+   "story": {
+    "ids": [
+     1230
+    ],
+    "importance": 8,
+    "headline": "Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı resmen doğrulandı.",
+    "reason": "FromSoftware evreninden soulslike ve aksiyon-RPG severler için büyük haber."
+   },
+   "n_texts": 0,
+   "extra": [
+    {
+     "title": "Elden Ring: Rot & sorcery officially confirmed for 2027",
+     "url": "https://www.msn.com/en-ca/news/other/elden-ring-rot-sorcery-officially-confirmed-for-2027/ar-AA2i4yUS",
+     "source": "Screen Rant on MSN",
+     "lang": "en",
+     "published": "2026-11-23T03:55Z",
+     "snippet": "Elden Ring fans looking to explore the Lands Between in a brand-new adventure should mark their calendars for 2027's Rot & Sorcery.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  },
+  {
+   "topic": "oyunlar",
+   "story": {
+    "ids": [
+     1228,
+     1233,
+     1268
+    ],
+    "importance": 7,
+    "headline": "Aksiyon-RPG Queen's Domain Eurogamer'da 'hayranlık uyandıran' incelemesi aldı ve 300 bin satışı geçti.",
+    "reason": "Türün yeni ve başarılı bir temsilcisi."
+   },
+   "n_texts": 1,
+   "extra": []
+  },
+  {
+   "topic": "oyunlar",
+   "story": {
+    "ids": [
+     1251
+    ],
+    "importance": 6,
+    "headline": "Grand Theft Auto VI, PS5'te 39 milyondan fazla oyuncuya ulaştı.",
+    "reason": "Sektörün en büyük olayı, ancak tür dışı."
+   },
+   "n_texts": 0,
+   "extra": []
+  },
+  {
+   "topic": "cs2",
+   "story": {
+    "ids": [
+     954,
+     949,
+     948,
+     955,
+     982,
+     947,
+     953,
+     946,
+     962,
+     961,
+     972,
+     952
+    ],
+    "importance": 8,
+    "headline": "PGL Major Singapur 2026 başladı; Stage 1 İsviçre sistemi ilk maçları oynandı, MOUZ favoriler arasında gösteriliyor.",
+    "reason": "Yılın büyük CS2 turnuvası Major başladı."
+   },
+   "n_texts": 0,
+   "extra": [
+    {
+     "title": "Five Teams to Watch at PGL Major Singapore 2026",
+     "url": "https://www.hotspawn.com/counter-strike/news/five-teams-to-watch-at-pgl-major-singapore-2026",
+     "source": "hotspawn",
+     "lang": "en",
+     "published": "2026-11-23T05:01Z",
+     "snippet": "PGL Major Singapore 2026, but only one will lift the trophy. They enter across three Stages, and we're taking a look at the five teams to ...",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "PGL Major Singapore 2026 Opens With First Matches at 12:00 PM SGT",
+     "url": "https://happygamer.com/pgl-major-singapore-2026-start-time-180245/",
+     "source": "HappyGamer",
+     "lang": "en",
+     "published": "2026-11-23T03:23Z",
+     "snippet": "12:00 PM Singapore Time is the number PGL put on the board. That’s when the first matches of PGL Major Singapore 2026 begin, according to the organizer’s own post on X. The countdown is nearly done.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    },
+    {
+     "title": "HEROIC vs Imperial at PGL Major Singapore 2026 – who has the edge in the opening round?",
+     "url": "https://tribuna.com/en/betting/blogs/heroic-vs-imperial-at-pgl-major-singapore-2026-who-has-the-e/",
+     "source": "Tribuna.com",
+     "lang": "en",
+     "published": "2026-11-22T20:00Z",
+     "snippet": "HEROIC vs Imperial at PGL Major Singapore 2026 on 24 November. Find the start time, line-ups, map stats, our match prediction and odds from Epicbet and Stake.",
+     "signal": "",
+     "origin": "bing",
+     "id": -1
+    }
+   ]
+  }
+ ]
 }

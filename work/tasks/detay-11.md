@@ -1,0 +1,114 @@
+# Görev: detay-11
+
+Aşağıdaki SİSTEM TALİMATI ve GİRDİ'yi oku, talimata göre cevap üret.
+Cevabını SADECE geçerli JSON olarak şu dosyaya yaz: `work/out/detay-11.json`
+JSON dışında hiçbir şey yazma (açıklama, markdown kod bloğu yok). Dosyada başka bir şey olmasın.
+
+## SİSTEM TALİMATI
+
+You write the detailed Turkish version of ONE news story for a personal bulletin.
+You get the one-line headline, the related news items (titles and snippets) and, when available,
+extracted article texts that may be in English, Spanish, Chinese or Turkish.
+
+Rules:
+- Write natural, fluent Turkish. Translate foreign material.
+- Use only facts in the provided material. If the material is thin, write a shorter text.
+  Never invent numbers, quotes, dates or names.
+- title: Turkish title, at most about 12 words.
+- headline: the one-line Turkish bullet (at most about 25 words). Improve it if the articles give better
+  facts, otherwise keep it.
+- detail: 2-4 short paragraphs separated by a blank line. What happened, key numbers, context, and why
+  it matters for this reader (topic criteria given).
+- key_points: 2-5 short Turkish bullet points.
+- Refer to sources by publisher name if needed, never by bracketed item numbers like [3].
+
+Output JSON: {"title": str, "headline": str, "detail": str, "key_points": [str]}
+
+## GİRDİ
+
+TOPIC: Genel Teknoloji
+
+CRITERIA:
+Bu geniş bir başlık; sadece gerçekten büyük olaylar girsin.
+Önemli: dev şirketlerin büyük hamleleri, büyük satın almalar, önemli ürün çıkışları (telefon, araç, platform),
+elektrikli araç devlerinin (BYD, Tesla vb.) çığır açan adımları, büyük güvenlik açıkları veya sızıntılar,
+büyük düzenlemeler, uzay alanında önemli olaylar.
+Önemsiz: sıradan ürün incelemeleri, indirimler, küçük uygulama güncellemeleri, sıradan araba haberleri.
+Yapay zeka ve PC donanımı ayrı başlıklarda; burada onlara ancak çok büyükse yer ver.
+
+HEADLINE: Nvidia yönetim kurulu, istifasından 11 gün sonra Jensen Huang'ı CEO olarak geri getirdi; hisse bir ara %35 yükseldi, Huang 3 Aralık'ta Senato'da dinlenecek.
+
+RELATED ITEMS:
+[726] 2026-11-23 14:01 | nvidianews.nvidia.com (en) | Hacker News 1708 puan, 4 yorum | Jensen Huang Reinstated as Nvidia CEO
+[727] 2026-11-23 14:00 | cnbc.com (en) | Hacker News 2518 puan, 3438 yorum | Nvidia Reinstates Jensen Huang as CEO
+[919] 2026-11-23 14:21 | TechCrunch (en) | Nvidia reverses course and brings Jensen Huang back as CEO -- The stunning reversal was supported by senior officials in the U.S. government.
+[906] 2026-11-23 21:47 | TechCrunch (en) | Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal -- "The mistake has been corrected," Elon Musk chimed in.
+[939] 2026-11-23 22:10 | The Verge (en) | Nvidia CEO Jensen Huang is back. What happens next? -- After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an investigation. However, after The New York Times reported there was evidence of another affair, this time with an Nvidia...
+[938] 2026-11-23 22:25 | The Verge (en) | Trump engineered a risky comeback for Jensen Huang -- After Nvidia's board accepted Jensen Huang's resignation as CEO, following reports that Huang had an affair with an alleged Chinese spy, President Donald Trump, too, appeared to submit to the new reality. Appearing on Stephen A. Smith's radio show shortly after the news came out, Trump said that...
+[908] 2026-11-23 20:38 | TechCrunch (en) | Nvidia employees greet Jensen Huang like a hero as he returns to company’s HQ -- "I'm going to be a better CEO the second time around," Huang told employees.
+[909] 2026-11-23 19:31 | TechCrunch (en) | ‘Outrageous,’ ‘reckless,’ ‘wow’: Here’s what politicians are saying about Jensen Huang’s return to Nvidia -- Politicians on both sides of the aisle seem angry, agitated, and nonplussed by the return of Jensen Huang to Nvidia leadership less than two weeks after his ousting.
+[914] 2026-11-23 16:57 | TechCrunch (en) | Jensen Huang isn’t out of the woods yet -- Tech leaders should be clear-eyed about all the problems likely to come with Huang's reinstatement.
+[915] 2026-11-23 16:39 | TechCrunch (en) | Trump reportedly called into Nvidia board meeting to advocate for Huang’s return -- "I spoke to them, let me put it that way … And I convinced them," the president told CNBC.
+[918] 2026-11-23 15:04 | TechCrunch (en) | Trump endorses Jensen Huang’s return to Nvidia, says US has no evidence of wrongdoing -- The president cited the U.S. attorney general in defending Huang's return, while urging Nvidia to continue its export-control investigation.
+[907] 2026-11-23 21:25 | TechCrunch (en) | Megaspeed, the company at the center of the Jensen Huang scandal, appears headed for a US blacklist -- Megaspeed, which was previously led by Alice Huang, would be barred from doing business with U.S. companies unless those companies attained a special license from the federal government.
+[911] 2026-11-23 18:12 | TechCrunch (en) | Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO -- The public hearing follows bipartisan calls for Huang to testify about the affair with the suspected Chinese spy.
+[1220] 2026-11-23 15:46 | Ars Technica (en) | Jensen Huang reinstated as Nvidia CEO, board chair -- Trump says he spoke to the board and that Huang "did nothing wrong."
+[1409] 2026-11-23 19:38 | cnBeta (zh) | 英伟达董事会恢复黄仁勋职务据悉未事先征询公司高级管理层意见 -- 据知情人士透露，英伟达董事会出人意料地将黄仁勋复职的举动并未事先征询公司高级管理层的意见，后者直到最后一刻才获知该消息。知情人士表示，在美国总统特朗普向董事会成员施加政治压力后，相关决定于周日下午作出。由于讨论属于非公开信息，知情人士要求匿名。他们还表示，一些原本被考虑接替黄仁勋的人选也退出了遴选程序。 阅读全文
+[1410] 2026-11-23 19:38 | cnBeta (zh) | 黄仁勋重返英伟达总部 -- 援引其获得的一段来自员工的视频报道称，黄仁勋已返回英伟达总部，员工欢呼迎接。黄仁勋对员工表示，第二次担任CEO，他会做得更好。 阅读全文
+[1411] 2026-11-23 18:27 | cnBeta (zh) | 黄仁勋复任英伟达CEO后将出席美国参议院听证会 12月3日接受质询 -- 英伟达首席执行官黄仁勋将在12月3日出席美国参议院银行委员会举行的公开听证会。根据该委员会官方网站公布的通知，这场听证会将围绕美国出口管制政策及相关国家安全问题展开。值得注意的是，听证会安排公布之际，黄仁勋刚刚在英伟达董事会决定下重新出任公司首席执行官。 阅读全文
+[1415] 2026-11-23 16:27 | cnBeta (zh) | 特朗普：祝贺黄仁勋恢复职位 英伟达董事会决定正确且恰当 -- 11月23日，美国总统特朗普发文：英伟达董事会作出了让黄仁勋重回首席执行官一职的正确、恰当的决定。国家需要黄仁勋掌舵英伟达，以保障这家公司取得成功、蓬勃发展，同时助力美国经济走向繁荣。美国政府没有理由认为黄仁勋回归英伟达会带来任何国家安全风险。 阅读全文
+[1416] 2026-11-23 16:22 | cnBeta (zh) | 黄仁勋时隔12天重回英伟达CEO宝座 苹果乔布斯等了12年 -- 英伟达董事会只用了12天，就做出撤销罢免黄仁勋的决定。三年前的同一周，OpenAI撤换山姆・奥特曼，完成同样的复位只用了不到五天。几乎没人预料到黄仁勋复职的消息。周一早晨，就在英伟达发布官方复职公告的几分钟之前，预测市场Polymarket上，押注黄仁勋本月复职的概率仅约3%。公告发布五分钟后，该概率飙升至99%。 阅读全文
+[1417] 2026-11-23 16:22 | cnBeta (zh) | 特朗普对黄仁勋重返英伟达表示祝贺 -- 英伟达周一宣布恢复黄仁勋首席执行官职务。过去数日，美国政府公开表态持续力挺这位 CEO，特朗普对此表示祝贺。英伟达官宣消息发布数分钟后，特朗普在真实社交平台发帖称：“英伟达董事会做出了正确且恰当的决定。美国政府没有理由认为黄仁勋重返英伟达会带来任何国家安全风险。” 阅读全文
+[1418] 2026-11-23 16:21 | cnBeta (zh) | 黄仁勋复职带动AI相关股票普涨 英伟达市值数小时增逾1万亿美元 -- 英伟达恢复黄仁勋总裁兼首席执行官职务、并立即生效后，人工智能相关公司的股价大涨。英伟达股价一度上涨35%，创2000年以来最大盘中涨幅，短短数小时内市值增加逾1万亿美元，并带动标普500指数和纳斯达克100指数走高。涨势还蔓延至芯片股，费城证券交易所半导体指数飙升13%；其他与人工智能基础设施交易相关的股票也上涨，包括能源供应商和工业企业。 阅读全文
+[1419] 2026-11-23 16:19 | cnBeta (zh) | 英伟达恢复黄仁勋CEO背后：特朗普强势施压相助 -- 英伟达周一宣布，董事会一致投票决定，立即恢复黄仁勋的总裁、首席执行官及董事职务，距他 11 月 12 日辞职仅 11 天。公司称，经过与黄仁勋的一系列讨论和会面，董事会对他的坦诚和领导能力感到满意。董事长哈维·琼斯表示，董事会认为黄仁勋是领导英伟达的合适人选，复职符合股东、员工、合作伙伴和客户的最佳利益。临时 CEO 科莱特·克雷斯留任首席财务官，琼斯继续担任董事长。 阅读全文
+[1420] 2026-11-23 16:18 | cnBeta (zh) | 英伟达官宣黄仁勋回归 马斯克发文“It is done”庆祝 -- 今日晚间，英伟达官方宣布即日起恢复黄仁勋公司总裁、首席执行官及董事会成员职务。董事会表示，经多轮沟通，认可其坦诚态度与领导能力，并在听取美国政府高层意见后，确信其复职不存在国家安全风险。 阅读全文
+[1422] 2026-11-23 14:28 | cnBeta (zh) | 特朗普：祝贺黄仁勋恢复职位 -- 美国总统特朗普在社交媒体发文称，英伟达董事会作出了让黄仁勋重回首席执行官一职的正确、恰当的决定。国家需要黄仁勋掌舵英伟达，以保障这家公司取得成功、蓬勃发展，同时助力美国经济走向繁荣。 阅读全文
+[1423] 2026-11-23 14:12 | cnBeta (zh) | 黄仁勋恢复CEO职务 英伟达美股盘前涨超25% -- 11月23日，英伟达官网公告称，公司董事会已一致投票决定，即日起恢复黄仁勋的总裁、首席执行官及董事职务。英伟达表示，董事会经过与黄仁勋多轮讨论和会议，对其坦诚程度及领导公司能力表示认可，并认为恢复其职务符合股东、员工、合作伙伴及客户的最佳利益。 阅读全文
+[1424] 2026-11-23 14:11 | cnBeta (zh) | 黄仁勋回应回复职务：已经迫不及待重返工作岗位 -- 英伟达今日宣布，即刻生效，黄仁勋恢复担任公司总裁、首席执行官及董事会成员。 董事会经与黄仁勋多轮沟通会晤后，一致投票同意恢复其职务；董事会认可黄仁勋态度坦诚，具备领导英伟达的能力。在作出该决定的过程中，董事会听取了美国政府高层的意见。基于相关意见，董事会确信，黄仁勋复职不会带来国家安全风险。 阅读全文
+[1425] 2026-11-23 14:02 | cnBeta (zh) | NVIDIA董事会宣布黄仁勋即刻恢复总裁、首席执行官及董事职务 -- 英伟达（NVIDIA）今日宣布，黄仁勋（Jensen Huang）自即日起恢复担任公司总裁兼首席执行官，并重新出任董事会成员。董事会一致投票通过这一决定，认为黄仁勋具备坦诚沟通和领导英伟达的能力，其复职符合公司股东、员工、合作伙伴及客户的最佳利益。 阅读全文
+
+ARTICLE 1 (nvidianews.nvidia.com, en):
+NVIDIA (NASDAQ: NVDA) today announced that effective immediately, Jensen Huang has been reinstated as President and Chief Executive Officer and as a member of the Board. The Board of Directors voted unanimously to reinstate Mr. Huang following a series of discussions and meetings with Mr. Huang, after which the Board was satisfied with respect to Mr. Huang’s candor and ability to lead NVIDIA. In the process of reaching its decision, the Board received input from senior levels of the United States government, and based on that input, the Board is confident that Mr. Huang’s reinstatement poses no national security risk.
+“The Board believes Jensen is the right person to lead NVIDIA, and that his reinstatement is in the best interests of our stockholders, employees, partners and customers,” said Harvey C. Jones, Chair of the Board. “We have every confidence in Jensen and look forward to working with him as he resumes his leadership of the Company. We are grateful to Colette Kress for her outstanding service as interim CEO, in addition to her continuing responsibilities as NVIDIA’s Chief Financial Officer.” Harvey Jones will remain as Board chair.
+“I am honored to return to NVIDIA and lead one of the most consequential technology companies in the world at the beginning of a new industrial revolution,” said Jensen Huang. “I take this responsibility with the greatest humility and renewed commitment. I want to thank the NVIDIA Board for its confidence and deliberation through this process. I am especially grateful to Harvey Jones for his leadership as Chair, and to Colette Kress and our executive staff for leading NVIDIA during this period. I am also deeply thankful to our employees, shareholders, leaders across the industry and partners around the world for their extraordinary support. Above all, I am grateful for the love and support of my family. I can’t wait to get back to work.”
+As previously announced, in light of recent reporting that Mr. Huang has been the target of a foreign intelligence effort, the Board formed a committee comprised solely of independent directors to investigate, and the committee retained independent counsel to assist it in that investigation. The Board reiterated that the committee’s investigation will proceed to conclusion. Mr. Huang fully supports the investigation and is committed to cooperating with it.
+The Board also recently formed a National Security and Export Control Committee comprised solely of independent directors to oversee trade compliance and national security risks. The committee is engaging counsel with experience in national security matters, and such counsel will be retaining advisors with expertise in national security matters. NVIDIA is commencing a search to fill a new position, Chief Compliance Officer, to oversee compliance across NVIDIA and report to the Nominating and Corporate Governance Committee. NVIDIA will continue to cooperate with ongoing government investigations and inquiries.
+
+ARTICLE 2 (cnbc.com, en):
+Nvidia on Monday announced Jensen Huang has been reinstated as CEO, effective immediately, a dramatic twist in a scandal that hammered the chipmaker's stock price and rocked the tech and artificial intelligence industries.
+The board of directors said it unanimously voted to reinstate Huang following "a series of discussions and meetings" with him. The board added that it "received input from senior levels of the United States government" and that it is confident Huang's reinstatement "poses no national security risk."
+President Donald Trump told CNBC on Monday that he had been speaking to Nvidia's board "directly and indirectly," and that Huang "did nothing wrong." Trump said he talked to Huang on Sunday and asked him to promise to "work hard."
+Huang resigned from his role as chief executive earlier this month after a series of shocking reports about multiple extramarital affairs, including one with an alleged Chinese spy. The New York Times reported on Sunday that the woman, Alice Huang, was in contact with an officer of China's Ministry of State Security during at least part of the time that she was engaging in a relationship with Huang.
+Shares of Nvidia closed up 31% following Huang's reinstatement. The stock had shed nearly 33% from the time Huang admitted to an extramarital affair on Nov. 8. The stock closed at $186.64 on Nov.6.
+"I am honored to return to NVIDIA and lead one of the most consequential technology companies in the world at the beginning of a new industrial revolution," Huang said in a statement. "I take this responsibility with the greatest humility and renewed commitment. I want to thank the NVIDIA Board for its confidence and deliberation through this process."
+Senior government officials briefed Nvidia's board late last week and communicated that no national security laws were violated, according to sources familiar with the discussion who asked to remain anonymous because they were not authorized to speak publicly. That update prompted the board to reach out to Huang, the people said.
+Huang and the board held their first conversations since his ouster on Saturday, and the group determined he would return as CEO during a second meeting on Sunday, the people said. Nvidia's cratering stock price played a role in accelerating those conversations.
+Trump celebrated Huang's return to Nvidia on Monday, writing in a post on his social media site that the board made "the correct and proper decision" to reinstate him. Trump said the U.S. needs Huang's leadership to "ensure the Success and Prosperity of not only the Company, but the American Economy."
+He reiterated that the U.S. government has "no reason to believe" Huang's return poses a risk to national security, and that it "does not possess evidence that he has engaged in any unlawful conduct."
+"On a personal note, I have gotten to know Jensen, and he is a Great Patriot and National Treasure," Trump wrote.
+Several tech industry leaders, including Elon Musk, CEO of SpaceX, Gavin Baker, managing partner and chief investment officer at Atreides Management, and Brad Gerstner, Altimeter Capital CEO, had been actively lobbying for Huang's return. Musk wrote in a post on X on Monday that the board's "mistake has been corrected."
+Nvidia did not immediately respond to CNBC's request for comment.
+For weeks following Huang's ouster, the company's board maintained that it was not considering Huang's reinstatement. It appointed Colette Kress, Nvidia's chief financial officer, as the chipmaker's interim CEO, who reiterated that position in an interview with CNBC following Huang's exit. Kress will continue to serve as Nvidia's CFO, according to a filing with the Securities and Exchange Commission.
+Nvidia's board formed an independent committee and hired the law firm Wachtell, Lipton, Rosen & Katz to conduct an investigation into Huang and whether company secrets or national security were compromised. The board said Monday that "the committee's investigation will proceed to conclusion" and that Huang is "committed to cooperating with it."
+"The Board believes Jensen is the right person to lead NVIDIA, and that his reinstatement is in the best interests of our stockholders, employees, partners and customers," Nvidia's board chair, Harvey Jones, said in a statement. "We have every confidence in Jensen and look forward to working with him as he resumes his leadership of the Company."
+Even with Huang back at the helm, Nvidia is facing increased scrutiny over its chip sales in Southeast Asia and China.
+Lawmakers have been preparing for investigations into how Huang's affair with the alleged spy may have damaged U.S. AI dominance, influenced his positions on export controls, and impacted his close relationships with Trump and his Cabinet. Huang has been one of the loudest voices opposing strict export controls on advanced chips.
+"The reckless decision to bring Jensen Huang back as CEO does not change the fact that Mr. Huang, NVIDIA executives, and the company's board still owe Congress answers about the company's compliance with U.S. export controls," Sen. Elizabeth Warren, D-Mass., said in a statement Monday.
+Huang is due for a closed-door transcribed interview with the House Foreign Affairs panel and two other committees on Dec. 1. Nvidia's general counsel, Tim Teter, is scheduled to appear before the panels on Dec. 2. Those dates were set before Huang's return, and John Fisher, who represents Huang, did not comment on whether there are any changes in his plans to testify.
+Senate Banking Committee Chairman Tim Scott, R-S.C., said Monday that Huang will publicly testify on Dec. 3 as the sole witness during a hearing titled, "Protecting America's AI Advantage: Oversight of U.S. Export Controls."
+"Americans deserve answers about what NVIDIA and the Trump administration knew, when they knew it, and whether sufficient steps were taken to prevent sensitive technology from falling into the wrong hands," Sen. Andy Kim, D-N.J., a member of the Banking 
+
+ARTICLE 3 (TechCrunch, en):
+In a stunning reversal, Nvidia’s board said on Monday that it had reinstated Jensen Huang as the company’s CEO and president, less than two weeks after he resigned following his admission of at least two extramarital affairs, one of which was with a woman whom the U.S. government suspects to be a Chinese spy.
+The decision marks an extraordinary comeback for one of the tech industry’s most influential executives, whose abrupt departure raised questions about national security and the future of the world’s most valuable chipmaker. Notably, the U.S. government itself played a role in his return: Nvidia’s board said it consulted senior government officials before determining that Huang posed no national security risk.
+Nvidia shares, which had already shot up in premarket trading, opened 30% higher. Nvidia shares were priced at $159.95 a share, up 27%, at 9:51 a.m. ET.
+In the days since Huang resigned, President Donald Trump has repeatedly expressed his support for the ousted executive, who is now back at the helm of the AI chip giant. Trump said in a post on Truth Social that the board “made the correct and proper decision to return” Huang to the position, noting that the U.S. government has no reason to believe that Nvidia poses any risk to national security.
+Trump also said the U.S. attorney general confirmed that the U.S. government doesn’t have any evidence that Huang engaged in any illegal activity.
+A long list of high-profile tech executives were pushing the board — in social media posts and publicly aired interviews — to bring Huang back, including SpaceX and Tesla CEO Elon Musk, Replit CEO Amjad Masad, Epic Games CEO Tim Sweeney, Atoms founder Travis Kalanick, and Y Combinator CEO Garry Tan — all of whom signed a petition pushing for reinstatement.
+The company said the board’s unanimous decision followed a series of discussions and meetings with Huang, after which they were “satisfied with respect to Mr. Huang’s candor and ability to lead Nvidia.”
+Just a few days ago, the board had seemed immovable in its choice to push Huang out. During the company’s third-quarter earnings call, Nvidia board chair Harvey C. Jones said they didn’t intend to reinstate Huang. Nvidia had even retained executive search firm Heidrick & Struggles to find a permanent replacement.
+Jones, along with the rest of the board, now has a different view. In a prepared statement, Jones said the board believes Huang is the right person to lead Nvidia, and that his reinstatement is in the best interests of its stockholders, employees, partners, and customers.
+“We have every confidence in Jensen and look forward to working with him as he resumes his leadership of the company,” Jones said. “We are grateful to Colette Kress for her outstanding service as interim CEO, in addition to her continuing responsibilities as Nvidia’s Chief Financial Officer.”
+In a statement, Huang said he was honored to return to his role as the head of the company he co-founded in 1993.
+“I take this responsibility with the greatest humility and renewed commitment,” Huang said. “I want to thank the Nvidia Board for its confidence and deliberation through this process. I am especially grateful to Harvey Jones for his leadership as Chair, and to Colette Kress and our executive staff for leading Nvidia during this period. I am also deeply thankful to our employees, shareholders, leaders across the industry and partners around the world for their extraordinary support. Above all, I am grateful for the love and support of my family. I can’t wait to get back to work.”
+This story is developing...
