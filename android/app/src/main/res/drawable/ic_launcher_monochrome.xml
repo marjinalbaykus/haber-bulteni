@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Tema renkli simgeler (Android 13+) için tek renkli sürüm -->
+<!-- Tek renk (temalı simge): baykuş silueti, gözler ve gazete boşluk -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path android:fillColor="#FF000000" android:fillType="evenOdd"
-        android:pathData="M37,31h34a4,4 0,0 1,4 4v38a4,4 0,0 1,-4 4h-34a4,4 0,0 1,-4 -4v-38a4,4 0,0 1,4 -4z
-            M39,37h24v3h-24z M39,45h13v12h-13z M55,45.5h14v2.4h-14z M55,50.3h14v2.4h-14z M55,55.1h10v2.4h-10z
-            M39,62h30v2.4h-30z M39,67h30v2.4h-30z" />
+    <path android:fillColor="#FFFFFFFF" android:fillType="evenOdd"
+        android:pathData="M33,43 L35,27 L46,35 Q54,32 62,35 L73,27 L75,43 L75,65 Q75,84 54,84 Q33,84 33,65 Z
+            M44,51m-7.5,0a7.5,7.5 0,1 0,15 0a7.5,7.5 0,1 0,-15 0
+            M64,51m-7.5,0a7.5,7.5 0,1 0,15 0a7.5,7.5 0,1 0,-15 0
+            M39,68h30v11h-30z" />
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M45,52m-3.5,0a3.5,3.5 0,1 1,7 0a3.5,3.5 0,1 1,-7 0" />
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M63,52m-3.5,0a3.5,3.5 0,1 1,7 0a3.5,3.5 0,1 1,-7 0" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M42,71h14v2.4h-14zM42,75.4h24v1.2h-24z" />
 </vector>

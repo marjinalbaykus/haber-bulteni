@@ -448,11 +448,11 @@ fun SettingsScreen(
             }
             Switch(checked = notifications, onCheckedChange = onNotifications)
         }
-        SectionTitle("GitHub erişim anahtarı (Araştır ve Konularım için)")
+        SectionTitle("GitHub erişim anahtarı (Araştır ve Konular için)")
         Text(
             "Ara ekranından araştırma başlatmak için gerekir. GitHub > Settings > Developer settings > " +
                 "Fine-grained tokens: sadece haber-bulteni deposu, izin olarak Actions: Read and write. " +
-                "Ara ekranındaki Araştır ve Konularım değişiklikleri bu anahtarla çalışır.",
+                "Ara ekranındaki Araştır ve Konular değişiklikleri bu anahtarla çalışır.",
             style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         OutlinedTextField(

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Gece mavisi zemin ve arkada hafif bir ay -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
@@ -13,8 +14,13 @@
                 android:startY="0"
                 android:endX="108"
                 android:endY="108"
-                android:startColor="#FF2A63AD"
-                android:endColor="#FF0E2850" />
+                android:startColor="#FF2B3F8F"
+                android:endColor="#FF0A1330" />
         </aapt:attr>
     </path>
+    <path android:fillColor="#FF34489A" android:fillAlpha="0.55"
+        android:pathData="M54,54m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0" />
+    <path android:fillColor="#FFFFFFFF" android:fillAlpha="0.7" android:pathData="M27,30m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0" />
+    <path android:fillColor="#FFFFFFFF" android:fillAlpha="0.5" android:pathData="M82,26m-0.8,0a0.8,0.8 0,1 1,1.6 0a0.8,0.8 0,1 1,-1.6 0" />
+    <path android:fillColor="#FFFFFFFF" android:fillAlpha="0.6" android:pathData="M86,78m-0.9,0a0.9,0.9 0,1 1,1.8 0a0.9,0.9 0,1 1,-1.8 0" />
 </vector>

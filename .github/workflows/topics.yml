@@ -49,4 +49,4 @@ jobs:
       - name: Değişikliği uygula
         run: python -m bulten topics "$ACTION"
       - name: Kaydet ve siteyi güncelle
-        run: bash scripts/commit_push.sh "Konu değişikliği (uygulama): $ACTION $TOPIC_ID"
+        run: bash scripts/commit_push.sh "Konu değişikliği (uygulama) $ACTION $TOPIC_ID"

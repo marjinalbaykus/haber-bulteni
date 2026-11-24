@@ -45,6 +45,7 @@ import com.marjinalbaykus.bulten.ui.AllNewsScreen
 import com.marjinalbaykus.bulten.ui.AppIcons
 import com.marjinalbaykus.bulten.ui.BulletinScreen
 import com.marjinalbaykus.bulten.ui.withTitles
+import com.marjinalbaykus.bulten.ui.TopicsDraft
 import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.launch
 import com.marjinalbaykus.bulten.ui.Centered
@@ -125,6 +126,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
     var notifications by remember { mutableStateOf(repo.notificationsOn) }
     var topics by remember { mutableStateOf(repo.topicsCache) }   // güncel başlık adları ve gruplar
     val scope = rememberCoroutineScope()
+    val topicsDraft = remember { TopicsDraft() }   // Konular'daki kaydedilmemiş değişiklikler
     // Liste konumları ekran değişince kaybolmasın; bülten değişince başa döner
     val homeState = remember(date) { LazyListState() }
     val allState = remember(date) { LazyListState() }
@@ -172,7 +174,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                             Screen.History -> "Geçmiş bültenler"
                             Screen.Settings -> "Ayarlar"
                             Screen.Search -> "Ara"
-                            Screen.Topics -> "Konularım"
+                            Screen.Topics -> "Konular"
                             is Screen.ResearchDetail -> "Araştırma"
                             is Screen.Detail -> screen.item.topic.title
                         },
@@ -186,10 +188,6 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                     Box {
                         IconButton(onClick = { menuOpen = true }) { MenuIcon() }
                         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
-                            DropdownMenuItem(text = { Text("Konularım") }, onClick = {
-                                menuOpen = false
-                                if (screen != Screen.Topics) push(Screen.Topics)
-                            })
                             DropdownMenuItem(text = { Text("Yenile") }, onClick = { menuOpen = false; reload++ })
                             DropdownMenuItem(text = { Text("Geçmiş bültenler") }, onClick = {
                                 menuOpen = false
@@ -209,6 +207,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 listOf(
                     Triple(Screen.Home, "Ana sayfa", AppIcons.Home),
                     Triple(Screen.Search, "Ara", AppIcons.Search),
+                    Triple(Screen.Topics, "Konular", AppIcons.Topics),
                     Triple(Screen.AllNews, "Tüm haberler", AppIcons.List),
                 ).forEach { (target, label, icon) ->
                     NavigationBarItem(
@@ -261,7 +260,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 notifications, { notifications = it; repo.notificationsOn = it }, padding)
             Screen.Search -> SearchScreen(repo, searchQuery, { searchQuery = it }, { push(Screen.ResearchDetail(it)) },
                 { push(Screen.Detail(it)) }, { push(Screen.Settings) }, padding)
-            Screen.Topics -> TopicsScreen(repo, { push(Screen.Settings) }, { topics = it }, padding)
+            Screen.Topics -> TopicsScreen(repo, topicsDraft, { push(Screen.Settings) }, { topics = it }, padding)
             is Screen.ResearchDetail -> ResearchScreen(repo, screen.id, padding)
             is Screen.Detail -> DetailScreen(screen.item, padding)
         }

@@ -74,6 +74,19 @@ private fun LevelPicker(selected: Level, onPick: (Level) -> Unit, modifier: Modi
 /** Kaydedilmeyi bekleyen yeni konu. */
 private data class NewTopic(val text: String, val level: Level, val group: String?)
 
+/**
+ * Kaydedilmemiş değişiklikler. Uygulama seviyesinde tutulur: başka sekmeye geçip dönünce kaybolmaz,
+ * kaydetme başarısız olursa da yerinde kalır.
+ */
+class TopicsDraft {
+    internal val levels = mutableStateMapOf<String, Level>()
+    internal val titles = mutableStateMapOf<String, String>()
+    internal val removeIds = mutableStateListOf<String>()
+    internal val restoreIds = mutableStateListOf<String>()
+    internal val adds = mutableStateListOf<Any>()   // NewTopic
+    internal var groups by mutableStateOf<List<TopicGroup>?>(null)
+}
+
 /** Ad sorma penceresi (konu adı, grup adı, yeni grup). */
 private data class NameAsk(val title: String, val initial: String, val onDone: (String) -> Unit)
 
@@ -82,7 +95,7 @@ private data class NameAsk(val title: String, val initial: String, val onDone: (
  * değişir; alttaki sabit "Kaydet" hepsini tek seferde GitHub'daki topics.yml iş akışına gönderir.
  */
 @Composable
-fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, padding: PaddingValues) {
+fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved: (Topics) -> Unit, padding: PaddingValues) {
     val scope = rememberCoroutineScope()
     var server by remember { mutableStateOf<Topics?>(null) }
     var error by remember { mutableStateOf<String?>(null) }
@@ -91,12 +104,12 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
     var message by remember { mutableStateOf<String?>(null) }
 
     // Taslak
-    val levels = remember { mutableStateMapOf<String, Level>() }
-    val titles = remember { mutableStateMapOf<String, String>() }
-    val removeIds = remember { mutableStateListOf<String>() }
-    val restoreIds = remember { mutableStateListOf<String>() }
-    val adds = remember { mutableStateListOf<NewTopic>() }
-    var groupsDraft by remember { mutableStateOf<List<TopicGroup>?>(null) }
+    val levels = draft.levels
+    val titles = draft.titles
+    val removeIds = draft.removeIds
+    val restoreIds = draft.restoreIds
+    @Suppress("UNCHECKED_CAST") val adds = draft.adds as MutableList<NewTopic>
+    var groupsDraft by draft::groups
     var waiting by remember { mutableStateOf<List<String>>(emptyList()) }   // kaydedildi, sunucuda ekleniyor
     var customBefore by remember { mutableIntStateOf(0) }
 
@@ -106,6 +119,8 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
     var newGroup by remember { mutableStateOf<String?>(null) }
     var ask by remember { mutableStateOf<NameAsk?>(null) }
     var confirmGroupDelete by remember { mutableStateOf<TopicGroup?>(null) }
+    var confirmRemove by remember { mutableStateOf<TopicInfo?>(null) }
+    var failed by remember { mutableStateOf<String?>(null) }   // son kaydetme hatası (alt çubukta gösterilir)
 
     LaunchedEffect(reload) {
         runCatching { repo.topics().value }
@@ -148,7 +163,7 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
 
     fun save() {
         if (repo.githubToken.isBlank()) {
-            message = "Kaydetmek için Ayarlar'dan GitHub erişim anahtarı girilmeli."
+            failed = "Kaydetmek için Ayarlar'dan GitHub erişim anahtarı girilmeli."
             return
         }
         val o = JSONObject()
@@ -167,6 +182,7 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
         }))
         busy = true
         message = null
+        failed = null
         scope.launch {
             try {
                 repo.saveTopics(o.toString())
@@ -188,7 +204,7 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
                     "geçerli olur. Adlar ve gruplar ana sayfaya hemen yansır."
                 launch { delay(300_000); reload++ }   // sunucu işleyip site güncellenince tekrar oku
             } catch (e: Exception) {
-                message = e.message ?: e.javaClass.simpleName
+                failed = e.message ?: e.javaClass.simpleName
             }
             busy = false
         }
@@ -228,7 +244,7 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
                         }
                         DropdownMenuItem(text = { Text("Kaldır") }, onClick = {
                             menu = false
-                            if (topic.id in restoreIds) restoreIds.remove(topic.id) else removeIds.add(topic.id)
+                            confirmRemove = topic
                         })
                     }
                 }
@@ -324,7 +340,7 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
                             ask = NameAsk("Grup adı", g.name) { name ->
                                 editGroups { gs -> gs.replaceAll { if (it.id == g.id) it.copy(name = name) else it } }
                             }
-                        }) { Text("Adı") }
+                        }) { Text("Düzenle") }
                         TextButton(onClick = { confirmGroupDelete = g }) { Text("Sil") }
                     }
                     HorizontalDivider()
@@ -373,21 +389,24 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
         }
         // Sabit kaydet çubuğu: liste kaysa da görünür kalır
         Surface(tonalElevation = 3.dp, shadowElevation = 6.dp) {
-            Row(
-                Modifier.fillMaxWidth().padding(start = 16.dp, end = 12.dp, top = 8.dp,
-                    bottom = 8.dp + padding.calculateBottomPadding()),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    when {
-                        busy -> "Gönderiliyor..."
-                        dirty -> "$changeCount değişiklik kaydedilmedi"
-                        else -> "Değişiklik yok"
-                    },
-                    style = MaterialTheme.typography.bodySmall, color = muted, modifier = Modifier.weight(1f),
-                )
-                if (dirty && !busy) TextButton(onClick = { clearDraft() }) { Text("Vazgeç") }
-                Button(onClick = { save() }, enabled = dirty && !busy) { Text("Kaydet") }
+            Column(Modifier.fillMaxWidth().padding(start = 16.dp, end = 12.dp, top = 8.dp,
+                bottom = 8.dp + padding.calculateBottomPadding())) {
+                failed?.let {
+                    Text("Kaydedilemedi: $it", style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error, modifier = Modifier.padding(bottom = 4.dp))
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        when {
+                            busy -> "Gönderiliyor..."
+                            dirty -> "$changeCount değişiklik bekliyor"
+                            else -> "Değişiklik yok"
+                        },
+                        style = MaterialTheme.typography.bodySmall, color = muted, modifier = Modifier.weight(1f),
+                    )
+                    if (dirty && !busy) TextButton(onClick = { clearDraft(); failed = null }) { Text("Vazgeç") }
+                    Button(onClick = { save() }, enabled = dirty && !busy) { Text("Kaydet") }
+                }
             }
         }
     }
@@ -409,6 +428,25 @@ fun TopicsScreen(repo: Repo, onSettings: () -> Unit, onSaved: (Topics) -> Unit, 
                 }, enabled = value.isNotBlank()) { Text("Tamam") }
             },
             dismissButton = { TextButton(onClick = { ask = null }) { Text("Vazgeç") } },
+        )
+    }
+
+    confirmRemove?.let { topic ->
+        AlertDialog(
+            onDismissRequest = { confirmRemove = null },
+            title = { Text("Başlık kaldırılsın mı?") },
+            text = {
+                Text("\"${titleOf(topic)}\" başlığını kaldırmak istediğine emin misin? Kaydettikten sonra yarından itibaren " +
+                    "bültende olmaz." + if (topic.custom) " Sonradan eklenen bir başlık olduğu için tamamen silinir."
+                    else " İstersen \"Kaldırılanlar\" bölümünden geri ekleyebilirsin.")
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    if (topic.id in restoreIds) restoreIds.remove(topic.id) else removeIds.add(topic.id)
+                    confirmRemove = null
+                }) { Text("Kaldır") }
+            },
+            dismissButton = { TextButton(onClick = { confirmRemove = null }) { Text("Vazgeç") } },
         )
     }
 

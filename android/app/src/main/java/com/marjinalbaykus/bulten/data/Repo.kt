@@ -108,6 +108,7 @@ class Repo(context: Context) {
                 error(when (code) {
                     401 -> "Erişim anahtarı geçersiz veya süresi dolmuş."
                     403, 404 -> "Anahtarın bu depoda Actions yazma izni yok (veya iş akışı henüz GitHub'da değil)."
+                    422 -> "GitHub iş akışını kabul etmedi (iş akışı dosyasında hata olabilir)."
                     else -> "GitHub yanıtı $code ${msg.take(200)}"
                 })
             }
