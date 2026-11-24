@@ -38,17 +38,22 @@ data class ResearchRef(val id: String, val title: String, val query: String, val
 data class Index(val bulletins: List<BulletinRef>, val research: List<ResearchRef>)
 
 /**
- * Haber miktarı seviyesi. Sunucu her başlık için puanlı haberler gönderir, filtreleme burada yapılır.
- * Böylece ileride herkese ortak üretilen bültenden her kullanıcı kendi seviyesine göre görebilir.
+ * Konu başına haber miktarı. Sunucu bülteni bu ayara göre hazırlar (data/user_topics.json, bulten/topics.py).
+ * key: sunucudaki ad; min/max: en düşük önem puanı ve en fazla haber.
  */
-enum class Level(val label: String, val minImportance: Int, val maxStories: Int) {
-    AZ("Az", 8, 3),
-    ORTA("Orta", 7, 6),
-    COK("Çok", 6, 10);
+enum class Level(val key: String, val label: String, val minImportance: Int, val maxStories: Int) {
+    AZ("az", "Az", 8, 3),
+    ORTA("orta", "Orta", 7, 5),
+    COK("cok", "Çok", 6, 8);
 
-    fun apply(stories: List<Story>): List<Story> =
-        stories.filter { it.importance >= minImportance }.sortedByDescending { it.importance }.take(maxStories)
+    companion object {
+        fun of(key: String): Level = entries.firstOrNull { it.key == key } ?: ORTA
+    }
 }
+
+data class TopicInfo(val id: String, val title: String, val level: Level, val custom: Boolean)
+
+data class Topics(val active: List<TopicInfo>, val removed: List<TopicInfo>)
 
 private fun JSONArray?.objects(): List<JSONObject> =
     if (this == null) emptyList() else (0 until length()).mapNotNull { optJSONObject(it) }
@@ -135,4 +140,12 @@ fun parseResearch(text: String): Research {
             Source(src.optString("title"), src.optString("url"), src.optString("source"), src.optString("lang"))
         },
     )
+}
+
+fun parseTopics(text: String): Topics {
+    val o = JSONObject(text)
+    fun list(name: String) = o.optJSONArray(name).objects().map {
+        TopicInfo(it.optString("id"), it.optString("title"), Level.of(it.optString("level")), it.optBoolean("custom"))
+    }
+    return Topics(list("topics"), list("removed"))
 }

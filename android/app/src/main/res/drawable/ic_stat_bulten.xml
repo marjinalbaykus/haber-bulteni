@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bildirim çubuğu simgesi (tek renk) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="50"
+    android:viewportHeight="50">
+    <group android:translateX="-29" android:translateY="-29">
+        <path android:fillColor="#FFFFFFFF" android:fillType="evenOdd"
+            android:pathData="M37,31h34a4,4 0,0 1,4 4v38a4,4 0,0 1,-4 4h-34a4,4 0,0 1,-4 -4v-38a4,4 0,0 1,4 -4z
+                M39,37h24v3h-24z M39,45h13v12h-13z M55,45.5h14v2.4h-14z M55,50.3h14v2.4h-14z M55,55.1h10v2.4h-10z
+                M39,62h30v2.4h-30z M39,67h30v2.4h-30z" />
+    </group>
+</vector>

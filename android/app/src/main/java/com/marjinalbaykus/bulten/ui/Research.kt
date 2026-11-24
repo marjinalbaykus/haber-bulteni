@@ -15,7 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
@@ -38,6 +38,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.marjinalbaykus.bulten.data.Bulletin
 import com.marjinalbaykus.bulten.data.Repo
 import com.marjinalbaykus.bulten.data.Research
 import com.marjinalbaykus.bulten.data.ResearchRef
@@ -47,21 +48,70 @@ import kotlinx.coroutines.launch
 /** Bir araştırmanın sonucu siteye düşmezse bu süreden sonra bekleyenlerden çıkarılır. */
 private const val PENDING_TIMEOUT_MS = 30 * 60_000L
 
+/** Türkçe harf ve büyük/küçük farkını yok sayan arama için: "Güler" ile "guler" eşleşir. */
+private fun norm(s: String): String {
+    val sb = StringBuilder(s.length)
+    for (c in s.lowercase(java.util.Locale.forLanguageTag("tr-TR"))) {
+        sb.append(
+            when (c) {
+                'ç' -> 'c'; 'ğ' -> 'g'; 'ı' -> 'i'; 'ö' -> 'o'; 'ş' -> 's'; 'ü' -> 'u'; 'â' -> 'a'; 'î' -> 'i'; 'û' -> 'u'
+                else -> c
+            },
+        )
+    }
+    return sb.toString()
+}
+
+data class SearchHit(val date: String, val item: Item)
+
+/** Her kelime, metinde bir kelimenin başında geçmeli: "arda" -> "Arda", "Arda'nın" eşleşir, "katlarda" eşleşmez. */
+private fun wordMatchers(query: String): List<Regex> =
+    norm(query).split(' ').map { it.trim() }.filter { it.length >= 2 }
+        .map { Regex("""(^|[^\p{L}\p{N}])""" + Regex.escape(it)) }
+
+/** Tüm kelimeleri içeren haberler; yeni tarihli ve önemli olanlar önce. */
+private fun searchBulletins(bulletins: List<Bulletin>, query: String): List<SearchHit> {
+    val words = wordMatchers(query)
+    if (words.isEmpty()) return emptyList()
+    val hits = mutableListOf<SearchHit>()
+    for (b in bulletins) for (t in b.topics) for (st in t.stories) {
+        val hay = norm(listOf(t.title, st.title, st.headline, st.detail, st.keyPoints.joinToString(" ")).joinToString(" "))
+        if (words.all { it.containsMatchIn(hay) }) hits += SearchHit(b.date, Item(t, st))
+    }
+    return hits.sortedWith(compareByDescending<SearchHit> { it.date }.thenByDescending { it.item.story.importance })
+}
+
 @Composable
-fun SearchScreen(repo: Repo, onOpen: (String) -> Unit, onSettings: () -> Unit, padding: PaddingValues) {
+fun SearchScreen(
+    repo: Repo,
+    query: String,
+    onQuery: (String) -> Unit,
+    onOpenResearch: (String) -> Unit,
+    onOpenItem: (Item) -> Unit,
+    onSettings: () -> Unit,
+    padding: PaddingValues,
+) {
     val scope = rememberCoroutineScope()
     val keyboard = LocalSoftwareKeyboardController.current
-    var query by remember { mutableStateOf("") }
     var sending by remember { mutableStateOf(false) }
     var message by remember { mutableStateOf<String?>(null) }
     var list by remember { mutableStateOf<List<ResearchRef>?>(null) }
     var pending by remember { mutableStateOf(repo.pendingResearch()) }
+    var bulletins by remember { mutableStateOf(repo.bulletinCache) }
     val hasToken = remember { repo.githubToken.isNotBlank() }
-
     var pollKey by remember { mutableIntStateOf(0) }
 
-    // Liste yüklenir; bekleyen araştırma varsa sonucu sitede görünene kadar 30 saniyede bir yeniden bakılır.
-    // Yeni araştırma başlatılınca pollKey artar ve döngü baştan kurulur.
+    // Geçmiş bültenler bir kez indirilir (eskiler telefonda saklanır), arama tamamen telefonda yapılır.
+    LaunchedEffect(Unit) {
+        if (bulletins == null) {
+            runCatching { repo.allBulletins(repo.index().value.bulletins) }.onSuccess {
+                repo.bulletinCache = it
+                bulletins = it
+            }.onFailure { bulletins = emptyList() }
+        }
+    }
+
+    // Araştırma listesi; bekleyen varsa sonucu sitede görünene kadar 30 saniyede bir yeniden bakılır.
     LaunchedEffect(pollKey) {
         while (true) {
             runCatching { repo.index() }.onSuccess { idx ->
@@ -79,7 +129,7 @@ fun SearchScreen(repo: Repo, onOpen: (String) -> Unit, onSettings: () -> Unit, p
         }
     }
 
-    fun submit() {
+    fun research() {
         val q = query.trim()
         if (q.length < 3 || sending) return
         keyboard?.hide()
@@ -89,8 +139,8 @@ fun SearchScreen(repo: Repo, onOpen: (String) -> Unit, onSettings: () -> Unit, p
             try {
                 repo.startResearch(q)
                 pending = repo.pendingResearch()
-                query = ""
-                message = "Başlatıldı. Sonuç genelde 3-6 dakikada burada çıkar; ekran açıkken kendiliğinden yenilenir."
+                onQuery("")
+                message = "Araştırma başlatıldı. Sonuç genelde 3-6 dakikada aşağıda çıkar; ekran açıkken kendiliğinden yenilenir."
                 pollKey++
             } catch (e: Exception) {
                 message = e.message ?: e.javaClass.simpleName
@@ -99,48 +149,68 @@ fun SearchScreen(repo: Repo, onOpen: (String) -> Unit, onSettings: () -> Unit, p
         }
     }
 
+    val hits = remember(query, bulletins) { bulletins?.let { searchBulletins(it, query) } ?: emptyList() }
+    val searching = query.trim().length >= 2
+    val muted = MaterialTheme.colorScheme.onSurfaceVariant
+
     LazyColumn(
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding() + 4.dp,
             bottom = padding.calculateBottomPadding() + 32.dp),
         modifier = Modifier.fillMaxSize(),
     ) {
         item {
-            Text(
-                "Merak ettiğin bir konuyu yaz; haber kaynakları taranıp Türkçe bir rapor hazırlanır.",
-                style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
             OutlinedTextField(
                 value = query,
-                onValueChange = { query = it },
-                placeholder = { Text("Örn: RX 7800 XT için en iyi yerel modeller") },
-                modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                onValueChange = { onQuery(it); message = null },
+                placeholder = { Text("Ara: örn. Arda, RX 7800 XT, faiz") },
+                modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                keyboardActions = KeyboardActions(onSearch = { submit() }),
-                enabled = hasToken && !sending,
-                minLines = 1,
-                maxLines = 4,
+                keyboardActions = KeyboardActions(onSearch = { keyboard?.hide() }),
+                singleLine = true,
             )
             Row(
                 Modifier.fillMaxWidth().padding(top = 8.dp),
-                horizontalArrangement = Arrangement.End,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                if (sending) CircularProgressIndicator(Modifier.padding(end = 12.dp).size(20.dp), strokeWidth = 2.dp)
-                Button(onClick = { submit() }, enabled = hasToken && !sending && query.trim().length >= 3) {
-                    Text("Araştır")
-                }
+                Text(
+                    "Yazdıkça geçmiş bültenlerde arar. Daha fazlası için Araştır: haber kaynakları taranıp " +
+                        "Türkçe rapor hazırlanır.",
+                    style = MaterialTheme.typography.bodySmall, color = muted, modifier = Modifier.weight(1f),
+                )
+                if (sending) CircularProgressIndicator(Modifier.padding(horizontal = 8.dp).size(18.dp), strokeWidth = 2.dp)
+                FilledTonalButton(
+                    onClick = { research() },
+                    enabled = hasToken && !sending && query.trim().length >= 3,
+                    modifier = Modifier.padding(start = 8.dp),
+                ) { Text("Araştır") }
             }
             if (!hasToken) {
-                Text(
-                    "Araştırma başlatmak için Ayarlar'dan GitHub erişim anahtarını girmen gerekiyor.",
-                    style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.padding(top = 6.dp),
-                )
-                Text("Ayarlara git", color = MaterialTheme.colorScheme.primary,
+                Text("Araştır için Ayarlar'dan GitHub erişim anahtarı girilmeli. Ayarlara git",
+                    style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.clickable { onSettings() }.padding(vertical = 6.dp))
             }
             message?.let {
                 Text(it, style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 6.dp))
+            }
+        }
+        if (searching) {
+            item {
+                SectionTitle(
+                    when {
+                        bulletins == null -> "Bültenler yükleniyor..."
+                        hits.isEmpty() -> "Bültenlerde sonuç yok"
+                        else -> "Bültenlerde ${hits.size} sonuç"
+                    },
+                )
+            }
+            items(hits.take(100), key = { "${it.date}-${it.item.story.sid}" }) { h ->
+                Column(Modifier.fillMaxWidth().clickable { onOpenItem(h.item) }.padding(vertical = 9.dp)) {
+                    Text("${trDate(h.date, short = true)} · ${h.item.topic.title}",
+                        style = MaterialTheme.typography.labelSmall, color = muted)
+                    Text(h.item.story.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+                    Text(h.item.story.headline, style = MaterialTheme.typography.bodySmall, color = muted, maxLines = 2)
+                }
+                HorizontalDivider()
             }
         }
         if (pending.isNotEmpty()) {
@@ -152,19 +222,24 @@ fun SearchScreen(repo: Repo, onOpen: (String) -> Unit, onSettings: () -> Unit, p
                 }
             }
         }
-        item { SectionTitle("Önceki araştırmalar") }
         val l = list
+        val shownResearch = if (searching && l != null) {
+            val words = wordMatchers(query)
+            l.filter { r -> norm(r.title + " " + r.query).let { h -> words.all { it.containsMatchIn(h) } } }
+        } else l
+        if (!searching || !shownResearch.isNullOrEmpty()) {
+            item { SectionTitle(if (searching) "Araştırmalarda" else "Önceki araştırmalar") }
+        }
         when {
-            l == null -> item { Centered { CircularProgressIndicator() } }
-            l.isEmpty() -> item {
-                Text("Henüz araştırma yok.", fontStyle = FontStyle.Italic,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant)
+            shownResearch == null -> item { Centered { CircularProgressIndicator() } }
+            shownResearch.isEmpty() && !searching -> item {
+                Text("Henüz araştırma yok.", fontStyle = FontStyle.Italic, color = muted)
             }
-            else -> items(l, key = { it.id }) { r ->
-                Column(Modifier.fillMaxWidth().clickable { onOpen(r.id) }.padding(vertical = 10.dp)) {
+            else -> items(shownResearch, key = { it.id }) { r ->
+                Column(Modifier.fillMaxWidth().clickable { onOpenResearch(r.id) }.padding(vertical = 10.dp)) {
                     Text(r.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
                     Text("${r.created} · ${r.query}", style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 2)
+                        color = muted, maxLines = 2)
                 }
                 HorizontalDivider()
             }
@@ -187,7 +262,7 @@ fun ResearchScreen(repo: Repo, id: String, padding: PaddingValues) {
     }
     val r = research
     when {
-        r == null && error != null -> ErrorView(error!!) { attempt++ }
+        r == null && error != null -> ErrorView(error!!, "Araştırma yüklenemedi") { attempt++ }
         r == null -> Centered { CircularProgressIndicator() }
         else -> ResearchBody(r, padding)
     }

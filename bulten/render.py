@@ -167,6 +167,9 @@ def render_all() -> None:
         _write(api / "b" / f"{b['date']}.json", json.dumps(b, ensure_ascii=False))
     for r in research[:60]:
         _write(api / "r" / f"{r['id']}.json", json.dumps(r, ensure_ascii=False))
+    from .common import load_config
+    from .topics import public_list
+    _write(api / "topics.json", json.dumps(public_list(load_config(raw=True)), ensure_ascii=False))
     _write(api / "index.json", json.dumps({
         "bulletins": [{"date": b["date"], "generated_at": b["generated_at"],
                        "count": sum(len(t["stories"]) for t in b["topics"])} for b in bulletins[:60]],

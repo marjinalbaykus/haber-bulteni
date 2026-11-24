@@ -6,6 +6,8 @@
   python -m bulten notify               sıradaki Telegram mesajlarını gönder
   python -m bulten chatid               bota yazan sohbetlerin id'lerini göster
   python -m bulten staged prep|next     API'siz adımlı bülten (seçimi dışarıdaki ajan yapar)
+  python -m bulten topics <add|remove|restore|level>   uygulamadan gelen konu değişikliği
+                                        (ortam: TOPIC_ID, TOPIC_TEXT, TOPIC_LEVEL)
 """
 from __future__ import annotations
 
@@ -143,6 +145,12 @@ def main(argv: list[str]) -> None:
         cmd_chatid()
     elif c == "resend":
         cmd_resend()
+    elif c == "topics":
+        import os
+        from .topics import change
+        print(change(load_config(raw=True), args[1] if len(args) > 1 else "",
+                     os.environ.get("TOPIC_ID", ""), os.environ.get("TOPIC_TEXT", ""),
+                     os.environ.get("TOPIC_LEVEL", "")))
     elif c == "staged":
         from .staged import main as staged_main
         staged_main(args[1:])

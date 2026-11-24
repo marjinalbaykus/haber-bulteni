@@ -19,3 +19,18 @@ fun trTime(utc: String): String =
     runCatching {
         OffsetDateTime.parse(utc).atZoneSameInstant(ZoneId.of("Europe/Istanbul")).format(TIME_FMT)
     }.getOrDefault(utc)
+
+private val DAY_FMT = DateTimeFormatter.ofPattern("d MMMM yyyy", TR)
+private val WEEKDAY_FMT = DateTimeFormatter.ofPattern("EEEE", TR)
+private val CLOCK_FMT = DateTimeFormatter.ofPattern("HH:mm", TR)
+
+/** "2026-11-24" -> ("24 Kasım 2026", "Salı") */
+fun trDayParts(date: String): Pair<String, String> =
+    runCatching { LocalDate.parse(date).let { it.format(DAY_FMT) to it.format(WEEKDAY_FMT) } }.getOrDefault(date to "")
+
+/** Bülten tarihiyle aynı günse sadece saat ("08:31"), değilse gün ve saat ("23 Kasım 23:58"). */
+fun trPrepared(utc: String, date: String): String =
+    runCatching {
+        val t = OffsetDateTime.parse(utc).atZoneSameInstant(ZoneId.of("Europe/Istanbul"))
+        if (t.toLocalDate() == LocalDate.parse(date)) t.format(CLOCK_FMT) else t.format(TIME_FMT)
+    }.getOrDefault(utc)

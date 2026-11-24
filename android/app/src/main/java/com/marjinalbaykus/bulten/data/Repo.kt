@@ -21,6 +21,37 @@ class Repo(context: Context) {
 
     suspend fun research(id: String): Loaded<Research> = load("r/$id.json", ::parseResearch)
 
+    suspend fun topics(): Loaded<Topics> = load("topics.json", ::parseTopics)
+
+    /**
+     * Geçmiş bültenler (yerel arama için). Telefonda kopyası olan eski bültenler tekrar indirilmez;
+     * yayınlandıktan sonra değişmezler. Sadece en son bülten her seferinde yeniden alınır.
+     */
+    suspend fun allBulletins(refs: List<BulletinRef>): List<Bulletin> = withContext(Dispatchers.IO) {
+        refs.mapIndexedNotNull { i, ref ->
+            val file = File(cache, "b_${ref.date}.json")
+            runCatching {
+                if (i > 0 && file.exists()) parseBulletin(file.readText()) else bulletin(ref.date).value
+            }.getOrNull()
+        }
+    }
+
+    /** Ara ekranı için bellekte tutulan bülten listesi (uygulama açık kaldıkça tekrar okunmaz). */
+    @Volatile var bulletinCache: List<Bulletin>? = null
+
+    /** Uygulamada açılıp görülen en son bülten; bildirim aynı bülten için tekrar gelmesin diye. */
+    var lastSeenDate: String
+        get() = prefs.getString("son_gorulen", "") ?: ""
+        set(value) { if (value > lastSeenDate) prefs.edit().putString("son_gorulen", value).apply() }
+
+    var lastNotifiedDate: String
+        get() = prefs.getString("son_bildirilen", "") ?: ""
+        set(value) = prefs.edit().putString("son_bildirilen", value).apply()
+
+    var notificationsOn: Boolean
+        get() = prefs.getBoolean("bildirim", true)
+        set(value) = prefs.edit().putBoolean("bildirim", value).apply()
+
     /** GitHub ince ayarlı erişim anahtarı (sadece haber-bulteni deposu, Actions: okuma ve yazma). */
     var githubToken: String
         get() = prefs.getString("github_token", "") ?: ""
@@ -38,10 +69,20 @@ class Repo(context: Context) {
     }
 
     /** GitHub Actions'taki "Araştırma (uygulamadan)" iş akışını başlatır. */
-    suspend fun startResearch(query: String) = withContext(Dispatchers.IO) {
+    suspend fun startResearch(query: String) {
+        dispatch("research.yml", mapOf("query" to query))
+        setPendingResearch(pendingResearch() + (query to System.currentTimeMillis()))
+    }
+
+    /** "Konu değişikliği (uygulamadan)" iş akışı: action = add, remove, restore veya level. */
+    suspend fun changeTopic(action: String, topicId: String = "", text: String = "", level: Level? = null) =
+        dispatch("topics.yml", mapOf("action" to action, "topic_id" to topicId, "text" to text,
+            "level" to (level?.key ?: "")))
+
+    private suspend fun dispatch(workflow: String, inputs: Map<String, String>) = withContext(Dispatchers.IO) {
         val token = githubToken
         if (token.isBlank()) error("Önce Ayarlar'dan GitHub erişim anahtarını gir.")
-        val conn = URL("https://api.github.com/repos/$REPO/actions/workflows/research.yml/dispatches")
+        val conn = URL("https://api.github.com/repos/$REPO/actions/workflows/$workflow/dispatches")
             .openConnection() as HttpURLConnection
         try {
             conn.requestMethod = "POST"
@@ -52,8 +93,9 @@ class Repo(context: Context) {
             conn.setRequestProperty("Authorization", "Bearer $token")
             conn.setRequestProperty("X-GitHub-Api-Version", "2022-11-28")
             conn.setRequestProperty("Content-Type", "application/json")
-            val body = org.json.JSONObject().put("ref", "main")
-                .put("inputs", org.json.JSONObject().put("query", query)).toString()
+            val ins = org.json.JSONObject()
+            inputs.forEach { (k, v) -> if (v.isNotEmpty()) ins.put(k, v) }
+            val body = org.json.JSONObject().put("ref", "main").put("inputs", ins).toString()
             conn.outputStream.use { it.write(body.toByteArray(Charsets.UTF_8)) }
             val code = conn.responseCode
             if (code != 204) {
@@ -67,22 +109,14 @@ class Repo(context: Context) {
         } finally {
             conn.disconnect()
         }
-        setPendingResearch(pendingResearch() + (query to System.currentTimeMillis()))
-    }
-
-    /** Kullanıcının başlık için seçtiği seviye; null ise sunucunun gönderdiği hepsi gösterilir. */
-    fun level(topicId: String): Level? =
-        prefs.getString("seviye_$topicId", null)?.let { name -> Level.entries.firstOrNull { it.name == name } }
-
-    fun setLevel(topicId: String, level: Level?) {
-        prefs.edit().apply { if (level == null) remove("seviye_$topicId") else putString("seviye_$topicId", level.name) }.apply()
     }
 
     var themeMode: ThemeMode
         get() = prefs.getString("tema", null)?.let { n -> ThemeMode.entries.firstOrNull { it.name == n } } ?: ThemeMode.SISTEM
         set(value) = prefs.edit().putString("tema", value.name).apply()
 
-    fun visible(topic: Topic): List<Story> = level(topic.id)?.apply(topic.stories) ?: topic.stories
+    /** Sunucu bülteni zaten konu seviyelerine göre hazırlıyor; burada ek filtre yok. */
+    fun visible(topic: Topic): List<Story> = topic.stories
 
     private suspend fun <T> load(path: String, parse: (String) -> T): Loaded<T> = withContext(Dispatchers.IO) {
         val file = File(cache, path.replace('/', '_'))

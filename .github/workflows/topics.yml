@@ -1,0 +1,52 @@
+name: Konu değişikliği (uygulamadan)
+
+# Telefon uygulamasındaki "Konularım" ekranı bu iş akışını GitHub API ile başlatır.
+# Değişiklik data/user_topics.json dosyasına yazılır; ertesi günkü bülten yeni ayarla hazırlanır.
+# Yeni konu eklemede arama sorguları ve kriter DeepSeek ile bir kez üretilir (~$0,001).
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "add, remove, restore veya level"
+        required: true
+        type: string
+      topic_id:
+        description: "Konu kimliği (remove/restore/level için)"
+        required: false
+        type: string
+      text:
+        description: "Yeni konunun açıklaması (add için)"
+        required: false
+        type: string
+      level:
+        description: "az, orta veya cok"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  topics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: bulten-yazma
+      cancel-in-progress: false
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      ACTION: ${{ inputs.action }}
+      TOPIC_ID: ${{ inputs.topic_id }}
+      TOPIC_TEXT: ${{ inputs.text }}
+      TOPIC_LEVEL: ${{ inputs.level }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Değişikliği uygula
+        run: python -m bulten topics "$ACTION"
+      - name: Kaydet ve siteyi güncelle
+        run: bash scripts/commit_push.sh "Konu değişikliği (uygulama): $ACTION $TOPIC_ID"

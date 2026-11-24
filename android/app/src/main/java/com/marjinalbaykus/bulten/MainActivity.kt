@@ -1,10 +1,14 @@
 package com.marjinalbaykus.bulten
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.BackHandler
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -46,6 +50,8 @@ import com.marjinalbaykus.bulten.ui.MenuIcon
 import com.marjinalbaykus.bulten.ui.ResearchScreen
 import com.marjinalbaykus.bulten.ui.SearchScreen
 import com.marjinalbaykus.bulten.ui.SettingsScreen
+import com.marjinalbaykus.bulten.ui.TopicsScreen
+import com.marjinalbaykus.bulten.notify.NewsJob
 import com.marjinalbaykus.bulten.ui.theme.BultenTheme
 import com.marjinalbaykus.bulten.ui.theme.ThemeMode
 
@@ -53,6 +59,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val repo = Repo(applicationContext)
+        runCatching { NewsJob.schedule(applicationContext) }   // bildirim kurulamazsa uygulama yine açılsın
+        // Android 13+ bildirim izni (bir kez sorulur; reddedilirse Ayarlar'dan açılabilir)
+        if (Build.VERSION.SDK_INT >= 33 && repo.notificationsOn &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            registerForActivityResult(ActivityResultContracts.RequestPermission()) {}
+                .launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
         setContent {
             var mode by remember { mutableStateOf(repo.themeMode) }
             val dark = when (mode) {
@@ -79,6 +93,7 @@ private sealed interface Screen {
     data object History : Screen
     data object Settings : Screen
     data object Search : Screen
+    data object Topics : Screen
     data class ResearchDetail(val id: String) : Screen
     data class Detail(val item: Item) : Screen
 }
@@ -100,6 +115,8 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
     var error by remember { mutableStateOf<String?>(null) }
     var loading by remember { mutableStateOf(true) }
     var menuOpen by remember { mutableStateOf(false) }
+    var searchQuery by remember { mutableStateOf("") }
+    var notifications by remember { mutableStateOf(repo.notificationsOn) }
     // Liste konumları ekran değişince kaybolmasın; bülten değişince başa döner
     val homeState = remember(date) { LazyListState() }
     val allState = remember(date) { LazyListState() }
@@ -113,6 +130,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
             val target = date ?: idx.value.bulletins.firstOrNull()?.date ?: error("Henüz bülten yok")
             val b = repo.bulletin(target)
             bulletin = b.value
+            if (date == null) repo.lastSeenDate = b.value.date   // bu bülten için bildirim gelmesin
             offline = idx.offline || b.offline
         } catch (e: Exception) {
             error = e.message ?: e.javaClass.simpleName
@@ -144,6 +162,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                             Screen.History -> "Geçmiş bültenler"
                             Screen.Settings -> "Ayarlar"
                             Screen.Search -> "Ara"
+                            Screen.Topics -> "Konularım"
                             is Screen.ResearchDetail -> "Araştırma"
                             is Screen.Detail -> screen.item.topic.title
                         },
@@ -157,6 +176,10 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                     Box {
                         IconButton(onClick = { menuOpen = true }) { MenuIcon() }
                         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                            DropdownMenuItem(text = { Text("Konularım") }, onClick = {
+                                menuOpen = false
+                                if (screen != Screen.Topics) push(Screen.Topics)
+                            })
                             DropdownMenuItem(text = { Text("Yenile") }, onClick = { menuOpen = false; reload++ })
                             DropdownMenuItem(text = { Text("Geçmiş bültenler") }, onClick = {
                                 menuOpen = false
@@ -203,8 +226,11 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 date = picked
                 stack = listOf(Screen.Home)
             }, padding)
-            Screen.Settings -> SettingsScreen(themeMode, onThemeMode, repo.githubToken, { repo.githubToken = it }, padding)
-            Screen.Search -> SearchScreen(repo, { push(Screen.ResearchDetail(it)) }, { push(Screen.Settings) }, padding)
+            Screen.Settings -> SettingsScreen(themeMode, onThemeMode, repo.githubToken, { repo.githubToken = it },
+                notifications, { notifications = it; repo.notificationsOn = it }, padding)
+            Screen.Search -> SearchScreen(repo, searchQuery, { searchQuery = it }, { push(Screen.ResearchDetail(it)) },
+                { push(Screen.Detail(it)) }, { push(Screen.Settings) }, padding)
+            Screen.Topics -> TopicsScreen(repo, { push(Screen.Settings) }, padding)
             is Screen.ResearchDetail -> ResearchScreen(repo, screen.id, padding)
             is Screen.Detail -> DetailScreen(screen.item, padding)
         }

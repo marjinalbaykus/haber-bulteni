@@ -1,5 +1,7 @@
 package com.marjinalbaykus.bulten.ui
 
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
@@ -34,7 +36,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -46,6 +50,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontStyle
@@ -53,6 +58,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.marjinalbaykus.bulten.BuildConfig
 import com.marjinalbaykus.bulten.data.Bulletin
 import com.marjinalbaykus.bulten.data.Index
@@ -91,10 +97,10 @@ fun Centered(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun ErrorView(message: String, onRetry: () -> Unit) {
+fun ErrorView(message: String, title: String = "Bülten yüklenemedi", onRetry: () -> Unit) {
     Centered {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Bülten yüklenemedi", style = MaterialTheme.typography.titleMedium)
+            Text(title, style = MaterialTheme.typography.titleMedium)
             Text(message, style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(8.dp))
             Button(onClick = onRetry) { Text("Tekrar dene") }
         }
@@ -134,53 +140,36 @@ private fun trPct(p: Double): String =
     (if (p < 0) "-" else "+") + String.format(java.util.Locale.forLanguageTag("tr-TR"), "%%%.1f", kotlin.math.abs(p))
 
 /**
- * Küçük piyasa kutusu: iki sütunda kurlar ve endeksler. Eşiği aşan (gerçek alarm) varlığın hücresinin altında
- * küçük kırmızı bir etiket çıkar; ayrı bir alarm listesi yok, böylece aynı isim iki kez yazılmaz.
+ * Tarihin sağındaki küçük piyasa tablosu. Yüzde, günlük değişimdir ve değerin sağında parantez içinde
+ * küçük yazılır. Eşiği aşan (gerçek alarm) varlığın yüzdesi kalın ve kırmızı/yeşil vurguludur;
+ * alarm 1 günlük değilse penceresi de yazılır, örn. (30g -%25,6).
  */
 @Composable
-private fun MarketCard(bulletin: Bulletin) {
+private fun MarketMini(bulletin: Bulletin, modifier: Modifier = Modifier) {
     val bySymbol = bulletin.markets.associateBy { it.symbol }
     val alarmBySymbol = bulletin.alarms.associateBy { it.symbol }
-    val cells = SHOWN_MARKETS.mapNotNull { (sym, label) -> bySymbol[sym]?.let { Triple(label, it, alarmBySymbol[sym]) } }
-    if (cells.isEmpty()) return
+    val rows = SHOWN_MARKETS.mapNotNull { (sym, label) -> bySymbol[sym]?.let { Triple(label, it, alarmBySymbol[sym]) } }
+    if (rows.isEmpty()) return
     val up = if (MaterialTheme.colorScheme.background.luminance() < 0.5f) Color(0xFF7BD88F) else Color(0xFF1B7F3B)
     val down = MaterialTheme.colorScheme.error
     val muted = MaterialTheme.colorScheme.onSurfaceVariant
-    Surface(
-        shape = RoundedCornerShape(14.dp),
-        color = MaterialTheme.colorScheme.surfaceContainer,
-        modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
-    ) {
-        Column(Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
-            Text("Piyasalar", style = MaterialTheme.typography.labelMedium, color = muted)
-            cells.chunked(2).forEach { pair ->
-                Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                    pair.forEach { (label, m, alarm) ->
-                        Column(Modifier.weight(1f)) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Text(label, style = MaterialTheme.typography.labelSmall, color = muted,
-                                    maxLines = 1, modifier = Modifier.weight(1f))
-                                Text(trNumber(m.value), style = MaterialTheme.typography.labelLarge,
-                                    fontWeight = FontWeight.SemiBold)
-                                Text(m.dayPct?.let(::trPct) ?: "", style = MaterialTheme.typography.labelSmall,
-                                    color = if ((m.dayPct ?: 0.0) >= 0) up else down, textAlign = TextAlign.End,
-                                    modifier = Modifier.widthIn(min = 44.dp))
-                            }
-                            alarm?.points?.forEach { (window, pct) ->
-                                Surface(
-                                    shape = RoundedCornerShape(50),
-                                    color = MaterialTheme.colorScheme.errorContainer,
-                                    modifier = Modifier.padding(top = 2.dp),
-                                ) {
-                                    Text(if (window == "1 günde") "Günlük alarm" else "$window ${trPct(pct)}", style = MaterialTheme.typography.labelSmall,
-                                        color = MaterialTheme.colorScheme.onErrorContainer,
-                                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 1.dp))
-                                }
-                            }
-                        }
-                    }
-                    if (pair.size == 1) Spacer(Modifier.weight(1f))
-                }
+    Column(modifier, horizontalAlignment = Alignment.End) {
+        rows.forEach { (label, m, alarm) ->
+            // Alarm 1 günlük değilse (7 veya 30 gün) o pencerenin yüzdesi gösterilir
+            val longAlarm = alarm?.points?.firstOrNull { it.first != "1 günde" }
+            val pct = longAlarm?.second ?: m.dayPct
+            val pctText = pct?.let { p ->
+                val w = longAlarm?.first?.substringBefore(" ")?.let { "${it}g " } ?: ""
+                "($w${trPct(p)})"
+            } ?: ""
+            Row(verticalAlignment = Alignment.Bottom) {
+                Text(label, fontSize = 10.sp, lineHeight = 13.sp, color = muted)
+                Text(trNumber(m.value), fontSize = 11.sp, lineHeight = 13.sp, fontWeight = FontWeight.SemiBold,
+                    textAlign = TextAlign.End, modifier = Modifier.widthIn(min = 48.dp))
+                Text(pctText, fontSize = 9.sp, lineHeight = 13.sp,
+                    fontWeight = if (alarm != null) FontWeight.Bold else FontWeight.Normal,
+                    color = if ((pct ?: 0.0) >= 0) up else down,
+                    textAlign = TextAlign.End, modifier = Modifier.widthIn(min = 52.dp))
             }
         }
     }
@@ -204,14 +193,21 @@ fun BulletinScreen(
         modifier = Modifier.fillMaxSize(),
     ) {
         item {
-            Text(trDate(bulletin.date), style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Hazırlandı: ${trTime(bulletin.generatedAt)}" + if (offline) "  (çevrimdışı kopya)" else "",
-                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
+            val (day, weekday) = trDayParts(bulletin.date)
+            Row(Modifier.fillMaxWidth().padding(bottom = 4.dp), verticalAlignment = Alignment.Top) {
+                Column(Modifier.weight(1f)) {
+                    Text(day, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    Text(weekday, style = MaterialTheme.typography.bodyMedium)
+                    Text(
+                        "Hazırlandı ${trPrepared(bulletin.generatedAt, bulletin.date)}" +
+                            if (offline) "\nÇevrimdışı kopya" else "",
+                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                MarketMini(bulletin)
+            }
+            HorizontalDivider(Modifier.padding(top = 6.dp, bottom = 4.dp))
         }
-        item { MarketCard(bulletin) }
-        item { SectionTitle("Kısa özet") }
         perTopic.forEach { (topic, stories) ->
             item(key = "ozet-${topic.id}") {
                 Column(Modifier.padding(vertical = 6.dp)) {
@@ -287,15 +283,18 @@ fun AllNewsScreen(
 @Composable
 fun DetailScreen(item: Item, padding: PaddingValues) {
     val uri = LocalUriHandler.current
+    val context = LocalContext.current
     val s = item.story
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState())
             .padding(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding() + 4.dp,
                 bottom = padding.calculateBottomPadding() + 32.dp),
     ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
             Tag(item.topic.title)
             Tag("Önem ${s.importance}/10", highlight = s.importance >= 8)
+            Spacer(Modifier.weight(1f))
+            TextButton(onClick = { shareStory(context, s) }) { Text("Paylaş") }
         }
         Text(s.title, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(vertical = 10.dp))
@@ -321,6 +320,23 @@ fun DetailScreen(item: Item, padding: PaddingValues) {
             }
         }
     }
+}
+
+/** Haberi başka bir uygulamaya (WhatsApp, Telegram vb.) metin olarak gönderir. */
+private fun shareStory(context: Context, s: Story) {
+    val link = s.sources.firstOrNull { it.url.isNotBlank() }?.url
+    val text = buildString {
+        append(s.title)
+        append("\n\n")
+        append(s.headline)
+        if (link != null) append("\n\n").append(link)
+    }
+    val send = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, s.title)
+        putExtra(Intent.EXTRA_TEXT, text)
+    }
+    context.startActivity(Intent.createChooser(send, "Haberi paylaş"))
 }
 
 @Composable
@@ -352,6 +368,8 @@ fun SettingsScreen(
     onThemeMode: (ThemeMode) -> Unit,
     token: String,
     onToken: (String) -> Unit,
+    notifications: Boolean,
+    onNotifications: (Boolean) -> Unit,
     padding: PaddingValues,
 ) {
     var tokenText by remember { mutableStateOf(token) }
@@ -381,10 +399,20 @@ fun SettingsScreen(
                 }
             }
         }
-        SectionTitle("Araştırma (GitHub erişim anahtarı)")
+        SectionTitle("Bildirim")
+        Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Text("Yeni bülten bildirimi", style = MaterialTheme.typography.bodyLarge)
+                Text("Sabah bülten hazır olunca haber verir (genelde 08:30-09:00 arası).",
+                    style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            Switch(checked = notifications, onCheckedChange = onNotifications)
+        }
+        SectionTitle("GitHub erişim anahtarı (Araştır ve Konularım için)")
         Text(
             "Ara ekranından araştırma başlatmak için gerekir. GitHub > Settings > Developer settings > " +
-                "Fine-grained tokens: sadece haber-bulteni deposu, izin olarak Actions: Read and write.",
+                "Fine-grained tokens: sadece haber-bulteni deposu, izin olarak Actions: Read and write. " +
+                "Ara ekranındaki Araştır ve Konularım değişiklikleri bu anahtarla çalışır.",
             style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         OutlinedTextField(

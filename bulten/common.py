@@ -16,9 +16,14 @@ AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
          "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 
 
-def load_config() -> dict:
+def load_config(raw: bool = False) -> dict:
+    """config.yaml; raw=False ise uygulamadan gelen konu değişiklikleri (data/user_topics.json) uygulanmış hali."""
     with open(ROOT / "config.yaml", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        cfg = yaml.safe_load(f)
+    if raw:
+        return cfg
+    from .topics import apply_user
+    return apply_user(cfg)
 
 
 def now_tr() -> datetime:
