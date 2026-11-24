@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: "add, remove, restore veya level"
+        description: "add, remove, restore, level veya save"
         required: true
         type: string
       topic_id:
@@ -15,7 +15,7 @@ on:
         required: false
         type: string
       text:
-        description: "Yeni konunun açıklaması (add için)"
+        description: "Yeni konunun açıklaması (add) veya ayarlar JSON (save)"
         required: false
         type: string
       level:

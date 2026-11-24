@@ -1,6 +1,10 @@
 package com.marjinalbaykus.bulten.ui
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -32,6 +36,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontStyle
@@ -94,6 +99,7 @@ fun SearchScreen(
     val scope = rememberCoroutineScope()
     val keyboard = LocalSoftwareKeyboardController.current
     var sending by remember { mutableStateOf(false) }
+    var info by remember { mutableStateOf(false) }
     var message by remember { mutableStateOf<String?>(null) }
     var list by remember { mutableStateOf<List<ResearchRef>?>(null) }
     var pending by remember { mutableStateOf(repo.pendingResearch()) }
@@ -140,7 +146,7 @@ fun SearchScreen(
                 repo.startResearch(q)
                 pending = repo.pendingResearch()
                 onQuery("")
-                message = "Araştırma başlatıldı. Sonuç genelde 3-6 dakikada aşağıda çıkar; ekran açıkken kendiliğinden yenilenir."
+                message = "Araştırma başlatıldı. Sonuç genelde 3-4 dakikada aşağıda çıkar; ekran açıkken kendiliğinden yenilenir."
                 pollKey++
             } catch (e: Exception) {
                 message = e.message ?: e.javaClass.simpleName
@@ -162,7 +168,7 @@ fun SearchScreen(
             OutlinedTextField(
                 value = query,
                 onValueChange = { onQuery(it); message = null },
-                placeholder = { Text("Ara: örn. Arda, RX 7800 XT, faiz") },
+                placeholder = { Text("Örn: Arda Güler") },
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
                 keyboardActions = KeyboardActions(onSearch = { keyboard?.hide() }),
@@ -172,17 +178,31 @@ fun SearchScreen(
                 Modifier.fillMaxWidth().padding(top = 8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
-                    "Yazdıkça geçmiş bültenlerde arar. Daha fazlası için Araştır: haber kaynakları taranıp " +
-                        "Türkçe rapor hazırlanır.",
-                    style = MaterialTheme.typography.bodySmall, color = muted, modifier = Modifier.weight(1f),
-                )
+                // Açıklama "!" simgesinin arkasında; dokununca açılır
+                Box(
+                    Modifier.size(26.dp).clip(CircleShape)
+                        .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
+                        .clickable { info = !info },
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text("!", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold,
+                        style = MaterialTheme.typography.labelLarge)
+                }
+                Spacer(Modifier.weight(1f))
                 if (sending) CircularProgressIndicator(Modifier.padding(horizontal = 8.dp).size(18.dp), strokeWidth = 2.dp)
                 FilledTonalButton(
                     onClick = { research() },
                     enabled = hasToken && !sending && query.trim().length >= 3,
                     modifier = Modifier.padding(start = 8.dp),
                 ) { Text("Araştır") }
+            }
+            if (info) {
+                Text(
+                    "Yazdıkça geçmiş bültenlerde arar. Daha fazlası için Araştır: haber kaynakları taranıp Türkçe " +
+                        "rapor hazırlanır. Bir araştırma ortalama 3-4 dakika sürer ve yaklaşık 0,005 dolar tutar (DeepSeek). " +
+                        "Ekran açıkken sonuç kendiliğinden aşağıda çıkar.",
+                    style = MaterialTheme.typography.bodySmall, color = muted, modifier = Modifier.padding(top = 6.dp),
+                )
             }
             if (!hasToken) {
                 Text("Araştır için Ayarlar'dan GitHub erişim anahtarı girilmeli. Ayarlara git",
@@ -313,5 +333,19 @@ private fun ResearchBody(r: Research, padding: PaddingValues) {
                 }
             }
         }
+        r.stats?.let { st ->
+            HorizontalDivider(Modifier.padding(top = 16.dp, bottom = 8.dp))
+            val model = if (st.model.startsWith("deepseek")) "DeepSeek (${st.model})" else st.model
+            val total = st.promptTokens + st.completionTokens
+            Text(
+                "Model: $model\nToken: ${trInt(total)} (giriş ${trInt(st.promptTokens)}, " +
+                    "çıkış ${trInt(st.completionTokens)})" +
+                    (st.costUsd?.let { "\nMaliyet: yaklaşık ${String.format(java.util.Locale.forLanguageTag("tr-TR"), "%.4f", it)} dolar" } ?: ""),
+                style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
 }
+
+private fun trInt(n: Int): String =
+    java.text.NumberFormat.getIntegerInstance(java.util.Locale.forLanguageTag("tr-TR")).format(n)

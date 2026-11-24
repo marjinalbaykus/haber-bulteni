@@ -2,7 +2,9 @@
 
 config.yaml elle düzenlenen ana dosyadır (yorumları korunur). Uygulamadan gelen değişiklikler ayrı bir
 dosyada tutulur: data/user_topics.json
-  {"levels": {"<id>": "az|orta|cok"}, "removed": ["<id>"], "added": [<konu sözlüğü>]}
+  {"levels": {"<id>": "az|orta|cok"}, "titles": {"<id>": "Başlık"}, "removed": ["<id>"],
+   "added": [<konu sözlüğü>], "groups": [{"id": str, "name": str, "topics": ["<id>"]}]}
+"groups" varsa config.yaml'daki gruplar yerine geçer.
 load_config() bu dosyayı config.yaml'ın üstüne uygular.
 """
 from __future__ import annotations
@@ -33,8 +35,23 @@ def apply_user(cfg: dict) -> dict:
         lv = user.get("levels", {}).get(t["id"])
         if lv in LEVELS:
             t["min_importance"], t["max_stories"] = LEVELS[lv]
+        title = user.get("titles", {}).get(t["id"])
+        if title:
+            t["title"] = title
     cfg["topics"] = topics
+    cfg["groups"] = _groups(user.get("groups"), cfg.get("groups") or [], {t["id"] for t in topics})
     return cfg
+
+
+def _groups(user_groups, cfg_groups: list, ids: set) -> list[dict]:
+    """Geçerli gruplar: kullanıcınınki varsa o, yoksa config'deki. Olmayan konular çıkarılır, boş grup kalmaz."""
+    src = user_groups if isinstance(user_groups, list) else cfg_groups
+    out = []
+    for g in src:
+        topics = [i for i in g.get("topics", []) if i in ids]
+        if g.get("name") and topics:
+            out.append({"id": g.get("id") or _slug(g["name"]), "name": g["name"], "topics": topics})
+    return out
 
 
 def public_list(cfg_raw: dict) -> dict:
@@ -42,12 +59,14 @@ def public_list(cfg_raw: dict) -> dict:
     user = read_json(USER_FILE, {}) or {}
     added = {t["id"] for t in user.get("added", [])}
     removed = set(user.get("removed", []))
-    active = apply_user(dict(cfg_raw, topics=[dict(t) for t in cfg_raw.get("topics", [])]))["topics"]
+    cfg = apply_user(dict(cfg_raw, topics=[dict(t) for t in cfg_raw.get("topics", [])]))
+    titles = user.get("titles", {})
     return {
         "topics": [{"id": t["id"], "title": t["title"], "level": level_of(t), "custom": t["id"] in added}
-                   for t in active],
-        "removed": [{"id": t["id"], "title": t["title"], "level": level_of(t), "custom": False}
+                   for t in cfg["topics"]],
+        "removed": [{"id": t["id"], "title": titles.get(t["id"], t["title"]), "level": level_of(t), "custom": False}
                     for t in cfg_raw.get("topics", []) if t["id"] in removed],
+        "groups": cfg["groups"],
     }
 
 
@@ -68,8 +87,53 @@ def _slug(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", s.lower()).strip("_")[:30] or "konu"
 
 
+def save_all(cfg_raw: dict, text: str) -> str:
+    """Konularım ekranındaki "Kaydet": tüm değişiklikler tek seferde. text JSON:
+    {"remove": [id], "restore": [id], "add": [{"text": str, "level": str, "group": grup id}],
+     "levels": {id: seviye}, "titles": {id: başlık}, "groups": [{"id", "name", "topics": [id]}] (verilirse tamamı)}"""
+    import json
+    data = json.loads(text or "{}")
+    msgs = []
+    for tid in data.get("remove") or []:
+        msgs.append(change(cfg_raw, "remove", tid))
+    for tid in data.get("restore") or []:
+        msgs.append(change(cfg_raw, "restore", tid))
+    groups = data.get("groups") if isinstance(data.get("groups"), list) else None
+    for a in (data.get("add") or [])[:5]:
+        msgs.append(change(cfg_raw, "add", text=str(a.get("text", "")), level=str(a.get("level", ""))))
+        new_id = (read_json(USER_FILE, {}) or {})["added"][-1]["id"]
+        if a.get("group") and groups is not None:
+            for g in groups:
+                if g.get("id") == a["group"]:
+                    g.setdefault("topics", []).append(new_id)
+
+    user = read_json(USER_FILE, {}) or {}
+    for k in ("levels", "titles", "removed", "added"):
+        user.setdefault(k, {} if k in ("levels", "titles") else [])
+    known = {t["id"] for t in cfg_raw.get("topics", [])} | {t["id"] for t in user["added"]}
+    for tid, lv in (data.get("levels") or {}).items():
+        if tid in known and lv in LEVELS:
+            user["levels"][tid] = lv
+    for tid, title in (data.get("titles") or {}).items():
+        title = " ".join(str(title).split())[:60]
+        if tid in known and title:
+            user["titles"][tid] = title
+    if groups is not None:
+        out = []
+        for g in groups[:30]:
+            name = " ".join(str(g.get("name", "")).split())[:40]
+            if name:
+                out.append({"id": _slug(str(g.get("id") or name)), "name": name,
+                            "topics": [i for i in g.get("topics", []) if i in known]})
+        user["groups"] = out
+    write_json(USER_FILE, user)
+    return "; ".join(msgs + ["Konu ayarları kaydedildi"])
+
+
 def change(cfg_raw: dict, action: str, topic_id: str = "", text: str = "", level: str = "") -> str:
     """Bir değişikliği uygular, sonucu açıklayan kısa Türkçe metin döner. cfg_raw: user dosyası uygulanmamış config."""
+    if action == "save":
+        return save_all(cfg_raw, text)
     user = read_json(USER_FILE, {}) or {}
     user.setdefault("levels", {})
     user.setdefault("removed", [])
@@ -93,6 +157,7 @@ def change(cfg_raw: dict, action: str, topic_id: str = "", text: str = "", level
         else:
             raise ValueError(f"bilinmeyen konu: {topic_id}")
         user["levels"].pop(topic_id, None)
+        user.get("titles", {}).pop(topic_id, None)
         msg = f"{topic_id} kaldırıldı"
     elif action == "restore":
         user["removed"] = [i for i in user["removed"] if i != topic_id]

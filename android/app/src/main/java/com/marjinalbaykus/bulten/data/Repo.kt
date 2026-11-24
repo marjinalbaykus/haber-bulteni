@@ -74,10 +74,15 @@ class Repo(context: Context) {
         setPendingResearch(pendingResearch() + (query to System.currentTimeMillis()))
     }
 
-    /** "Konu değişikliği (uygulamadan)" iş akışı: action = add, remove, restore veya level. */
-    suspend fun changeTopic(action: String, topicId: String = "", text: String = "", level: Level? = null) =
-        dispatch("topics.yml", mapOf("action" to action, "topic_id" to topicId, "text" to text,
-            "level" to (level?.key ?: "")))
+    /**
+     * Konularım'daki "Kaydet": tüm değişiklikler tek JSON ile "Konu değişikliği (uygulamadan)" iş akışına gider
+     * (bulten/topics.py save_all). Böylece art arda birçok iş başlatılmaz.
+     */
+    suspend fun saveTopics(changes: String) =
+        dispatch("topics.yml", mapOf("action" to "save", "text" to changes))
+
+    /** Ana sayfadaki başlık adları ve gruplar için son okunan konu listesi. */
+    @Volatile var topicsCache: Topics? = null
 
     private suspend fun dispatch(workflow: String, inputs: Map<String, String>) = withContext(Dispatchers.IO) {
         val token = githubToken

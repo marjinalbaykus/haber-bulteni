@@ -32,35 +32,99 @@ markets:
   - {symbol: "^IXIC",    name: "Nasdaq",           day: 4,  week: 8,  month: 15, group: dunya}
   - {symbol: "BTC-USD",  name: "Bitcoin",          day: 10, week: 20, month: 35, group: dunya}
 
+# Gruplar: uygulamada başlıkları bir arada gösterir (sadece görünüm, haber seçimini etkilemez).
+# Bir gruba girmeyen başlık tek başına gösterilir. Uygulamadan değiştirilebilir (data/user_topics.json).
+groups:
+  - {id: futbol,    name: "Futbol",     topics: [arda_guler, real_madrid, sampiyonlar_ligi, premier_lig, juventus]}
+  - {id: ai,        name: "Yapay Zeka", topics: [yapay_zeka, yerel_llm, ai_kodlama]}
+  - {id: teknoloji, name: "Teknoloji",  topics: [pc_donanim, teknoloji, akilli_telefon]}
+  - {id: oyun,      name: "Oyun",       topics: [oyunlar, oyun_genel, cs2]}
+  - {id: ekonomi,   name: "Ekonomi",    topics: [ekonomi_tr, ekonomi_dunya]}
+
 # İlgi alanları. Sıra, bültendeki sırayı belirler.
 # min_importance: 1-10 arası; model bu puanın altındakileri göstermez. Yükseltirsen daha seçici olur.
 # criteria: modele "neyin önemli olduğunu" anlatan açıklama. En çok burası işe yarar.
 # google_news / bing_news dilleri: tr, en, es, zh
 topics:
-  - id: real_madrid
-    title: "Real Madrid ve Arda Güler"
+  - id: arda_guler
+    title: "Arda Güler"
     min_importance: 6
     max_stories: 4
     criteria: |
-      Kullanıcı Real Madrid taraftarı ve özellikle Arda Güler'i takip ediyor.
-      Önemli: Arda Güler'in gol/asist/maç performansı, ilk 11'de oynayıp oynamadığı, sakatlık,
-      sözleşme veya transfer gelişmeleri, teknik direktörün onunla ilgili net kararları ve açıklamaları.
-      Real Madrid için: maç sonuçları (özellikle El Clasico, Şampiyonlar Ligi), büyük transferler,
-      teknik direktör değişikliği, ciddi sakatlıklar, kupa/şampiyonluk gelişmeleri.
-      Önemsiz: dedikodu niteliğinde "iddia" haberleri, aynı maçın onlarca ön izleme haberi,
-      tek bir taraftar yorumundan haber çıkarma, Arda Güler'in adı sadece geçtiği alakasız haberler.
+      Kullanıcı Arda Güler'i yakından takip ediyor (Real Madrid ve Türkiye milli takımı).
+      Önemli: gol/asist/maç performansı, ilk 11'de oynayıp oynamadığı, aldığı dakikalar, sakatlık,
+      sözleşme veya transfer gelişmeleri, teknik direktörün onunla ilgili net kararları ve açıklamaları,
+      milli takımdaki rolü.
+      Önemsiz: dedikodu niteliğinde "iddia" haberleri, tek bir taraftar yorumundan haber çıkarma,
+      adının sadece geçtiği alakasız haberler, aynı maçın onlarca ön izleme haberi.
     sources:
       google_news:
         - {q: "Arda Güler", lang: tr}
         - {q: "Arda Güler", lang: es}
-        - {q: "Arda Guler Real Madrid", lang: en}
-        - {q: "Real Madrid", lang: es}
-        - {q: "Real Madrid", lang: en}
+        - {q: "Arda Guler", lang: en}
       bing_news:
         - {q: "Arda Güler", lang: tr}
 
+  - id: real_madrid
+    title: "Real Madrid"
+    min_importance: 7
+    max_stories: 4
+    criteria: |
+      Kullanıcı Real Madrid taraftarı.
+      Önemli: maç sonuçları (özellikle El Clasico ve Şampiyonlar Ligi), büyük transferler, teknik direktör
+      değişikliği, ciddi sakatlıklar, kupa/şampiyonluk gelişmeleri, kulüpte büyük kararlar.
+      Önemsiz: dedikodu niteliğinde "iddia" haberleri, aynı maçın onlarca ön izleme haberi,
+      tek bir taraftar yorumundan haber çıkarma. Arda Güler'e özel haberler "Arda Güler" başlığında.
+    sources:
+      google_news:
+        - {q: "Real Madrid", lang: es}
+        - {q: "Real Madrid", lang: en}
+        - {q: "Real Madrid", lang: tr}
+
+  - id: sampiyonlar_ligi
+    title: "Şampiyonlar Ligi"
+    min_importance: 8
+    max_stories: 3
+    criteria: |
+      Sadece gerçekten önemli olaylar: sürpriz sonuçlar, eleme turu ve final sonuçları, büyük rekorlar,
+      Türk takımları ve Türk oyuncularla ilgili önemli gelişmeler, kurallarda büyük değişiklikler.
+      Maç günü olduysa o günün sonuçlarını TEK bir haberde kısa bir liste olarak özetle
+      (birden fazla maç haberini birleştir); her maç için ayrı haber yapma.
+      Önemsiz: maç ön izlemeleri, bahis tahminleri, sıradan maç raporları, kura spekülasyonları.
+    sources:
+      google_news:
+        - {q: "Champions League", lang: en}
+        - {q: "Şampiyonlar Ligi", lang: tr}
+
+  - id: premier_lig
+    title: "Premier Lig"
+    min_importance: 8
+    max_stories: 3
+    criteria: |
+      Sadece gerçekten önemli olaylar: şampiyonluk ve küme düşme yarışında kritik sonuçlar, büyük transferler,
+      teknik direktör değişiklikleri, büyük kulüplerde ciddi krizler, rekorlar.
+      Hafta sonu maçları olduysa önemli sonuçları TEK bir haberde kısaca özetle.
+      Önemsiz: maç ön izlemeleri, transfer dedikoduları, sıradan maç raporları.
+    sources:
+      google_news:
+        - {q: "Premier League", lang: en}
+        - {q: "Premier Lig", lang: tr}
+
+  - id: juventus
+    title: "Juventus"
+    min_importance: 8
+    max_stories: 3
+    criteria: |
+      Sadece gerçekten önemli olaylar: önemli maç sonuçları, büyük transferler, teknik direktör değişikliği,
+      ciddi sakatlıklar, kulüpte büyük kararlar, Türk oyuncularla ilgili önemli gelişmeler.
+      Önemsiz: dedikodu, maç ön izlemeleri, sıradan maç raporları.
+    sources:
+      google_news:
+        - {q: "Juventus", lang: en}
+        - {q: "Juventus", lang: tr}
+
   - id: pc_donanim
-    title: "PC Donanım, GPU ve Çipler"
+    title: "Donanım ve Çipler"
     min_importance: 7
     max_stories: 5
     criteria: |
@@ -80,7 +144,7 @@ topics:
         - {q: "显卡 OR 芯片 OR 处理器", lang: zh}
 
   - id: yerel_llm
-    title: "Yerel LLM (kendi bilgisayarında çalışan modeller)"
+    title: "Local LLM"
     min_importance: 7
     max_stories: 5
     criteria: |
@@ -108,7 +172,7 @@ topics:
         - {q: "开源大模型", lang: zh}
 
   - id: yapay_zeka
-    title: "Yapay Zeka"
+    title: "AI Gündemi"
     min_importance: 7
     max_stories: 5
     criteria: |
@@ -123,8 +187,8 @@ topics:
       Önemsiz: sıradan ürün özellik güncellemeleri, köşe yazıları, "yapay zeka işimizi alacak mı" yorumları,
       küçük girişim yatırımları.
       Bu başlığa girmesin (ayrı başlıkları var): yerel/açık ağırlıklı modellerin bilgisayarda çalıştırılması
-      ("Yerel LLM"); kodlama araçları, abonelik planları, kota ve API fiyat değişiklikleri
-      ("Yapay Zeka Kodlama Araçları ve Fiyatlar"). Bunlara burada ancak sektörü sarsacak kadar büyükse yer ver.
+      ("Local LLM"); kodlama araçları, abonelik planları, kota ve API fiyat değişiklikleri
+      ("AI Kodlama Araçları"). Bunlara burada ancak sektörü sarsacak kadar büyükse yer ver.
     sources:
       rss: [theverge, techcrunch, qbitai]
       hackernews: true
@@ -135,7 +199,7 @@ topics:
         - {q: "yapay zeka", lang: tr}
 
   - id: ai_kodlama
-    title: "Yapay Zeka Kodlama Araçları ve Fiyatlar"
+    title: "AI Kodlama Araçları"
     min_importance: 7
     max_stories: 4
     criteria: |
@@ -160,7 +224,7 @@ topics:
         - {q: "DeepSeek 价格 OR 降价 OR 新模型", lang: zh}
 
   - id: teknoloji
-    title: "Genel Teknoloji"
+    title: "Teknoloji Gündemi"
     min_importance: 8
     max_stories: 5
     criteria: |
@@ -207,7 +271,7 @@ topics:
         - {q: "Honor OR Oppo OR Vivo OR OnePlus telefon", lang: tr}
 
   - id: oyunlar
-    title: "Oyunlar (Soulslike ve Aksiyon-RPG)"
+    title: "Soulslike ve Aksiyon RPG"
     min_importance: 6
     max_stories: 5
     criteria: |
@@ -259,7 +323,7 @@ topics:
         - {q: "CS2", lang: tr}
 
   - id: ekonomi_tr
-    title: "Ekonomi - Türkiye"
+    title: "Türkiye Ekonomisi"
     min_importance: 8
     max_stories: 3
     market_group: tr
@@ -277,7 +341,7 @@ topics:
         - {q: "ekonomi", lang: tr}
 
   - id: ekonomi_dunya
-    title: "Ekonomi - Dünya"
+    title: "Dünya Ekonomisi"
     min_importance: 8
     max_stories: 3
     market_group: dunya

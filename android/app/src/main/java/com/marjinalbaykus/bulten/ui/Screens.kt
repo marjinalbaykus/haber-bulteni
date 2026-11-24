@@ -64,10 +64,43 @@ import com.marjinalbaykus.bulten.data.Bulletin
 import com.marjinalbaykus.bulten.data.Index
 import com.marjinalbaykus.bulten.data.Story
 import com.marjinalbaykus.bulten.data.Topic
+import com.marjinalbaykus.bulten.data.Topics
 import com.marjinalbaykus.bulten.ui.theme.ThemeMode
 
 /** Bir haber ve ait olduğu başlık. */
 data class Item(val topic: Topic, val story: Story)
+
+/** Başlık adlarını Konularım'daki güncel adlarla değiştirir (eski bültenlerde de yeni ad görünsün). */
+fun Bulletin.withTitles(t: Topics?): Bulletin =
+    if (t == null) this else copy(topics = topics.map { tp -> t.title(tp.id)?.let { tp.copy(title = it) } ?: tp })
+
+/** Ana sayfadaki bir bölüm: tek başlık ya da bir grup (ör. Futbol). */
+private class Section(val key: String, val title: String, val items: List<Item>, val note: String, val grouped: Boolean)
+
+private fun sections(bulletin: Bulletin, topics: Topics?, visible: (Topic) -> List<Story>): List<Section> {
+    val groupOf = HashMap<String, com.marjinalbaykus.bulten.data.TopicGroup>()
+    topics?.groups.orEmpty().forEach { g -> g.topics.forEach { id -> groupOf.putIfAbsent(id, g) } }
+    val done = HashSet<String>()
+    val out = ArrayList<Section>()
+    for (t in bulletin.topics) {
+        val g = groupOf[t.id]
+        if (g == null) {
+            out += Section("t-${t.id}", t.title, visible(t).map { Item(t, it) }, t.note, grouped = false)
+        } else if (done.add(g.id)) {
+            val items = bulletin.topics.filter { groupOf[it.id]?.id == g.id }
+                .flatMap { m -> visible(m).map { Item(m, it) } }
+                .distinctBy { it.story.sid }
+                .sortedByDescending { it.story.importance }
+            out += Section("g-${g.id}", g.name, items, "", grouped = true)
+        }
+    }
+    return out
+}
+
+/** Haberin başlık etiketi: ait olduğu başlık ve varsa diğerleri ("Arda Güler, Real Madrid"). */
+fun itemLabel(item: Item, bulletin: Bulletin): String =
+    (listOf(item.topic.title) + item.story.also.mapNotNull { id -> bulletin.topics.firstOrNull { it.id == id }?.title })
+        .distinct().joinToString(", ")
 
 @Composable
 fun Tag(text: String, highlight: Boolean = false) {
@@ -178,13 +211,14 @@ private fun MarketMini(bulletin: Bulletin, modifier: Modifier = Modifier) {
 @Composable
 fun BulletinScreen(
     bulletin: Bulletin,
+    topics: Topics?,
     offline: Boolean,
     visible: (Topic) -> List<Story>,
     onOpen: (Item) -> Unit,
     padding: PaddingValues,
     listState: LazyListState,
 ) {
-    val perTopic = bulletin.topics.map { it to visible(it) }
+    val parts = sections(bulletin, topics, visible)
 
     LazyColumn(
         state = listState,
@@ -208,25 +242,31 @@ fun BulletinScreen(
             }
             HorizontalDivider(Modifier.padding(top = 6.dp, bottom = 4.dp))
         }
-        perTopic.forEach { (topic, stories) ->
-            item(key = "ozet-${topic.id}") {
+        parts.forEach { part ->
+            item(key = part.key) {
                 Column(Modifier.padding(vertical = 6.dp)) {
-                    Text(topic.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                    if (stories.isEmpty()) {
+                    Text(part.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    if (part.items.isEmpty()) {
                         Text(
-                            topic.note.ifBlank { "Kayda değer bir gelişme yok." },
+                            part.note.ifBlank { "Kayda değer bir gelişme yok." },
                             fontStyle = FontStyle.Italic, color = MaterialTheme.colorScheme.onSurfaceVariant,
                             style = MaterialTheme.typography.bodyMedium,
                         )
                     }
-                    stories.forEach { s ->
+                    part.items.forEach { item ->
                         Row(
-                            Modifier.fillMaxWidth().clickable { onOpen(Item(topic, s)) }.padding(vertical = 5.dp),
+                            Modifier.fillMaxWidth().clickable { onOpen(item) }.padding(vertical = 5.dp),
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
                         ) {
-                            Text("${s.importance}", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary,
+                            Text("${item.story.importance}", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary,
                                 maxLines = 1, softWrap = false, modifier = Modifier.widthIn(min = 22.dp))
-                            Text(s.headline, style = MaterialTheme.typography.bodyMedium)
+                            Column {
+                                if (part.grouped) {
+                                    Text(itemLabel(item, bulletin), style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant)
+                                }
+                                Text(item.story.headline, style = MaterialTheme.typography.bodyMedium)
+                            }
                         }
                     }
                 }
@@ -268,7 +308,7 @@ fun AllNewsScreen(
                 Column(Modifier.padding(12.dp)) {
                     Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                         Tag("Önem ${item.story.importance}/10", highlight = item.story.importance >= 8)
-                        Tag(item.topic.title)
+                        Tag(itemLabel(item, bulletin))
                     }
                     Spacer(Modifier.height(6.dp))
                     Text(item.story.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)

@@ -44,6 +44,9 @@ import com.marjinalbaykus.bulten.data.Repo
 import com.marjinalbaykus.bulten.ui.AllNewsScreen
 import com.marjinalbaykus.bulten.ui.AppIcons
 import com.marjinalbaykus.bulten.ui.BulletinScreen
+import com.marjinalbaykus.bulten.ui.withTitles
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
 import com.marjinalbaykus.bulten.ui.Centered
 import com.marjinalbaykus.bulten.ui.DetailScreen
 import com.marjinalbaykus.bulten.ui.ErrorView
@@ -120,6 +123,8 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
     var menuOpen by remember { mutableStateOf(false) }
     var searchQuery by remember { mutableStateOf("") }
     var notifications by remember { mutableStateOf(repo.notificationsOn) }
+    var topics by remember { mutableStateOf(repo.topicsCache) }   // güncel başlık adları ve gruplar
+    val scope = rememberCoroutineScope()
     // Liste konumları ekran değişince kaybolmasın; bülten değişince başa döner
     val homeState = remember(date) { LazyListState() }
     val allState = remember(date) { LazyListState() }
@@ -139,6 +144,8 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
             error = e.message ?: e.javaClass.simpleName
         }
         loading = false
+        // Konu adları/gruplar: alınamazsa bülten kendi başlıklarıyla gösterilir
+        runCatching { repo.topics().value }.onSuccess { topics = it; repo.topicsCache = it }
     }
 
     // Alt çubuktaki sekmeler; yığının ilk elemanı hangi sekmede olunduğunu gösterir
@@ -206,7 +213,15 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 ).forEach { (target, label, icon) ->
                     NavigationBarItem(
                         selected = tab == target,
-                        onClick = { stack = listOf(target) },
+                        onClick = {
+                            // Zaten bu sekmedeyken tekrar basınca listenin başına döner
+                            if (stack == listOf(target)) {
+                                val st = if (target == Screen.Home) homeState else if (target == Screen.AllNews) allState else null
+                                st?.let { scope.launch { it.animateScrollToItem(0) } }
+                            } else {
+                                stack = listOf(target)
+                            }
+                        },
                         icon = { Icon(icon, contentDescription = label) },
                         label = { Text(label) },
                     )
@@ -228,10 +243,11 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                             modifier = Modifier.fillMaxSize().padding(top = padding.calculateTopPadding()),
                         ) {
                             val inner = PaddingValues(bottom = padding.calculateBottomPadding())
+                            val shown = remember(b, topics) { b.withTitles(topics) }
                             if (screen == Screen.Home) {
-                                BulletinScreen(b, offline, repo::visible, { push(Screen.Detail(it)) }, inner, homeState)
+                                BulletinScreen(shown, topics, offline, repo::visible, { push(Screen.Detail(it)) }, inner, homeState)
                             } else {
-                                AllNewsScreen(b, repo::visible, { push(Screen.Detail(it)) }, inner, allState)
+                                AllNewsScreen(shown, repo::visible, { push(Screen.Detail(it)) }, inner, allState)
                             }
                         }
                     }
@@ -245,7 +261,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 notifications, { notifications = it; repo.notificationsOn = it }, padding)
             Screen.Search -> SearchScreen(repo, searchQuery, { searchQuery = it }, { push(Screen.ResearchDetail(it)) },
                 { push(Screen.Detail(it)) }, { push(Screen.Settings) }, padding)
-            Screen.Topics -> TopicsScreen(repo, { push(Screen.Settings) }, padding)
+            Screen.Topics -> TopicsScreen(repo, { push(Screen.Settings) }, { topics = it }, padding)
             is Screen.ResearchDetail -> ResearchScreen(repo, screen.id, padding)
             is Screen.Detail -> DetailScreen(screen.item, padding)
         }

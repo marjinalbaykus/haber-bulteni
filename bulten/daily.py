@@ -54,8 +54,8 @@ Output JSON: {"title": str, "headline": str, "detail": str, "key_points": [str]}
 
 DEDUPE_SYSTEM = """You get the selected stories of a daily bulletin, grouped under topics.
 Find stories that describe the SAME real-world event under different topics (e.g. the same acquisition
-listed under both "AI" and "PC hardware"). For each such group keep exactly one: the one whose topic fits
-the event best (if equal, the more informative headline). Different events about the same company are NOT
+listed under both "AI" and "PC hardware", or the same match under a player topic and a club topic).
+For each such group keep exactly one: the one whose topic fits the event best (if equal, the more informative headline). Different events about the same company are NOT
 duplicates.
 Output JSON: {"groups": [{"keep": int, "drop": [int]}]} (empty list if there are no duplicates)."""
 
@@ -195,6 +195,13 @@ def apply_dedupe(res: dict, topics: list[dict], flat: list[tuple]) -> dict[str, 
                 drop.add(d)
     for d in sorted(drop):
         print(f"  tekrar çıkarıldı: {flat[d][0]['id']}: {flat[d][1]['headline'][:70]}")
+    # Çıkarılan kopyanın başlığı, kalan habere "also" olarak eklenir: haber birden fazla başlığa ait olabilir
+    for g in res.get("groups", []):
+        k = g.get("keep")
+        if isinstance(k, int) and 0 <= k < len(flat) and k not in drop:
+            also = [flat[d][0]["id"] for d in g.get("drop", []) if d in drop and flat[d][0]["id"] != flat[k][0]["id"]]
+            if also:
+                flat[k][1]["also"] = sorted(set(flat[k][1].get("also", []) + also))
     out = {t["id"]: [] for t in topics}
     for n, (t, s) in enumerate(flat):
         if n not in drop:
@@ -256,6 +263,7 @@ def build_detail(story: dict, res: dict, pool: S.Pool, n_texts: int, extra: list
         "sources": [{"title": it.title, "url": it.url, "source": it.source, "lang": it.lang,
                      "published": it.published} for it in src_items[:10]],
         "read_articles": n_texts,
+        **({"also": story["also"]} if story.get("also") else {}),
     }
 
 

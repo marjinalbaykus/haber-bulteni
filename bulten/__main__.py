@@ -6,7 +6,7 @@
   python -m bulten notify               sıradaki Telegram mesajlarını gönder
   python -m bulten chatid               bota yazan sohbetlerin id'lerini göster
   python -m bulten staged prep|next     API'siz adımlı bülten (seçimi dışarıdaki ajan yapar)
-  python -m bulten topics <add|remove|restore|level>   uygulamadan gelen konu değişikliği
+  python -m bulten topics <add|remove|restore|level|save> uygulamadan gelen konu değişikliği
                                         (ortam: TOPIC_ID, TOPIC_TEXT, TOPIC_LEVEL)
 """
 from __future__ import annotations

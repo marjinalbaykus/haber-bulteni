@@ -13,6 +13,8 @@ data class Story(
     val detail: String,
     val keyPoints: List<String>,
     val sources: List<Source>,
+    /** Haberin ait olduğu diğer başlıklar (aynı olay birden fazla başlığa girdiyse). */
+    val also: List<String> = emptyList(),
 )
 
 data class Topic(val id: String, val title: String, val note: String, val stories: List<Story>)
@@ -53,7 +55,12 @@ enum class Level(val key: String, val label: String, val minImportance: Int, val
 
 data class TopicInfo(val id: String, val title: String, val level: Level, val custom: Boolean)
 
-data class Topics(val active: List<TopicInfo>, val removed: List<TopicInfo>)
+/** Başlık grubu (ör. Futbol: Arda Güler, Real Madrid...). Sadece görünüm; haber seçimini etkilemez. */
+data class TopicGroup(val id: String, val name: String, val topics: List<String>)
+
+data class Topics(val active: List<TopicInfo>, val removed: List<TopicInfo>, val groups: List<TopicGroup>) {
+    fun title(id: String): String? = active.firstOrNull { it.id == id }?.title
+}
 
 private fun JSONArray?.objects(): List<JSONObject> =
     if (this == null) emptyList() else (0 until length()).mapNotNull { optJSONObject(it) }
@@ -79,6 +86,7 @@ fun parseBulletin(text: String): Bulletin {
                     sources = s.optJSONArray("sources").objects().map { src ->
                         Source(src.optString("title"), src.optString("url"), src.optString("source"), src.optString("lang"))
                     },
+                    also = s.optJSONArray("also").strings(),
                 )
             }.sortedByDescending { it.importance },
         )
@@ -124,7 +132,11 @@ data class Research(
     val sections: List<ResearchSection>,
     val caveats: String,
     val sources: List<Source>,
+    val stats: ResearchStats?,
 )
+
+/** Araştırmanın maliyeti: model, kullanılan token ve tahmini ücret (USD). */
+data class ResearchStats(val model: String, val promptTokens: Int, val completionTokens: Int, val costUsd: Double?)
 
 fun parseResearch(text: String): Research {
     val o = JSONObject(text)
@@ -139,6 +151,14 @@ fun parseResearch(text: String): Research {
         sources = o.optJSONArray("sources").objects().map { src ->
             Source(src.optString("title"), src.optString("url"), src.optString("source"), src.optString("lang"))
         },
+        stats = o.optJSONObject("stats")?.let { st ->
+            ResearchStats(
+                model = st.optString("model"),
+                promptTokens = st.optInt("prompt_tokens"),
+                completionTokens = st.optInt("completion_tokens"),
+                costUsd = if (st.has("cost_usd")) st.optDouble("cost_usd") else null,
+            )
+        },
     )
 }
 
@@ -147,5 +167,8 @@ fun parseTopics(text: String): Topics {
     fun list(name: String) = o.optJSONArray(name).objects().map {
         TopicInfo(it.optString("id"), it.optString("title"), Level.of(it.optString("level")), it.optBoolean("custom"))
     }
-    return Topics(list("topics"), list("removed"))
+    val groups = o.optJSONArray("groups").objects().map {
+        TopicGroup(it.optString("id"), it.optString("name"), it.optJSONArray("topics").strings())
+    }
+    return Topics(list("topics"), list("removed"), groups)
 }
