@@ -1,5 +1,5 @@
 {
- "stage": "select",
+ "stage": "dedupe",
  "variant": "haiku",
  "date": "2026-11-24",
  "compare": true,
@@ -17829,6 +17829,988 @@
    "alarms": []
   }
  ],
- "task_chars": 253833,
- "tasks": 10
+ "task_chars": 258324,
+ "tasks": 11,
+ "sel": {
+  "real_madrid": [
+   [
+    {
+     "ids": [
+      114,
+      771,
+      91,
+      761,
+      774,
+      775,
+      783,
+      772,
+      802,
+      803,
+      801,
+      116,
+      119
+     ],
+     "importance": 7,
+     "headline": "Haberlere göre Mourinho, PSV maçında Arda Güler'i dinlendirecek ve Brahim Díaz'ın ilk 11'de başlaması bekleniyor.",
+     "reason": "Arda Güler'in Şampiyonlar Ligi'nde ilk 11'de yer alıp almayacağı doğrudan takip edilen bir gelişme."
+    },
+    {
+     "ids": [
+      70,
+      786
+     ],
+     "importance": 6,
+     "headline": "Real Madrid, La Liga'da Celta Vigo'yu 2-1 yenerek üst üste altıncı galibiyetini aldı.",
+     "reason": "Takımın form grafiğini gösteren net bir maç sonucu."
+    },
+    {
+     "ids": [
+      95,
+      220,
+      239
+     ],
+     "importance": 6,
+     "headline": "Jude Bellingham'ın Real Madrid ile uzun vadeli sözleşme yenileme görüşmelerinin ileri aşamada olduğu bildiriliyor.",
+     "reason": "Kadronun önemli bir yıldızının geleceğine dair büyük bir kulüp gelişmesi."
+    },
+    {
+     "ids": [
+      118,
+      766
+     ],
+     "importance": 5,
+     "headline": "CIES araştırmasında Arda Güler, 22 yaş altı oyuncular arasında 90 dakika başına asist beklentisinde birinci oldu.",
+     "reason": "Arda Güler'in performansına dair somut bir istatistiksel değerlendirme."
+    },
+    {
+     "ids": [
+      111
+     ],
+     "importance": 5,
+     "headline": "Thibaut Courtois'in Real Madrid ile 2028'e kadar uzanan yeni sözleşmeyi kabul ettiği bildirildi.",
+     "reason": "Kalesinin kulüpte uzun süre kalacağını gösteren bir sözleşme gelişmesi."
+    },
+    {
+     "ids": [
+      64,
+      86,
+      244
+     ],
+     "importance": 5,
+     "headline": "Endrick, yeni bir sakatlık nedeniyle PSV maçında yer almayacak ve yaklaşık üç hafta sahalardan uzak kalacak.",
+     "reason": "Kadro derinliği ve hücum planı için ciddi bir sakatlık gelişmesi."
+    }
+   ],
+   125
+  ],
+  "pc_donanim": [
+   [
+    {
+     "ids": [
+      596,
+      697,
+      1409,
+      374,
+      699,
+      1410,
+      1419,
+      1416,
+      1417,
+      1418,
+      1423,
+      1425,
+      1424,
+      1420,
+      606,
+      727,
+      726,
+      332,
+      357,
+      369,
+      360,
+      339,
+      376,
+      1414,
+      372,
+      704
+     ],
+     "importance": 8,
+     "headline": "Nvidia yönetim kurulu Jensen Huang'ı CEO olarak yeniden atadı; hisseler sert yükseldi ve Trump'ın desteği dikkat çekti.",
+     "reason": "Nvidia'daki liderlik değişikliği çip sektöründe büyük bir olay; hisse ve piyasa değeri hareketi yarattı, ihracat politikasıyla bağlantılı tartışmalar sürüyor."
+    },
+    {
+     "ids": [
+      345,
+      334,
+      328,
+      341,
+      321,
+      317,
+      362,
+      1411,
+      715
+     ],
+     "importance": 7,
+     "headline": "Kongre, Huang'ın geri dönüşüne tepki gösteriyor; Senato Bankacılık Komitesi 3 Aralık'ta ihracat kontrolleri konulu dinleme yapacak.",
+     "reason": "Çin'e çip akışına ilişkin soruşturmalar ve ihracat kontrolü tartışması bu dinlemeyle derinleşebilir; California Başsavcısı incelemesini sürdürüyor."
+    },
+    {
+     "ids": [
+      331
+     ],
+     "importance": 7,
+     "headline": "ABD, Nvidia çip skandalıyla bağlantılı Megaspeed ve bir Alibaba yan kuruluşunu kara listeye aldı.",
+     "reason": "Çip ihracat kısıtlarının somut bir uygulaması; Nvidia çiplerinin Çin'e akışına ilişkin incelemenin yeni adımı."
+    },
+    {
+     "ids": [
+      367,
+      291,
+      295
+     ],
+     "importance": 7,
+     "headline": "Beyaz Saray, Nvidia için yeni çip kısıtlamasına gerek olmadığını söylerken Trump Çin'e görece eski çip satmak istediğini belirtti.",
+     "reason": "Çin'e çip ihracatı konusunda çelişkili sinyaller var; Bessent hükümetin Nvidia'dan çiplerin Çin'e akışına dair açıklama beklediğini söyledi."
+    },
+    {
+     "ids": [
+      337,
+      330
+     ],
+     "importance": 7,
+     "headline": "TSMC, Teksas'ın Brazos County bölgesinde 22,6 milyar dolarlık yeni çip fabrikası için başvuru yaptı.",
+     "reason": "TSMC'nin ABD'deki yeni üretim yatırımı; çip tedarik zinciri açısından büyük bir adım."
+    },
+    {
+     "ids": [
+      610,
+      1406
+     ],
+     "importance": 6,
+     "headline": "AI sunucu üreticilerinin sözleşme sonrası fiyatları yüzde 25'e ve bazı siparişlerde yüzde 45'e varan oranda artırdığı bildirildi.",
+     "reason": "Dell, HPE, Lenovo ve Supermicro örnekleri; bellek kıtlığının maliyetlere yansıdığını gösteriyor."
+    },
+    {
+     "ids": [
+      390,
+      303
+     ],
+     "importance": 6,
+     "headline": "Goldman Sachs, 2028 bellek çiplerinde arz-talep açığının daraldığını ve fiyatlarda aşağı yönlü baskı olduğunu değerlendiriyor.",
+     "reason": "RAM ve GPU fiyatlarındaki sert hareketler doğrudan ilgilendiriyor; eTeknix da fiyatların neden yükseldiğini ve ne zaman gevşeyebileceğini ele alıyor."
+    },
+    {
+     "ids": [
+      311,
+      340
+     ],
+     "importance": 6,
+     "headline": "Amazon'un Decart'ı yaklaşık 7,5 milyar dolara satın aldığı bildirildi; Trainium çipleriyle Nvidia'ya rakip olma hamlesi.",
+     "reason": "Amazon'un kendi AI çiplerine yönelik hamlesi; Nvidia'nın rakibi olarak çip pazarını etkileyebilir."
+    }
+   ],
+   220
+  ],
+  "yerel_llm": [
+   [
+    {
+     "ids": [
+      728
+     ],
+     "importance": 7,
+     "headline": "NariQ, Qwen3.8-27B modelini 10 GB'lık dosyaya sıkıştırarak BF16 düzeyinde kalite sunduğunu iddia ediyor; 16 GB VRAM'e sığar.",
+     "reason": "27B boyutundaki model 4-bit benzeri sıkıştırmayla 16 GB VRAM kartta rahatça çalışabilir; Hacker News'te 163 puan aldı."
+    },
+    {
+     "ids": [
+      1075,
+      1076,
+      1085,
+      746,
+      145
+     ],
+     "importance": 7,
+     "headline": "Açık ağırlıklı Inkling-2-Mini modeli yayımlandı ve Unsloth GGUF sürümleri yerel kullanıma açıldı; model boyutu haberlerde belirtilmiyor.",
+     "reason": "Büyük bir laboratuvarın yeni açık modeli; 16 GB VRAM'e sığıp sığmadığı boyut bilgisi olmadan doğrulanamıyor."
+    }
+   ],
+   106
+  ],
+  "yapay_zeka": [
+   [
+    {
+     "ids": [
+      919,
+      906,
+      938,
+      915,
+      918,
+      909,
+      908,
+      911,
+      727,
+      726,
+      939
+     ],
+     "importance": 8,
+     "headline": "Nvidia yönetim kurulu Jensen Huang'ı CEO olarak yeniden atadı; Trump'ın baskısı ve Çin bağlantılı skandal iddiaları tartışılıyor.",
+     "reason": "Nvidia'daki liderlik değişikliği sektör hisselerinde sert hareket yarattı; Huang'ın gelecek hafta Senato'da ifade vermesi planlanıyor."
+    },
+    {
+     "ids": [
+      530,
+      921
+     ],
+     "importance": 8,
+     "headline": "Anthropic halka arz dosyasında yapay zekanın insanlık için 'varoluşsal riskler' doğurabileceği uyarısında bulundu.",
+     "reason": "Önemli bir AI laboratuvarının halka arz süreci; yatırımcı ve risk uyarıları sektör açısından büyük önem taşıyor."
+    },
+    {
+     "ids": [
+      499,
+      506,
+      540,
+      507,
+      518,
+      526,
+      505,
+      529,
+      543,
+      539,
+      522,
+      549
+     ],
+     "importance": 7,
+     "headline": "OpenAI, gelişmiş yapay zeka sistemleri için rakiplerin ortak sınırlar üzerinde anlaşmasını ve ölçülebilir bir Perplexity skoru kullanılmasını önerdi.",
+     "reason": "Büyük bir laboratuvardan sınırlandırma çağrısı; Tech Times, ölçütün yalnızca OpenAI'nin çalıştırabildiği özel bir testle puanlanacağını belirtiyor."
+    },
+    {
+     "ids": [
+      578,
+      554,
+      559,
+      497,
+      498,
+      163,
+      732,
+      556,
+      557
+     ],
+     "importance": 7,
+     "headline": "Z.ai, döngüsel 'loop transformer' mimarisine sahip GLM-5.4 modelini tanıttı; şirket modelin 4 kat büyük modeller kadar düşünebildiğini iddia ediyor.",
+     "reason": "Çince kaynaklara göre model açık kaynaklılar arasında en güçlüsü ve Opus 5.5'e yüzde 5 mesafede; Wccftech şirketin AI kıyaslama testlerini atladığını yazıyor."
+    },
+    {
+     "ids": [
+      500,
+      544
+     ],
+     "importance": 7,
+     "headline": "Google Gemini 4 Neon ve OpenAI GPT-6.2 Astra-Sol modelleri, daha büyük kurumsal iş yükleri ve verimlilik hedefiyle duyuruldu.",
+     "reason": "İki büyük laboratuvar aynı anda kurumsal segmente yöneldi; Gemini 4 Neon'un maliyet avantajı henüz net değil."
+    },
+    {
+     "ids": [
+      912,
+      653
+     ],
+     "importance": 6,
+     "headline": "Amazon'un Decart'ın AI optimizasyon teknolojisi ve ekibini bildirilen 7,5 milyar dolarlık bir anlaşmayla satın aldığı açıklandı.",
+     "reason": "Büyük bir şirket satın alması; Amazon'un Trainium çipleriyle AI donanım rekabetine girdiğini gösteriyor."
+    },
+    {
+     "ids": [
+      503
+     ],
+     "importance": 6,
+     "headline": "shattered.io karşılaştırmasına göre GPT-6.2 Astra 62, Fable 5.2 65 puan aldı; maliyetleri 4 dolar ile 26,54 dolar arasında.",
+     "reason": "Tek kaynaklı bir karşılaştırma; puan ve maliyet farkı model fiyat-performans rekabeti açısından dikkat çekici."
+    },
+    {
+     "ids": [
+      520
+     ],
+     "importance": 6,
+     "headline": "Sora 2 modelinin kapatılması, yapay zeka destekli yaratıcı video üretiminde önemli bir değişikliğe işaret ediyor.",
+     "reason": "Büyük bir görüntü ve video modelinin devre dışı kalması; kaynak tek ve kısa bir yazı."
+    }
+   ],
+   145
+  ],
+  "ai_kodlama": [
+   [
+    {
+     "ids": [
+      881,
+      688,
+      863,
+      868,
+      828,
+      865,
+      870,
+      897,
+      871,
+      885,
+      878,
+      886,
+      867
+     ],
+     "importance": 8,
+     "headline": "Anthropic, Claude Ship'i duyurdu; AI ajanları kod değişikliklerini inceleyip düzeltebilecek ve pull request'leri onaylayabilecek.",
+     "reason": "Claude Code'da büyük bir yenilik; birçok bağımsız kaynakta aynı anda haberleşildi."
+    },
+    {
+     "ids": [
+      815,
+      817,
+      813
+     ],
+     "importance": 7,
+     "headline": "DeepSeek ücretsiz kullanım kotasını daralttı; yorumcular ücretsiz yapay zeka döneminin sona erip ermediğini tartışıyor.",
+     "reason": "DeepSeek API kullanımında ücretsiz hakkın azalması maliyet planlamasını doğrudan etkiler."
+    },
+    {
+     "ids": [
+      808
+     ],
+     "importance": 7,
+     "headline": "DeepSeek V4 model ailesinin tamamı yayına girdi; DeepSeek Harness geliştirici önizleme sürümü test için açıldı.",
+     "reason": "DeepSeek kullanan iş akışı için doğrudan ilgili; yeni geliştirici aracı test aşamasında."
+    },
+    {
+     "ids": [
+      732,
+      144
+     ],
+     "importance": 7,
+     "headline": "Z.ai, kodlamaya odaklı GLM-5.4 modelini tanıttı; kodlama planında kota yüzde 50 artırıldı.",
+     "reason": "Ucuz ve güçlü kodlama API seçenekleri açısından fiyat/performans için takip edilmeli."
+    },
+    {
+     "ids": [
+      843,
+      844
+     ],
+     "importance": 7,
+     "headline": "Claude Code'a gerçek zamanlı maliyet kontrolleri geldi; Uber da Claude Code maliyet ayarlarının sonuçlarını paylaştı.",
+     "reason": "Claude kullanımında harcama izleme ve sınırlama; abonelik ve kota yönetimi için doğrudan ilgili."
+    },
+    {
+     "ids": [
+      686
+     ],
+     "importance": 7,
+     "headline": "VentureBeat'in hata düzeltme testinde Anthropic'in en üst Claude modelinin benzer sonuçlar için maliyetinin üç katı olduğu görüldü.",
+     "reason": "Fiyat/performans dengesi için kritik; en pahalı Claude modeli benzer işte üç kat maliyetli."
+    },
+    {
+     "ids": [
+      902
+     ],
+     "importance": 6,
+     "headline": "Gemini Neon, kodlama ajanı endeksinde birinci oldu; maliyeti Claude'un yaklaşık yüzde 44'ü kadar.",
+     "reason": "Claude'a alternatif olarak maliyet avantajı gösteriyor; tek kaynaklı karşılaştırma, doğrulanmalı."
+    },
+    {
+     "ids": [
+      847,
+      850,
+      838
+     ],
+     "importance": 6,
+     "headline": "Cursor'ın Çin açık ağırlıklı yapay zeka modellerini bırakmayı değerlendirdiği bildirildi.",
+     "reason": "Bir Meclis raporuna göre ABD açık ağırlıklı seçenekler fiyat ve performans açısından yetersiz; ucuz model seçeneklerini etkileyebilir."
+    }
+   ],
+   136
+  ],
+  "teknoloji": [
+   [
+    {
+     "ids": [
+      726,
+      727,
+      919,
+      1220,
+      1425,
+      1419,
+      1420,
+      1423,
+      1416,
+      1418,
+      1424,
+      1414,
+      906,
+      915,
+      918,
+      1417,
+      1422,
+      1485,
+      1488,
+      914,
+      909,
+      911,
+      1411
+     ],
+     "importance": 8,
+     "headline": "Nvidia yönetim kurulu Jensen Huang'ı CEO olarak geri getirdi; hisseler yükseldi, piyasa değeri saatler içinde 1 trilyon doların üzerinde arttı.",
+     "reason": "Dünyanın en değerli şirketlerinden birinde olağanüstü liderlik değişikliği; ABD hükümetinin açık desteği nedeniyle de ilgi çekiyor."
+    },
+    {
+     "ids": [
+      916,
+      1450
+     ],
+     "importance": 8,
+     "headline": "CrowdStrike, bulut güvenliği şirketi Zscaler'ı yaklaşık 44 milyar dolara satın almak için anlaştı.",
+     "reason": "Siber güvenlik sektöründe büyük birleşme; tamamı hisse senedi ile yapılıyor."
+    },
+    {
+     "ids": [
+      912
+     ],
+     "importance": 7,
+     "headline": "Amazon, Decart'ın yapay zeka optimizasyon teknolojisini ve araştırma ekibini bildirildiğine göre 7,5 milyar dolara satın alıyor.",
+     "reason": "Trainium çiplerini satışa hazırlayan Amazon için büyük bir teknoloji satın alımı."
+    },
+    {
+     "ids": [
+      1476
+     ],
+     "importance": 7,
+     "headline": "Tesla, yeni nesil FSD v15 sürümünü yayımladı; Reality View özelliği çevreyi gerçeğe yakın görüntüleyen uçtan uca sürüş ağını öne çıkarıyor.",
+     "reason": "Elektrikli araç devinin sürüş yazılımında büyük bir sürüm; yoğun ilgi topluyor."
+    },
+    {
+     "ids": [
+      1468
+     ],
+     "importance": 7,
+     "headline": "SpaceX, Starship'in 15. test uçuşunda üst kademeyi ilk kez fırlatma kulesinin mekanik koluyla başarıyla geri yakaladı.",
+     "reason": "Tam yeniden kullanılabilir roket hedefinde kritik adım; Bernstein SpaceX'in rakiplerinden yaklaşık on yıl önde olduğunu belirtiyor."
+    },
+    {
+     "ids": [
+      937,
+      724
+     ],
+     "importance": 7,
+     "headline": "Sıfırdan geliştirilen Ladybird tarayıcısı, yeni tarayıcı motoruyla macOS ve Linux için alfa sürümü olarak test edilmeye açıldı.",
+     "reason": "Yıllardır çıkan ilk yeni tarayıcı motoru; tarayıcı pazarında alternatif olma potansiyeli taşıyor."
+    },
+    {
+     "ids": [
+      1214,
+      1427
+     ],
+     "importance": 7,
+     "headline": "Virginia ve Oregon eyaletleri, SpaceX'e bağlı Grok'un çocuk istismarı görüntüleri ve rızasız cinsel görseller üretmesini durdurmak için dava açtı.",
+     "reason": "Yapay zeka görsel üretim araçlarında güvenlik ve düzenleme tartışmasında önemli hukuki adım."
+    },
+    {
+     "ids": [
+      1429
+     ],
+     "importance": 7,
+     "headline": "Hollanda bir mahkemesi, BYD Ti7 modelinin AB'de satılmasını ve üretilmesini yasakladı; BYD kararı itirazla karşılayacağını açıkladı.",
+     "reason": "Çinli elektrikli araç devi için AB pazarında önemli hukuki engel; karar Jaguar Land Rover'ın tasarım iddiasına dayanıyor."
+    }
+   ],
+   184
+  ],
+  "oyunlar": [
+   [
+    {
+     "ids": [
+      1230
+     ],
+     "importance": 8,
+     "headline": "Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı resmen doğrulandı.",
+     "reason": "FromSoftware'in Elden Ring evreninden büyük yeni içerik; tam olarak ilgilenilen soulslike türü."
+    },
+    {
+     "ids": [
+      1228,
+      1233
+     ],
+     "importance": 6,
+     "headline": "Queen's Domain 300 binden fazla adet sattı; Eurogamer incelemesi oyunu etkileyici bir aksiyon-RPG olarak övdü.",
+     "reason": "Aksiyon-RPG türünde güçlü satış ve olumlu inceleme; tür sevgisine uygun bir yeni oyun."
+    },
+    {
+     "ids": [
+      1239
+     ],
+     "importance": 5,
+     "headline": "Diablo tarzı ganimet sistemi ve mech savaşı sunan Frame of Suffering 2027 sonlarında çıkacak.",
+     "reason": "Aksiyon-RPG türünde yeni bir oyun duyurusu, ancak henüz uzak bir çıkış tarihi var."
+    },
+    {
+     "ids": [
+      1240
+     ],
+     "importance": 5,
+     "headline": "Nioh 3 Complete Edition Kore'de derecelendirildi.",
+     "reason": "Soulslike tarzı Nioh serisinin yeni sürümüne dair küçük bir gelişme."
+    },
+    {
+     "ids": [
+      1251
+     ],
+     "importance": 5,
+     "headline": "GTA 6, PS5'te 39 milyondan fazla benzersiz kullanıcıya ulaştı.",
+     "reason": "Türünün dışında olsa da oyun sektöründe büyük bir satış ve kullanıcı rakamı."
+    }
+   ],
+   55
+  ],
+  "cs2": [
+   [
+    {
+     "ids": [
+      948,
+      949,
+      953,
+      954,
+      955,
+      946,
+      947,
+      982,
+      952,
+      961,
+      962,
+      972
+     ],
+     "importance": 8,
+     "headline": "PGL Major Singapore 2026 Stage 1 başladı; turnuvanın ilk İsviçre sistemi maçları oynanmaya başlandı.",
+     "reason": "Yılın büyük Major turnuvasının açılışı; takımlar, format ve program netleşti."
+    },
+    {
+     "ids": [
+      960
+     ],
+     "importance": 5,
+     "headline": "24 Kasım CS2 güncellemesiyle Cobblestone haritasında erişilemeyen bomba noktası kaldırıldı.",
+     "reason": "Harita dengesini etkileyen küçük bir oyun güncellemesi."
+    }
+   ],
+   30
+  ],
+  "ekonomi_tr": [
+   [
+    {
+     "ids": [
+      1058,
+      1023,
+      1053,
+      1055,
+      1042,
+      1062,
+      1057,
+      1024,
+      1056,
+      1073,
+      1021,
+      1067,
+      1047,
+      1074,
+      1069,
+      1044,
+      1072,
+      1032,
+      1048,
+      1071,
+      1017,
+      1061,
+      1060,
+      1063,
+      1066
+     ],
+     "importance": 7,
+     "headline": "TCMB Başkanı Karahan, Türk lirasını desteklemek için gerekirse faiz, stopaj ve likidite araçlarıyla yeni adımlar atılabileceğini söyledi.",
+     "reason": "Merkez bankasının olası sıkılaştırma sinyali kur, faiz ve borsa beklentilerini doğrudan etkiliyor."
+    },
+    {
+     "ids": [
+      1036,
+      1034,
+      1050,
+      1038
+     ],
+     "importance": 5,
+     "headline": "TCMB anketine göre hanehalkının enflasyon beklentisi yüzde 43,24'e geriledi.",
+     "reason": "Enflasyon beklentilerindeki düşüş, dezenflasyon sürecinin seyri açısından takip edilmeye değer."
+    }
+   ],
+   55
+  ],
+  "ekonomi_dunya": [
+   [
+    {
+     "ids": [
+      1112,
+      1106,
+      1095,
+      1129,
+      1135,
+      1120,
+      1140,
+      1151,
+      1121,
+      1149,
+      1148,
+      1137,
+      1116,
+      1114,
+      1124,
+      1154,
+      1130,
+      1108,
+      1150,
+      1098,
+      1107
+     ],
+     "importance": 8,
+     "headline": "Jensen Huang'ın Nvidia'ye dönmesiyle S&P 500 yaklaşık %4,7, Nasdaq %6,5 yükseldi; geçen haftaki sert düşüşün yarısı silindi.",
+     "reason": "Büyük teknoloji hisselerindeki sert toparlanma ve Nvidia'nın piyasa değerinde yaklaşık 1 trilyon dolarlık artış, borsa genelinde geniş etki yaratıyor."
+    },
+    {
+     "ids": [],
+     "importance": 7,
+     "headline": "Brent petrol 86,18 dolara geriledi; son 30 günde yaklaşık %26 düştü, son günde ise %3,6 kaybetti.",
+     "reason": "Petrol fiyatlarındaki büyük ve hızlı düşüş enflasyon ve küresel büyüme beklentilerini etkiliyor."
+    }
+   ],
+   83
+  ]
+ },
+ "kept": {
+  "real_madrid": [
+   {
+    "ids": [
+     114,
+     771,
+     91,
+     761,
+     774,
+     775,
+     783,
+     772,
+     802,
+     803,
+     801,
+     116,
+     119
+    ],
+    "importance": 7,
+    "headline": "Haberlere göre Mourinho, PSV maçında Arda Güler'i dinlendirecek ve Brahim Díaz'ın ilk 11'de başlaması bekleniyor.",
+    "reason": "Arda Güler'in Şampiyonlar Ligi'nde ilk 11'de yer alıp almayacağı doğrudan takip edilen bir gelişme."
+   },
+   {
+    "ids": [
+     70,
+     786
+    ],
+    "importance": 6,
+    "headline": "Real Madrid, La Liga'da Celta Vigo'yu 2-1 yenerek üst üste altıncı galibiyetini aldı.",
+    "reason": "Takımın form grafiğini gösteren net bir maç sonucu."
+   },
+   {
+    "ids": [
+     95,
+     220,
+     239
+    ],
+    "importance": 6,
+    "headline": "Jude Bellingham'ın Real Madrid ile uzun vadeli sözleşme yenileme görüşmelerinin ileri aşamada olduğu bildiriliyor.",
+    "reason": "Kadronun önemli bir yıldızının geleceğine dair büyük bir kulüp gelişmesi."
+   }
+  ],
+  "pc_donanim": [
+   {
+    "ids": [
+     596,
+     697,
+     1409,
+     374,
+     699,
+     1410,
+     1419,
+     1416,
+     1417,
+     1418,
+     1423,
+     1425,
+     1424,
+     1420,
+     606,
+     727,
+     726,
+     332,
+     357,
+     369,
+     360,
+     339,
+     376,
+     1414,
+     372,
+     704
+    ],
+    "importance": 8,
+    "headline": "Nvidia yönetim kurulu Jensen Huang'ı CEO olarak yeniden atadı; hisseler sert yükseldi ve Trump'ın desteği dikkat çekti.",
+    "reason": "Nvidia'daki liderlik değişikliği çip sektöründe büyük bir olay; hisse ve piyasa değeri hareketi yarattı, ihracat politikasıyla bağlantılı tartışmalar sürüyor."
+   },
+   {
+    "ids": [
+     345,
+     334,
+     328,
+     341,
+     321,
+     317,
+     362,
+     1411,
+     715
+    ],
+    "importance": 7,
+    "headline": "Kongre, Huang'ın geri dönüşüne tepki gösteriyor; Senato Bankacılık Komitesi 3 Aralık'ta ihracat kontrolleri konulu dinleme yapacak.",
+    "reason": "Çin'e çip akışına ilişkin soruşturmalar ve ihracat kontrolü tartışması bu dinlemeyle derinleşebilir; California Başsavcısı incelemesini sürdürüyor."
+   },
+   {
+    "ids": [
+     331
+    ],
+    "importance": 7,
+    "headline": "ABD, Nvidia çip skandalıyla bağlantılı Megaspeed ve bir Alibaba yan kuruluşunu kara listeye aldı.",
+    "reason": "Çip ihracat kısıtlarının somut bir uygulaması; Nvidia çiplerinin Çin'e akışına ilişkin incelemenin yeni adımı."
+   },
+   {
+    "ids": [
+     367,
+     291,
+     295
+    ],
+    "importance": 7,
+    "headline": "Beyaz Saray, Nvidia için yeni çip kısıtlamasına gerek olmadığını söylerken Trump Çin'e görece eski çip satmak istediğini belirtti.",
+    "reason": "Çin'e çip ihracatı konusunda çelişkili sinyaller var; Bessent hükümetin Nvidia'dan çiplerin Çin'e akışına dair açıklama beklediğini söyledi."
+   },
+   {
+    "ids": [
+     337,
+     330
+    ],
+    "importance": 7,
+    "headline": "TSMC, Teksas'ın Brazos County bölgesinde 22,6 milyar dolarlık yeni çip fabrikası için başvuru yaptı.",
+    "reason": "TSMC'nin ABD'deki yeni üretim yatırımı; çip tedarik zinciri açısından büyük bir adım."
+   }
+  ],
+  "yerel_llm": [
+   {
+    "ids": [
+     728
+    ],
+    "importance": 7,
+    "headline": "NariQ, Qwen3.8-27B modelini 10 GB'lık dosyaya sıkıştırarak BF16 düzeyinde kalite sunduğunu iddia ediyor; 16 GB VRAM'e sığar.",
+    "reason": "27B boyutundaki model 4-bit benzeri sıkıştırmayla 16 GB VRAM kartta rahatça çalışabilir; Hacker News'te 163 puan aldı."
+   },
+   {
+    "ids": [
+     1075,
+     1076,
+     1085,
+     746,
+     145
+    ],
+    "importance": 7,
+    "headline": "Açık ağırlıklı Inkling-2-Mini modeli yayımlandı ve Unsloth GGUF sürümleri yerel kullanıma açıldı; model boyutu haberlerde belirtilmiyor.",
+    "reason": "Büyük bir laboratuvarın yeni açık modeli; 16 GB VRAM'e sığıp sığmadığı boyut bilgisi olmadan doğrulanamıyor."
+   }
+  ],
+  "yapay_zeka": [
+   {
+    "ids": [
+     530,
+     921
+    ],
+    "importance": 8,
+    "headline": "Anthropic halka arz dosyasında yapay zekanın insanlık için 'varoluşsal riskler' doğurabileceği uyarısında bulundu.",
+    "reason": "Önemli bir AI laboratuvarının halka arz süreci; yatırımcı ve risk uyarıları sektör açısından büyük önem taşıyor."
+   },
+   {
+    "ids": [
+     499,
+     506,
+     540,
+     507,
+     518,
+     526,
+     505,
+     529,
+     543,
+     539,
+     522,
+     549
+    ],
+    "importance": 7,
+    "headline": "OpenAI, gelişmiş yapay zeka sistemleri için rakiplerin ortak sınırlar üzerinde anlaşmasını ve ölçülebilir bir Perplexity skoru kullanılmasını önerdi.",
+    "reason": "Büyük bir laboratuvardan sınırlandırma çağrısı; Tech Times, ölçütün yalnızca OpenAI'nin çalıştırabildiği özel bir testle puanlanacağını belirtiyor."
+   },
+   {
+    "ids": [
+     578,
+     554,
+     559,
+     497,
+     498,
+     163,
+     732,
+     556,
+     557
+    ],
+    "importance": 7,
+    "headline": "Z.ai, döngüsel 'loop transformer' mimarisine sahip GLM-5.4 modelini tanıttı; şirket modelin 4 kat büyük modeller kadar düşünebildiğini iddia ediyor.",
+    "reason": "Çince kaynaklara göre model açık kaynaklılar arasında en güçlüsü ve Opus 5.5'e yüzde 5 mesafede; Wccftech şirketin AI kıyaslama testlerini atladığını yazıyor."
+   },
+   {
+    "ids": [
+     500,
+     544
+    ],
+    "importance": 7,
+    "headline": "Google Gemini 4 Neon ve OpenAI GPT-6.2 Astra-Sol modelleri, daha büyük kurumsal iş yükleri ve verimlilik hedefiyle duyuruldu.",
+    "reason": "İki büyük laboratuvar aynı anda kurumsal segmente yöneldi; Gemini 4 Neon'un maliyet avantajı henüz net değil."
+   }
+  ],
+  "ai_kodlama": [
+   {
+    "ids": [
+     881,
+     688,
+     863,
+     868,
+     828,
+     865,
+     870,
+     897,
+     871,
+     885,
+     878,
+     886,
+     867
+    ],
+    "importance": 8,
+    "headline": "Anthropic, Claude Ship'i duyurdu; AI ajanları kod değişikliklerini inceleyip düzeltebilecek ve pull request'leri onaylayabilecek.",
+    "reason": "Claude Code'da büyük bir yenilik; birçok bağımsız kaynakta aynı anda haberleşildi."
+   },
+   {
+    "ids": [
+     815,
+     817,
+     813
+    ],
+    "importance": 7,
+    "headline": "DeepSeek ücretsiz kullanım kotasını daralttı; yorumcular ücretsiz yapay zeka döneminin sona erip ermediğini tartışıyor.",
+    "reason": "DeepSeek API kullanımında ücretsiz hakkın azalması maliyet planlamasını doğrudan etkiler."
+   },
+   {
+    "ids": [
+     808
+    ],
+    "importance": 7,
+    "headline": "DeepSeek V4 model ailesinin tamamı yayına girdi; DeepSeek Harness geliştirici önizleme sürümü test için açıldı.",
+    "reason": "DeepSeek kullanan iş akışı için doğrudan ilgili; yeni geliştirici aracı test aşamasında."
+   },
+   {
+    "ids": [
+     843,
+     844
+    ],
+    "importance": 7,
+    "headline": "Claude Code'a gerçek zamanlı maliyet kontrolleri geldi; Uber da Claude Code maliyet ayarlarının sonuçlarını paylaştı.",
+    "reason": "Claude kullanımında harcama izleme ve sınırlama; abonelik ve kota yönetimi için doğrudan ilgili."
+   }
+  ],
+  "teknoloji": [
+   {
+    "ids": [
+     916,
+     1450
+    ],
+    "importance": 8,
+    "headline": "CrowdStrike, bulut güvenliği şirketi Zscaler'ı yaklaşık 44 milyar dolara satın almak için anlaştı.",
+    "reason": "Siber güvenlik sektöründe büyük birleşme; tamamı hisse senedi ile yapılıyor."
+   }
+  ],
+  "oyunlar": [
+   {
+    "ids": [
+     1230
+    ],
+    "importance": 8,
+    "headline": "Elden Ring: Rot & Sorcery'nin 2027'de çıkacağı resmen doğrulandı.",
+    "reason": "FromSoftware'in Elden Ring evreninden büyük yeni içerik; tam olarak ilgilenilen soulslike türü."
+   },
+   {
+    "ids": [
+     1228,
+     1233
+    ],
+    "importance": 6,
+    "headline": "Queen's Domain 300 binden fazla adet sattı; Eurogamer incelemesi oyunu etkileyici bir aksiyon-RPG olarak övdü.",
+    "reason": "Aksiyon-RPG türünde güçlü satış ve olumlu inceleme; tür sevgisine uygun bir yeni oyun."
+   }
+  ],
+  "cs2": [
+   {
+    "ids": [
+     948,
+     949,
+     953,
+     954,
+     955,
+     946,
+     947,
+     982,
+     952,
+     961,
+     962,
+     972
+    ],
+    "importance": 8,
+    "headline": "PGL Major Singapore 2026 Stage 1 başladı; turnuvanın ilk İsviçre sistemi maçları oynanmaya başlandı.",
+    "reason": "Yılın büyük Major turnuvasının açılışı; takımlar, format ve program netleşti."
+   }
+  ],
+  "ekonomi_tr": [],
+  "ekonomi_dunya": [
+   {
+    "ids": [
+     1112,
+     1106,
+     1095,
+     1129,
+     1135,
+     1120,
+     1140,
+     1151,
+     1121,
+     1149,
+     1148,
+     1137,
+     1116,
+     1114,
+     1124,
+     1154,
+     1130,
+     1108,
+     1150,
+     1098,
+     1107
+    ],
+    "importance": 8,
+    "headline": "Jensen Huang'ın Nvidia'ye dönmesiyle S&P 500 yaklaşık %4,7, Nasdaq %6,5 yükseldi; geçen haftaki sert düşüşün yarısı silindi.",
+    "reason": "Büyük teknoloji hisselerindeki sert toparlanma ve Nvidia'nın piyasa değerinde yaklaşık 1 trilyon dolarlık artış, borsa genelinde geniş etki yaratıyor."
+   }
+  ]
+ }
 }
