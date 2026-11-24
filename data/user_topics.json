@@ -1,0 +1,176 @@
+{
+ "levels": {
+  "sampiyonlar_ligi": "orta",
+  "cs2": "az",
+  "akilli_telefon": "orta",
+  "oyun_genel": "orta",
+  "teknoloji": "orta"
+ },
+ "removed": [
+  "juventus"
+ ],
+ "added": [
+  {
+   "id": "turkiye_siyaseti_ve_gundem",
+   "title": "Türkiye Siyaseti ve Gündem",
+   "min_importance": 7,
+   "max_stories": 5,
+   "criteria": "Kullanıcı Türkiye siyasetini günlük olarak yakından takip eden, karar ve gelişmeleri kaçırmak istemeyen bir okuyucudur.\nÖnemli: Cumhurbaşkanlığı, hükümet ve bakanlıkların somut kararları; TBMM'de kabul edilen yasalar, teklifler ve oylamalar; seçim, adaylık ve parti yönetimiyle ilgili resmi gelişmeler; atama ve görevden almalar; yargı kararları ve soruşturmalar; muhalefet partilerinin resmi açıklamaları ve ittifak/kongre süreçleri; ekonomi ve dış politikada açıklanan politika değişiklikleri.\nÖnemsiz: Doğrulanmamış kulis iddiaları, dedikodu ve söylenti haberleri, sosyal medya tartışmaları ve polemikler, magazinel siyasi kavgalar, tek kaynaklı spekülasyonlar, clickbait başlıklar ve gündemi olmayan yorum yazıları.\nAynı olayın farklı kaynaklardaki tekrarları yerine gelişmenin doğrulanmış özü ve resmi makam açıklamaları esas alınır.\n",
+   "sources": {
+    "google_news": [
+     {
+      "q": "Türkiye siyaset",
+      "lang": "tr"
+     },
+     {
+      "q": "TBMM gündem yasa",
+      "lang": "tr"
+     },
+     {
+      "q": "Cumhurbaşkanlığı karar",
+      "lang": "tr"
+     },
+     {
+      "q": "Turkey politics",
+      "lang": "en"
+     },
+     {
+      "q": "Turkish parliament AKP CHP",
+      "lang": "en"
+     },
+     {
+      "q": "Erdogan government policy",
+      "lang": "en"
+     }
+    ]
+   },
+   "user_request": "Türkiye Siyaseti"
+  },
+  {
+   "id": "barcelona_gunluk_haberleri",
+   "title": "Barcelona Günlük Haberleri",
+   "min_importance": 8,
+   "max_stories": 3,
+   "criteria": "Barcelona hakkında günlük haber takibi yapan okur.\nÖnemli: resmi maç sonuçları, La Liga ve Şampiyonlar Ligi performansı, transfer ve sözleşme gelişmeleri, sakatlık/ceza haberleri, kulüp yönetimi ve teknik direktör kararları.\nÖnemsiz: doğrulanmamış transfer dedikoduları, sosyal medya söylentileri, tıklamayla yanıltıcı başlıklar, magazin ve küçük söylentiler.\n",
+   "sources": {
+    "google_news": [
+     {
+      "q": "Barcelona haberleri",
+      "lang": "tr"
+     },
+     {
+      "q": "Barcelona maç",
+      "lang": "tr"
+     },
+     {
+      "q": "FC Barcelona",
+      "lang": "en"
+     },
+     {
+      "q": "Barcelona football news",
+      "lang": "en"
+     },
+     {
+      "q": "Barcelona transfer",
+      "lang": "en"
+     },
+     {
+      "q": "Barcelona fútbol noticias",
+      "lang": "es"
+     }
+    ]
+   },
+   "user_request": "Barcelona"
+  },
+  {
+   "id": "turkiye_milli_futbol_takimi",
+   "title": "Türkiye Milli Futbol Takımı",
+   "min_importance": 8,
+   "max_stories": 3,
+   "criteria": "Kullanıcı, Türkiye Milli Futbol Takımı'nı yakından takip eden bir taraftar/izleyicidir; takımın maçlarını, turnuva serüvenini ve kadro yapısını düzenli olarak izler.\nÖnemli sayılanlar: A Milli Takım'ın resmi maç sonuçları (eleme, UEFA Uluslar Ligi, turnuva finalleri), hazırlık maçları ve kamp programları; yeni kadro açıklamaları, ilk kez davet edilen oyuncular, sakatlık/ceza kaynaklı kadro değişiklikleri; teknik direktör ataması, istifası ve sözleşme kararları; turnuva katılımı, grup kuraları ve FIFA/UEFA sıralamasındaki anlamlı değişimler; TFF'nin milli takımı doğrudan ilgilendiren resmi kararları.\nÖnemsiz sayılanlar: Kulüp transfer dedikoduları ve oyuncuların kulüp performansına dair spekülasyonlar, sosyal medya tartışmaları ve taraftar yorumları, doğrulanmamış kadro söylentileri, tıklamayla abartılmış 'kriz' haberleri, milli takımla ilgisi olmayan genel futbol gündemi.\n",
+   "sources": {
+    "google_news": [
+     {
+      "q": "A Milli Futbol Takımı",
+      "lang": "tr"
+     },
+     {
+      "q": "Milli Takım kadro maç",
+      "lang": "tr"
+     },
+     {
+      "q": "Turkey national football team",
+      "lang": "en"
+     },
+     {
+      "q": "Türkiye UEFA national team",
+      "lang": "en"
+     },
+     {
+      "q": "Turkey football squad news",
+      "lang": "en"
+     }
+    ]
+   },
+   "user_request": "Türkiye Milli Futbol Takımı"
+  }
+ ],
+ "titles": {},
+ "groups": [
+  {
+   "id": "futbol",
+   "name": "Futbol",
+   "topics": [
+    "arda_guler",
+    "real_madrid",
+    "sampiyonlar_ligi",
+    "premier_lig",
+    "juventus",
+    "barcelona_gunluk_haberleri",
+    "turkiye_milli_futbol_takimi"
+   ]
+  },
+  {
+   "id": "ai",
+   "name": "Yapay Zeka",
+   "topics": [
+    "yapay_zeka",
+    "yerel_llm",
+    "ai_kodlama"
+   ]
+  },
+  {
+   "id": "teknoloji",
+   "name": "Teknoloji",
+   "topics": [
+    "pc_donanim",
+    "teknoloji",
+    "akilli_telefon"
+   ]
+  },
+  {
+   "id": "oyun",
+   "name": "Oyun",
+   "topics": [
+    "oyunlar",
+    "oyun_genel",
+    "cs2"
+   ]
+  },
+  {
+   "id": "ekonomi",
+   "name": "Ekonomi",
+   "topics": [
+    "ekonomi_tr",
+    "ekonomi_dunya"
+   ]
+  },
+  {
+   "id": "g92215",
+   "name": "Gündem",
+   "topics": [
+    "turkiye_siyaseti_ve_gundem"
+   ]
+  }
+ ]
+}
