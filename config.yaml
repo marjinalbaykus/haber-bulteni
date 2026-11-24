@@ -117,8 +117,14 @@ topics:
       sektörü etkileyen büyük şirket hamleleri ve satın almalar, önemli düzenlemeler ve yasaklar,
       çığır açan araştırmalar.
       Haberde model puan aldıysa puanı ve hangi testte aldığını yaz.
+      Ayrıca sektörde neler olduğunu ve somut ilerlemeleri göster: yeni yetenekler (akıl yürütme, ajanlar,
+      görüntü/video/ses üretimi), model maliyetlerinde ve verimlilikte büyük düşüşler, büyük yatırımlar ve
+      veri merkezi hamleleri, laboratuvarlar arası rekabetteki önemli değişimler.
       Önemsiz: sıradan ürün özellik güncellemeleri, köşe yazıları, "yapay zeka işimizi alacak mı" yorumları,
       küçük girişim yatırımları.
+      Bu başlığa girmesin (ayrı başlıkları var): yerel/açık ağırlıklı modellerin bilgisayarda çalıştırılması
+      ("Yerel LLM"); kodlama araçları, abonelik planları, kota ve API fiyat değişiklikleri
+      ("Yapay Zeka Kodlama Araçları ve Fiyatlar"). Bunlara burada ancak sektörü sarsacak kadar büyükse yer ver.
     sources:
       rss: [theverge, techcrunch, qbitai]
       hackernews: true
@@ -127,6 +133,31 @@ topics:
         - {q: "AI model benchmark record", lang: en}
         - {q: "大模型 发布", lang: zh}
         - {q: "yapay zeka", lang: tr}
+
+  - id: ai_kodlama
+    title: "Yapay Zeka Kodlama Araçları ve Fiyatlar"
+    min_importance: 7
+    max_stories: 4
+    criteria: |
+      Kullanıcı Claude Code (Claude aboneliği ile) ve DeepSeek API'sini (OpenCode üzerinden ve bu bültenin
+      kendisinde deepseek-flash olarak) kullanıyor. İleride Claude'u mimar, DeepSeek'i işçi model olarak
+      kullanıp uygulama/oyun yazmayı planlıyor. Fiyat/performans en önemli ölçüt.
+      Önemli: Claude Code, OpenAI Codex, Cursor, OpenCode, Gemini CLI gibi kodlama araçlarında büyük
+      yenilikler; Claude abonelik planı, kullanım kotası veya fiyat değişiklikleri; DeepSeek'in yeni modelleri,
+      API fiyat değişiklikleri ve indirimli saat düzenlemeleri; kodlama testlerinde (SWE-bench vb.) büyük
+      sıçramalar ve fiyat/performans dengesini değiştiren yeni modeller; ucuz ama güçlü API seçenekleri.
+      Fiyat değişikliği varsa eski ve yeni fiyatı (1M token başına) yaz. Puan varsa testi ve puanı yaz.
+      Önemsiz: küçük sürüm notları, eklenti tanıtımları, "en iyi 10 yapay zeka kodlama aracı" listeleri,
+      kişisel deneyim yazıları, küçük girişimlerin araç duyuruları.
+    sources:
+      hackernews: true
+      rss: [theverge, techcrunch]
+      google_news:
+        - {q: "\"Claude Code\" OR Codex OR Cursor OR OpenCode OR \"Gemini CLI\"", lang: en}
+        - {q: "Anthropic Claude pricing OR \"usage limits\" OR \"rate limits\" OR subscription", lang: en}
+        - {q: "DeepSeek API price OR pricing OR \"new model\"", lang: en}
+        - {q: "AI coding model SWE-bench", lang: en}
+        - {q: "DeepSeek 价格 OR 降价 OR 新模型", lang: zh}
 
   - id: teknoloji
     title: "Genel Teknoloji"
