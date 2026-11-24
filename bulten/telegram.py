@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import html
 import os
+import time
 
 import requests
 
@@ -11,13 +12,20 @@ from .common import tr_date, pct_text
 LIMIT = 3900  # Telegram sınırı 4096
 
 
-def _api(method: str, **params):
+def _api(method: str, retries: int = 6, **params):
     token = os.environ["TELEGRAM_BOT_TOKEN"]
-    r = requests.post(f"https://api.telegram.org/bot{token}/{method}", json=params, timeout=60)
-    data = r.json()
-    if not data.get("ok"):
-        raise RuntimeError(f"Telegram {method} hatası: {data.get('description')}")
-    return data["result"]
+    data = {}
+    for _ in range(retries):
+        r = requests.post(f"https://api.telegram.org/bot{token}/{method}", json=params, timeout=60)
+        data = r.json()
+        if data.get("ok"):
+            return data["result"]
+        wait = (data.get("parameters") or {}).get("retry_after")
+        if data.get("error_code") != 429 or not wait:
+            break
+        print(f"Telegram {method}: {wait} sn bekleniyor (istek sınırı)")
+        time.sleep(wait + 1)
+    raise RuntimeError(f"Telegram {method} hatası: {data.get('description')}")
 
 
 def chat_id() -> str:

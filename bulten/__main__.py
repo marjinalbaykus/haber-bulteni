@@ -101,6 +101,19 @@ def cmd_notify() -> None:
     path.unlink(missing_ok=True)
 
 
+def cmd_resend() -> None:
+    """Son bülteni yeniden üretmeden Telegram'a tekrar gönderir."""
+    from .common import DATA
+    cfg = load_config()
+    files = sorted((DATA / "bulletins").glob("*.json"))
+    if not files:
+        print("Gönderilecek bülten yok.")
+        return
+    b = read_json(files[-1])
+    tg.send_many(tg.bulletin_messages(b, cfg["site_url"]))
+    print("Gönderildi:", b["date"])
+
+
 def cmd_chatid() -> None:
     for u in tg.get_updates():
         chat = (u.get("message") or {}).get("chat") or {}
@@ -127,6 +140,8 @@ def main(argv: list[str]) -> None:
         cmd_notify()
     elif c == "chatid":
         cmd_chatid()
+    elif c == "resend":
+        cmd_resend()
     else:
         print(__doc__)
         sys.exit(1)
