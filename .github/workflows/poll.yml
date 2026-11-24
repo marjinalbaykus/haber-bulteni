@@ -2,7 +2,7 @@ name: Telegram komutları
 
 on:
   schedule:
-    - cron: "*/5 * * * *"   # 5 dakikada bir yeni mesaj var mı bakar (GitHub'ın izin verdiği en kısa aralık)
+    - cron: "*/5 * * * *"  # 5 dakikada bir yeni mesaj var mı bakar (GitHub'ın izin verdiği en kısa aralık)
   workflow_dispatch:
 
 permissions:

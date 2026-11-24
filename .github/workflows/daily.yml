@@ -2,7 +2,7 @@ name: Günlük bülten
 
 on:
   schedule:
-    - cron: "30 5 * * *"  # her gün 05:30 UTC = 08:30 Türkiye; DeepSeek'in ucuz saatine denk gelir (06:00 UTC'den önce)
+    - cron: "30 5 * * *"   # her gün 05:30 UTC = 08:30 Türkiye; DeepSeek'in ucuz saatine denk gelir (06:00 UTC'den önce)
   workflow_dispatch:       # Actions sekmesinden elle çalıştırmak için
 
 permissions:
