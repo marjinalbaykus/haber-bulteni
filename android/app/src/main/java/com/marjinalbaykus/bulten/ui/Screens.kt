@@ -229,7 +229,7 @@ fun BulletinScreen(
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
                         ) {
                             Text("${s.importance}", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.width(20.dp))
+                                maxLines = 1, softWrap = false, modifier = Modifier.widthIn(min = 22.dp))
                             Text(s.headline, style = MaterialTheme.typography.bodyMedium)
                         }
                     }
