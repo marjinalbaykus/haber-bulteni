@@ -169,7 +169,7 @@ fun SearchScreen(
                 value = query,
                 onValueChange = { onQuery(it); message = null },
                 placeholder = { Text("Örn: Arda Güler") },
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.keepAboveKeyboard().fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
                 keyboardActions = KeyboardActions(onSearch = { keyboard?.hide() }),
                 singleLine = true,

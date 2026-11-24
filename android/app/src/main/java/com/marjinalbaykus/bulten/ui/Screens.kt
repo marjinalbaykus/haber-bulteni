@@ -60,6 +60,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.marjinalbaykus.bulten.BuildConfig
+import kotlinx.coroutines.launch
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.mutableIntStateOf
 import com.marjinalbaykus.bulten.data.Bulletin
 import com.marjinalbaykus.bulten.data.Index
 import com.marjinalbaykus.bulten.data.Story
@@ -421,10 +424,27 @@ fun SettingsScreen(
     onToken: (String) -> Unit,
     notifications: Boolean,
     onNotifications: (Boolean) -> Unit,
+    repo: com.marjinalbaykus.bulten.data.Repo,
+    existingDates: Set<String>,
     padding: PaddingValues,
 ) {
     var tokenText by remember { mutableStateOf(token) }
     var saved by remember { mutableStateOf(false) }
+    var keepText by remember { mutableStateOf(repo.retentionDays?.toString() ?: "") }
+    var keepSaved by remember { mutableStateOf(false) }
+    // Elle bülten: varsayılan gün, akşam 21:00'den önce dün (bugünün bülteni henüz tamamlanmamış olur)
+    val tz = java.time.ZoneId.of("Europe/Istanbul")
+    val today = remember { java.time.LocalDate.now(tz) }
+    val beforeEvening = remember { java.time.LocalTime.now(tz).isBefore(java.time.LocalTime.of(21, 0)) }
+    var runDay by remember { mutableStateOf(if (beforeEvening) today.minusDays(1) else today) }
+    var confirmStep by remember { mutableIntStateOf(0) }   // 0 kapalı, 1 ilk soru, 2 son onay
+    var runMessage by remember { mutableStateOf<String?>(null) }
+    var running by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+    fun dayLabel(d: java.time.LocalDate): String {
+        val (day, weekday) = trDayParts(d.toString())
+        return "$day $weekday"
+    }
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState())
             .padding(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding(),
@@ -454,7 +474,7 @@ fun SettingsScreen(
         Row(Modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {
                 Text("Yeni bülten bildirimi", style = MaterialTheme.typography.bodyLarge)
-                Text("Sabah bülten hazır olunca haber verir (genelde 08:30-09:00 arası).",
+                Text("Akşam bülten hazır olunca haber verir (genelde 21:00-21:30 arası).",
                     style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             Switch(checked = notifications, onCheckedChange = onNotifications)
@@ -472,7 +492,7 @@ fun SettingsScreen(
             placeholder = { Text("github_pat_...") },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+            modifier = Modifier.keepAboveKeyboard().fillMaxWidth().padding(top = 8.dp),
         )
         Row(Modifier.fillMaxWidth().padding(top = 6.dp), horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically) {
@@ -480,9 +500,106 @@ fun SettingsScreen(
                 color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(end = 12.dp))
             FilledTonalButton(onClick = { onToken(tokenText); saved = true }) { Text("Kaydet") }
         }
+        SectionTitle("Saklama süresi (telefonda)")
+        Text(
+            "Telefonda kaç günlük bülten saklansın ve aramada kullanılsın. Boş bırakırsan sınırsız saklanır. " +
+                "Sitede (GitHub) ayrıca son 2 yıl saklanır.",
+            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Row(Modifier.fillMaxWidth().padding(top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+            OutlinedTextField(
+                value = keepText,
+                onValueChange = { v -> keepText = v.filter { it.isDigit() }.take(5); keepSaved = false },
+                placeholder = { Text("Sınırsız") },
+                suffix = { Text("gün") },
+                singleLine = true,
+                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
+                    keyboardType = androidx.compose.ui.text.input.KeyboardType.Number),
+                modifier = Modifier.keepAboveKeyboard().weight(1f),
+            )
+            FilledTonalButton(
+                onClick = { repo.retentionDays = keepText.toIntOrNull()?.takeIf { it > 0 }; keepSaved = true },
+                modifier = Modifier.padding(start = 8.dp),
+            ) { Text("Kaydet") }
+        }
+        if (keepSaved) {
+            Text(
+                repo.retentionDays?.let { "Kaydedildi: son $it gün saklanır, daha eskiler telefondan silindi." }
+                    ?: "Kaydedildi: sınırsız saklanır.",
+                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+        }
+
+        SectionTitle("Bülteni şimdi hazırla")
+        Text(
+            "Bülten normalde her akşam 21:00'de kendiliğinden hazırlanır. Kaçan bir gün için buradan elle başlatabilirsin. " +
+                "DeepSeek ile hazırlanır: ücretlidir (yaklaşık 0,08 dolar) ve 3-5 dakika sürer.",
+            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Column(Modifier.selectableGroup().padding(top = 4.dp)) {
+            listOf(today.minusDays(1) to "Dün", today to "Bugün").forEach { (d, name) ->
+                Row(
+                    Modifier.fillMaxWidth()
+                        .selectable(selected = d == runDay, onClick = { runDay = d }, role = Role.RadioButton)
+                        .padding(vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    RadioButton(selected = d == runDay, onClick = null)
+                    Text("$name: ${dayLabel(d)}" + if (d.toString() in existingDates) " (bülteni var)" else "",
+                        style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(start = 12.dp))
+                }
+            }
+        }
+        Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.End) {
+            FilledTonalButton(onClick = { runMessage = null; confirmStep = 1 }, enabled = !running) { Text("Hazırla") }
+        }
+        runMessage?.let {
+            Text(it, style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 4.dp))
+        }
+
         SectionTitle("Hakkında")
         Text("Haber Bülteni ${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.bodyMedium)
-        Text("Bülten her sabah 08:30 civarı hazırlanır.", style = MaterialTheme.typography.bodySmall,
+        Text("Bülten her akşam 21:00 civarı hazırlanır.", style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+
+    if (confirmStep > 0) {
+        val label = dayLabel(runDay)
+        val exists = runDay.toString() in existingDates
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { confirmStep = 0 },
+            title = { Text(if (confirmStep == 1) "Bülten hazırlansın mı?" else "Emin misin?") },
+            text = {
+                Text(
+                    if (confirmStep == 1) {
+                        "$label bülteni DeepSeek ile hazırlanacak. Ücretlidir (yaklaşık 0,08 dolar) ve 3-5 dakika sürer." +
+                            if (exists) " Bu günün bülteni zaten var, yenisi onun yerine geçer." else ""
+                    } else {
+                        "$label için çalıştırma şimdi başlatılacak ve DeepSeek bakiyenden düşülecek."
+                    },
+                )
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    if (confirmStep == 1) {
+                        confirmStep = 2
+                    } else {
+                        confirmStep = 0
+                        running = true
+                        scope.launch {
+                            runMessage = try {
+                                repo.runBulletin(runDay.toString())
+                                "Başlatıldı. 3-5 dakika sonra Ana sayfada aşağı çekip yenile."
+                            } catch (e: Exception) {
+                                "Başlatılamadı: " + (e.message ?: e.javaClass.simpleName)
+                            }
+                            running = false
+                        }
+                    }
+                }) { Text(if (confirmStep == 1) "Devam" else "Evet, çalıştır") }
+            },
+            dismissButton = { TextButton(onClick = { confirmStep = 0 }) { Text("Vazgeç") } },
+        )
     }
 }

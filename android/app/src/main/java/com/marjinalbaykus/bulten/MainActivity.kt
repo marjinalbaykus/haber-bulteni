@@ -45,6 +45,10 @@ import com.marjinalbaykus.bulten.ui.AllNewsScreen
 import com.marjinalbaykus.bulten.ui.AppIcons
 import com.marjinalbaykus.bulten.ui.BulletinScreen
 import com.marjinalbaykus.bulten.ui.withTitles
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.imePadding
 import com.marjinalbaykus.bulten.ui.TopicsDraft
 import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.launch
@@ -66,6 +70,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val repo = Repo(applicationContext)
+        runCatching { repo.pruneCache() }   // telefondaki saklama süresi
         runCatching { NewsJob.schedule(applicationContext) }   // bildirim kurulamazsa uygulama yine açılsın
         // Android 13+ bildirim izni (bir kez sorulur; reddedilirse Ayarlar'dan açılabilir)
         if (Build.VERSION.SDK_INT >= 33 && repo.notificationsOn &&
@@ -227,7 +232,12 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 }
             }
         },
-    ) { padding ->
+    ) { scaffoldPadding ->
+      // Klavye açılınca içerik klavyenin üstüne sığacak şekilde daralır ve alt çubuk payı kalkar;
+      // böylece odaklanan yazı alanı klavyenin üstüne kaydırılabilir (ui/Keyboard.kt)
+      val imeOpen = WindowInsets.ime.getBottom(LocalDensity.current) > 0
+      val padding = if (imeOpen) PaddingValues(top = scaffoldPadding.calculateTopPadding()) else scaffoldPadding
+      Box(Modifier.fillMaxSize().imePadding()) {
         when (screen) {
             Screen.Home, Screen.AllNews -> {
                 val b = bulletin
@@ -257,12 +267,14 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 stack = listOf(Screen.Home)
             }, padding)
             Screen.Settings -> SettingsScreen(themeMode, onThemeMode, repo.githubToken, { repo.githubToken = it },
-                notifications, { notifications = it; repo.notificationsOn = it }, padding)
+                notifications, { notifications = it; repo.notificationsOn = it }, repo,
+                index?.bulletins?.map { it.date }?.toSet().orEmpty(), padding)
             Screen.Search -> SearchScreen(repo, searchQuery, { searchQuery = it }, { push(Screen.ResearchDetail(it)) },
                 { push(Screen.Detail(it)) }, { push(Screen.Settings) }, padding)
             Screen.Topics -> TopicsScreen(repo, topicsDraft, { push(Screen.Settings) }, { topics = it }, padding)
             is Screen.ResearchDetail -> ResearchScreen(repo, screen.id, padding)
             is Screen.Detail -> DetailScreen(screen.item, padding)
         }
+      }
     }
 }

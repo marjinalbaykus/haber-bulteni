@@ -330,7 +330,7 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                                 value = newText,
                                 onValueChange = { newText = it.take(300) },
                                 placeholder = { Text("Örn: Formula 1") },
-                                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                                modifier = Modifier.keepAboveKeyboard().fillMaxWidth().padding(top = 8.dp),
                                 maxLines = 4,
                             )
                             LevelPicker(newLevel, { newLevel = it }, Modifier.fillMaxWidth().padding(top = 8.dp))

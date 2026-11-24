@@ -28,13 +28,39 @@ class Repo(context: Context) {
      * yayınlandıktan sonra değişmezler. Sadece en son bülten her seferinde yeniden alınır.
      */
     suspend fun allBulletins(refs: List<BulletinRef>): List<Bulletin> = withContext(Dispatchers.IO) {
-        refs.mapIndexedNotNull { i, ref ->
+        val oldest = oldestKept()
+        refs.filter { oldest == null || it.date >= oldest }.mapIndexedNotNull { i, ref ->
             val file = File(cache, "b_${ref.date}.json")
             runCatching {
                 if (i > 0 && file.exists()) parseBulletin(file.readText()) else bulletin(ref.date).value
             }.getOrNull()
         }
     }
+
+    /** Telefonda bülten saklama süresi (gün). null = sınırsız. Sitede ayrıca 2 yıl saklanır. */
+    var retentionDays: Int?
+        get() = prefs.getInt("saklama_gun", 0).takeIf { it > 0 }
+        set(value) {
+            prefs.edit().putInt("saklama_gun", value ?: 0).apply()
+            bulletinCache = null
+            pruneCache()
+        }
+
+    /** Saklanan en eski bülten günü (YYYY-AA-GG) veya sınırsızsa null. */
+    fun oldestKept(): String? = retentionDays?.let {
+        java.time.LocalDate.now(java.time.ZoneId.of("Europe/Istanbul")).minusDays(it.toLong()).toString()
+    }
+
+    /** Saklama süresini aşan bülten kopyalarını telefondan siler. */
+    fun pruneCache() {
+        val oldest = oldestKept() ?: return
+        cache.listFiles()?.filter {
+            it.name.startsWith("b_") && it.name.removePrefix("b_").removeSuffix(".json") < oldest
+        }?.forEach { it.delete() }
+    }
+
+    /** "Günlük bülten (DeepSeek, elle)" iş akışını verilen gün için başlatır (ücretli, yaklaşık 0,08 dolar). */
+    suspend fun runBulletin(date: String) = dispatch("daily.yml", mapOf("date" to date))
 
     /** Ara ekranı için bellekte tutulan bülten listesi (uygulama açık kaldıkça tekrar okunmaz). */
     @Volatile var bulletinCache: List<Bulletin>? = null
