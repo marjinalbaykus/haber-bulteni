@@ -39,6 +39,8 @@ import com.marjinalbaykus.bulten.ui.ErrorView
 import com.marjinalbaykus.bulten.ui.HistoryScreen
 import com.marjinalbaykus.bulten.ui.Item
 import com.marjinalbaykus.bulten.ui.MenuIcon
+import com.marjinalbaykus.bulten.ui.ResearchScreen
+import com.marjinalbaykus.bulten.ui.SearchScreen
 import com.marjinalbaykus.bulten.ui.SettingsScreen
 import com.marjinalbaykus.bulten.ui.theme.BultenTheme
 import com.marjinalbaykus.bulten.ui.theme.ThemeMode
@@ -72,6 +74,8 @@ private sealed interface Screen {
     data object AllNews : Screen
     data object History : Screen
     data object Settings : Screen
+    data object Search : Screen
+    data class ResearchDetail(val id: String) : Screen
     data class Detail(val item: Item) : Screen
 }
 
@@ -127,6 +131,8 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                             Screen.AllNews -> "Tüm haberler"
                             Screen.History -> "Geçmiş bültenler"
                             Screen.Settings -> "Ayarlar"
+                            Screen.Search -> "Ara"
+                            is Screen.ResearchDetail -> "Araştırma"
                             is Screen.Detail -> screen.item.topic.title
                         },
                         maxLines = 1,
@@ -139,6 +145,10 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                     Box {
                         IconButton(onClick = { menuOpen = true }) { MenuIcon() }
                         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                            DropdownMenuItem(text = { Text("Ara (araştırma)") }, onClick = {
+                                menuOpen = false
+                                if (screen != Screen.Search) push(Screen.Search)
+                            })
                             DropdownMenuItem(text = { Text("Yenile") }, onClick = { menuOpen = false; reload++ })
                             DropdownMenuItem(text = { Text("Geçmiş bültenler") }, onClick = {
                                 menuOpen = false
@@ -170,7 +180,9 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 date = picked
                 stack = listOf(Screen.Home)
             }, padding)
-            Screen.Settings -> SettingsScreen(themeMode, onThemeMode, padding)
+            Screen.Settings -> SettingsScreen(themeMode, onThemeMode, repo.githubToken, { repo.githubToken = it }, padding)
+            Screen.Search -> SearchScreen(repo, { push(Screen.ResearchDetail(it)) }, { push(Screen.Settings) }, padding)
+            is Screen.ResearchDetail -> ResearchScreen(repo, screen.id, padding)
             is Screen.Detail -> DetailScreen(screen.item, padding)
         }
     }

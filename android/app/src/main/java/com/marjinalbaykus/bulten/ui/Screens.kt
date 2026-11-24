@@ -31,10 +31,15 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -45,6 +50,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.marjinalbaykus.bulten.BuildConfig
@@ -358,7 +364,15 @@ fun HistoryScreen(index: Index?, onPick: (String) -> Unit, padding: PaddingValue
 }
 
 @Composable
-fun SettingsScreen(themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit, padding: PaddingValues) {
+fun SettingsScreen(
+    themeMode: ThemeMode,
+    onThemeMode: (ThemeMode) -> Unit,
+    token: String,
+    onToken: (String) -> Unit,
+    padding: PaddingValues,
+) {
+    var tokenText by remember { mutableStateOf(token) }
+    var saved by remember { mutableStateOf(false) }
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState())
             .padding(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding(),
@@ -383,6 +397,26 @@ fun SettingsScreen(themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit, paddi
                     }
                 }
             }
+        }
+        SectionTitle("Araştırma (GitHub erişim anahtarı)")
+        Text(
+            "Ara ekranından araştırma başlatmak için gerekir. GitHub > Settings > Developer settings > " +
+                "Fine-grained tokens: sadece haber-bulteni deposu, izin olarak Actions: Read and write.",
+            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        OutlinedTextField(
+            value = tokenText,
+            onValueChange = { tokenText = it; saved = false },
+            placeholder = { Text("github_pat_...") },
+            singleLine = true,
+            visualTransformation = PasswordVisualTransformation(),
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+        )
+        Row(Modifier.fillMaxWidth().padding(top = 6.dp), horizontalArrangement = Arrangement.End,
+            verticalAlignment = Alignment.CenterVertically) {
+            if (saved) Text("Kaydedildi", style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(end = 12.dp))
+            FilledTonalButton(onClick = { onToken(tokenText); saved = true }) { Text("Kaydet") }
         }
         SectionTitle("Hakkında")
         Text("Haber Bülteni ${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.bodyMedium)

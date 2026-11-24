@@ -19,6 +19,57 @@ class Repo(context: Context) {
 
     suspend fun bulletin(date: String): Loaded<Bulletin> = load("b/$date.json", ::parseBulletin)
 
+    suspend fun research(id: String): Loaded<Research> = load("r/$id.json", ::parseResearch)
+
+    /** GitHub ince ayarlı erişim anahtarı (sadece haber-bulteni deposu, Actions: okuma ve yazma). */
+    var githubToken: String
+        get() = prefs.getString("github_token", "") ?: ""
+        set(value) = prefs.edit().putString("github_token", value.trim()).apply()
+
+    /** Başlatılmış ama sonucu henüz sitede görünmeyen araştırmalar: sorgu -> başlatılma zamanı (ms). */
+    fun pendingResearch(): Map<String, Long> =
+        prefs.getStringSet("bekleyen_arastirma", emptySet())!!.mapNotNull { line ->
+            val i = line.indexOf('|')
+            if (i < 0) null else line.substring(i + 1) to (line.substring(0, i).toLongOrNull() ?: 0L)
+        }.toMap()
+
+    fun setPendingResearch(map: Map<String, Long>) {
+        prefs.edit().putStringSet("bekleyen_arastirma", map.map { (q, t) -> "$t|$q" }.toSet()).apply()
+    }
+
+    /** GitHub Actions'taki "Araştırma (uygulamadan)" iş akışını başlatır. */
+    suspend fun startResearch(query: String) = withContext(Dispatchers.IO) {
+        val token = githubToken
+        if (token.isBlank()) error("Önce Ayarlar'dan GitHub erişim anahtarını gir.")
+        val conn = URL("https://api.github.com/repos/$REPO/actions/workflows/research.yml/dispatches")
+            .openConnection() as HttpURLConnection
+        try {
+            conn.requestMethod = "POST"
+            conn.connectTimeout = 15_000
+            conn.readTimeout = 20_000
+            conn.doOutput = true
+            conn.setRequestProperty("Accept", "application/vnd.github+json")
+            conn.setRequestProperty("Authorization", "Bearer $token")
+            conn.setRequestProperty("X-GitHub-Api-Version", "2022-11-28")
+            conn.setRequestProperty("Content-Type", "application/json")
+            val body = org.json.JSONObject().put("ref", "main")
+                .put("inputs", org.json.JSONObject().put("query", query)).toString()
+            conn.outputStream.use { it.write(body.toByteArray(Charsets.UTF_8)) }
+            val code = conn.responseCode
+            if (code != 204) {
+                val msg = conn.errorStream?.bufferedReader()?.use { it.readText() }.orEmpty()
+                error(when (code) {
+                    401 -> "Erişim anahtarı geçersiz veya süresi dolmuş."
+                    403, 404 -> "Anahtarın bu depoda Actions yazma izni yok (veya iş akışı henüz GitHub'da değil)."
+                    else -> "GitHub yanıtı $code ${msg.take(200)}"
+                })
+            }
+        } finally {
+            conn.disconnect()
+        }
+        setPendingResearch(pendingResearch() + (query to System.currentTimeMillis()))
+    }
+
     /** Kullanıcının başlık için seçtiği seviye; null ise sunucunun gönderdiği hepsi gösterilir. */
     fun level(topicId: String): Level? =
         prefs.getString("seviye_$topicId", null)?.let { name -> Level.entries.firstOrNull { it.name == name } }
@@ -61,6 +112,7 @@ class Repo(context: Context) {
     }
 
     companion object {
+        const val REPO = "marjinalbaykus/haber-bulteni"
         const val BASE = "https://marjinalbaykus.github.io/haber-bulteni/api/"
     }
 }

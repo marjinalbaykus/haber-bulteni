@@ -105,3 +105,32 @@ fun parseIndex(text: String): Index {
         },
     )
 }
+
+data class ResearchSection(val heading: String, val body: String)
+
+data class Research(
+    val id: String,
+    val query: String,
+    val title: String,
+    val created: String,
+    val summaryPoints: List<String>,
+    val sections: List<ResearchSection>,
+    val caveats: String,
+    val sources: List<Source>,
+)
+
+fun parseResearch(text: String): Research {
+    val o = JSONObject(text)
+    return Research(
+        id = o.optString("id"),
+        query = o.optString("query"),
+        title = o.optString("title"),
+        created = o.optString("created"),
+        summaryPoints = o.optJSONArray("summary_points").strings(),
+        sections = o.optJSONArray("sections").objects().map { ResearchSection(it.optString("heading"), it.optString("body")) },
+        caveats = o.optString("caveats"),
+        sources = o.optJSONArray("sources").objects().map { src ->
+            Source(src.optString("title"), src.optString("url"), src.optString("source"), src.optString("lang"))
+        },
+    )
+}
