@@ -1,0 +1,4 @@
+{"stories":[
+{"ids":[146,163,139,732,144],"importance":8,"headline":"Z.ai, ilk loop transformer modeli GLM-5.4'ü açık ağırlıklı olarak yayımladı; 750 milyar parametreli model 4-bit ile bile 16 GB veya 32 GB VRAM'e sığmaz, açık modellerin en güçlüsü olup Opus 5.5'e yüzde 5'ten az fark atıyor.","reason":"Yeni amiral gemisi açık model ve çok büyük ilgi (Hacker News 1114 puan); yerelde çalışmaz ama açık-kapalı model farkını gösteriyor."},
+{"ids":[728],"importance":7,"headline":"NariQ, Qwen3.8-27B modelini BF16 kalitesinde yaklaşık 10 GB'lık dosyaya sığdırdı; 27B model 16 GB VRAM'e rahatça, 32 GB'a bolca sığıyor.","reason":"Quantization alanında yerel kullanım için önemli gelişme (Hacker News 163 puan); RX 7800 XT'ye doğrudan uygun."}
+]}
