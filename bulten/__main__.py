@@ -1,5 +1,5 @@
 """Komut satırı:
-  python -m bulten daily [--send]       günlük bülteni hazırla
+  python -m bulten daily [--send] [--date YYYY-AA-GG]   günlük bülteni hazırla (geçmiş gün de olabilir)
   python -m bulten research "konu" [--send]
   python -m bulten poll                 Telegram'dan gelen komutları işle
   python -m bulten render               docs/ sitesini yeniden üret
@@ -51,10 +51,10 @@ def deliver(messages: list[str], send_now: bool) -> None:
         queue_notification(messages)
 
 
-def cmd_daily(send_now: bool) -> None:
+def cmd_daily(send_now: bool, date: str | None = None) -> None:
     from .daily import run_daily
     cfg = load_config()
-    b = run_daily(cfg)
+    b = run_daily(cfg, date)
     deliver(tg.bulletin_messages(b, cfg["site_url"]), send_now)
 
 
@@ -131,7 +131,12 @@ def main(argv: list[str]) -> None:
     args = [a for a in argv if a != "--send"]
     c = args[0]
     if c == "daily":
-        cmd_daily(send_now)
+        date = args[args.index("--date") + 1] if "--date" in args and args.index("--date") + 1 < len(args) else None
+        if date:
+            import re
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+                raise SystemExit(f"Geçersiz tarih: {date}")
+        cmd_daily(send_now, date)
     elif c == "research":
         cmd_research(" ".join(args[1:]), send_now)
     elif c == "poll":

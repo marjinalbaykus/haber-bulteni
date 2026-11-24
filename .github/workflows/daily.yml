@@ -1,10 +1,15 @@
 name: Günlük bülten (DeepSeek, elle)
 
 # Günlük bülteni artık her akşam 21:00 Claude rutini hazırlıyor (bkz. publish.yml).
-# Bu iş akışı yedek olarak duruyor: Actions sekmesinden elle çalıştırılırsa DeepSeek ile bülten üretir (ücretli).
-# Tekrar otomatik yapmak için aşağıya şunu ekle:  schedule: [{cron: "30 5 * * *"}]
+# Bu iş akışı yedek: uygulamada Ayarlar > "Bülteni şimdi hazırla" veya Actions sekmesinden elle çalıştırılır,
+# DeepSeek ile bülten üretir (ücretli, yaklaşık 0,08 dolar). date verilirse o günün bülteni hazırlanır.
 on:
   workflow_dispatch:
+    inputs:
+      date:
+        description: "Bülten günü (YYYY-AA-GG), boşsa bugün"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -28,10 +33,14 @@ jobs:
       - name: Bülteni hazırla
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python -m bulten daily
+          BULTEN_DATE: ${{ inputs.date }}
+        run: |
+          if [ -n "$BULTEN_DATE" ]; then python -m bulten daily --date "$BULTEN_DATE"; else python -m bulten daily; fi
 
       - name: Kaydet ve siteyi güncelle
-        run: bash scripts/commit_push.sh "Bülten $(date -u +%F)"
+        run: bash scripts/commit_push.sh "Bülten (DeepSeek, elle) ${BULTEN_DATE:-$(date -u +%F)}"
+        env:
+          BULTEN_DATE: ${{ inputs.date }}
 
       - name: Telegram'a gönder
         env:

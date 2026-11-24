@@ -5,6 +5,7 @@ site_url: "https://marjinalbaykus.github.io/haber-bulteni"
 model: deepseek-flash          # sabit: kod sadece deepseek-flash'a izin verir
 lookback_hours: 30             # son kaç saatin haberleri taransın
 max_candidates_per_topic: 220  # bir başlık için modele gönderilecek en fazla aday haber
+retention_days: 730            # saklama süresi: bundan eski bültenler siteden ve data/ klasöründen silinir (0 = sınırsız)
 
 # Doğrudan RSS kaynakları. Başlıklarda "rss:" altında adıyla kullanılır.
 feeds:

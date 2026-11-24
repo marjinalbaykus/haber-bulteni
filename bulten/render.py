@@ -145,6 +145,17 @@ def render_all() -> None:
          "display": "standalone", "background_color": "#121212", "theme_color": "#1f5fbf"},
         ensure_ascii=False), encoding="utf-8")
 
+    # Saklama süresi (config.yaml retention_days): daha eski bültenler silinir (git geçmişinde yine durur)
+    from datetime import timedelta
+    from .common import load_config, now_tr
+    keep_days = int(load_config(raw=True).get("retention_days") or 0)
+    if keep_days > 0:
+        oldest = (now_tr() - timedelta(days=keep_days)).strftime("%Y-%m-%d")
+        for p in (DATA / "bulletins").glob("*.json"):
+            if p.stem < oldest:
+                print("Saklama süresi doldu, silindi:", p.name)
+                p.unlink()
+
     bulletins = []
     for p in sorted((DATA / "bulletins").glob("*.json"), reverse=True):
         b = json.loads(p.read_text(encoding="utf-8"))
@@ -163,18 +174,25 @@ def render_all() -> None:
 
     # Telefon uygulaması için JSON (GitHub Pages: /api/...)
     api = DOCS / "api"
-    for b in bulletins[:60]:
+    for b in bulletins:
         _write(api / "b" / f"{b['date']}.json", json.dumps(b, ensure_ascii=False))
-    for r in research[:60]:
+    for r in research:
         _write(api / "r" / f"{r['id']}.json", json.dumps(r, ensure_ascii=False))
-    from .common import load_config
+    # Artık karşılığı olmayan sayfaları sil (saklama süresi dolan veya tarihi düzeltilen bültenler)
+    live = {b["date"] for b in bulletins}
+    for p in (api / "b").glob("*.json"):
+        if p.stem not in live:
+            p.unlink()
+    for p in (DOCS / "b").glob("*.html"):
+        if p.stem not in live and p.stem not in {stem for stem, _ in trials}:
+            p.unlink()
     from .topics import public_list
     _write(api / "topics.json", json.dumps(public_list(load_config(raw=True)), ensure_ascii=False))
     _write(api / "index.json", json.dumps({
         "bulletins": [{"date": b["date"], "generated_at": b["generated_at"],
-                       "count": sum(len(t["stories"]) for t in b["topics"])} for b in bulletins[:60]],
+                       "count": sum(len(t["stories"]) for t in b["topics"])} for b in bulletins],
         "research": [{"id": r["id"], "title": r["title"], "query": r["query"], "created": r["created"]}
-                     for r in research[:60]],
+                     for r in research],
     }, ensure_ascii=False))
 
     body = ['<h1>Haber Bülteni</h1>']
@@ -184,7 +202,7 @@ def render_all() -> None:
     body.append('<h2>Bültenler</h2><div class="list">' + "".join(
         f'<a href="b/{b["date"]}.html">{e(tr_date(b["date"]))} '
         f'<span class="muted">({sum(len(t["stories"]) for t in b["topics"])} haber)</span></a>'
-        for b in bulletins[:60]) + "</div>")
+        for b in bulletins) + "</div>")
     if trials:
         body.append('<h2>Model denemeleri</h2><div class="list">' + "".join(
             f'<a href="b/{stem}.html">{e(tr_date(b["date"]))} - {e(b.get("variant", ""))} '

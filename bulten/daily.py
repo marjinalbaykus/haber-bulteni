@@ -324,10 +324,16 @@ def update_history(out_topics: list[dict], date: str) -> None:
     write_json(hist_path, hist)
 
 
-def run_daily(cfg: dict) -> dict:
+def run_daily(cfg: dict, date: str | None = None) -> dict:
+    """date: bültenin günü (YYYY-AA-GG, TR). Verilmezse bugün. Geçmiş bir gün verilirse o günün akşamı 21:00'e
+    (TR) kadar olan haberler kullanılır (ör. çarşamba gecesi salının bültenini hazırlamak için)."""
     started = datetime.now(timezone.utc)
-    since = started - timedelta(hours=cfg.get("lookback_hours", 30))
-    date = now_tr().strftime("%Y-%m-%d")
+    today = now_tr().strftime("%Y-%m-%d")
+    date = date or today
+    end = started
+    if date < today:
+        end = datetime.strptime(date, "%Y-%m-%d").replace(hour=18, tzinfo=timezone.utc)   # 21:00 TR
+    since = end - timedelta(hours=cfg.get("lookback_hours", 30))
     hist_path = DATA / "history.json"
     hist = read_json(hist_path, {"cited_urls": {}, "headlines": {}})
     cited = set(hist["cited_urls"])
@@ -335,6 +341,11 @@ def run_daily(cfg: dict) -> dict:
     print("Kaynaklar taranıyor...")
     pool = S.Pool()
     topic_ids = collect(cfg, since, pool)
+    if end < started:
+        cutoff = end.strftime("%Y-%m-%dT%H:%M")
+        late = {it.id for it in pool.items if it.published and it.published[:16] > cutoff}
+        topic_ids = {k: [[i for i in g if i not in late] for g in groups] for k, groups in topic_ids.items()}
+        print(f"{date} bülteni: kesim saatinden ({cutoff}Z) sonraki {len(late)} haber çıkarıldı")
     print(f"Toplam tekil haber: {len(pool.items)}")
 
     print("Piyasa verisi alınıyor...")
