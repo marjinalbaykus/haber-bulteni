@@ -1,6 +1,7 @@
 package com.marjinalbaykus.bulten.data
 
 import android.content.Context
+import com.marjinalbaykus.bulten.ui.theme.ThemeMode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -25,6 +26,10 @@ class Repo(context: Context) {
     fun setLevel(topicId: String, level: Level?) {
         prefs.edit().apply { if (level == null) remove("seviye_$topicId") else putString("seviye_$topicId", level.name) }.apply()
     }
+
+    var themeMode: ThemeMode
+        get() = prefs.getString("tema", null)?.let { n -> ThemeMode.entries.firstOrNull { it.name == n } } ?: ThemeMode.SISTEM
+        set(value) = prefs.edit().putString("tema", value.name).apply()
 
     fun visible(topic: Topic): List<Story> = level(topic.id)?.apply(topic.stories) ?: topic.stories
 

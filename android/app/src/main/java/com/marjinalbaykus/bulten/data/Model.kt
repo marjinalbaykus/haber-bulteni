@@ -17,13 +17,17 @@ data class Story(
 
 data class Topic(val id: String, val title: String, val note: String, val stories: List<Story>)
 
-data class MarketAlarm(val name: String, val lines: List<String>)
+data class MarketAlarm(val symbol: String, val name: String, val lines: List<String>)
+
+/** Bir piyasa varlığının son değeri ve 1 günlük yüzde değişimi. */
+data class Market(val symbol: String, val name: String, val value: Double, val dayPct: Double?)
 
 data class Bulletin(
     val date: String,
     val generatedAt: String,
     val topics: List<Topic>,
     val alarms: List<MarketAlarm>,
+    val markets: List<Market>,
 )
 
 data class BulletinRef(val date: String, val generatedAt: String, val count: Int)
@@ -75,6 +79,7 @@ fun parseBulletin(text: String): Bulletin {
     }
     val alarms = o.optJSONArray("market_alarms").objects().map { m ->
         MarketAlarm(
+            symbol = m.optString("symbol"),
             name = m.optString("name"),
             lines = m.optJSONArray("alarms").objects().map { a ->
                 val pct = a.optDouble("pct")
@@ -82,7 +87,11 @@ fun parseBulletin(text: String): Bulletin {
             },
         )
     }
-    return Bulletin(o.optString("date"), o.optString("generated_at"), topics, alarms)
+    val markets = o.optJSONArray("markets").objects().map { m ->
+        val day = m.optJSONObject("changes")?.takeIf { it.has("day") }?.optDouble("day")
+        Market(m.optString("symbol"), m.optString("name"), m.optDouble("value"), day)
+    }
+    return Bulletin(o.optString("date"), o.optString("generated_at"), topics, alarms, markets)
 }
 
 fun parseIndex(text: String): Index {

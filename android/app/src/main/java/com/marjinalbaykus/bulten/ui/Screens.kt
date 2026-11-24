@@ -1,6 +1,7 @@
 package com.marjinalbaykus.bulten.ui
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,32 +12,47 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.marjinalbaykus.bulten.BuildConfig
 import com.marjinalbaykus.bulten.data.Bulletin
 import com.marjinalbaykus.bulten.data.Index
 import com.marjinalbaykus.bulten.data.Story
 import com.marjinalbaykus.bulten.data.Topic
+import com.marjinalbaykus.bulten.ui.theme.ThemeMode
 
 /** Bir haber ve ait olduğu başlık. */
 data class Item(val topic: Topic, val story: Story)
@@ -79,18 +95,106 @@ fun ErrorView(message: String, onRetry: () -> Unit) {
     }
 }
 
+/** Üç yatay çizgi (menü simgesi). Ek simge kütüphanesi eklememek için elle çiziliyor. */
+@Composable
+fun MenuIcon() {
+    val color = MaterialTheme.colorScheme.onSurface
+    Canvas(Modifier.size(22.dp, 16.dp)) {
+        val stroke = 2.dp.toPx()
+        listOf(0f, size.height / 2, size.height).forEach { y ->
+            val yy = y.coerceIn(stroke / 2, size.height - stroke / 2)
+            drawLine(color, Offset(0f, yy), Offset(size.width, yy), strokeWidth = stroke, cap = StrokeCap.Round)
+        }
+    }
+}
+
+@Composable
+private fun AllNewsButton(onClick: () -> Unit) {
+    FilledTonalButton(
+        onClick = onClick,
+        contentPadding = PaddingValues(horizontal = 14.dp, vertical = 4.dp),
+        modifier = Modifier.heightIn(min = 34.dp),
+    ) {
+        Text("Tüm haberler", style = MaterialTheme.typography.labelLarge)
+    }
+}
+
+/** Kutuda gösterilen varlıklar, bu sırayla (S&P 500 en altta). */
+private val SHOWN_MARKETS = listOf(
+    "USDTRY=X" to "Dolar/TL",
+    "EURTRY=X" to "Euro/TL",
+    "GRAM" to "Gram altın",
+    "XU100.IS" to "BIST 100",
+    "^GSPC" to "S&P 500",
+)
+
+private fun trNumber(v: Double): String {
+    val f = java.text.NumberFormat.getNumberInstance(java.util.Locale.forLanguageTag("tr-TR"))
+    f.maximumFractionDigits = if (v >= 1000) 0 else 2
+    f.minimumFractionDigits = if (v >= 1000) 0 else 2
+    return f.format(v)
+}
+
+@Composable
+private fun MarketCard(bulletin: Bulletin) {
+    val bySymbol = bulletin.markets.associateBy { it.symbol }
+    val rows = SHOWN_MARKETS.mapNotNull { (sym, label) -> bySymbol[sym]?.let { label to it } }
+    val shown = SHOWN_MARKETS.map { it.first }.toSet()
+    val alarms = bulletin.alarms.filter { it.symbol in shown }
+    if (rows.isEmpty() && alarms.isEmpty()) return
+    val up = if (MaterialTheme.colorScheme.background.luminance() < 0.5f) Color(0xFF7BD88F) else Color(0xFF1B7F3B)
+    val down = MaterialTheme.colorScheme.error
+    Card(Modifier.fillMaxWidth().padding(top = 12.dp)) {
+        Row(Modifier.padding(12.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(Modifier.weight(1f)) {
+                if (alarms.isNotEmpty()) {
+                    Text("Piyasa alarmı", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error)
+                    alarms.forEach { a ->
+                        Text(a.name, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold,
+                            modifier = Modifier.padding(top = 4.dp))
+                        a.lines.forEach { Text(it, style = MaterialTheme.typography.bodySmall) }
+                    }
+                } else {
+                    Text("Piyasalar", fontWeight = FontWeight.Bold)
+                    Text("Büyük hareket yok", style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+            }
+            if (rows.isNotEmpty()) {
+                Column(horizontalAlignment = Alignment.End) {
+                    rows.forEach { (label, m) ->
+                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 1.dp)) {
+                            Text(label, style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text(trNumber(m.value), style = MaterialTheme.typography.bodyMedium,
+                                fontWeight = FontWeight.SemiBold, textAlign = TextAlign.End,
+                                modifier = Modifier.padding(start = 8.dp).widthIn(min = 56.dp))
+                            m.dayPct?.let { p ->
+                                Text((if (p < 0) "-" else "+") + String.format(java.util.Locale.forLanguageTag("tr-TR"), "%%%.1f", kotlin.math.abs(p)),
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = if (p >= 0) up else down,
+                                    textAlign = TextAlign.End, modifier = Modifier.padding(start = 4.dp).widthIn(min = 40.dp))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @Composable
 fun BulletinScreen(
     bulletin: Bulletin,
     offline: Boolean,
     visible: (Topic) -> List<Story>,
     onOpen: (Item) -> Unit,
+    onAllNews: () -> Unit,
     padding: PaddingValues,
     listState: LazyListState,
 ) {
     val perTopic = bulletin.topics.map { it to visible(it) }
-    // En alttaki liste: tüm haberler önem puanına göre (eşitlikte başlık sırası korunur)
-    val all = perTopic.flatMap { (t, ss) -> ss.map { Item(t, it) } }.sortedByDescending { it.story.importance }
+    val total = perTopic.sumOf { it.second.size }
 
     LazyColumn(
         state = listState,
@@ -99,22 +203,18 @@ fun BulletinScreen(
         modifier = Modifier.fillMaxSize(),
     ) {
         item {
-            Text(trDate(bulletin.date), style = MaterialTheme.typography.titleMedium)
-            Text(
-                "Hazırlandı: ${trTime(bulletin.generatedAt)}" + if (offline) "  (çevrimdışı kopya)" else "",
-                style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        if (bulletin.alarms.isNotEmpty()) {
-            item {
-                Card(Modifier.fillMaxWidth().padding(top = 12.dp)) {
-                    Column(Modifier.padding(12.dp)) {
-                        Text("Piyasa alarmı", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error)
-                        bulletin.alarms.forEach { a -> Text("• ${a.name}: ${a.lines.joinToString(", ")}") }
-                    }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(Modifier.weight(1f)) {
+                    Text(trDate(bulletin.date), style = MaterialTheme.typography.titleMedium)
+                    Text(
+                        "Hazırlandı: ${trTime(bulletin.generatedAt)}" + if (offline) "  (çevrimdışı kopya)" else "",
+                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
+                if (total > 0) AllNewsButton(onAllNews)
             }
         }
+        item { MarketCard(bulletin) }
         item { SectionTitle("Kısa özet") }
         perTopic.forEach { (topic, stories) ->
             item(key = "ozet-${topic.id}") {
@@ -140,7 +240,44 @@ fun BulletinScreen(
                 }
             }
         }
-        item { SectionTitle("Tüm haberler (puana göre)") }
+        if (total > 0) {
+            item {
+                Row(Modifier.fillMaxWidth().padding(top = 12.dp), horizontalArrangement = Arrangement.End) {
+                    AllNewsButton(onAllNews)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun AllNewsScreen(
+    bulletin: Bulletin,
+    visible: (Topic) -> List<Story>,
+    onOpen: (Item) -> Unit,
+    padding: PaddingValues,
+    listState: LazyListState,
+) {
+    // Tüm haberler önem puanına göre (eşitlikte başlık sırası korunur)
+    val all = bulletin.topics.flatMap { t -> visible(t).map { Item(t, it) } }.sortedByDescending { it.story.importance }
+    if (all.isEmpty()) {
+        Centered { Text("Bu bültende haber yok.") }
+        return
+    }
+    LazyColumn(
+        state = listState,
+        contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding() + 4.dp,
+            bottom = padding.calculateBottomPadding() + 32.dp),
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        item {
+            Row(Modifier.fillMaxWidth().padding(bottom = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+                Text(trDate(bulletin.date), style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text("Toplam ${all.size} haber", style = MaterialTheme.typography.bodySmall,
+                    fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary)
+            }
+        }
         items(all, key = { "kart-${it.story.sid}" }) { item ->
             Card(Modifier.fillMaxWidth().padding(vertical = 5.dp).clickable { onOpen(item) }) {
                 Column(Modifier.padding(12.dp)) {
@@ -217,5 +354,39 @@ fun HistoryScreen(index: Index?, onPick: (String) -> Unit, padding: PaddingValue
             }
             HorizontalDivider()
         }
+    }
+}
+
+@Composable
+fun SettingsScreen(themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit, padding: PaddingValues) {
+    Column(
+        Modifier.fillMaxSize().verticalScroll(rememberScrollState())
+            .padding(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding(),
+                bottom = padding.calculateBottomPadding() + 32.dp),
+    ) {
+        SectionTitle("Görünüm")
+        Column(Modifier.selectableGroup()) {
+            ThemeMode.entries.forEach { m ->
+                Row(
+                    Modifier.fillMaxWidth()
+                        .selectable(selected = m == themeMode, onClick = { onThemeMode(m) }, role = Role.RadioButton)
+                        .padding(vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    RadioButton(selected = m == themeMode, onClick = null)
+                    Column(Modifier.padding(start = 12.dp)) {
+                        Text(m.label, style = MaterialTheme.typography.bodyLarge)
+                        if (m == ThemeMode.SISTEM) {
+                            Text("Telefonun açık/koyu ayarını izler", style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
+                    }
+                }
+            }
+        }
+        SectionTitle("Hakkında")
+        Text("Haber Bülteni ${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.bodyMedium)
+        Text("Bülten her sabah 08:30 civarı hazırlanır.", style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
