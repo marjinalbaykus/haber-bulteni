@@ -1,6 +1,6 @@
 name: Günlük bülten (DeepSeek, elle)
 
-# Günlük bülteni artık her sabah Claude rutini hazırlıyor (bkz. publish.yml).
+# Günlük bülteni artık her akşam 21:00 Claude rutini hazırlıyor (bkz. publish.yml).
 # Bu iş akışı yedek olarak duruyor: Actions sekmesinden elle çalıştırılırsa DeepSeek ile bülten üretir (ücretli).
 # Tekrar otomatik yapmak için aşağıya şunu ekle:  schedule: [{cron: "30 5 * * *"}]
 on:

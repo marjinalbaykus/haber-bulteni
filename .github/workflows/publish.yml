@@ -1,6 +1,6 @@
 name: Bülteni yayınla ve bildir
 
-# Claude rutini her sabah data/bulletins/<tarih>.json dosyasını main'e gönderir.
+# Claude rutini her akşam 21:00 (TR) data/bulletins/<tarih>.json dosyasını main'e gönderir.
 # Bu iş akışı siteyi üretir ve bildirimi yollar. (GitHub Actions'ın kendi push'ları bunu tetiklemez;
 # DeepSeek iş akışları bildirimi zaten kendisi gönderiyor.)
 on:

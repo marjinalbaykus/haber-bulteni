@@ -21,9 +21,11 @@ android {
 
     buildTypes {
         release {
+            // Kişisel kullanım: Play Store yok, hata ayıklama anahtarıyla imzalanır (debug sürümün üstüne kurulabilir).
+            // Release derlemesi küçültülmüş ve optimize edilmiştir; Compose'da kaydırma debug'a göre çok daha akıcıdır.
+            signingConfig = signingConfigs.getByName("debug")
             optimization {
                 enable = true
-                packageScope = setOf("androidx.**", "kotlin.**", "kotlinx.**")
             }
         }
     }

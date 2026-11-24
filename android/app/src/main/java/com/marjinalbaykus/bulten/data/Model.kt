@@ -31,7 +31,11 @@ data class Bulletin(
     val topics: List<Topic>,
     val alarms: List<MarketAlarm>,
     val markets: List<Market>,
-)
+    /** Bu bülten için taranan (tekil) haber sayısı; eski bültenlerde 0. */
+    val scanned: Int = 0,
+) {
+    val selected: Int get() = topics.sumOf { it.stories.size }
+}
 
 data class BulletinRef(val date: String, val generatedAt: String, val count: Int)
 
@@ -106,7 +110,8 @@ fun parseBulletin(text: String): Bulletin {
         val day = m.optJSONObject("changes")?.takeIf { it.has("day") }?.optDouble("day")
         Market(m.optString("symbol"), m.optString("name"), m.optDouble("value"), day)
     }
-    return Bulletin(o.optString("date"), o.optString("generated_at"), topics, alarms, markets)
+    return Bulletin(o.optString("date"), o.optString("generated_at"), topics, alarms, markets,
+        scanned = o.optJSONObject("stats")?.optInt("items") ?: 0)
 }
 
 fun parseIndex(text: String): Index {

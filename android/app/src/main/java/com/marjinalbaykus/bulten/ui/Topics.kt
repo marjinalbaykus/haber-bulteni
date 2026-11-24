@@ -44,6 +44,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.marjinalbaykus.bulten.data.Level
 import com.marjinalbaykus.bulten.data.Repo
@@ -126,7 +127,9 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
     var ask by remember { mutableStateOf<NameAsk?>(null) }
     var confirmGroupDelete by remember { mutableStateOf<TopicGroup?>(null) }
     var confirmRemove by remember { mutableStateOf<TopicInfo?>(null) }
-    var failed by remember { mutableStateOf<String?>(null) }   // son kaydetme hatası (alt çubukta gösterilir)
+    var failed by remember { mutableStateOf<String?>(null) }
+    var savedNote by remember { mutableStateOf(false) }   // "Kaydedildi" birkaç saniye görünür
+    LaunchedEffect(savedNote) { if (savedNote) { delay(5_000); savedNote = false } }   // son kaydetme hatası (alt çubukta gösterilir)
 
     // Sunucudan oku. Kaydetme bekleniyorsa sunucudaki liste değişene kadar 20 saniyede bir tekrar bakar
     // (GitHub'daki iş ve site güncellemesi genelde 2-3 dakika sürer), değişince ekranı ve ana sayfayı günceller.
@@ -149,7 +152,8 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                 draft.before = null
                 draft.shown = null
                 waiting = emptyList()
-                message = "Sunucuda kaydedildi. Seviyeler ve yeni konular yarınki bültenden itibaren geçerli olur."
+                message = null
+                savedNote = true
             }
             System.currentTimeMillis() - draft.savedAt < 10 * 60_000L -> {
                 delay(20_000)
@@ -229,7 +233,7 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                 repo.topicsCache = now
                 onSaved(now)
                 clearDraft()
-                message = "Gönderildi. Sunucu işliyor (genelde 2-3 dakika), bitince bu ekran kendiliğinden yenilenir."
+                message = null
                 reload++
             } catch (e: Exception) {
                 failed = e.message ?: e.javaClass.simpleName
@@ -403,14 +407,15 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                     }
                 }, modifier = Modifier.padding(top = 8.dp)) { Text("+ Yeni grup") }
             }
-            if (removed.isNotEmpty()) {
-                item { SectionTitle("Kaldırılanlar") }
-                items(removed, key = { "r-${it.id}" }) { topic ->
+            // Sadece düzenlerken: kaydedince kaldırılacak başlıklar (kaydettikten sonra hiç görünmez)
+            val pendingRemove = s.active.filter { it.id in removeIds }
+            if (pendingRemove.isNotEmpty()) {
+                item { SectionTitle("Kaydedince kaldırılacak") }
+                items(pendingRemove, key = { "r-${it.id}" }) { topic ->
                     Row(Modifier.fillMaxWidth().padding(vertical = 2.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text(titleOf(topic), style = MaterialTheme.typography.bodyMedium, color = muted, modifier = Modifier.weight(1f))
-                        TextButton(onClick = {
-                            if (topic.id in removeIds) removeIds.remove(topic.id) else restoreIds.add(topic.id)
-                        }) { Text("Geri ekle") }
+                        Text(titleOf(topic), style = MaterialTheme.typography.bodyMedium, color = muted,
+                            textDecoration = TextDecoration.LineThrough, modifier = Modifier.weight(1f))
+                        TextButton(onClick = { removeIds.remove(topic.id) }) { Text("Geri al") }
                     }
                 }
             }
@@ -424,13 +429,19 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                         color = MaterialTheme.colorScheme.error, modifier = Modifier.padding(bottom = 4.dp))
                 }
                 Row(verticalAlignment = Alignment.CenterVertically) {
+                    val processing = draft.before != null
                     Text(
                         when {
                             busy -> "Gönderiliyor..."
                             dirty -> "$changeCount değişiklik bekliyor"
+                            processing -> "Kaydedildi, sunucuda işleniyor..."
+                            savedNote -> "Kaydedildi"
                             else -> "Değişiklik yok"
                         },
-                        style = MaterialTheme.typography.bodySmall, color = muted, modifier = Modifier.weight(1f),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = if (!dirty && !busy && (processing || savedNote)) MaterialTheme.colorScheme.primary else muted,
+                        fontWeight = if (!dirty && !busy && (processing || savedNote)) FontWeight.SemiBold else null,
+                        modifier = Modifier.weight(1f),
                     )
                     if (dirty && !busy) TextButton(onClick = { clearDraft(); failed = null }) { Text("Vazgeç") }
                     Button(onClick = { save() }, enabled = dirty && !busy) { Text("Kaydet") }
@@ -464,9 +475,9 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
             onDismissRequest = { confirmRemove = null },
             title = { Text("Başlık kaldırılsın mı?") },
             text = {
-                Text("\"${titleOf(topic)}\" başlığını kaldırmak istediğine emin misin? Kaydettikten sonra yarından itibaren " +
+                Text("\"${titleOf(topic)}\" başlığını kaldırmak istediğine emin misin? Kaydettikten sonra bir sonraki bültenden itibaren " +
                     "bültende olmaz." + if (topic.custom) " Sonradan eklenen bir başlık olduğu için tamamen silinir."
-                    else " İstersen \"Kaldırılanlar\" bölümünden geri ekleyebilirsin.")
+                    else " Kaydetmeden önce geri alabilirsin.")
             },
             confirmButton = {
                 TextButton(onClick = {

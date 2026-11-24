@@ -25,7 +25,8 @@ import java.time.ZoneId
 /**
  * Yeni bülten bildirimi. Sunucu (Firebase) gerektirmez: Android yaklaşık yarım saatte bir bu işi çalıştırır,
  * iş sitedeki index.json'a bakar; uygulamada henüz görülmemiş yeni bir bülten varsa bildirim gösterir.
- * Android pil tasarrufu için çalışmayı biraz geciktirebilir; bülten 08:30 civarı çıkar, bildirim genelde 09:00'a kadar gelir.
+ * Bülten her akşam 21:00 civarı hazırlanır. Beklenen bülten zaten görüldü veya bildirildiyse internete hiç çıkılmaz;
+ * gece 01:00-07:00 arası da bakılmaz (akşam kaçarsa bildirim sabah gelir).
  */
 class NewsJob : JobService() {
     private var work: Job? = null
@@ -67,9 +68,13 @@ class NewsJob : JobService() {
         suspend fun check(context: Context) {
             val repo = Repo(context)
             if (!repo.notificationsOn) return
-            // Gece boyunca boşuna internete çıkma: bülten sabah 08:30 civarı hazırlanır
-            val now = LocalTime.now(ZoneId.of("Europe/Istanbul"))
-            if (now.isBefore(LocalTime.of(8, 15))) return
+            val tz = ZoneId.of("Europe/Istanbul")
+            val now = LocalTime.now(tz)
+            if (!now.isBefore(LocalTime.of(1, 0)) && now.isBefore(LocalTime.of(7, 0))) return   // gece rahatsız etme
+            // Şu an beklenen en son bülten: 20:45'ten sonra bugünkü, öncesinde dünkü
+            val today = java.time.LocalDate.now(tz)
+            val expected = (if (now.isBefore(LocalTime.of(20, 45))) today.minusDays(1) else today).toString()
+            if (repo.lastSeenDate >= expected || repo.lastNotifiedDate >= expected) return   // internete çıkmadan
             val latest = repo.index().value.bulletins.firstOrNull() ?: return
             if (latest.date <= repo.lastSeenDate || latest.date <= repo.lastNotifiedDate) return
             if (repo.lastNotifiedDate.isEmpty() && repo.lastSeenDate.isEmpty()) {

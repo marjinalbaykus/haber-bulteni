@@ -70,6 +70,8 @@ import com.marjinalbaykus.bulten.ui.theme.ThemeMode
 /** Bir haber ve ait olduğu başlık. */
 data class Item(val topic: Topic, val story: Story)
 
+fun trCount(n: Int): String = java.text.NumberFormat.getIntegerInstance(java.util.Locale.forLanguageTag("tr-TR")).format(n)
+
 /** Başlık adlarını Konularım'daki güncel adlarla değiştirir (eski bültenlerde de yeni ad görünsün). */
 fun Bulletin.withTitles(t: Topics?): Bulletin =
     if (t == null) this else copy(topics = topics.map { tp -> t.title(tp.id)?.let { tp.copy(title = it) } ?: tp })
@@ -240,6 +242,13 @@ fun BulletinScreen(
                 }
                 MarketMini(bulletin)
             }
+            if (bulletin.scanned > 0) {
+                Text(
+                    "${trCount(bulletin.scanned)} haber tarandı, ${bulletin.selected} haber seçildi.",
+                    style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 2.dp),
+                )
+            }
             HorizontalDivider(Modifier.padding(top = 6.dp, bottom = 4.dp))
         }
         parts.forEach { part ->
@@ -299,7 +308,9 @@ fun AllNewsScreen(
             Row(Modifier.fillMaxWidth().padding(bottom = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
                 Text(trDate(bulletin.date), style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text("Toplam ${all.size} haber", style = MaterialTheme.typography.bodySmall,
+                Text(
+                    if (bulletin.scanned > 0) "${trCount(bulletin.scanned)} haberden ${all.size} seçildi" else "Toplam ${all.size} haber",
+                    style = MaterialTheme.typography.bodySmall,
                     fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary)
             }
         }
