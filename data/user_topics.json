@@ -4,7 +4,8 @@
   "cs2": "az",
   "akilli_telefon": "orta",
   "oyun_genel": "orta",
-  "teknoloji": "orta"
+  "teknoloji": "cok",
+  "pc_donanim": "cok"
  },
  "removed": [
   "juventus"
@@ -125,7 +126,6 @@
     "real_madrid",
     "sampiyonlar_ligi",
     "premier_lig",
-    "juventus",
     "barcelona_gunluk_haberleri",
     "turkiye_milli_futbol_takimi"
    ]
