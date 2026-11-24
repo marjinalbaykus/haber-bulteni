@@ -13,7 +13,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
@@ -27,6 +29,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -217,9 +220,21 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 when {
                     loading && b == null -> Centered { CircularProgressIndicator() }
                     error != null && b == null -> ErrorView(error!!) { reload++ }
-                    b != null && screen == Screen.Home ->
-                        BulletinScreen(b, offline, repo::visible, { push(Screen.Detail(it)) }, padding, homeState)
-                    b != null -> AllNewsScreen(b, repo::visible, { push(Screen.Detail(it)) }, padding, allState)
+                    b != null -> {
+                        // Aşağı çekince bülten yeniden indirilir (uygulama arkada açık kaldıysa yeni bülten gelsin)
+                        PullToRefreshBox(
+                            isRefreshing = loading,
+                            onRefresh = { reload++ },
+                            modifier = Modifier.fillMaxSize().padding(top = padding.calculateTopPadding()),
+                        ) {
+                            val inner = PaddingValues(bottom = padding.calculateBottomPadding())
+                            if (screen == Screen.Home) {
+                                BulletinScreen(b, offline, repo::visible, { push(Screen.Detail(it)) }, inner, homeState)
+                            } else {
+                                AllNewsScreen(b, repo::visible, { push(Screen.Detail(it)) }, inner, allState)
+                            }
+                        }
+                    }
                 }
             }
             Screen.History -> HistoryScreen(index, { picked ->
