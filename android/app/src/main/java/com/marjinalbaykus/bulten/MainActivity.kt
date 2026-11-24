@@ -6,6 +6,7 @@ import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -60,6 +61,8 @@ fun App() {
     var offline by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     var loading by remember { mutableStateOf(true) }
+    // Liste konumu ekran değişince kaybolmasın (detaydan geri dönünce aynı yerde kalır); bülten değişince başa döner
+    val listState = remember(date) { LazyListState() }
 
     LaunchedEffect(date, reload) {
         loading = true
@@ -120,7 +123,7 @@ fun App() {
                 when {
                     loading && b == null -> Centered { CircularProgressIndicator() }
                     error != null && b == null -> ErrorView(error!!) { reload++ }
-                    b != null -> BulletinScreen(b, offline, repo::visible, { screen = Screen.Detail(it) }, padding)
+                    b != null -> BulletinScreen(b, offline, repo::visible, { screen = Screen.Detail(it) }, padding, listState)
                 }
             }
             Screen.History -> HistoryScreen(index, { picked ->

@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -85,12 +86,14 @@ fun BulletinScreen(
     visible: (Topic) -> List<Story>,
     onOpen: (Item) -> Unit,
     padding: PaddingValues,
+    listState: LazyListState,
 ) {
     val perTopic = bulletin.topics.map { it to visible(it) }
     // En alttaki liste: tüm haberler önem puanına göre (eşitlikte başlık sırası korunur)
     val all = perTopic.flatMap { (t, ss) -> ss.map { Item(t, it) } }.sortedByDescending { it.story.importance }
 
     LazyColumn(
+        state = listState,
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding() + 4.dp,
             bottom = padding.calculateBottomPadding() + 32.dp),
         modifier = Modifier.fillMaxSize(),
