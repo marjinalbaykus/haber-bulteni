@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 
 from . import sources as S
-from .common import DATA, read_json, write_json, now_tr
+from .common import TR_TZ, DATA, read_json, write_json, now_tr
 from .llm import DeepSeek, estimate_cost
 from .markets import fetch_markets, market_lines
 
@@ -69,8 +69,11 @@ def _line(it: S.Item) -> str:
     return " | ".join(parts) + " | " + text
 
 
-def collect(cfg: dict, since: datetime, pool: S.Pool) -> dict[str, list[list[int]]]:
-    """Her başlık için, kaynak başına aday haber id listeleri döner."""
+def collect(cfg: dict, since: datetime, pool: S.Pool, until: datetime | None = None) -> dict[str, list[list[int]]]:
+    """Her başlık için, kaynak başına aday haber id listeleri döner.
+    until verilirse (elle, belirli bir gün için): Google News "son 24 saat" yerine tarih aralığıyla aranır
+    (after:/before:), Hacker News de aralıkla sınırlanır. RSS ve Bing sadece son haberleri verir; eski bir gün
+    için bunlardan az haber gelir."""
     specs: dict[tuple, callable] = {}
     topic_specs: dict[str, list[tuple]] = {}
     feeds = cfg.get("feeds", {})
@@ -84,7 +87,12 @@ def collect(cfg: dict, since: datetime, pool: S.Pool) -> dict[str, list[list[int
             keys.append(k)
         for g in src.get("google_news", []):
             k = ("gn", g["q"], g["lang"])
-            specs[k] = lambda g=g: S.fetch_google_news(g["q"], g["lang"], since)
+            if until:
+                rng = f' after:{(since - timedelta(days=1)):%Y-%m-%d} before:{(until + timedelta(days=1)):%Y-%m-%d}'
+                specs[k] = lambda g=g, rng=rng: S.fetch_google_news(g["q"] + rng, g["lang"], since, window="",
+                                                                    limit=100)
+            else:
+                specs[k] = lambda g=g: S.fetch_google_news(g["q"], g["lang"], since)
             keys.append(k)
         for b in src.get("bing_news", []):
             k = ("bing", b["q"], b["lang"])
@@ -92,7 +100,7 @@ def collect(cfg: dict, since: datetime, pool: S.Pool) -> dict[str, list[list[int
             keys.append(k)
         if src.get("hackernews"):
             k = ("hn",)
-            specs[k] = lambda: S.fetch_hackernews(since)
+            specs[k] = lambda: S.fetch_hackernews(since, until=until)
             keys.append(k)
         if src.get("huggingface"):
             k = ("hf",)
@@ -325,22 +333,28 @@ def update_history(out_topics: list[dict], date: str) -> None:
 
 
 def run_daily(cfg: dict, date: str | None = None) -> dict:
-    """date: bültenin günü (YYYY-AA-GG, TR). Verilmezse bugün. Geçmiş bir gün verilirse o günün akşamı 21:00'e
-    (TR) kadar olan haberler kullanılır (ör. çarşamba gecesi salının bültenini hazırlamak için)."""
+    """Elle bülten (DeepSeek). Hangi gün çalıştırılırsa çalıştırılsın kapsam tarihe bağlıdır:
+    - date verilirse: sadece o gün (TR 00:00 - 24:00; bugünse şu ana kadar). Bülten o günün tarihini alır.
+    - date yoksa: dün ve bugün birlikte (dün TR 00:00'dan şu ana kadar). Bülten bugünün tarihini alır."""
     started = datetime.now(timezone.utc)
-    today = now_tr().strftime("%Y-%m-%d")
-    date = date or today
-    end = started
-    if date < today:
-        end = datetime.strptime(date, "%Y-%m-%d").replace(hour=18, tzinfo=timezone.utc)   # 21:00 TR
-    since = end - timedelta(hours=cfg.get("lookback_hours", 30))
+    today = now_tr().date()
+    if date:
+        day = datetime.strptime(date, "%Y-%m-%d").date()
+        since = datetime(day.year, day.month, day.day, tzinfo=TR_TZ).astimezone(timezone.utc)
+        end = min(started, since + timedelta(days=1))
+    else:
+        date = today.isoformat()
+        y = today - timedelta(days=1)
+        since = datetime(y.year, y.month, y.day, tzinfo=TR_TZ).astimezone(timezone.utc)
+        end = started
+    print(f"Kapsam: {since:%Y-%m-%d %H:%M}Z - {end:%Y-%m-%d %H:%M}Z, bülten günü {date}")
     hist_path = DATA / "history.json"
     hist = read_json(hist_path, {"cited_urls": {}, "headlines": {}})
     cited = set(hist["cited_urls"])
 
     print("Kaynaklar taranıyor...")
     pool = S.Pool()
-    topic_ids = collect(cfg, since, pool)
+    topic_ids = collect(cfg, since, pool, until=end)
     if end < started:
         cutoff = end.strftime("%Y-%m-%dT%H:%M")
         late = {it.id for it in pool.items if it.published and it.published[:16] > cutoff}

@@ -59,8 +59,11 @@ class Repo(context: Context) {
         }?.forEach { it.delete() }
     }
 
-    /** "Günlük bülten (DeepSeek, elle)" iş akışını verilen gün için başlatır (ücretli, yaklaşık 0,08 dolar). */
-    suspend fun runBulletin(date: String) = dispatch("daily.yml", mapOf("date" to date))
+    /**
+     * "Günlük bülten (DeepSeek, elle)" iş akışını başlatır (ücretli, yaklaşık 0,08 dolar).
+     * date verilirse sadece o günün haberleri; null ise dün ve bugünün haberleri, bülten bugünün tarihini alır.
+     */
+    suspend fun runBulletin(date: String?) = dispatch("daily.yml", mapOf("date" to (date ?: "")))
 
     /** Ara ekranı için bellekte tutulan bülten listesi (uygulama açık kaldıkça tekrar okunmaz). */
     @Volatile var bulletinCache: List<Bulletin>? = null

@@ -133,9 +133,12 @@ def fetch_bing_news(q: str, lang: str, since: datetime) -> list[Item]:
     return out
 
 
-def fetch_hackernews(since: datetime, min_points: int = 120, query: str = "") -> list[Item]:
-    params = {"tags": "story", "hitsPerPage": 100,
-              "numericFilters": f"created_at_i>{int(since.timestamp())},points>{min_points}"}
+def fetch_hackernews(since: datetime, min_points: int = 120, query: str = "",
+                     until: datetime | None = None) -> list[Item]:
+    flt = f"created_at_i>{int(since.timestamp())},points>{min_points}"
+    if until:
+        flt += f",created_at_i<{int(until.timestamp())}"
+    params = {"tags": "story", "hitsPerPage": 100, "numericFilters": flt}
     endpoint = "search" if query else "search_by_date"
     if query:
         params["query"] = query

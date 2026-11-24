@@ -416,6 +416,7 @@ fun HistoryScreen(index: Index?, onPick: (String) -> Unit, padding: PaddingValue
     }
 }
 
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     themeMode: ThemeMode,
@@ -432,11 +433,12 @@ fun SettingsScreen(
     var saved by remember { mutableStateOf(false) }
     var keepText by remember { mutableStateOf(repo.retentionDays?.toString() ?: "") }
     var keepSaved by remember { mutableStateOf(false) }
-    // Elle bülten: varsayılan gün, akşam 21:00'den önce dün (bugünün bülteni henüz tamamlanmamış olur)
+    // Elle bülten: önce tarih seçici açılır. Seçilen gün = sadece o günün haberleri;
+    // "Bugün" = dün ve bugünün haberleri birlikte (bülten bugünün tarihini alır).
     val tz = java.time.ZoneId.of("Europe/Istanbul")
     val today = remember { java.time.LocalDate.now(tz) }
-    val beforeEvening = remember { java.time.LocalTime.now(tz).isBefore(java.time.LocalTime.of(21, 0)) }
-    var runDay by remember { mutableStateOf(if (beforeEvening) today.minusDays(1) else today) }
+    var picking by remember { mutableStateOf(false) }
+    var runDay by remember { mutableStateOf<java.time.LocalDate?>(null) }   // null = bugün modu
     var confirmStep by remember { mutableIntStateOf(0) }   // 0 kapalı, 1 ilk soru, 2 son onay
     var runMessage by remember { mutableStateOf<String?>(null) }
     var running by remember { mutableStateOf(false) }
@@ -533,26 +535,14 @@ fun SettingsScreen(
 
         SectionTitle("Bülteni şimdi hazırla")
         Text(
-            "Bülten normalde her akşam 21:00'de kendiliğinden hazırlanır. Kaçan bir gün için buradan elle başlatabilirsin. " +
-                "DeepSeek ile hazırlanır: ücretlidir (yaklaşık 0,08 dolar) ve 3-5 dakika sürer.",
+            "Bülten normalde her akşam 21:00'de kendiliğinden hazırlanır. Kaçan bir gün için buradan elle başlatabilirsin: " +
+                "bir tarih seçersen sadece o günün haberleri, \"Bugün\" dersen dün ve bugünün haberleri birlikte taranır. " +
+                "DeepSeek ile hazırlanır: ücretlidir (yaklaşık 0,08 dolar) ve 3-5 dakika sürer. Eski günlerde bazı " +
+                "kaynaklar (RSS) artık o günü vermediği için haber sayısı biraz azalabilir.",
             style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Column(Modifier.selectableGroup().padding(top = 4.dp)) {
-            listOf(today.minusDays(1) to "Dün", today to "Bugün").forEach { (d, name) ->
-                Row(
-                    Modifier.fillMaxWidth()
-                        .selectable(selected = d == runDay, onClick = { runDay = d }, role = Role.RadioButton)
-                        .padding(vertical = 6.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    RadioButton(selected = d == runDay, onClick = null)
-                    Text("$name: ${dayLabel(d)}" + if (d.toString() in existingDates) " (bülteni var)" else "",
-                        style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(start = 12.dp))
-                }
-            }
-        }
-        Row(Modifier.fillMaxWidth().padding(top = 4.dp), horizontalArrangement = Arrangement.End) {
-            FilledTonalButton(onClick = { runMessage = null; confirmStep = 1 }, enabled = !running) { Text("Hazırla") }
+        Row(Modifier.fillMaxWidth().padding(top = 8.dp), horizontalArrangement = Arrangement.End) {
+            FilledTonalButton(onClick = { runMessage = null; picking = true }, enabled = !running) { Text("Hazırla") }
         }
         runMessage?.let {
             Text(it, style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(top = 4.dp))
@@ -564,16 +554,68 @@ fun SettingsScreen(
             color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 
+    if (picking) {
+        val oldest = today.minusDays(730)
+        val utc = java.time.ZoneOffset.UTC
+        val state = androidx.compose.material3.rememberDatePickerState(
+            initialSelectedDateMillis = null,
+            yearRange = oldest.year..today.year,
+            selectableDates = object : androidx.compose.material3.SelectableDates {
+                override fun isSelectableDate(utcTimeMillis: Long): Boolean {
+                    val d = java.time.Instant.ofEpochMilli(utcTimeMillis).atZone(utc).toLocalDate()
+                    return !d.isAfter(today) && !d.isBefore(oldest)
+                }
+            },
+        )
+        androidx.compose.material3.DatePickerDialog(
+            onDismissRequest = { picking = false },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        runDay = state.selectedDateMillis?.let { java.time.Instant.ofEpochMilli(it).atZone(utc).toLocalDate() }
+                        picking = false
+                        confirmStep = 1
+                    },
+                    enabled = state.selectedDateMillis != null,
+                ) { Text("Seçilen gün") }
+            },
+            dismissButton = {
+                Row {
+                    TextButton(onClick = { picking = false }) { Text("Vazgeç") }
+                    TextButton(onClick = { runDay = null; picking = false; confirmStep = 1 }) { Text("Bugün") }
+                }
+            },
+        ) {
+            androidx.compose.material3.DatePicker(
+                state = state,
+                title = { Text("Hangi günün bülteni?", modifier = Modifier.padding(start = 24.dp, top = 16.dp)) },
+                headline = {
+                    Text(
+                        state.selectedDateMillis?.let {
+                            dayLabel(java.time.Instant.ofEpochMilli(it).atZone(utc).toLocalDate())
+                        } ?: "Bir gün seç veya Bugün'e bas",
+                        style = MaterialTheme.typography.titleLarge,
+                        modifier = Modifier.padding(start = 24.dp, end = 12.dp, bottom = 12.dp),
+                    )
+                },
+                showModeToggle = false,
+            )
+        }
+    }
+
     if (confirmStep > 0) {
-        val label = dayLabel(runDay)
-        val exists = runDay.toString() in existingDates
+        val day = runDay
+        val label = if (day == null) "Bugünün (${dayLabel(today)})" else dayLabel(day)
+        val scope2 = if (day == null) "dün ve bugünün haberleri" else "sadece o günün haberleri"
+        val exists = (day ?: today).toString() in existingDates
         androidx.compose.material3.AlertDialog(
             onDismissRequest = { confirmStep = 0 },
             title = { Text(if (confirmStep == 1) "Bülten hazırlansın mı?" else "Emin misin?") },
             text = {
                 Text(
                     if (confirmStep == 1) {
-                        "$label bülteni DeepSeek ile hazırlanacak. Ücretlidir (yaklaşık 0,08 dolar) ve 3-5 dakika sürer." +
+                        "$label bülteni DeepSeek ile hazırlanacak ($scope2 taranır). Ücretlidir (yaklaşık 0,08 dolar) " +
+                            "ve 3-5 dakika sürer." +
                             if (exists) " Bu günün bülteni zaten var, yenisi onun yerine geçer." else ""
                     } else {
                         "$label için çalıştırma şimdi başlatılacak ve DeepSeek bakiyenden düşülecek."
@@ -589,7 +631,7 @@ fun SettingsScreen(
                         running = true
                         scope.launch {
                             runMessage = try {
-                                repo.runBulletin(runDay.toString())
+                                repo.runBulletin(day?.toString())
                                 "Başlatıldı. 3-5 dakika sonra Ana sayfada aşağı çekip yenile."
                             } catch (e: Exception) {
                                 "Başlatılamadı: " + (e.message ?: e.javaClass.simpleName)
