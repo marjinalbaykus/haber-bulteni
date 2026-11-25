@@ -27,6 +27,10 @@ Büyük bir karar gerektiren işte önce sor ("önce karar verelim sonra yap dic
   24 Kasım için 2.252 haber o günün içinden geldi), Hacker News de aralıkla sınırlanır. RSS ve Bing sadece son
   haberleri verdiği için çok eski günlerde haber sayısı azalır.
 - **Saklama:** config.yaml `retention_days: 730`. render, daha eski bültenleri ve karşılığı kalmayan sayfaları siler.
+- **Haber metni kuralları (kullanıcı isteği, 25 Kasım):** haberde kullanıcının hiçbir kişisel bilgisi (donanım, telefon,
+  takım vb.) geçmez; bu yüzden `detail_prompt` konu kriterini (criteria) modele VERMEZ, kriter sadece seçimde kullanılır.
+  Detay en fazla ~120 kelime, 1-3 paragraf, tekrar yok. "Öne çıkanlar" (key_points) kaldırıldı: modelden istenmiyor,
+  site ve uygulama göstermiyor (eski bültenlerde alan dursa da görünmez).
 - **Tekrar önleme:** `data/history.json` son 7 günün başlık ve kaynaklarını tutar.
 - Aynı olay birden fazla başlığa girerse tekilleştirme birini tutar, habere `also: [başlık id]` ekler.
 - Telegram tamamen kaldırıldı (25 Kasım): `telegram.py`, poll.yml, resend.yml, iş akışlarındaki Telegram adımları,

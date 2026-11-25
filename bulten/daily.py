@@ -28,7 +28,8 @@ Rules:
 - If market data is given and a threshold is exceeded, treat that move as a story candidate even if no
   news item explains it (use ids: []).
 - headline: Turkish, one sentence, at most about 25 words, concrete (who did what, numbers if present).
-  No clickbait, no emojis.
+  No clickbait, no emojis. The criteria describe the reader only to help you choose; never put the
+  reader's devices, hardware, team or other personal details into the headline or reason.
 - Return at most 8 stories, most important first. An empty list is fine and expected on quiet days.
 
 Output JSON: {"stories": [{"ids": [int], "importance": int, "headline": str, "reason": str}]}
@@ -45,12 +46,14 @@ Rules:
 - title: Turkish title, at most about 12 words.
 - headline: the one-line Turkish bullet (at most about 25 words). Improve it if the articles give better
   facts, otherwise keep it.
-- detail: 2-4 short paragraphs separated by a blank line. What happened, key numbers, context, and why
-  it matters for this reader (topic criteria given).
-- key_points: 2-5 short Turkish bullet points.
+- detail: 1-3 short paragraphs separated by a blank line, at most about 120 words in total. What happened,
+  key numbers and only the context needed to understand it. Write like a neutral news agency: no filler,
+  no repetition of the headline or of earlier sentences, no closing summary or commentary.
+- Never address or describe the reader. Do not mention any reader's devices, hardware, phone, team,
+  habits or other personal details, and do not write "for the reader" style sentences.
 - Refer to sources by publisher name if needed, never by bracketed item numbers like [3].
 
-Output JSON: {"title": str, "headline": str, "detail": str, "key_points": [str]}"""
+Output JSON: {"title": str, "headline": str, "detail": str}"""
 
 DEDUPE_SYSTEM = """You get TODAY's selected stories of a daily bulletin (numbered, grouped under topics) and, when given,
 the headlines that were already published on PREVIOUS DAYS (all topics).
@@ -285,8 +288,8 @@ def _grounding_texts(pool: S.Pool, ids: list[int], since: datetime, max_texts: i
 
 def detail_prompt(topic: dict, story: dict, pool: S.Pool, texts: list) -> str:
     related = "\n".join(_line(pool[i]) for i in story["ids"]) or "(no news item; market data only)"
-    parts = [f"TOPIC: {topic['title']}", f"CRITERIA:\n{topic['criteria'].strip()}",
-             f"HEADLINE: {story['headline']}", f"RELATED ITEMS:\n{related}"]
+    # Konu kriteri (kişisel bilgiler içerir) bilerek verilmez: haber metnine okuyucu bilgisi sızmasın.
+    parts = [f"TOPIC: {topic['title']}", f"HEADLINE: {story['headline']}", f"RELATED ITEMS:\n{related}"]
     for n, (it, txt) in enumerate(texts, 1):
         parts.append(f"ARTICLE {n} ({it.source}, {it.lang}):\n{txt}")
     return "\n\n".join(parts)
@@ -309,7 +312,6 @@ def build_detail(story: dict, res: dict, pool: S.Pool, n_texts: int, extra: list
         "headline": (res.get("headline") or story["headline"]).strip(),
         "title": (res.get("title") or story["headline"]).strip(),
         "detail": (res.get("detail") or "").strip(),
-        "key_points": [p for p in res.get("key_points", []) if isinstance(p, str)][:6],
         "sources": [{"title": it.title, "url": it.url, "source": it.source, "lang": it.lang,
                      "published": it.published} for it in src_items[:10]],
         "read_articles": n_texts,

@@ -105,12 +105,11 @@ def render_bulletin(b: dict) -> str:
     # Detaylar: tüm haberler önem puanına göre (eşitlikte başlık sırası korunur)
     out.append("<h2>Detaylar</h2>")
     for t, s in sorted(((t, s) for t in b["topics"] for s in t["stories"]), key=lambda ts: -ts[1]["importance"]):
-        kp = "".join(f"<li>{e(p)}</li>" for p in s.get("key_points", []))
         out.append(
             f'<article class="card" id="{s["sid"]}"><div><span class="tag">{e(t["title"])}</span>'
             f'<span class="tag">Önem {s["importance"]}/10</span></div><h3>{e(s["title"])}</h3>'
             f'{paras(s.get("detail")) or "<p>" + e(s["headline"]) + "</p>"}'
-            f'{"<ul class=kp>" + kp + "</ul>" if kp else ""}{sources_html(s["sources"])}'
+            f'{sources_html(s["sources"])}'
             f'<div class="muted" style="margin-top:.5rem"><a href="#">Başa dön</a></div></article>')
     out.append("<h2>Piyasalar</h2>" + (market_table(b.get("markets", [])) or '<p class="empty">Veri yok.</p>'))
     st = b.get("stats", {})

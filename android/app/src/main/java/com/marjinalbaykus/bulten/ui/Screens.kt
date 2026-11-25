@@ -588,10 +588,6 @@ fun DetailScreen(item: Item, padding: PaddingValues) {
         (paragraphs.ifEmpty { listOf(s.headline) }).forEach { p ->
             Text(p, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(bottom = 10.dp))
         }
-        if (s.keyPoints.isNotEmpty()) {
-            Text("Öne çıkanlar", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 6.dp))
-            s.keyPoints.forEach { Text("• $it", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(top = 4.dp)) }
-        }
         if (s.sources.isNotEmpty()) {
             SectionTitle("Kaynaklar (${s.sources.size})")
             s.sources.forEach { src ->
