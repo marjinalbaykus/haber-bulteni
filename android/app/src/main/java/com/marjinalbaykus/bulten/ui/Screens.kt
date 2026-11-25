@@ -33,6 +33,8 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.ui.draw.rotate
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -257,6 +259,8 @@ fun BulletinScreen(
     onReorderStart: () -> Unit,
     onReorderDone: (List<String>) -> Unit,
     onReorderCancel: () -> Unit,
+    collapsed: Set<String>,
+    onToggleCollapse: (String) -> Unit,
 ) {
     if (reordering) {
         GroupOrderEditor(
@@ -340,21 +344,41 @@ fun BulletinScreen(
                 parts.forEach { part ->
                     item(key = part.key) {
                         val shown = if (unreadOnly) part.items.filter { it.readKey !in readKeys } else part.items
+                        val isOpen = part.groupId == null || part.key !in collapsed
                         Column(Modifier.padding(vertical = 6.dp)) {
                             if (part.groupId != null) {
+                                // Dokununca kapanır/açılır, 1 sn basılı tutunca grup sıralama modu
                                 CompositionLocalProvider(LocalViewConfiguration provides slowPress) {
-                                    Text(
-                                        part.title, style = MaterialTheme.typography.titleMedium,
-                                        fontWeight = FontWeight.SemiBold,
-                                        modifier = Modifier.fillMaxWidth().pointerInput(Unit) {
-                                            detectTapGestures(onLongPress = { startReorder() })
+                                    Row(
+                                        Modifier.fillMaxWidth().pointerInput(part.key) {
+                                            detectTapGestures(
+                                                onTap = { onToggleCollapse(part.key) },
+                                                onLongPress = { startReorder() },
+                                            )
                                         },
-                                    )
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
+                                        Icon(AppIcons.ChevronRight, contentDescription = if (isOpen) "Kapat" else "Aç",
+                                            modifier = Modifier.size(22.dp).rotate(if (isOpen) 90f else 0f))
+                                        Text(
+                                            part.title, style = MaterialTheme.typography.titleMedium,
+                                            fontWeight = FontWeight.SemiBold,
+                                            modifier = Modifier.padding(start = 2.dp),
+                                        )
+                                        if (!isOpen) {
+                                            val unread = part.items.count { it.readKey !in readKeys }
+                                            Text("${part.items.size} haber, $unread okunmamış",
+                                                style = MaterialTheme.typography.labelSmall, color = muted,
+                                                modifier = Modifier.padding(start = 8.dp))
+                                        }
+                                    }
                                 }
                             } else {
                                 Text(part.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
                             }
-                            if (part.items.isEmpty()) {
+                            if (!isOpen) {
+                                // Kapalı grup: sadece başlık satırı
+                            } else if (part.items.isEmpty()) {
                                 Text(
                                     part.note.ifBlank { "Kayda değer bir gelişme yok." },
                                     fontStyle = FontStyle.Italic, color = muted,
@@ -364,7 +388,7 @@ fun BulletinScreen(
                                 Text("Hepsi okundu.", style = MaterialTheme.typography.bodySmall, color = muted,
                                     modifier = Modifier.padding(top = 2.dp))
                             }
-                            shown.forEach { item ->
+                            if (isOpen) shown.forEach { item ->
                                 StoryCard(item, if (part.grouped) itemLabel(item, bulletin) else null, item.readKey in readKeys) {
                                     onOpen(item)
                                 }
@@ -378,23 +402,50 @@ fun BulletinScreen(
     }
 }
 
-/** Haber kartı: önem rozeti, (varsa) başlık etiketi ve sadece haber başlığı. Okunmuşsa soluk. */
+/** Puan rengi (mavi tonları): 9-10 koyu mavi, 8 açık mavi, 7 ve altı soluk. */
+@Composable
+private fun scoreColor(importance: Int): Color {
+    val dark = MaterialTheme.colorScheme.background.luminance() < 0.5f
+    return when {
+        importance >= 9 -> if (dark) Color(0xFF85B7EB) else Color(0xFF185FA5)
+        importance == 8 -> Color(0xFF378ADD)
+        else -> MaterialTheme.colorScheme.onSurfaceVariant
+    }
+}
+
+/**
+ * Haber kartı: solda düz yazı konu etiketi (varsa "Yeni" rozeti) ve başlık, sağ üstte büyük renkli puan ve küçük "/10".
+ * Okunmuşsa soluk.
+ */
 @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 private fun StoryCard(item: Item, label: String?, read: Boolean, onClick: () -> Unit) {
+    val muted = MaterialTheme.colorScheme.onSurfaceVariant
+    val isNew = item.story.addedAt.isNotBlank() && !read
     Card(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp).alpha(if (read) 0.5f else 1f),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
     ) {
-        Column(Modifier.padding(12.dp)) {
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                Tag("Önem ${item.story.importance}/10", highlight = item.story.importance >= 8)
-                if (item.story.addedAt.isNotBlank() && !read) Tag("Yeni", highlight = true)
-                if (label != null) Tag(label, modifier = Modifier.weight(1f, fill = false))
+        Row(Modifier.padding(12.dp), verticalAlignment = Alignment.Top) {
+            Column(Modifier.weight(1f)) {
+                if (label != null || isNew) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(bottom = 4.dp)) {
+                        if (label != null) {
+                            Text(label, style = MaterialTheme.typography.labelSmall, color = muted,
+                                maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))
+                        }
+                        if (isNew) Tag("Yeni", highlight = true)
+                    }
+                }
+                Text(item.story.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
             }
-            Spacer(Modifier.height(6.dp))
-            Text(item.story.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+            Row(Modifier.padding(start = 12.dp), verticalAlignment = Alignment.Bottom) {
+                Text("${item.story.importance}", fontSize = 16.sp, fontWeight = FontWeight.SemiBold,
+                    color = scoreColor(item.story.importance))
+                Text("/10", fontSize = 11.sp, color = muted, modifier = Modifier.padding(bottom = 1.dp))
+            }
         }
     }
 }

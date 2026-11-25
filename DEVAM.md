@@ -162,6 +162,19 @@ Uygulama notu (F): `daily.py` içinde `merge_bulletin`, `with_existing`, `existi
 Eski bültende olmayan başlığın haberleri de `added_at` alır. Android: `Güncellendi` satırı ve "Yeni" etiketi sadece bir haber `added_at` taşıyorsa görünür.
 Çevrimdışı Python denemesi geçti (sid korunumu, added_at, maliyet toplamı, sınır, render); ücretli çalıştırma yapılmadı.
 
+### G. Akış kartı son tasarım ve katlanan gruplar (kullanıcı seçti, 25 Kasım)
+- `StoryCard` (Screens.kt): Card kalır. İçerik Row: solda Column(weight 1) { üstte konu etiketi DÜZ YAZI
+  (labelSmall, onSurfaceVariant, yuvarlak/çerçeve YOK; varsa yanında `Tag("Yeni", highlight)`), altında title
+  (titleSmall SemiBold) }, SAĞ ÜSTTE puan: büyük renkli sayı (16.sp SemiBold) + küçük "/10" (11.sp, onSurfaceVariant).
+  Akış'taki "Önem X/10" Tag'i kalkar (Detay ekranındaki kalabilir).
+- Puan renkleri mavi tonları, üç kademe: 9-10 koyu mavi (açık tema `0xFF185FA5`, koyu tema `0xFF85B7EB`),
+  8 açık mavi (`0xFF378ADD` iki temada), 7 ve altı `onSurfaceVariant`. Koyu tema: `MaterialTheme.colorScheme.background.luminance() < 0.5f`.
+- Grup modunda grup başlığına DOKUNUNCA haberleri kapanır/açılır. Başlığın solunda ok (ChevronRight; açıkken 90 derece
+  döndürülmüş). Kapalıyken başlığın yanında küçük "15 haber, 12 okunmamış". Kapalı gruplar telefonda saklanır
+  (Repo: `collapsedGroups: Set<String>`, prefs "kapali_gruplar", bölüm anahtarıyla). 1 sn basılı tutma = sıralama modu, aynen kalır.
+  Puana göre modunda grup yok, etkilenmez.
+- Bitince assembleRelease, commit (push için kullanıcıya sor), emülatörde (`Medium_Phone_API_37.0`) açıp ekran görüntüsü al.
+
 ### Öneriler (kullanıcıya soruldu, cevap bekliyor)
 - Tekrar yerine "Gelişme" etiketi: önceki günün devamı olan haber gizlenmek yerine "dünkü haberin devamı" rozetiyle.
 - Haberde "ilgimi çekmedi" geri bildirimi: konu kriterine eklenir, seçim zamanla öğrenir.

@@ -47,6 +47,11 @@ class Repo(context: Context) {
         get() = prefs.getBoolean("okunmamislar", false)
         set(value) = prefs.edit().putBoolean("okunmamislar", value).apply()
 
+    /** Akış'ta kapatılmış (katlanmış) gruplar, bölüm anahtarıyla ("g-<grup kimliği>"). */
+    var collapsedGroups: Set<String>
+        get() = prefs.getStringSet("kapali_gruplar", emptySet())!!.toSet()
+        set(value) = prefs.edit().putStringSet("kapali_gruplar", value).apply()
+
     /** Okunan haberler: "tarih/sid" (sid her bültende baştan numaralandığı için tarih de gerekir). */
     @Volatile private var readCache: Set<String>? = null
 

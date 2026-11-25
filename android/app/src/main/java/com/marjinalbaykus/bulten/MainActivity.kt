@@ -139,6 +139,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
     var sortByScore by remember { mutableStateOf(repo.sortByScore) }
     var unreadOnly by remember { mutableStateOf(repo.unreadOnly) }
     var reordering by remember { mutableStateOf(false) }
+    var collapsed by remember { mutableStateOf(repo.collapsedGroups) }
     var searchQuery by remember { mutableStateOf("") }
     var notifications by remember { mutableStateOf(repo.notificationsOn) }
     var topics by remember { mutableStateOf(repo.topicsCache) }   // güncel başlık adları ve gruplar
@@ -303,6 +304,11 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                                     }
                                 },
                                 onReorderCancel = { reordering = false },
+                                collapsed = collapsed,
+                                onToggleCollapse = { key ->
+                                    collapsed = if (key in collapsed) collapsed - key else collapsed + key
+                                    repo.collapsedGroups = collapsed
+                                },
                             )
                         }
                     }
