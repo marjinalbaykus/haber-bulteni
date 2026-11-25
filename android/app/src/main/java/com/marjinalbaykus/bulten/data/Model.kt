@@ -15,6 +15,8 @@ data class Story(
     val sources: List<Source>,
     /** Haberin ait olduğu diğer başlıklar (aynı olay birden fazla başlığa girdiyse). */
     val also: List<String> = emptyList(),
+    /** Aynı günün bülteni sonradan güncellendiyse bu haberin eklendiği çalıştırma zamanı; ilk çalıştırmada boş. */
+    val addedAt: String = "",
 )
 
 data class Topic(val id: String, val title: String, val note: String, val stories: List<Story>)
@@ -38,9 +40,15 @@ data class Bulletin(
     val costUsd: Double? = null,
     val seconds: Int = 0,
     val tokens: Int = 0,
+    /** Aynı gün birden çok çalıştırma birleştirildiyse son güncelleme zamanı; yoksa boş. */
+    val updatedAt: String = "",
+    /** Çalıştırmalar (model, maliyet); birleştirilmiş bültende birden fazla. */
+    val runs: List<BulletinRun> = emptyList(),
 ) {
     val selected: Int get() = topics.sumOf { it.stories.size }
 }
+
+data class BulletinRun(val model: String, val costUsd: Double?)
 
 data class BulletinRef(val date: String, val generatedAt: String, val count: Int)
 
@@ -106,6 +114,7 @@ fun parseBulletin(text: String): Bulletin {
                         Source(src.optString("title"), src.optString("url"), src.optString("source"), src.optString("lang"))
                     },
                     also = s.optJSONArray("also").strings(),
+                    addedAt = s.optString("added_at"),
                 )
             }.sortedByDescending { it.importance },
         )
@@ -131,7 +140,11 @@ fun parseBulletin(text: String): Bulletin {
         model = st?.optString("model").orEmpty(),
         costUsd = st?.takeIf { it.has("cost_usd") }?.optDouble("cost_usd"),
         seconds = st?.optInt("seconds") ?: 0,
-        tokens = (st?.optInt("prompt_tokens") ?: 0) + (st?.optInt("completion_tokens") ?: 0))
+        tokens = (st?.optInt("prompt_tokens") ?: 0) + (st?.optInt("completion_tokens") ?: 0),
+        updatedAt = o.optString("updated_at"),
+        runs = st?.optJSONArray("runs").objects().map { r ->
+            BulletinRun(r.optString("model"), r.takeIf { it.has("cost_usd") }?.optDouble("cost_usd"))
+        })
 }
 
 fun parseIndex(text: String): Index {

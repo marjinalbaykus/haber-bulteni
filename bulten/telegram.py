@@ -4,10 +4,11 @@ from __future__ import annotations
 import html
 import os
 import time
+from datetime import datetime, timezone
 
 import requests
 
-from .common import tr_date, pct_text
+from .common import tr_date, pct_text, TR_TZ
 
 LIMIT = 3900  # Telegram sınırı 4096
 
@@ -66,7 +67,32 @@ def e(s: str) -> str:
     return html.escape(s or "", quote=False)
 
 
+def update_messages(b: dict, site_url: str) -> list[str]:
+    """Aynı günün bülteni güncellendiyse (birleştirme): sadece bu çalıştırmayla eklenen haberler.
+    Yeni haber yoksa boş liste (hiçbir şey gönderilmez)."""
+    page = f"{site_url}/b/{b['date']}.html"
+    at = b["updated_at"]
+    topics = [(t, [s for s in t["stories"] if s.get("added_at") == at]) for t in b["topics"]]
+    topics = [(t, st) for t, st in topics if st]
+    n = sum(len(st) for _, st in topics)
+    if not n:
+        return []
+    try:
+        hhmm = datetime.strptime(at, "%Y-%m-%dT%H:%MZ").replace(tzinfo=timezone.utc).astimezone(TR_TZ).strftime("%H:%M")
+    except ValueError:
+        hhmm = at
+    blocks = [f"<b>Güncelleme ({hhmm}): {n} yeni haber</b>"]
+    for t, st in topics:
+        lines = [f"<b>{e(t['title'])}</b>"]
+        lines += [f'• <a href="{page}#{s["sid"]}">{e(s["headline"])}</a>' for s in st]
+        blocks.append("\n".join(lines))
+    blocks.append(f'<a href="{page}">Bültenin tamamı ve kaynaklar</a>')
+    return _pack(blocks)
+
+
 def bulletin_messages(b: dict, site_url: str) -> list[str]:
+    if b.get("updated_at"):
+        return update_messages(b, site_url)
     page = f"{site_url}/b/{b['date']}.html"
     blocks = [f"<b>Günün Özeti - {e(tr_date(b['date']))}</b>"]
     if b.get("market_alarms"):

@@ -309,6 +309,11 @@ fun BulletinScreen(
                             if (offline) "\nÇevrimdışı kopya" else "",
                         style = MaterialTheme.typography.bodySmall, color = muted,
                     )
+                    // Aynı günün bülteni sonradan güncellendiyse (yeni haber eklendiyse) saati yazılır
+                    if (bulletin.updatedAt.isNotBlank() && bulletin.topics.any { t -> t.stories.any { it.addedAt.isNotBlank() } }) {
+                        Text("Güncellendi ${trPrepared(bulletin.updatedAt, bulletin.date)}",
+                            style = MaterialTheme.typography.bodySmall, color = muted)
+                    }
                 }
                 MarketMini(bulletin)
             }
@@ -385,6 +390,7 @@ private fun StoryCard(item: Item, label: String?, read: Boolean, onClick: () -> 
         Column(Modifier.padding(12.dp)) {
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
                 Tag("Önem ${item.story.importance}/10", highlight = item.story.importance >= 8)
+                if (item.story.addedAt.isNotBlank() && !read) Tag("Yeni", highlight = true)
                 if (label != null) Tag(label, modifier = Modifier.weight(1f, fill = false))
             }
             Spacer(Modifier.height(6.dp))
@@ -412,15 +418,20 @@ private fun StatsFooter(b: Bulletin) {
     if (b.model.isBlank()) return
     val tr = java.util.Locale.forLanguageTag("tr-TR")
     val muted = MaterialTheme.colorScheme.onSurfaceVariant
+    // Aynı günün birden çok çalıştırması birleştirildiyse: "2 çalıştırma, toplam maliyet ..." ve modeller
+    val multi = b.runs.size > 1
+    val models = if (multi) b.runs.map { modelName(it.model) }.distinct().joinToString(", ") else modelName(b.model)
     val cost = b.costUsd?.let {
-        "Maliyet: yaklaşık " + String.format(tr, if (it < 0.01) "%.4f" else "%.2f", it) + " dolar"
-    } ?: "Maliyet: Claude aboneliği içinde (ek ücret yok)"
+        (if (multi) "${b.runs.size} çalıştırma, toplam maliyet: " else "Maliyet: ") +
+            "yaklaşık " + String.format(tr, if (it < 0.01) "%.4f" else "%.2f", it) + " dolar" +
+            (if (multi && b.runs.any { r -> r.costUsd == null }) " (Claude çalıştırmaları abonelik içinde)" else "")
+    } ?: ((if (multi) "${b.runs.size} çalıştırma, maliyet: " else "Maliyet: ") + "Claude aboneliği içinde (ek ücret yok)")
     val parts = ArrayList<String>()
     if (b.seconds > 0) parts += if (b.seconds >= 60) "${b.seconds / 60} dk ${b.seconds % 60} sn" else "${b.seconds} sn"
     if (b.tokens > 0) parts += "${trCount(b.tokens)} token"
     Column(Modifier.fillMaxWidth().padding(top = 20.dp)) {
         HorizontalDivider()
-        Text("Hazırlayan model: ${modelName(b.model)}", style = MaterialTheme.typography.labelSmall, color = muted,
+        Text((if (multi) "Hazırlayan modeller: " else "Hazırlayan model: ") + models, style = MaterialTheme.typography.labelSmall, color = muted,
             modifier = Modifier.padding(top = 8.dp))
         Text(cost, style = MaterialTheme.typography.labelSmall, color = muted)
         if (parts.isNotEmpty()) {
@@ -834,7 +845,7 @@ fun SettingsScreen(
                     if (confirmStep == 1) {
                         "$label bülteni DeepSeek ile hazırlanacak ($scope2 taranır). Ücretlidir (yaklaşık 0,08 dolar) " +
                             "ve 3-5 dakika sürer." +
-                            if (exists) " Bu günün bülteni zaten var, yenisi onun yerine geçer." else ""
+                            if (exists) " Bu günün bülteni zaten var; sadece yeni haberler eklenir." else ""
                     } else {
                         "$label için çalıştırma şimdi başlatılacak ve DeepSeek bakiyenden düşülecek."
                     },

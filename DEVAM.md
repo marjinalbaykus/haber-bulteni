@@ -128,7 +128,7 @@ Commit/push YOK, telefona yüklenmedi, cihazda denenmedi (kullanıcı onayı bek
 - Sıradaki: kullanıcıdan onay alınca commit + push, telefon takılınca adb ile yükleme.
 - Kullanıcı 9-10 puan kuralını onayladı: sınır + en fazla 5 ek (mevcut `HIGH_EXTRA = 5`), değişiklik gerekmez.
 
-### F. Aynı günü yeniden çalıştırınca BİRLEŞTİR (yeni istek, 25 Kasım)
+### F. [x] Aynı günü yeniden çalıştırınca BİRLEŞTİR (yapıldı, 25 Kasım; push yok, cihazda denenmedi)
 Amaç: bir günün bülteni varken o gün tekrar çalıştırılırsa (elle DeepSeek veya rutin) bülten değiştirilmez,
 sadece eksik/yeni haberler eklenir. Örn. 21:00 rutini + 23:00'te elle çalıştırma: 23:00 olayı da görünür. Günde tek bülten.
 Hem `daily.run_daily` hem `staged` (prep + son aşama) aynı ortak fonksiyonları kullanmalı. `--compare` modunda birleştirme YOK.
@@ -157,6 +157,13 @@ Hem `daily.run_daily` hem `staged` (prep + son aşama) aynı ortak fonksiyonlar�
 6. Test (ücretli çalıştırma YOK): `merge_bulletin` ve `keep_stories(existing_counts)` için sahte verilerle çevrimdışı
    Python denemesi (sid'ler korunuyor mu, added_at, toplam maliyet, sınır). `assembleRelease`. Sonra commit; push
    için kullanıcıya sor.
+
+Uygulama notu (F): `daily.py` içinde `merge_bulletin`, `with_existing`, `existing_counts`, `keep_stories(..., existing_counts)`;
+`staged.py` aynı fonksiyonları kullanır (prep'te `existing_counts` state'e yazılır, son aşamada taze okunup birleştirilir).
+`telegram.update_messages`: `updated_at` varsa sadece `added_at == updated_at` haberler "Güncelleme (HH:MM)" ile gider, yoksa
+hiçbir şey; publish.yml ve daily.yml değişmedi (`resend`/`notify` bulletin_messages'ı kullanıyor). Eski bültende olmayan
+başlığın haberleri de `added_at` alır. Android: `Güncellendi` satırı ve "Yeni" etiketi sadece bir haber `added_at` taşıyorsa görünür.
+Çevrimdışı Python denemesi geçti (sid korunumu, added_at, maliyet toplamı, sınır, Telegram, render); ücretli çalıştırma yapılmadı.
 
 ### Öneriler (kullanıcıya soruldu, cevap bekliyor)
 - Tekrar yerine "Gelişme" etiketi: önceki günün devamı olan haber gizlenmek yerine "dünkü haberin devamı" rozetiyle.

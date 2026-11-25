@@ -25,7 +25,8 @@ from .common import ROOT, DATA, read_json, write_json, now_tr, load_config
 from .daily import (SELECT_SYSTEM, DEDUPE_SYSTEM, DETAIL_SYSTEM, collect, pick_candidates,
                     select_prompt, parse_selection, keep_stories, dedupe_listing, apply_dedupe,
                     _grounding_texts, detail_prompt, build_detail, assemble, update_history,
-                    recent_history, previous_headlines, needs_dedupe)
+                    recent_history, previous_headlines, needs_dedupe, existing_bulletin, with_existing,
+                    existing_counts, merge_bulletin)
 from .markets import fetch_markets
 
 WORK = ROOT / "work"
@@ -140,6 +141,12 @@ def prep(variant: str, until: str | None, date: str | None, compare: bool) -> No
     # Önceki son N günün başlıkları (o günün kendisi hariç: aynı gün yeniden hazırlanırsa eskisi sayılmaz)
     hist = recent_history(read_json(DATA / "history.json", {"cited_urls": {}, "headlines": {}}), date,
                           cfg.get("repeat_days", 5))
+    # O günün bülteni zaten varsa (ör. rutin + elle çalıştırma) yeni haberler onunla birleştirilir;
+    # mevcut haberler aday olmaz ve tekrar kontrolüne girer. --compare modunda birleştirme yok.
+    existing = None if compare else existing_bulletin(date)
+    if existing:
+        print(f"{date} bülteni zaten var: sadece yeni haberler eklenecek")
+        hist = with_existing(hist, existing, date)
 
     print("Kaynaklar taranıyor...")
     pool = S.Pool()
@@ -170,6 +177,7 @@ def prep(variant: str, until: str | None, date: str | None, compare: bool) -> No
            "since": since.isoformat(), "started": started.isoformat(),
            "pool": [it.to_dict() for it in pool.items], "cands": cands, "markets": markets,
            "prev": previous_headlines(hist, cfg["topics"]),
+           "existing_counts": existing_counts(existing),
            "task_chars": _chars(names), "tasks": len(names)})
     _print_tasks(names)
 
@@ -189,7 +197,7 @@ def next_step(no_fetch: bool = False) -> None:
             res = _read_out(f"secim-{t['id']}")
             ids = state["cands"].get(t["id"], [])
             sel[t["id"]] = (None if res is None else parse_selection(res, ids), len(ids))
-        kept = keep_stories(topics, sel)
+        kept = keep_stories(topics, sel, state.get("existing_counts"))
         state["sel"] = {k: [v[0], v[1]] for k, v in sel.items()}
         state["kept"] = kept
         flat = [(t, s) for t in topics for s in kept[t["id"]]]
@@ -269,6 +277,10 @@ def next_step(no_fetch: bool = False) -> None:
             write_json(path, bulletin)
         else:
             path = DATA / "bulletins" / f"{state['date']}.json"
+            old = existing_bulletin(state["date"])
+            if old:
+                bulletin = merge_bulletin(old, bulletin)
+                out_topics = bulletin["topics"]
             write_json(path, bulletin)
             update_history(out_topics, state["date"])
         state["stage"] = "done"

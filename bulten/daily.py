@@ -66,6 +66,9 @@ significant new development. A significant new development is a new result, deci
 new numbers that change the picture, or a clearly new phase of the event. Rephrasing, more reactions, analysis,
 or minor details are NOT new developments. When unsure, treat it as a repeat.
 
+Headlines dated today under PREVIOUS DAYS are already in today's bulletin (an earlier run of the same day);
+the same repeat rule applies to them.
+
 Output JSON: {"groups": [{"keep": int, "drop": [int]}], "repeats": [int]} (empty lists if none)."""
 
 
@@ -318,9 +321,11 @@ HIGH_IMPORTANCE = 9   # bu puan ve üstü seviye sınırına (max_stories) takı
 HIGH_EXTRA = 5        # ama bir başlığa sınırın üstünde en fazla bu kadar ek haber
 
 
-def keep_stories(topics: list[dict], sel: dict) -> dict[str, list]:
+def keep_stories(topics: list[dict], sel: dict, existing_counts: dict | None = None) -> dict[str, list]:
     """Eşik altını atar; aynı haberi (ortak id) iki başlıkta kullanmaz, önemi yüksek olan kalır.
-    Seviye sınırı (Az 3, Orta 5, Çok 8) 9-10 puanlı haberleri kesmez: 5 tane 9 puan varsa 5'i de gelir."""
+    Seviye sınırı (Az 3, Orta 5, Çok 8) 9-10 puanlı haberleri kesmez: 5 tane 9 puan varsa 5'i de gelir.
+    existing_counts: o günün bülteninde zaten bulunan haber sayısı (konu başına); sınır toplam üzerinden uygulanır."""
+    existing_counts = existing_counts or {}
     flat = []
     for ti, t in enumerate(topics):
         st, _ = sel[t["id"]]
@@ -334,7 +339,8 @@ def keep_stories(topics: list[dict], sel: dict) -> dict[str, list]:
         if s["ids"] and used & set(s["ids"]):
             continue
         cap = t.get("max_stories", 5)
-        if len(kept[t["id"]]) >= (cap + HIGH_EXTRA if imp >= HIGH_IMPORTANCE else cap):
+        have = existing_counts.get(t["id"], 0) + len(kept[t["id"]])
+        if have >= (cap + HIGH_EXTRA if imp >= HIGH_IMPORTANCE else cap):
             continue
         used |= set(s["ids"])
         kept[t["id"]].append(s)
@@ -382,6 +388,95 @@ def update_history(out_topics: list[dict], date: str) -> None:
     write_json(hist_path, hist)
 
 
+def existing_bulletin(date: str) -> dict | None:
+    """O günün bülteni zaten yayınlandıysa (ör. 21:00 rutini) onu döner."""
+    return read_json(DATA / "bulletins" / f"{date}.json")
+
+
+def with_existing(hist: dict, existing: dict | None, date: str) -> dict:
+    """recent_history çıktısına o günün mevcut bülteninin haberlerini ekler: kaynak adresleri aday olmasın,
+    başlıkları "bugünkü bültende zaten var" diye tekrar kontrolüne girsin."""
+    if not existing:
+        return hist
+    out = {"cited_urls": dict(hist["cited_urls"]), "headlines": {k: list(v) for k, v in hist["headlines"].items()}}
+    for t in existing.get("topics", []):
+        for s in t.get("stories", []):
+            out["headlines"].setdefault(t["id"], []).append({"date": date, "headline": s["headline"]})
+            for src in s.get("sources", []):
+                out["cited_urls"][S.norm_url(src["url"])] = date
+    return out
+
+
+def existing_counts(existing: dict | None) -> dict[str, int]:
+    return {t["id"]: len(t.get("stories", [])) for t in (existing or {}).get("topics", [])}
+
+
+_SUM_KEYS = ("items", "seconds", "calls", "prompt_tokens", "completion_tokens", "cache_hit_tokens",
+             "tasks", "task_chars")
+
+
+def _run_of(b: dict) -> dict:
+    st = b.get("stats", {})
+    run = {"at": b.get("generated_at"), "model": st.get("model"), "items": st.get("items", 0)}
+    if "cost_usd" in st:
+        run["cost_usd"] = st["cost_usd"]
+    return run
+
+
+def merge_bulletin(old: dict, new: dict) -> dict:
+    """Aynı günün ikinci çalıştırması: eski haberler AYNEN kalır (sid değişmez, uygulamadaki okundu bilgisi
+    "tarih/sid" ile tutulur), yeni haberler eklenir (added_at ile). generated_at eskisi kalır, updated_at yenisi olur."""
+    run_at = new["generated_at"]
+    by_new = {t["id"]: t for t in new["topics"]}
+    by_old = {t["id"]: t for t in old["topics"]}
+    order = list(by_old) + [tid for tid in by_new if tid not in by_old]
+    topics = []
+    for tid in order:
+        o, n = by_old.get(tid), by_new.get(tid)
+        if o is None:   # eski bültende olmayan başlık: olduğu gibi eklenir, haberleri yeni sayılır
+            topics.append({**n, "stories": [{**s, "added_at": run_at} for s in n["stories"]]})
+            continue
+        stories = [dict(s) for s in o["stories"]]
+        last = 0
+        for s in stories:
+            tail = str(s.get("sid", "")).rsplit("-", 1)[-1]
+            if tail.isdigit():
+                last = max(last, int(tail))
+        for k, s in enumerate((n or {}).get("stories", []), 1):
+            s = dict(s)
+            s["sid"] = f"{tid}-{last + k}"
+            s["added_at"] = run_at
+            stories.append(s)
+        stories.sort(key=lambda s: -s["importance"])   # kararlı: eşitlikte eski haber önce
+        note = "" if stories else ((n or {}).get("note") or o.get("note", ""))
+        topics.append({"id": tid, "title": (n or o)["title"], "stories": stories, "note": note,
+                       "candidates": o.get("candidates", 0) + (n or {}).get("candidates", 0)})
+    ost, nst = old.get("stats", {}), new.get("stats", {})
+    stats = dict(nst)   # model: son çalıştırmanınki
+    for k in _SUM_KEYS:
+        if k in ost or k in nst:
+            stats[k] = ost.get(k, 0) + nst.get(k, 0)
+    runs = list(ost.get("runs") or [_run_of(old)]) + [_run_of(new)]
+    costs = [r["cost_usd"] for r in runs if "cost_usd" in r]
+    if costs:
+        stats["cost_usd"] = round(sum(costs), 4)
+    else:
+        stats.pop("cost_usd", None)
+    stats["runs"] = runs
+    if new.get("markets"):
+        markets, alarms = new["markets"], [m for m in new["markets"] if m.get("alarms")]
+    else:
+        markets, alarms = old.get("markets", []), old.get("market_alarms", [])
+    return {**old, "topics": topics, "markets": markets, "market_alarms": alarms,
+            "updated_at": run_at, "stats": stats}
+
+
+def merge_with_existing(date: str, bulletin: dict) -> dict:
+    """O günün bülteni varsa yeni çalıştırmayı onunla birleştirir, yoksa olduğu gibi döner."""
+    old = existing_bulletin(date)
+    return merge_bulletin(old, bulletin) if old else bulletin
+
+
 def run_daily(cfg: dict, date: str | None = None) -> dict:
     """Elle bülten (DeepSeek). Hangi gün çalıştırılırsa çalıştırılsın kapsam tarihe bağlıdır:
     - date verilirse: sadece o gün (TR 00:00 - 24:00; bugünse şu ana kadar). Bülten o günün tarihini alır.
@@ -401,6 +496,10 @@ def run_daily(cfg: dict, date: str | None = None) -> dict:
     hist_path = DATA / "history.json"
     hist = recent_history(read_json(hist_path, {"cited_urls": {}, "headlines": {}}), date,
                           cfg.get("repeat_days", 5))
+    existing = existing_bulletin(date)   # o gün bülten zaten varsa yenisi onunla birleştirilir
+    if existing:
+        print(f"{date} bülteni zaten var: sadece yeni haberler eklenecek")
+    hist = with_existing(hist, existing, date)
     cited = set(hist["cited_urls"])
 
     print("Kaynaklar taranıyor...")
@@ -437,7 +536,8 @@ def run_daily(cfg: dict, date: str | None = None) -> dict:
     with ThreadPoolExecutor(6) as ex:
         sel = {tid: (st, n) for tid, st, n in ex.map(stage1, topics)}
 
-    kept = dedupe_across_topics(llm, topics, keep_stories(topics, sel), previous_headlines(hist, topics))
+    kept = dedupe_across_topics(llm, topics, keep_stories(topics, sel, existing_counts(existing)),
+                               previous_headlines(hist, topics))
 
     print("Detaylar yazılıyor...")
     jobs = [(t, s) for t in topics for s in kept[t["id"]]]
@@ -455,8 +555,11 @@ def run_daily(cfg: dict, date: str | None = None) -> dict:
         "stats": {"items": len(pool.items), "seconds": int((datetime.now(timezone.utc) - started).total_seconds()),
                   "model": llm.model, **llm.usage, "cost_usd": estimate_cost(llm.usage, started)},
     }
-    write_json(DATA / "bulletins" / f"{date}.json", bulletin)
-    update_history(out_topics, date)
-    print(f"Bitti: {sum(len(t['stories']) for t in out_topics)} haber, kullanım: {llm.usage}, "
+    print(f"Bu çalıştırma: {sum(len(t['stories']) for t in out_topics)} haber, kullanım: {llm.usage}, "
           f"tahmini maliyet: ${bulletin['stats']['cost_usd']}")
+    if existing:
+        bulletin = merge_bulletin(existing, bulletin)
+    write_json(DATA / "bulletins" / f"{date}.json", bulletin)
+    update_history(bulletin["topics"], date)
+    print(f"Bitti: bültende toplam {sum(len(t['stories']) for t in bulletin['topics'])} haber")
     return bulletin
