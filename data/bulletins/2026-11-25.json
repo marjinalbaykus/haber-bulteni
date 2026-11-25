@@ -6,29 +6,23 @@
    "symbol": "GC=F",
    "name": "Altın (ons, USD)",
    "group": "dunya",
-   "value": 3549.7,
+   "value": 3548.0,
    "changes": {
-    "day": -2.79,
-    "week": -8.14,
-    "month": -11.43
+    "day": -0.39,
+    "week": -5.18,
+    "month": -12.14
    },
-   "alarms": [
-    {
-     "window": "week",
-     "label": "7 günde",
-     "pct": -8.1
-    }
-   ]
+   "alarms": []
   },
   {
    "symbol": "GRAM",
    "name": "Gram altın (TL)",
    "group": "tr",
-   "value": 5782.48,
+   "value": 5780.27,
    "changes": {
-    "day": -2.61,
-    "week": -7.72,
-    "month": -9.78
+    "day": -0.25,
+    "week": -4.74,
+    "month": -10.49
    },
    "alarms": []
   },
@@ -36,11 +30,11 @@
    "symbol": "BZ=F",
    "name": "Brent petrol",
    "group": "dunya",
-   "value": 88.41,
+   "value": 90.35,
    "changes": {
-    "day": -1.07,
-    "week": -5.08,
-    "month": -24.25
+    "day": -1.15,
+    "week": -1.74,
+    "month": -21.98
    },
    "alarms": []
   },
@@ -50,9 +44,9 @@
    "group": "tr",
    "value": 50.67,
    "changes": {
-    "day": 0.18,
-    "week": 0.45,
-    "month": 1.87
+    "day": 0.14,
+    "week": 0.46,
+    "month": 1.88
    },
    "alarms": []
   },
@@ -60,11 +54,11 @@
    "symbol": "EURTRY=X",
    "name": "Euro/TL",
    "group": "tr",
-   "value": 55.54,
+   "value": 55.66,
    "changes": {
-    "day": 0.02,
-    "week": 0.11,
-    "month": -0.52
+    "day": 0.72,
+    "week": 0.33,
+    "month": -0.3
    },
    "alarms": []
   },
@@ -72,11 +66,11 @@
    "symbol": "XU100.IS",
    "name": "BIST 100",
    "group": "tr",
-   "value": 11104.4,
+   "value": 10655.74,
    "changes": {
-    "day": -0.24,
-    "week": -6.23,
-    "month": -0.11
+    "day": -2.83,
+    "week": -7.16,
+    "month": -4.45
    },
    "alarms": []
   },
@@ -84,11 +78,11 @@
    "symbol": "^GSPC",
    "name": "S&P 500",
    "group": "dunya",
-   "value": 7201.09,
+   "value": 7126.0,
    "changes": {
-    "day": -0.5,
-    "week": -1.9,
-    "month": -5.54
+    "day": -1.04,
+    "week": -2.7,
+    "month": -7.17
    },
    "alarms": []
   },
@@ -96,11 +90,11 @@
    "symbol": "^IXIC",
    "name": "Nasdaq",
    "group": "dunya",
-   "value": 23733.54,
+   "value": 23295.4,
    "changes": {
-    "day": -1.48,
-    "week": -2.45,
-    "month": -8.56
+    "day": -1.85,
+    "week": -4.64,
+    "month": -10.98
    },
    "alarms": []
   },
@@ -108,35 +102,16 @@
    "symbol": "BTC-USD",
    "name": "Bitcoin",
    "group": "dunya",
-   "value": 59674.24,
+   "value": 59659.12,
    "changes": {
-    "day": -2.51,
-    "week": -5.26,
-    "month": -25.41
+    "day": -0.15,
+    "week": -5.28,
+    "month": -25.43
    },
    "alarms": []
   }
  ],
- "market_alarms": [
-  {
-   "symbol": "GC=F",
-   "name": "Altın (ons, USD)",
-   "group": "dunya",
-   "value": 3549.7,
-   "changes": {
-    "day": -2.79,
-    "week": -8.14,
-    "month": -11.43
-   },
-   "alarms": [
-    {
-     "window": "week",
-     "label": "7 günde",
-     "pct": -8.1
-    }
-   ]
-  }
- ],
+ "market_alarms": [],
  "topics": [
   {
    "id": "arda_guler",
@@ -250,17 +225,35 @@
      ],
      "read_articles": 1,
      "sid": "arda_guler-2"
+    },
+    {
+     "importance": 6,
+     "headline": "Arda Güler bu sezon 16 maçta 13 gol katkısına ulaştı; Real Madrid'de önünde yalnızca Mbappé var.",
+     "title": "Arda Güler 16 maçta 13 gol katkısına ulaştı",
+     "detail": "Real Madrid'in genç oyuncusu Arda Güler, bu sezon oynadığı 16 maçta 13 gol katkısı yaptı. Transfermarkt'ın haberine göre bu performans, Güler'i Real Madrid'de gol katkısı sıralamasında yalnızca Kylian Mbappé'nin gerisinde bırakıyor.",
+     "sources": [
+      {
+       "title": "Arda Güler’den 16 maçta 13 gol katkısı - Real Madrid’de önünde yalnızca Mbappé var",
+       "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNb1VmWUNzYXlEN0Nla0NLMlR0V1Y5eWpMT3BlN09zVHd5M3Y2QmdRYzZBcE9BenlnM2dlWWlqTkdpNUd5N0g0NFJSbE4yb3d3dE8xWEZQZC1jdEhkNjhMQ3ROb0VUMjFkdzI5dHNvcGhZa1J2emNUeWk3N2hFT0Rmcmo3S2JEbjB6X0ZEcHBtdEZrTUx3NHF6VXJaVDFfVjQ4V1ptTDE0dHp6VlNqcjJvVFpFdEVYMzZmVGRqWTE1RWY4UUVtQmVV?oc=5",
+       "source": "Transfermarkt",
+       "lang": "tr",
+       "published": "2026-11-25T09:53Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "arda_guler-3",
+     "added_at": "2026-11-25T18:10Z"
     }
    ],
    "note": "",
-   "candidates": 93
+   "candidates": 238
   },
   {
    "id": "real_madrid",
    "title": "Real Madrid",
    "stories": [],
    "note": "Kayda değer bir gelişme yok.",
-   "candidates": 220
+   "candidates": 395
   },
   {
    "id": "sampiyonlar_ligi",
@@ -497,7 +490,7 @@
     }
    ],
    "note": "",
-   "candidates": 88
+   "candidates": 207
   },
   {
    "id": "premier_lig",
@@ -643,7 +636,7 @@
     }
    ],
    "note": "",
-   "candidates": 126
+   "candidates": 246
   },
   {
    "id": "pc_donanim",
@@ -976,7 +969,7 @@
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 440
   },
   {
    "id": "yerel_llm",
@@ -1063,10 +1056,63 @@
      ],
      "read_articles": 0,
      "sid": "yerel_llm-2"
+    },
+    {
+     "importance": 8,
+     "headline": "Tencent Hunyuan, Hy4 flash'ın GGUF kuantize ağırlıklarını açtı; 224B'lik model 64 GB'lık Mac mini'ye sığıyor ve skor neredeyse düşmüyor.",
+     "title": "Tencent Hunyuan, Hy4 flash için GGUF kuantize ağırlıkları yayımladı",
+     "detail": "Tencent Hunyuan, Hy4 flash modelinin GGUF formatındaki kuantize ağırlıklarını açık kaynak olarak yayımladı. AIBase ve Çin basınındaki haberlere göre 224 milyar parametreli model, 64 GB belleğe sahip bir Mac mini üzerinde yerelde çalıştırılabiliyor; kuantizasyon sonrası benchmark skorlarında belirgin bir düşüş yaşanmıyor. En küçük sürüm, orijinal model boyutunun yaklaşık yüzde 30'unu kaplıyor.\n\nKaynaklarda aktif parametre sayısı ve 4-bit ile 8-bit için ayrı VRAM rakamları verilmiyor. Parametre sayısından yapılan kaba hesapla, standart 4-bit kuantizasyon için yaklaşık 134 GB, 8-bit için yaklaşık 246 GB bellek gerekir; 64 GB'lık yapılandırma bu nedenle daha agresif kuantizasyon sürümlerine işaret ediyor. Ollama veya LM Studio desteğine dair bilgi sağlanan metinlerde yer almıyor.",
+     "sources": [
+      {
+       "title": "腾讯混元开源Hy4 flash量化权重 支持本地部署",
+       "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1uWUt1aENOLWJtenZKQlJGS0JOU3VoaWlURDc0bWNSNDJia1VIamZabXUzUWw0bGZMcXl5a01lT0E2TlZ2TGFFRlR6a1I?oc=5",
+       "source": "www.itsdw.cn",
+       "lang": "zh",
+       "published": "2026-11-25T09:26Z"
+      },
+      {
+       "title": "Tencent Hy4 Flash GGUF: What Local Hardware Really Runs",
+       "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5YOTVlTWhUQjdqNWFUQUZPZVJrSG5SSnBBeXM3M1BlNHhLY2FvU3dSUjRfel9LMHVhQkF3SnlFZjJOZTNDUkNCUUljdDlXR2FMVDF5Ym1NWEttZzR0OVYtaV9sUkVTYWFMZFlr?oc=5",
+       "source": "OrcaRouter",
+       "lang": "en",
+       "published": "2026-11-25T11:15Z"
+      },
+      {
+       "title": "Tencent Hunyuan open-sources Hy4 flash GGUF quantized weights: 224B large model squeezed into a 64GB Mac mini with almost no score drop",
+       "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5BYmR4MmxHeGdZN0hBZ1NaQU9GWGgtLUlOQnpZcUxaalRMRkpLUU9hOXZLQ3hhWnRsb3ZkMWtGbXBkUmNPUFFVNlB3?oc=5",
+       "source": "AIBase",
+       "lang": "en",
+       "published": "2026-11-25T09:50Z"
+      },
+      {
+       "title": "腾讯混元开源Hy4 flash GGUF量化模型：224B大模型可本地部署，最低仅占原始体积30%",
+       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1FTnZvamtsT1NibVpOLWwzOUZMZUZEeUhnWUMtenBHNjRNakFFVGEwOVhwY0Zub3BObHhraW9JZkttYjFMSEZEMXdfbXk0QXhWTjlMVnVvc0QwLUc0aHc?oc=5",
+       "source": "SmartHey",
+       "lang": "zh",
+       "published": "2026-11-25T08:21Z"
+      },
+      {
+       "title": "腾讯混元开源 Hy4 flash GGUF 量化权重：224B 大模型塞进 64GB Mac mini，分数几乎没掉",
+       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1BNEFJRE9NOE5qMlV4UGhpYUtxV0JEUGdPSjYzYWp1SnBLeXlHRS00TWJrd05lX1VvQ1BUVng1TDd3WEJDamZ0X0RaS0FpZw?oc=5",
+       "source": "AIBase",
+       "lang": "zh",
+       "published": "2026-11-25T07:21Z"
+      },
+      {
+       "title": "腾讯混元Hy4 flash开源量化权重：让大模型跑在个人设备上",
+       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB1QXFGOTB2OWRSTnA5MFk5TDBUcnpzLXZmYmlCUEs0LVdBcWt3SU1jazZzTmtNQVZDbDlDdmtReERVcnB5MWE2RE5ZVlNqb2dCUkE?oc=5",
+       "source": "凤凰网",
+       "lang": "zh",
+       "published": "2026-11-25T07:09Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "yerel_llm-3",
+     "added_at": "2026-11-25T18:10Z"
     }
    ],
    "note": "",
-   "candidates": 89
+   "candidates": 200
   },
   {
    "id": "yapay_zeka",
@@ -1355,7 +1401,7 @@
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 440
   },
   {
    "id": "ai_kodlama",
@@ -1613,7 +1659,7 @@
     }
    ],
    "note": "",
-   "candidates": 147
+   "candidates": 310
   },
   {
    "id": "teknoloji",
@@ -1950,7 +1996,7 @@
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 440
   },
   {
    "id": "akilli_telefon",
@@ -2211,10 +2257,70 @@
      ],
      "read_articles": 3,
      "sid": "akilli_telefon-4"
+    },
+    {
+     "importance": 7,
+     "headline": "Bellek maliyetlerindeki artış nedeniyle büyük telefon üreticileri 2027 sevkiyat hedeflerini düşürdü; yalnızca Honor hedefini korudu.",
+     "title": "Telefon üreticileri bellek maliyetleri nedeniyle 2027 hedeflerini düşürdü",
+     "detail": "Tedarik zinciri kaynaklarına dayanan habere göre Xiaomi hedefini 120 milyondan 90 milyon adede (yüzde 25), Vivo 85 milyondan 60 milyona (yüzde 29), Lenovo/Motorola ise 50 milyondan 40 milyona (yüzde 20) indirdi. Apple'ın hedefi yaklaşık 233 milyondan 220 milyona (yüzde 5,6), Samsung'unki 232 milyondan 210 milyona (yüzde 9,5) geriledi. Oppo 105 milyondan 90 milyona, Transsion 66 milyondan 58 milyona, Huawei ise yaklaşık 60 milyondan 50 milyonun altına çekildi. Honor, yaklaşık 50 milyonluk hedefini korudu; IDC verilerine göre şirket, üçüncü çeyrekte Çin'de çeyreklik sevkiyatı artan tek büyük markaydı.\n\nKesintilerin ana nedeni, yapay zekâ veri merkezlerinin DRAM arzını emmesi. Counterpoint'e göre DRAM geliri üçüncü çeyrekte yıllık yüzde 369 artarak yaklaşık 200 milyar dolara yaklaştı. Goldman Sachs, 2027'de DRAM arz açığının yüzde 5,1'e ulaşabileceğini tahmin ediyor. Analistler, açığın 2028'de yüzde 1,2'ye düşmesini ve fiyatların yaklaşık yüzde 20 gerilemesini bekliyor.",
+     "sources": [
+      {
+       "title": "All major smartphone makers slash 2027 shipment targets — except for one",
+       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSTM3YVphSFNob1NfdXZTUjJBQjJHX2ZOMDlHRlVQRTVjbFJGemVhYXdjUGRxcVVGNkRsLW5Fd0F2RUQ0MUtOVDdkWmV5c2cxanEtb2RzcDRkYnZwZXM1cGw2T1ZYcmJiSXBIQU93bmUyOVhzMWlNNk52N0FUR3lBWW5NUy1MNHl1STZWZFZ5Z09Tb2tHX1RZWUQ3enJyZnMwb3dRUUdQNWEtRVhtUHVkTEZvMlV3Zw?oc=5",
+       "source": "Notebookcheck",
+       "lang": "en",
+       "published": "2026-11-25T11:37Z"
+      },
+      {
+       "title": "Akıllı telefon devlerinde 2027 alarmı: Beklentiler neden aşağı çekildi?",
+       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPekFSUHp1UXdSbGZTSTV3cGkyR3pYc1Y2TTNkSUp6b091Z083SG92b0FNbm1sQnhJZXlyb2ZVZk1adWhWaEJjSGZMY3lRNHFlLWlpcUp4ajRxcGNhZTdsbVBySm1hYzFqNnhwdVZVOVZ3Q0p1VDVuTC1tb2NGT2pBMmItcXlkS0E0Q3Q0ckRRSmF6eVdYNTBFUmFtMjZKYXZzc1NIRlZxRW13ZUFUN21J?oc=5",
+       "source": "Havadis",
+       "lang": "tr",
+       "published": "2026-11-25T17:15Z"
+      },
+      {
+       "title": "Bellek krizi nedeniyle telefon üreticileri hedeflerini düşürdü",
+       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPTGJjNHIzVmJxNnh3N1prc1dya05lWElTU05SZU1KVkl4Y2JJeV9WNTBLNHRxTXc2aDRXX3lJd1ZVeG5aQkMtZkhvMTZ3aFladjVkSFVoQU82TGJUbmt6bEg2b2d3SzhBVk1hOVJfb29PRV9hS01OYUNyRGxSUGpNOVVNYTRGRHc3UzZ6R1lwUVgwdkZlMTFWR0pJakRWTnZh?oc=5",
+       "source": "DonanımHaber",
+       "lang": "tr",
+       "published": "2026-11-25T17:10Z"
+      },
+      {
+       "title": "Artan Bellek Maliyetleri 2027 Telefon Üretimini vurduğu öne sürüldü",
+       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSG1hdWYwX1dzT00tOVpJZEtKRVlmZk9yUlhYNHpYZ051WHVnZzFDV2pSOU9BQlRrQmpoWE9BUHVYNFlUeEdWRGw4UjBrWW5JSk9GM29GRUtOZlkwTEJoX0FEaU1OWHhwVXpUd0RRekxiUktUZXg2eDdpUnRnVDJZRkdtZDY2MHZVdUZJNU84a2h6dlBTLTQ4?oc=5",
+       "source": "Dosya Haber",
+       "lang": "tr",
+       "published": "2026-11-25T14:46Z"
+      },
+      {
+       "title": "2027 telefon satışları düşecek: Samsung ve Apple kesinti yapıyor",
+       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5xZXh5OG9Yd2tHSVY1b2RKc3hPOTN3ZXdCMU1lcHN3ZnBvel9KVjBEdm15LUxEd2ZxTV9jMGF6aHpZZ0RVZnVqeEVhT1NVV1JsUXB0eUJsV3AzZ0FxYmU1QnRaWmhvZVUtSXJfQml5XzRNZ2FCelE?oc=5",
+       "source": "Yeşil Robot",
+       "lang": "tr",
+       "published": "2026-11-25T07:29Z"
+      },
+      {
+       "title": "Smartphone Giants Cut 2027 Shipment Targets: What's Driving The Slowdown?",
+       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQQkJvUURWTDF3NXpCcDFFWG9lS1VjYnlHenM1a004V0Q1aUdBSmFVRzJ3UC1ZaE4tTWFnLXl3WkwyTzIxdU1ITE43eE1SNGIyak5uZGxlVGFnb2V5S1Q5cVVfN2tnNkRTdUJTYXFiX0pyUm5wTjV0QnpuMGtuUm1DNXF1WUxfWGY5OWJIU1djMWRqSEVmSE9CelJ2ckhNTWlIOGk5NFpaY2JnM0x0TW8xSUhEV3VXZUdaV0HSAboBQVVfeXFMUEJCb1FEVkwxdzV6QnAxRVhvZUtVY2J5R3pzNWtNOFdENWlHQUphVUcyd1AtWWhOLU1hZy15d1pMMk8yMXVNSExON3hNUjRiMmpObmRsZVRhZ29leUtUOXFVXzdrZzZEU3VCU2FxYl9KclJucE41dEJ6bjBrblJtQzVxdVlMX1hmOTliSFNXYzFkakhFZkhPQnpSdnJITU1pSDhpOTRaWmNiZzNMdE1vMUlIRFd1V2VHWldB?oc=5",
+       "source": "Analytics Insight",
+       "lang": "en",
+       "published": "2026-11-25T09:15Z"
+      },
+      {
+       "title": "All major smartphone makers slash 2027 shipment targets — except for one",
+       "url": "https://www.notebookcheck.net/All-major-smartphone-makers-slash-2027-shipment-targets-except-for-one.1459702.0.html",
+       "source": "Notebookcheck",
+       "lang": "en",
+       "published": "2026-11-25T05:47Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "akilli_telefon-5",
+     "added_at": "2026-11-25T18:10Z"
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 440
   },
   {
    "id": "oyunlar",
@@ -2373,7 +2479,7 @@
     }
    ],
    "note": "",
-   "candidates": 69
+   "candidates": 147
   },
   {
    "id": "oyun_genel",
@@ -2608,10 +2714,141 @@
      ],
      "read_articles": 0,
      "sid": "oyun_genel-5"
+    },
+    {
+     "importance": 7,
+     "headline": "GTA 6 ilk gün 3,79 milyar dolar satış yaparak tüm zamanların en yüksek ilk gün gelirine ulaşan oyunlardan biri oldu.",
+     "title": "GTA 6 ilk gün 3,79 milyar dolar satışa ulaştı",
+     "detail": "Khaama Press, Variety India ve shattered.io'nun haberlerine göre GTA 6, çıkış gününde 3,79 milyar dolar satış geliri elde etti. Rakam, oyunun ilk gün satışları bakımından rekor kıran yapımlar arasına girmesini sağladı. Variety India, oyunun PlayStation'da da rekorlar kırdığını bildirdi. Çin basını ise aynı rakamı yaklaşık 25,4 milyar yuan olarak aktardı.",
+     "sources": [
+      {
+       "title": "GTA 6 Breaks Records With $3.79 Billion in First-Day Sales",
+       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNVE9sVU5TMF95MmloeU93c05Wc28xdVM1cm5kY21RUjh4UUo5MmszN3FTV0JwV3hHUkViTUZGRzVzNU5sREt5dFUzVDBSUHprbGlRMGlVUjNnQm82ZDBGanhOV2VlZkdjdy1MUDJnRWVJMWhKVEpPQzZhSE93NUNYbjRka0x0NWh3X3lwM1AweFl4aXlaQU8xel91TktwbTV5SWpkaFlNdw?oc=5",
+       "source": "Khaama Press",
+       "lang": "en",
+       "published": "2026-11-25T07:50Z"
+      },
+      {
+       "title": "‘GTA 6’: From $3.79 Billion in Day-One Sales to PlayStation Records, 8 Ways the Game Made History",
+       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbXZkYTNLTGdnYy1Va0hNODdnVkZxclhjbDRXMmc0Z0F5WFRNeUJnNEVWbVFpLXpIRFpOQVc1eUNReXRFcFd5dkJjTDVmazBFNEt0TFB5ZWJfRkpSS2RfSTZjb0tWMXBvMnRRTjdZdTRXUmd3eTV1MnVHLTI1eE1NT0xxWlJLWUZuUU1wVE5zbG5ScUdyaEI3Njh3SXBfWGFwLXVfSHcxSTVUUHB6eUVSTFRtTnV5blJ2Q2c?oc=5",
+       "source": "Variety India",
+       "lang": "en",
+       "published": "2026-11-25T11:44Z"
+      },
+      {
+       "title": "GTA 6’s $3.79B Day: How It Ranks Against All-Time Games",
+       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYjdtOVBHb19CV0Z2WGxqR29ZaENoclUzQTVtcldXbE9MVXgtOVM5RWRvNzJwalE1aEV5cE8xV3VYT3Z1aWQzcnJoUHBleHNjazk4R1hoczFIX29ZYWtRdUFNRllVUHk2aWRiSGN5dnJoNm9LbkpZNzBqQUx2ZzVhenprY2NHMmhtQy1xd3BB?oc=5",
+       "source": "shattered.io",
+       "lang": "en",
+       "published": "2026-11-25T01:21Z"
+      },
+      {
+       "title": "一款游戏上市首日营收超18亿美元，体育明星与游戏的深度合作在中外是两种节奏",
+       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOTmY5ZFdjNC1VUG1ZQ2QyZ2RFOTA4dkFPUWoyVXZWcERfak5WZ2t0OHAyNC1QbVVoZWl6VEk0T0x6SjFLSXcwUWRIZ1otR1FDT2lGN1RZUy11c0E4X0k4dDNQX2U0VkVFV3o3QXBoeUFPdjdidW4zVkF6Vllsb3FMNGpmWHZwNUdxc3k3Tg?oc=5",
+       "source": "Sohu",
+       "lang": "zh",
+       "published": "2026-11-25T13:28Z"
+      },
+      {
+       "title": "一天狂揽254亿元！一款游戏破纪录背后的文娱IP吸金图谱",
+       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9HOEQwc1hMMGxOaTVsVnV3NUtRVk9vNzZHMnpuUjVYMDdhaWFwTExreW9sUmFwcnJfb3ozdHBJZUlhVlBVd01ZR19YQUdVNjFIVjR5NFlUX3R5cUY3UzlxYg?oc=5",
+       "source": "ThePaper.cn",
+       "lang": "zh",
+       "published": "2026-11-25T12:31Z"
+      },
+      {
+       "title": "GTA VI breaks PlayStation records with over 39 million PS5 players",
+       "url": "https://www.newsbytesapp.com/news/science/gta-vi-breaks-playstation-records-with-over-39-million-ps5-players/tldr",
+       "source": "NewsBytes",
+       "lang": "en",
+       "published": "2026-11-25T09:24Z"
+      },
+      {
+       "title": "Grand Theft Auto VI breaks records with $3.79 billion in first day sales",
+       "url": "https://www.msn.com/en-in/entertainment/general/grand-theft-auto-vi-breaks-records-with-3-79-billion-in-first-day-sales/ar-AA2i7QAQ",
+       "source": "Newspoint on MSN",
+       "lang": "en",
+       "published": "2026-11-23T23:38Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "oyun_genel-6",
+     "added_at": "2026-11-25T18:10Z"
+    },
+    {
+     "importance": 6,
+     "headline": "CD Projekt Red, The Witcher 4'ün pazarlama kampanyası ve PlayStation Plus'taki oyun varlığı için Sony Interactive Entertainment ile ortaklık anlaşması imzaladı.",
+     "title": "CD Projekt Red, The Witcher 4 pazarlaması için Sony ile anlaştı",
+     "detail": "CD Projekt Red, son finansal sonuç raporunda Sony Interactive Entertainment ile yeni ortaklık anlaşmaları imzaladığını duyurdu. Finans direktörü Piotr Nielubowicz'e göre anlaşmalar, stüdyonun oyunlarının PlayStation ve PlayStation Plus aboneliklerindeki yer almasını ve The Witcher 4 pazarlama kampanyasındaki iş birliğini kapsıyor. Nielubowicz, bu iş birliğinin şirketin bu yıl ve sonraki yıllardaki iş ve finansal görünümünü destekleyeceğini söyledi.\n\nOyunun çıkış tarihi 2028 olarak açıklanmıştı. Anlaşmanın ayrıntıları paylaşılmadı; Pure Xbox, GTA 6'da olduğu gibi PlayStation odaklı bir pazarlama yapılabileceği yönündeki beklentilerin spekülasyon olduğunu vurguladı. IGN'e göre CD Projekt Red, The Witcher 3'ten bu yana Xbox ile yakın bir ilişki sürdürüyordu.",
+     "sources": [
+      {
+       "title": "CDPR与索尼达成合作 《巫师4》营销推广交由PS平台",
+       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9NdHQwaF9lbFkwb2s5bUpSNDJHYjduNGw5eDFpZS1HaEtocG9DVkJRaW1icDRCVnFRNHdZWjRYa0RqNkYxcGFoSXdaelcycktkUG9vZEd1Vm5CSWdMaWVXQXU0aGo?oc=5",
+       "source": "17173",
+       "lang": "zh",
+       "published": "2026-11-25T03:57Z"
+      },
+      {
+       "title": "CDPR has entered a marketing agreement with Sony for The Witcher 4",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNX2NuVFhFdjVIc0pRSmlUTzQtLWpZa0xMSnhRX2N5cUFQS0poMkJNd3pDY0s2UlRDSlU0V29UQ3ppdGc0N3FuZmhrdWNaSUNfNDEzS1d4TlVZaUEyc2dBNGU2dEhraGxiVHBValJmR0FwZnQ2b2paQThqOWxaVXJ3cFBsckVYeUE2M0hLTlI0SHBTRUdrWk1sd05xVUpDT0FlLV9BelBza0FhdzB4?oc=5",
+       "source": "Video Games Chronicle",
+       "lang": "en",
+       "published": "2026-11-24T18:42Z"
+      },
+      {
+       "title": "Why GTA 6 has given The Witcher 4 a big challenge",
+       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNbmFJOXpsNkI0MHJmS3gwbm5ZVWlQMU1mYzJpb3djRWNYUlo4LUM2Q1JaT1htLU1IUWp3bktqNXVPVVg5ZWZhSldJYTFVanBkWDVodGt0YlBjZlZiYUxsZm1EdFRQQkhyakl4RnR3VTY4WUhnRDFScS1CTXRQOWp2RzU1Z0ZHNFdsLWNBNWtrUlNtVkZKdW1z?oc=5",
+       "source": "Creative Bloq",
+       "lang": "en",
+       "published": "2026-11-25T10:28Z"
+      },
+      {
+       "title": "PlayStation Secures Marketing Agreement for The Witcher 4",
+       "url": "https://www.ign.com/articles/playstation-secures-marketing-agreement-for-the-witcher-4",
+       "source": "IGN",
+       "lang": "en",
+       "published": "2026-11-24T11:59Z"
+      },
+      {
+       "title": "CD Projekt RED Secures Marketing Agreement For The Witcher IV With Sony",
+       "url": "https://www.psu.com/news/cd-projekt-red-secures-marketing-agreement-for-the-witcher-iv-with-sony/",
+       "source": "PlayStation Universe",
+       "lang": "en",
+       "published": "2026-11-25T02:31Z"
+      },
+      {
+       "title": "The Witcher 4 Dev Signs New 'Agreements' With Sony, But What Does It Mean For Xbox?",
+       "url": "https://www.purexbox.com/news/2026/11/the-witcher-4-dev-signs-new-agreements-with-sony-but-what-does-it-mean-for-xbox",
+       "source": "Pure Xbox",
+       "lang": "en",
+       "published": "2026-11-24T18:30Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "oyun_genel-7",
+     "added_at": "2026-11-25T18:10Z"
+    },
+    {
+     "importance": 6,
+     "headline": "GTA 6, TGA yılın oyunu adaylığı aldı; eski bir IGN yazarı oyunu bitirmeden oy verilmesini eleştirdi.",
+     "title": "GTA 6'nın TGA adaylığı eski IGN yazarından eleştiri aldı",
+     "detail": "Çinli oyun sitesi Qudong Zhi Jia'nın (驱动之家) haberine göre GTA 6, The Game Awards'ta yılın oyunu kategorisinde aday gösterildi. Eski bir IGN muhabiri, oyunu bitirmeden oy kullanılmasını sert sözlerle eleştirdi. Elimizdeki metinde eleştirinin ayrıntıları yer almıyor.",
+     "sources": [
+      {
+       "title": "游戏都没通关就敢投票！前IGN记者炮轰《GTA6》获TGA年度游戏提名",
+       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1KUHF2NFlYbUFUMzVDRjNtc2F1TjhZcU8yeXROSjRmQ0dzOVpzQTc5WDZSQzFTQmFpY2IwZUEwNnFIeFpCbzNJZDhwdlFveWtiemNYb0p6WF8?oc=5",
+       "source": "驱动之家",
+       "lang": "zh",
+       "published": "2026-11-25T14:21Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "oyun_genel-8",
+     "added_at": "2026-11-25T18:10Z"
     }
    ],
    "note": "",
-   "candidates": 95
+   "candidates": 230
   },
   {
    "id": "cs2",
@@ -2678,7 +2915,7 @@
     }
    ],
    "note": "",
-   "candidates": 58
+   "candidates": 124
   },
   {
    "id": "ekonomi_tr",
@@ -2770,10 +3007,91 @@
      ],
      "read_articles": 3,
      "sid": "ekonomi_tr-1"
+    },
+    {
+     "importance": 8,
+     "headline": "BIST 100 günü yüzde 2,83 düşüşle kapattı; endeks haftalık yüzde 7,2 kaybetti ve dolar bazında Haziran 2023'ten bu yana en düşük seviyeyi gördü.",
+     "title": "BIST 100 günü yüzde 2,83 düşüşle kapattı",
+     "detail": "Borsa İstanbul'da BIST 100 endeksi, 310,19 puan değer kaybederek günü 10.655,74 puandan tamamladı. Toplam işlem hacmi 96,5 milyar lira oldu. Endeks gün içinde 10.969,11 ile 10.649,50 puan arasında işlem gördü; endekse dahil hisselerin 95'i geriledi, 5'i yükseldi. Bankacılık endeksi yüzde 4,46, holding endeksi yüzde 2,83 düştü. Sektör endekslerinde en fazla kaybı yüzde 6,21 ile madencilik, en az kaybı yüzde 1,02 ile kimya, petrol, plastik yaşadı. EKOTÜRK'e göre endeks dolar bazında Haziran 2023'ten bu yana en düşük seviyeyi gördü.\n\nKüresel piyasalarda teknoloji hisselerindeki satış baskısı sürdü. ABD'de kişisel tüketim harcamaları (PCE) fiyat endeksindeki yıllık artışın ekimde yüzde 3,8'e yükselmesi, Fed'in faiz artırımlarını sürdüreceği beklentisini güçlendirdi. Analistler teknik olarak 10.500 ve 10.400 puanı destek, 10.800 ve 10.900 puanı direnç olarak izliyor.",
+     "sources": [
+      {
+       "title": "Borsa İstanbul'da sert düşüş! BIST 100 günü yüzde 2,83 kayıpla tamamladı",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdXlfaGpGS2tyUU1PekFiWGszMmdRV2I1WEdOWmxPbjVyRUNxb2tpQS01VXdlUXBaUk9EcVV2MmJXR04xZUxPcjdDR3ljUW43WFBwS2dkc0U0ZU9ZeGpBQUZWTTNTR3VhYzV1YUZjYWpOcGRKd0RzSVFsUFRPLWhzVm9rbTRJRWdLRE9IbG1sU1RjUm92cE8xUmxLTEFadUNUa1ZnWVhKZGxwSFNJWjh5RGh3?oc=5",
+       "source": "Sanayi Gazetesi",
+       "lang": "tr",
+       "published": "2026-11-25T16:36Z"
+      },
+      {
+       "title": "Borsa günü düşüşle tamamladı",
+       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB6c3dTUHdvZmhfdTNsa2ZoNHl0ZjVzUEdCZDlhQmliV1EtT2ZNNnpTLUJod0JaX3l0RmhIY1l3LWxJUHgzc2JpaS1VU1JWczJYV3ZsMVJ0Z2NDb21YZ1BrcGJsUFZLTmhfZ3g5R2V0TXBKTTl6ejREZmN3?oc=5",
+       "source": "Habertürk",
+       "lang": "tr",
+       "published": "2026-11-25T17:25Z"
+      },
+      {
+       "title": "Piyasalarda sert düşüş! Altın, gümüş ve Borsa İstanbul'da kayıplar derinleşti",
+       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNTFRidkd1MHgyRzZfX0E4NnE1X0l3WklvSFJ6OTM3elpXN3Z4VFlEcnRzMGhNQkQ2VlZUV01hNVN3N1dCX2hHTmpCMUlGZE1jd1RxYUZ0VFZDdnUtbGFLTGhGaHBXcDZWTVZ4bkRGVWFCVkNJRVhWYTJFTlhEcWplb3BhazdZMDBJQ1d1YURVV0RIRVNLaHpfeWRIV1FicjlnWFdKeUJOR3JtLWh5andDcFZnU1hYV09yWlNsM0JXMnBFZw?oc=5",
+       "source": "A Haber",
+       "lang": "tr",
+       "published": "2026-11-25T16:41Z"
+      },
+      {
+       "title": "BIST 100 dolar bazında Haziran 2023’ten bu yana en düşük seviyeyi gördü",
+       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVnFrNU9HcG5scGpSTlRlX2xsY3RfdkhDLXRPd1AwOWtaYzk5Tzc4QlVlQnQ2aER4T0duRWlaaFlKR3N2TG1IdnlrekNWNnYyN0xLQ0dOYjNYUTlIa1VSMWt0dEIwRjFRQjVoQlBGRWYxZlBHVENiT2d0ODNIWkRPMFJ2NWZQZ2l5NGdIX2FCMktfTERTQi1BS2ZpM1FJSVpGV3c?oc=5",
+       "source": "EKOTÜRK",
+       "lang": "tr",
+       "published": "2026-11-25T15:13Z"
+      },
+      {
+       "title": "Borsa İstanbul'da sert düşüş: 95 hisse değer kaybetti, en çok işlem gören hisseler belli oldu",
+       "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPZWcxOGVhSDFBZ0d4c1pFVE9KLWdRZC1BMU9oaFRURjNFQjVIamJ1NHExSG0tdzZrTzRaVER1YktDbDdWWmxSWEVxQm5zaXZJQWlxRlYzYjFQQkQzWGJ2UmxvTU5aT3laS2R3ZkdrSjlvTTQtV3h4NV9sTDRMSGhxaGhvTkE4c0k5LVJlY1BRSG03dXR1X010SlUtaHpxRjd2VV8yNFlzM09WNnRiN3V6YzB1eEJSS3JqUE9ic1RReFlsZFJ4Rm04WElB?oc=5",
+       "source": "F5Haber",
+       "lang": "tr",
+       "published": "2026-11-25T15:55Z"
+      },
+      {
+       "title": "SON DAKİKA | Borsa çarşamba gününü düşüşle tamamladı",
+       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQODBTdTdSWDNJTm5jdDVtMDZ3MXFObEw2NXlZVE5VS0hfQUZHS1Y5eXFOWnRrZDJ2cWlrOWhJdWFxUzhLVC01bUlCbURHb1VrMmRGRXlGMlYwZllKeXltSm16SFJOTG85TzRaT0I0eFFGbnNXTUZnOUY1X2dZNDlmWXVUbWZRNHBGMklOWUktQmRKSlc2?oc=5",
+       "source": "CNN Türk",
+       "lang": "tr",
+       "published": "2026-11-25T15:27Z"
+      },
+      {
+       "title": "Borsa güne düşüşle başladı",
+       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5Tczg5QWl3Z3JRUlRVeS1mRUtRQ0NzSzd4V1RjcGRaTDJfcnlLVThUdFdiMWZOdVlRV0JibVZzM3FZT21sT05aVnlfcGFJSzk5Zy1pUFBLbTZCdjFLZjdrRGlOc3dFelFfQUVPdlVIYmV5RVNEMnc?oc=5",
+       "source": "Anadolu Ajansı",
+       "lang": "tr",
+       "published": "2026-11-25T07:08Z"
+      },
+      {
+       "title": "Borsa İstanbul'da sert düşüş! Bankacılık ve madencilik hisseleri değer kaybetti",
+       "url": "https://sonsoz.com.tr/borsa-istanbulda-sert-dusus-bankacilik-ve-madencilik-hisseleri-deger-kaybetti",
+       "source": "Sonsöz Gazetesi",
+       "lang": "tr",
+       "published": "2026-11-24T20:24Z"
+      },
+      {
+       "title": "Borsa İstanbul'da sert düşüş: Günü yüzde 2,83 kayıpla kapattı",
+       "url": "https://www.memurlar.net/haber/1185169/borsa-istanbul-da-sert-dusus-gunu-yuzde-2-83-kayipla-kapatti.html",
+       "source": "Memurlar.Net",
+       "lang": "tr",
+       "published": "2026-11-24T20:30Z"
+      },
+      {
+       "title": "Borsada kayıp serisi sürüyor! BİST günü sert düşüşle kapattı",
+       "url": "https://www.borsaningundemi.com/haber/borsada-kayip-serisi-suruyor-bist-gunu-sert-dususle-kapatti-1915919",
+       "source": "borsaningundemi",
+       "lang": "tr",
+       "published": "2026-11-25T02:00Z"
+      }
+     ],
+     "read_articles": 3,
+     "sid": "ekonomi_tr-2",
+     "added_at": "2026-11-25T18:10Z"
     }
    ],
    "note": "",
-   "candidates": 188
+   "candidates": 328
   },
   {
    "id": "ekonomi_dunya",
@@ -2868,7 +3186,7 @@
     }
    ],
    "note": "",
-   "candidates": 176
+   "candidates": 315
   },
   {
    "id": "turkiye_siyaseti_ve_gundem",
@@ -3219,14 +3537,14 @@
     }
    ],
    "note": "",
-   "candidates": 86
+   "candidates": 239
   },
   {
    "id": "barcelona_gunluk_haberleri",
    "title": "Barcelona",
    "stories": [],
    "note": "Kayda değer bir gelişme yok.",
-   "candidates": 204
+   "candidates": 424
   },
   {
    "id": "turkiye_milli_futbol_takimi",
@@ -3257,17 +3575,33 @@
     }
    ],
    "note": "",
-   "candidates": 99
+   "candidates": 247
   }
  ],
  "stats": {
-  "items": 2578,
-  "seconds": 212,
-  "model": "deepseek-flash",
+  "items": 5323,
+  "model": "sonnet",
+  "seconds": 355,
+  "tasks": 26,
+  "task_chars": 596187,
   "calls": 74,
   "prompt_tokens": 285486,
   "completion_tokens": 171893,
   "cache_hit_tokens": 26496,
-  "cost_usd": 0.1421
- }
+  "cost_usd": 0.1421,
+  "runs": [
+   {
+    "at": "2026-11-25T00:06Z",
+    "model": "deepseek-flash",
+    "items": 2578,
+    "cost_usd": 0.1421
+   },
+   {
+    "at": "2026-11-25T18:10Z",
+    "model": "sonnet",
+    "items": 2745
+   }
+  ]
+ },
+ "updated_at": "2026-11-25T18:10Z"
 }
