@@ -123,15 +123,6 @@
  "titles": {},
  "groups": [
   {
-   "id": "teknoloji",
-   "name": "Teknoloji",
-   "topics": [
-    "pc_donanim",
-    "teknoloji",
-    "akilli_telefon"
-   ]
-  },
-  {
    "id": "oyun",
    "name": "Oyun",
    "topics": [
@@ -150,6 +141,15 @@
     "premier_lig",
     "barcelona_gunluk_haberleri",
     "turkiye_milli_futbol_takimi"
+   ]
+  },
+  {
+   "id": "teknoloji",
+   "name": "Teknoloji",
+   "topics": [
+    "pc_donanim",
+    "teknoloji",
+    "akilli_telefon"
    ]
   },
   {
