@@ -1,11 +1,14 @@
 {
  "levels": {
-  "sampiyonlar_ligi": "orta",
+  "sampiyonlar_ligi": "az",
   "cs2": "az",
   "akilli_telefon": "orta",
-  "oyun_genel": "orta",
+  "oyun_genel": "cok",
   "teknoloji": "cok",
-  "pc_donanim": "cok"
+  "pc_donanim": "cok",
+  "turkiye_siyaseti_ve_gundem": "az",
+  "real_madrid": "az",
+  "yerel_llm": "az"
  },
  "removed": [
   "juventus"
