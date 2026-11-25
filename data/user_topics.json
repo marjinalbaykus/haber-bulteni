@@ -5,10 +5,11 @@
   "akilli_telefon": "orta",
   "oyun_genel": "cok",
   "teknoloji": "cok",
-  "pc_donanim": "cok",
+  "pc_donanim": "orta",
   "turkiye_siyaseti_ve_gundem": "az",
   "real_madrid": "az",
-  "yerel_llm": "az"
+  "yerel_llm": "az",
+  "yapay_zeka": "az"
  },
  "removed": [
   "juventus"
