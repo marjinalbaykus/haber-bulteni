@@ -13,14 +13,14 @@ Büyük bir karar gerektiren işte önce sor ("önce karar verelim sonra yap dic
   `/api/index.json` (tüm bültenler ve araştırmalar), `/api/b/<tarih>.json`, `/api/r/<id>.json`, `/api/topics.json`.
 - Python paketi `bulten/`: `daily.py` (DeepSeek ile tek seferde bülten), `staged.py` (Claude rutini için adımlı, API'siz),
   `sources.py` (Google News, Bing, RSS, Hacker News, Hugging Face), `topics.py` (uygulamadan konu değişikliği),
-  `research.py` (araştırma), `render.py` (site + api), `markets.py`, `telegram.py`. Yerelde çalıştırmak için `.venv\Scripts\python.exe`.
+  `research.py` (araştırma), `render.py` (site + api), `markets.py`. Yerelde çalıştırmak için `.venv\Scripts\python.exe`.
 
 ## Bülten nasıl hazırlanıyor
 - **Her akşam 21:00 TR:** Claude bulut rutini "Günlük bülten (Sonnet)" (`trig_01F4ckY2JzmUQUwEMrvdLyV4`, cron `0 18 * * *`),
   https://claude.ai/code/routines/trig_01F4ckY2JzmUQUwEMrvdLyV4 . Akış: `python3 -m bulten staged prep --variant sonnet`
   -> paket başına bir Sonnet alt ajan -> `staged next` -> `data/bulletins/<tarih>.json` + `data/history.json` push.
   25 Kasım'da 08:30'dan 21:00'e alındı: bülten o günün gündemi olsun diye. İlk akşam çalışması 25 Kasım ~21:05.
-- **publish.yml:** `data/bulletins/**` main'e gelince siteyi üretir (`scripts/commit_push.sh`) ve Telegram'a gönderir.
+- **publish.yml:** `data/bulletins/**` main'e gelince siteyi üretir (`scripts/commit_push.sh`).
 - **daily.yml (DeepSeek, elle, ücretli ~0,08 dolar):** uygulamada Ayarlar > "Bülteni şimdi hazırla" ile başlar.
   `date` girdisi: verilirse SADECE o günün haberleri (TR 00:00-24:00), bülten o tarihi alır; boşsa dün ve bugün birlikte,
   bülten bugünün tarihini alır. Geçmiş gün için Google News `after:/before:` tarih aralığıyla aranır (test edildi:
@@ -29,8 +29,9 @@ Büyük bir karar gerektiren işte önce sor ("önce karar verelim sonra yap dic
 - **Saklama:** config.yaml `retention_days: 730`. render, daha eski bültenleri ve karşılığı kalmayan sayfaları siler.
 - **Tekrar önleme:** `data/history.json` son 7 günün başlık ve kaynaklarını tutar.
 - Aynı olay birden fazla başlığa girerse tekilleştirme birini tutar, habere `also: [başlık id]` ekler.
-- Telegram komut işi (poll.yml) KAPALI (`gh workflow enable poll.yml` ile açılır): GitHub zamanlayıcısı 5 dakikalık
-  çalıştırmaları atlıyordu, cevaplar saatler sonra geliyordu. Araştırma artık uygulamadan.
+- Telegram tamamen kaldırıldı (25 Kasım): `telegram.py`, poll.yml, resend.yml, iş akışlarındaki Telegram adımları,
+  `notify`/`poll`/`resend`/`chatid` komutları silindi. Bildirim sadece uygulamada (NewsJob). GitHub'daki
+  `TELEGRAM_*` secret'ları artık kullanılmıyor, istenirse silinebilir.
 
 ## Konular (config.yaml + data/user_topics.json)
 - Başlıklar: Arda Güler (Çok), Real Madrid (Orta), Şampiyonlar Ligi, Premier Lig, Donanım ve Çipler (Çok), Local LLM,
@@ -147,9 +148,7 @@ Hem `daily.run_daily` hem `staged` (prep + son aşama) aynı ortak fonksiyonlar�
    - `stats`: `runs` listesi tutulur (her çalıştırma: at, model, cost_usd varsa, items); üst düzey `cost_usd` toplam,
      `model` son çalıştırmanınki, `items` toplam, token toplam.
    - Sonra `update_history(merged["topics"], date)` (zaten o günü silip yeniden yazıyor, doğru).
-4. Telegram (`telegram.py bulletin_messages`, publish.yml): bültende `updated_at` varsa ve `added_at == updated_at`
-   olan haber varsa sadece onları "Güncelleme (HH:MM): N yeni haber" başlığıyla gönder; yoksa hiçbir şey gönderme.
-   Kodu okuyup publish.yml'in nasıl çağırdığını anla; .yml değişirse yaml.safe_load kontrolü (KURAL yukarıda).
+4. (Telegram bildirimi vardı, kaldırıldı.)
 5. Uygulama: `Model.kt` Bulletin'e `updatedAt`, Story'ye `addedAt`. Akış başlığında "Hazırlandı ..." altına
    "Güncellendi HH:MM" (varsa). `addedAt` dolu ve okunmamış haberde kartta küçük `Tag("Yeni", highlight = true)`.
    StatsFooter: birden çok çalıştırma varsa "2 çalıştırma, toplam maliyet ..." ve modeller. Ayarlar > Bülteni şimdi
@@ -160,10 +159,8 @@ Hem `daily.run_daily` hem `staged` (prep + son aşama) aynı ortak fonksiyonlar�
 
 Uygulama notu (F): `daily.py` içinde `merge_bulletin`, `with_existing`, `existing_counts`, `keep_stories(..., existing_counts)`;
 `staged.py` aynı fonksiyonları kullanır (prep'te `existing_counts` state'e yazılır, son aşamada taze okunup birleştirilir).
-`telegram.update_messages`: `updated_at` varsa sadece `added_at == updated_at` haberler "Güncelleme (HH:MM)" ile gider, yoksa
-hiçbir şey; publish.yml ve daily.yml değişmedi (`resend`/`notify` bulletin_messages'ı kullanıyor). Eski bültende olmayan
-başlığın haberleri de `added_at` alır. Android: `Güncellendi` satırı ve "Yeni" etiketi sadece bir haber `added_at` taşıyorsa görünür.
-Çevrimdışı Python denemesi geçti (sid korunumu, added_at, maliyet toplamı, sınır, Telegram, render); ücretli çalıştırma yapılmadı.
+Eski bültende olmayan başlığın haberleri de `added_at` alır. Android: `Güncellendi` satırı ve "Yeni" etiketi sadece bir haber `added_at` taşıyorsa görünür.
+Çevrimdışı Python denemesi geçti (sid korunumu, added_at, maliyet toplamı, sınır, render); ücretli çalıştırma yapılmadı.
 
 ### Öneriler (kullanıcıya soruldu, cevap bekliyor)
 - Tekrar yerine "Gelişme" etiketi: önceki günün devamı olan haber gizlenmek yerine "dünkü haberin devamı" rozetiyle.

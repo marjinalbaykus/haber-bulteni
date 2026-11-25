@@ -9,7 +9,6 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 DOCS = ROOT / "docs"
-PENDING = ROOT / ".pending"
 TR_TZ = timezone(timedelta(hours=3))  # Türkiye'de yaz saati yok, sabit UTC+3
 
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
@@ -61,11 +60,3 @@ def write_json(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=1)
-
-
-def queue_notification(messages: list[str]) -> None:
-    """Mesajları, git push'tan sonra gönderilmek üzere sıraya koyar."""
-    path = PENDING / "notify.json"
-    q = read_json(path, [])
-    q.extend(messages)
-    write_json(path, q)

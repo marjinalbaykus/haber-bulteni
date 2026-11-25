@@ -22,8 +22,6 @@ jobs:
       cancel-in-progress: false
     env:
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       QUERY: ${{ inputs.query }}
     steps:
       - uses: actions/checkout@v4
@@ -36,7 +34,3 @@ jobs:
         run: python -m bulten research "$QUERY"
       - name: Kaydet ve siteyi güncelle
         run: bash scripts/commit_push.sh "Araştırma (uygulama) $(date -u +%F_%H%M)"
-      - name: Telegram'a da gönder
-        continue-on-error: true
-        run: |
-          if [ -f .pending/notify.json ]; then sleep 60; python -m bulten notify; fi

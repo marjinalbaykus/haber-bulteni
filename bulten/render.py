@@ -161,7 +161,7 @@ def render_all() -> None:
         b = json.loads(p.read_text(encoding="utf-8"))
         _write(DOCS / "b" / f"{b['date']}.html", render_bulletin(b))
         bulletins.append(b)
-    trials = []  # model denemeleri (data/compare): ana listeye ve Telegram'a karışmaz
+    trials = []  # model denemeleri (data/compare): ana listeye karışmaz
     for p in sorted((DATA / "compare").glob("*.json"), reverse=True):
         b = json.loads(p.read_text(encoding="utf-8"))
         _write(DOCS / "b" / f"{p.stem}.html", render_bulletin(b))

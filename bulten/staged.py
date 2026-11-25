@@ -11,7 +11,7 @@ Akış:
       cevabı yazılmamış görevleri paketler hâlinde listeler (her paket = bir alt ajan)
 
 --compare: karşılaştırma modu. Bülten data/compare/ altına yazılır, geçmiş (history.json) değişmez,
-           o günün mevcut bülteni "önceden verilmiş" sayılmaz, Telegram'a hiçbir şey gitmez.
+           o günün mevcut bülteni "önceden verilmiş" sayılmaz.
 """
 from __future__ import annotations
 

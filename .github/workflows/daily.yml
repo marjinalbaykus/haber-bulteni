@@ -41,11 +41,3 @@ jobs:
         run: bash scripts/commit_push.sh "Bülten (DeepSeek, elle) ${BULTEN_DATE:-$(date -u +%F)}"
         env:
           BULTEN_DATE: ${{ inputs.date }}
-
-      - name: Telegram'a gönder
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          sleep 60   # GitHub Pages'in yeni sayfayı yayınlaması için
-          python -m bulten notify
