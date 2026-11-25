@@ -18,7 +18,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.RadioButton
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.unit.dp
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -41,7 +46,6 @@ import androidx.compose.ui.Modifier
 import com.marjinalbaykus.bulten.data.Bulletin
 import com.marjinalbaykus.bulten.data.Index
 import com.marjinalbaykus.bulten.data.Repo
-import com.marjinalbaykus.bulten.ui.AllNewsScreen
 import com.marjinalbaykus.bulten.ui.AppIcons
 import com.marjinalbaykus.bulten.ui.BulletinScreen
 import com.marjinalbaykus.bulten.ui.withTitles
@@ -57,7 +61,6 @@ import com.marjinalbaykus.bulten.ui.DetailScreen
 import com.marjinalbaykus.bulten.ui.ErrorView
 import com.marjinalbaykus.bulten.ui.HistoryScreen
 import com.marjinalbaykus.bulten.ui.Item
-import com.marjinalbaykus.bulten.ui.MenuIcon
 import com.marjinalbaykus.bulten.ui.ResearchScreen
 import com.marjinalbaykus.bulten.ui.SearchScreen
 import com.marjinalbaykus.bulten.ui.SettingsScreen
@@ -101,7 +104,6 @@ class MainActivity : ComponentActivity() {
 
 private sealed interface Screen {
     data object Home : Screen
-    data object AllNews : Screen
     data object History : Screen
     data object Settings : Screen
     data object Search : Screen
@@ -113,11 +115,18 @@ private sealed interface Screen {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
-    // Ekran yığını: geri tuşu bir önceki ekrana döner (Tüm haberler -> detay -> geri = Tüm haberler)
+    // Ekran yığını: geri tuşu bir önceki ekrana döner (Ara -> Geçmiş -> geri = Ara)
     var stack by remember { mutableStateOf(listOf<Screen>(Screen.Home)) }
     val screen = stack.last()
     fun push(s: Screen) { stack = stack + s }
     fun pop() { stack = stack.dropLast(1) }
+    var readKeys by remember { mutableStateOf(repo.readKeys()) }
+    // Haber açılınca okundu olarak işaretlenir (soluk görünür)
+    fun openItem(item: Item) {
+        repo.markRead(item.readKey)
+        readKeys = repo.readKeys()
+        push(Screen.Detail(item))
+    }
 
     var date by remember { mutableStateOf<String?>(null) }   // null = en son bülten
     var reload by remember { mutableIntStateOf(0) }
@@ -126,7 +135,10 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
     var offline by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     var loading by remember { mutableStateOf(true) }
-    var menuOpen by remember { mutableStateOf(false) }
+    var sortMenu by remember { mutableStateOf(false) }
+    var sortByScore by remember { mutableStateOf(repo.sortByScore) }
+    var unreadOnly by remember { mutableStateOf(repo.unreadOnly) }
+    var reordering by remember { mutableStateOf(false) }
     var searchQuery by remember { mutableStateOf("") }
     var notifications by remember { mutableStateOf(repo.notificationsOn) }
     var topics by remember { mutableStateOf(repo.topicsCache) }   // güncel başlık adları ve gruplar
@@ -134,7 +146,6 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
     val topicsDraft = remember { TopicsDraft() }   // Konular'daki kaydedilmemiş değişiklikler
     // Liste konumları ekran değişince kaybolmasın; bülten değişince başa döner
     val homeState = remember(date) { LazyListState() }
-    val allState = remember(date) { LazyListState() }
 
     LaunchedEffect(date, reload) {
         loading = true
@@ -174,8 +185,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 title = {
                     Text(
                         when (screen) {
-                            Screen.Home -> if (date == null) "Günün Özeti" else "Geçmiş bülten"
-                            Screen.AllNews -> "Tüm haberler"
+                            Screen.Home -> if (date == null) "Akış" else "Geçmiş bülten"
                             Screen.History -> "Geçmiş bültenler"
                             Screen.Settings -> "Ayarlar"
                             Screen.Search -> "Ara"
@@ -190,18 +200,38 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                     if (showBackButton) TextButton(onClick = { back() }) { Text("‹ Geri") }
                 },
                 actions = {
-                    Box {
-                        IconButton(onClick = { menuOpen = true }) { MenuIcon() }
-                        DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
-                            DropdownMenuItem(text = { Text("Yenile") }, onClick = { menuOpen = false; reload++ })
-                            DropdownMenuItem(text = { Text("Geçmiş bültenler") }, onClick = {
-                                menuOpen = false
-                                if (screen != Screen.History) push(Screen.History)
-                            })
-                            DropdownMenuItem(text = { Text("Ayarlar") }, onClick = {
-                                menuOpen = false
-                                if (screen != Screen.Settings) push(Screen.Settings)
-                            })
+                    // Sağ üstte küçük sıralama ve yenile simgeleri (sadece Akış'ta, sıralama modunda gizli)
+                    if (screen == Screen.Home && !reordering) {
+                        Box {
+                            IconButton(onClick = { sortMenu = true }) {
+                                Icon(AppIcons.Sort, contentDescription = "Sırala", modifier = Modifier.size(20.dp))
+                            }
+                            DropdownMenu(expanded = sortMenu, onDismissRequest = { sortMenu = false }) {
+                                DropdownMenuItem(
+                                    text = { Text("Gruplara göre") },
+                                    leadingIcon = { RadioButton(selected = !sortByScore, onClick = null) },
+                                    onClick = { sortMenu = false; sortByScore = false; repo.sortByScore = false },
+                                )
+                                DropdownMenuItem(
+                                    text = { Text("Puana göre") },
+                                    leadingIcon = { RadioButton(selected = sortByScore, onClick = null) },
+                                    onClick = { sortMenu = false; sortByScore = true; repo.sortByScore = true },
+                                )
+                                HorizontalDivider()
+                                DropdownMenuItem(
+                                    text = { Text("Sadece okunmamışlar") },
+                                    leadingIcon = { Checkbox(checked = unreadOnly, onCheckedChange = null) },
+                                    onClick = { sortMenu = false; unreadOnly = !unreadOnly; repo.unreadOnly = unreadOnly },
+                                )
+                                DropdownMenuItem(
+                                    text = { Text("Grupları sırala") },
+                                    enabled = topics?.groups?.isNotEmpty() == true,
+                                    onClick = { sortMenu = false; sortByScore = false; repo.sortByScore = false; reordering = true },
+                                )
+                            }
+                        }
+                        IconButton(onClick = { reload++ }) {
+                            Icon(AppIcons.Refresh, contentDescription = "Yenile", modifier = Modifier.size(20.dp))
                         }
                     }
                 },
@@ -210,18 +240,17 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
         bottomBar = {
             NavigationBar {
                 listOf(
-                    Triple(Screen.Home, "Ana sayfa", AppIcons.Home),
+                    Triple(Screen.Home, "Akış", AppIcons.Home),
                     Triple(Screen.Search, "Ara", AppIcons.Search),
                     Triple(Screen.Topics, "Konular", AppIcons.Topics),
-                    Triple(Screen.AllNews, "Tüm haberler", AppIcons.List),
+                    Triple(Screen.Settings, "Ayarlar", AppIcons.Settings),
                 ).forEach { (target, label, icon) ->
                     NavigationBarItem(
                         selected = tab == target,
                         onClick = {
                             // Zaten bu sekmedeyken tekrar basınca listenin başına döner
                             if (stack == listOf(target)) {
-                                val st = if (target == Screen.Home) homeState else if (target == Screen.AllNews) allState else null
-                                st?.let { scope.launch { it.animateScrollToItem(0) } }
+                                if (target == Screen.Home) scope.launch { homeState.animateScrollToItem(0) }
                             } else {
                                 stack = listOf(target)
                             }
@@ -239,7 +268,7 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
       val padding = if (imeOpen) PaddingValues(top = scaffoldPadding.calculateTopPadding()) else scaffoldPadding
       Box(Modifier.fillMaxSize().imePadding()) {
         when (screen) {
-            Screen.Home, Screen.AllNews -> {
+            Screen.Home -> {
                 val b = bulletin
                 when {
                     loading && b == null -> Centered { CircularProgressIndicator() }
@@ -253,11 +282,28 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                         ) {
                             val inner = PaddingValues(bottom = padding.calculateBottomPadding())
                             val shown = remember(b, topics) { b.withTitles(topics) }
-                            if (screen == Screen.Home) {
-                                BulletinScreen(shown, topics, offline, repo::visible, { push(Screen.Detail(it)) }, inner, homeState)
-                            } else {
-                                AllNewsScreen(shown, repo::visible, { push(Screen.Detail(it)) }, inner, allState)
-                            }
+                            BulletinScreen(
+                                shown, topics, offline, repo::visible, ::openItem, inner, homeState,
+                                sortByScore = sortByScore,
+                                unreadOnly = unreadOnly,
+                                readKeys = readKeys,
+                                reordering = reordering,
+                                onReorderStart = { reordering = true },
+                                onReorderDone = { ids ->
+                                    reordering = false
+                                    val t = topics?.withOrder(ids)
+                                    repo.groupOrder = ids
+                                    if (t != null) {
+                                        topics = t
+                                        repo.topicsCache = t
+                                        // Sıra sunucuya da kaydedilir (anahtar yoksa sadece telefonda kalır)
+                                        if (repo.githubToken.isNotBlank()) {
+                                            scope.launch { runCatching { repo.saveGroups(t.groups) } }
+                                        }
+                                    }
+                                },
+                                onReorderCancel = { reordering = false },
+                            )
                         }
                     }
                 }
@@ -270,8 +316,8 @@ fun App(repo: Repo, themeMode: ThemeMode, onThemeMode: (ThemeMode) -> Unit) {
                 notifications, { notifications = it; repo.notificationsOn = it }, repo,
                 index?.bulletins?.map { it.date }?.toSet().orEmpty(), padding)
             Screen.Search -> SearchScreen(repo, searchQuery, { searchQuery = it }, { push(Screen.ResearchDetail(it)) },
-                { push(Screen.Detail(it)) }, { push(Screen.Settings) }, padding)
-            Screen.Topics -> TopicsScreen(repo, topicsDraft, { push(Screen.Settings) }, { topics = it }, padding)
+                ::openItem, { stack = listOf(Screen.Settings) }, { push(Screen.History) }, padding)
+            Screen.Topics -> TopicsScreen(repo, topicsDraft, { stack = listOf(Screen.Settings) }, { topics = it }, padding)
             is Screen.ResearchDetail -> ResearchScreen(repo, screen.id, padding)
             is Screen.Detail -> DetailScreen(screen.item, padding)
         }

@@ -24,6 +24,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -81,7 +82,7 @@ private fun searchBulletins(bulletins: List<Bulletin>, query: String): List<Sear
     val hits = mutableListOf<SearchHit>()
     for (b in bulletins) for (t in b.topics) for (st in t.stories) {
         val hay = norm(listOf(t.title, st.title, st.headline, st.detail, st.keyPoints.joinToString(" ")).joinToString(" "))
-        if (words.all { it.containsMatchIn(hay) }) hits += SearchHit(b.date, Item(t, st))
+        if (words.all { it.containsMatchIn(hay) }) hits += SearchHit(b.date, Item(t, st, b.date))
     }
     return hits.sortedWith(compareByDescending<SearchHit> { it.date }.thenByDescending { it.item.story.importance })
 }
@@ -94,6 +95,7 @@ fun SearchScreen(
     onOpenResearch: (String) -> Unit,
     onOpenItem: (Item) -> Unit,
     onSettings: () -> Unit,
+    onHistory: () -> Unit,
     padding: PaddingValues,
 ) {
     val scope = rememberCoroutineScope()
@@ -178,23 +180,22 @@ fun SearchScreen(
                 Modifier.fillMaxWidth().padding(top = 8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                // Açıklama "!" simgesinin arkasında; dokununca açılır
+                // Solda Araştır, sağda küçük "!" (açıklama dokununca açılır)
+                FilledTonalButton(
+                    onClick = { research() },
+                    enabled = hasToken && !sending && query.trim().length >= 3,
+                ) { Text("Araştır") }
+                if (sending) CircularProgressIndicator(Modifier.padding(start = 8.dp).size(18.dp), strokeWidth = 2.dp)
+                Spacer(Modifier.weight(1f))
                 Box(
-                    Modifier.size(26.dp).clip(CircleShape)
+                    Modifier.size(20.dp).clip(CircleShape)
                         .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
                         .clickable { info = !info },
                     contentAlignment = Alignment.Center,
                 ) {
                     Text("!", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold,
-                        style = MaterialTheme.typography.labelLarge)
+                        style = MaterialTheme.typography.labelMedium)
                 }
-                Spacer(Modifier.weight(1f))
-                if (sending) CircularProgressIndicator(Modifier.padding(horizontal = 8.dp).size(18.dp), strokeWidth = 2.dp)
-                FilledTonalButton(
-                    onClick = { research() },
-                    enabled = hasToken && !sending && query.trim().length >= 3,
-                    modifier = Modifier.padding(start = 8.dp),
-                ) { Text("Araştır") }
             }
             if (info) {
                 Text(
@@ -203,6 +204,9 @@ fun SearchScreen(
                         "Ekran açıkken sonuç kendiliğinden aşağıda çıkar.",
                     style = MaterialTheme.typography.bodySmall, color = muted, modifier = Modifier.padding(top = 6.dp),
                 )
+            }
+            OutlinedButton(onClick = onHistory, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
+                Text("Geçmiş bültenler")
             }
             if (!hasToken) {
                 Text("Araştır için Ayarlar'dan GitHub erişim anahtarı girilmeli. Ayarlara git",

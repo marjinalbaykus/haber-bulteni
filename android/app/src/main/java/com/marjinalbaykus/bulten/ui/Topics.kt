@@ -21,7 +21,12 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SegmentedButton
@@ -93,7 +98,12 @@ class TopicsDraft {
     internal var shown by mutableStateOf<Topics?>(null)
     internal var savedAt = 0L
     internal var waiting by mutableStateOf<List<String>>(emptyList())
+    // Sunucudaki iş akışı başarıyla bitti (site yayını henüz görünmeyebilir)
+    internal var runDone by mutableStateOf(false)
 }
+
+/** Grup sırasını yok sayarak içerik karşılaştırması (sıra telefonda ayrıca uygulanıyor). */
+private fun Topics.content(): Topics = copy(groups = groups.sortedBy { it.id })
 
 /** Ad sorma penceresi (konu adı, grup adı, yeni grup). */
 private data class NameAsk(val title: String, val initial: String, val onDone: (String) -> Unit)
@@ -131,38 +141,61 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
     var savedNote by remember { mutableStateOf(false) }   // "Kaydedildi" birkaç saniye görünür
     LaunchedEffect(savedNote) { if (savedNote) { delay(5_000); savedNote = false } }   // son kaydetme hatası (alt çubukta gösterilir)
 
-    // Sunucudan oku. Kaydetme bekleniyorsa sunucudaki liste değişene kadar 20 saniyede bir tekrar bakar
-    // (GitHub'daki iş ve site güncellemesi genelde 2-3 dakika sürer), değişince ekranı ve ana sayfayı günceller.
+    // Sunucudan oku. Kaydetme bekleniyorsa: değişiklik ekranda hemen görünür (iyimser güncelleme); arka planda
+    // GitHub'daki iş akışının durumu 3 saniyede bir, sonra sitedeki liste 5 saniyede bir (her istekte taze adres)
+    // kontrol edilir. İş akışı başarısız olursa değişiklik geri alınır.
     LaunchedEffect(reload) {
         if (server == null) draft.shown?.let { server = it }
-        val t = runCatching { repo.topics().value }
-            .onFailure { if (server == null) error = it.message ?: it.javaClass.simpleName }
-            .getOrNull()
         val before = draft.before
-        when {
-            before == null -> if (t != null) {
-                server = t
-                error = null
-                repo.topicsCache = t
+        if (before == null) {
+            runCatching { repo.topics().value }
+                .onFailure { if (server == null) error = it.message ?: it.javaClass.simpleName }
+                .getOrNull()?.let {
+                    server = it
+                    error = null
+                    repo.topicsCache = it
+                }
+            return@LaunchedEffect
+        }
+        val t = runCatching { repo.topics(fresh = true).value }.getOrNull()
+        if (t != null && t.content() != before.content()) {
+            server = t
+            repo.topicsCache = t
+            onSaved(t)
+            if (!draft.runDone) savedNote = true
+            draft.before = null
+            draft.shown = null
+            draft.runDone = false
+            waiting = emptyList()
+            message = null
+            return@LaunchedEffect
+        }
+        if (!draft.runDone) {
+            val st = runCatching { repo.lastRun("topics.yml", draft.savedAt) }.getOrNull()
+            if (st != null && st.done) {
+                if (st.ok) {
+                    draft.runDone = true
+                    savedNote = true
+                } else {
+                    server = before
+                    repo.topicsCache = before
+                    onSaved(before)
+                    draft.before = null
+                    draft.shown = null
+                    draft.runDone = false
+                    waiting = emptyList()
+                    failed = "Sunucuda işlenemedi, değişiklikler uygulanmadı."
+                    return@LaunchedEffect
+                }
             }
-            t != null && t != before -> {
-                server = t
-                repo.topicsCache = t
-                onSaved(t)
-                draft.before = null
-                draft.shown = null
-                waiting = emptyList()
-                message = null
-                savedNote = true
-            }
-            System.currentTimeMillis() - draft.savedAt < 10 * 60_000L -> {
-                delay(20_000)
-                reload++
-            }
-            else -> {
-                draft.before = null
-                message = "Sunucudan henüz sonuç gelmedi. Biraz sonra Konular'a tekrar girince güncellenir."
-            }
+        }
+        if (System.currentTimeMillis() - draft.savedAt < 10 * 60_000L) {
+            delay(if (draft.runDone) 5_000 else 3_000)
+            reload++
+        } else {
+            draft.before = null
+            draft.runDone = false
+            message = "Sunucudan henüz sonuç gelmedi. Biraz sonra Konular'a tekrar girince güncellenir."
         }
     }
 
@@ -219,7 +252,9 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
         scope.launch {
             try {
                 repo.saveTopics(o.toString())
-                // Ekranda hemen göster; sunucu 1-2 dakikada işler
+                repo.groupOrder = groups.map { it.id }
+                // Ekranda hemen göster; sunucu birkaç saniyede işler
+                draft.runDone = false
                 val now = Topics(
                     active = active.map { it.copy(title = titleOf(it), level = levelOf(it)) },
                     removed = removed.filter { !it.custom },
@@ -246,9 +281,28 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
     val grouped = groups.flatMap { it.topics }.toSet()
     val ungrouped = active.filter { it.id !in grouped }
 
+    // Grup içinde, aktif üyelerden komşuyla yer değiştirir (delta: -1 yukarı, +1 aşağı)
+    fun moveInGroup(topicId: String, groupId: String, delta: Int) = editGroups { gs ->
+        val gi = gs.indexOfFirst { it.id == groupId }
+        if (gi < 0) return@editGroups
+        val list = gs[gi].topics.toMutableList()
+        val i = list.indexOf(topicId)
+        var j = i + delta
+        while (j in list.indices && active.none { it.id == list[j] }) j += delta
+        if (i >= 0 && j in list.indices) {
+            java.util.Collections.swap(list, i, j)
+            gs[gi] = gs[gi].copy(topics = list)
+        }
+    }
+
     @Composable
     fun TopicRow(topic: TopicInfo, groupId: String?) {
         var menu by remember { mutableStateOf(false) }
+        var moveMenu by remember { mutableStateOf(false) }
+        val activeMembers = groups.firstOrNull { it.id == groupId }?.topics.orEmpty()
+            .filter { id -> active.any { it.id == id } }
+        val pos = activeMembers.indexOf(topic.id)
+        val otherGroups = groups.filter { it.id != groupId }
         Column(Modifier.fillMaxWidth().padding(start = if (groupId != null) 8.dp else 0.dp, top = 8.dp, bottom = 8.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(titleOf(topic), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold,
@@ -262,22 +316,41 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                                 if (name == topic.title) titles.remove(topic.id) else titles[topic.id] = name
                             }
                         })
-                        groups.filter { it.id != groupId }.forEach { g ->
-                            DropdownMenuItem(text = { Text("${g.name} grubuna taşı") }, onClick = {
+                        if (groupId != null) {
+                            DropdownMenuItem(text = { Text("Yukarı taşı") }, enabled = pos > 0, onClick = {
                                 menu = false
-                                moveTo(topic.id, g.id)
+                                moveInGroup(topic.id, groupId, -1)
+                            })
+                            DropdownMenuItem(text = { Text("Aşağı taşı") }, enabled = pos in 0 until activeMembers.lastIndex, onClick = {
+                                menu = false
+                                moveInGroup(topic.id, groupId, 1)
                             })
                         }
-                        if (groupId != null) {
-                            DropdownMenuItem(text = { Text("Gruptan çıkar") }, onClick = {
-                                menu = false
-                                moveTo(topic.id, null)
-                            })
+                        if (otherGroups.isNotEmpty() || groupId != null) {
+                            DropdownMenuItem(
+                                text = { Text("Başka gruba taşı") },
+                                trailingIcon = { Icon(AppIcons.ChevronRight, contentDescription = null) },
+                                onClick = { menu = false; moveMenu = true },
+                            )
                         }
                         DropdownMenuItem(text = { Text("Kaldır") }, onClick = {
                             menu = false
                             confirmRemove = topic
                         })
+                    }
+                    DropdownMenu(expanded = moveMenu, onDismissRequest = { moveMenu = false }) {
+                        otherGroups.forEach { g ->
+                            DropdownMenuItem(text = { Text(g.name) }, onClick = {
+                                moveMenu = false
+                                moveTo(topic.id, g.id)
+                            })
+                        }
+                        if (groupId != null) {
+                            DropdownMenuItem(text = { Text("Gruptan çıkar") }, onClick = {
+                                moveMenu = false
+                                moveTo(topic.id, null)
+                            })
+                        }
                     }
                 }
             }
@@ -362,18 +435,52 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                     }
                 }
             }
-            groups.forEach { g ->
+            // Yeni grup: yeni konu kartının hemen altında, küçük
+            item {
+                TextButton(onClick = {
+                    ask = NameAsk("Yeni grup adı", "") { name ->
+                        editGroups { gs -> gs.add(0, TopicGroup("g${System.currentTimeMillis() % 100000}", name, emptyList())) }
+                    }
+                }) { Text("+ Yeni grup", style = MaterialTheme.typography.labelMedium) }
+            }
+            groups.forEachIndexed { gi, g ->
                 val members = g.topics.mapNotNull { id -> active.firstOrNull { it.id == id } }
                 item(key = "g-${g.id}") {
+                    var gmenu by remember { mutableStateOf(false) }
+                    val haptic = LocalHapticFeedback.current
                     Row(Modifier.fillMaxWidth().padding(top = 18.dp), verticalAlignment = Alignment.CenterVertically) {
+                        // Başlığa uzun basınca da aynı menü açılır
                         Text(g.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.primary, modifier = Modifier.weight(1f))
-                        TextButton(onClick = {
-                            ask = NameAsk("Grup adı", g.name) { name ->
-                                editGroups { gs -> gs.replaceAll { if (it.id == g.id) it.copy(name = name) else it } }
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.weight(1f).pointerInput(g.id) {
+                                detectTapGestures(onLongPress = {
+                                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                                    gmenu = true
+                                })
+                            })
+                        Box {
+                            IconButton(onClick = { gmenu = true }) { Text("⋮", style = MaterialTheme.typography.titleLarge) }
+                            DropdownMenu(expanded = gmenu, onDismissRequest = { gmenu = false }) {
+                                DropdownMenuItem(text = { Text("Adını değiştir") }, onClick = {
+                                    gmenu = false
+                                    ask = NameAsk("Grup adı", g.name) { name ->
+                                        editGroups { gs -> gs.replaceAll { if (it.id == g.id) it.copy(name = name) else it } }
+                                    }
+                                })
+                                DropdownMenuItem(text = { Text("Yukarı taşı") }, enabled = gi > 0, onClick = {
+                                    gmenu = false
+                                    editGroups { gs -> val i = gs.indexOfFirst { it.id == g.id }; if (i > 0) gs.add(i - 1, gs.removeAt(i)) }
+                                })
+                                DropdownMenuItem(text = { Text("Aşağı taşı") }, enabled = gi < groups.lastIndex, onClick = {
+                                    gmenu = false
+                                    editGroups { gs ->
+                                        val i = gs.indexOfFirst { it.id == g.id }
+                                        if (i >= 0 && i < gs.lastIndex) gs.add(i + 1, gs.removeAt(i))
+                                    }
+                                })
+                                DropdownMenuItem(text = { Text("Sil") }, onClick = { gmenu = false; confirmGroupDelete = g })
                             }
-                        }) { Text("Düzenle") }
-                        TextButton(onClick = { confirmGroupDelete = g }) { Text("Sil") }
+                        }
                     }
                     HorizontalDivider()
                     if (members.isEmpty()) {
@@ -400,13 +507,6 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                         modifier = Modifier.padding(vertical = 6.dp))
                 }
             }
-            item {
-                TextButton(onClick = {
-                    ask = NameAsk("Yeni grup adı", "") { name ->
-                        editGroups { gs -> gs.add(TopicGroup("g${System.currentTimeMillis() % 100000}", name, emptyList())) }
-                    }
-                }, modifier = Modifier.padding(top = 8.dp)) { Text("+ Yeni grup") }
-            }
             // Sadece düzenlerken: kaydedince kaldırılacak başlıklar (kaydettikten sonra hiç görünmez)
             val pendingRemove = s.active.filter { it.id in removeIds }
             if (pendingRemove.isNotEmpty()) {
@@ -429,12 +529,12 @@ fun TopicsScreen(repo: Repo, draft: TopicsDraft, onSettings: () -> Unit, onSaved
                         color = MaterialTheme.colorScheme.error, modifier = Modifier.padding(bottom = 4.dp))
                 }
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    val processing = draft.before != null
+                    val processing = draft.before != null && !draft.runDone
                     Text(
                         when {
                             busy -> "Gönderiliyor..."
                             dirty -> "$changeCount değişiklik bekliyor"
-                            processing -> "Kaydedildi, sunucuda işleniyor..."
+                            processing -> "Kaydediliyor..."
                             savedNote -> "Kaydedildi"
                             else -> "Değişiklik yok"
                         },

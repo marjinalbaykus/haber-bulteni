@@ -52,12 +52,21 @@ Rules:
 
 Output JSON: {"title": str, "headline": str, "detail": str, "key_points": [str]}"""
 
-DEDUPE_SYSTEM = """You get the selected stories of a daily bulletin, grouped under topics.
-Find stories that describe the SAME real-world event under different topics (e.g. the same acquisition
-listed under both "AI" and "PC hardware", or the same match under a player topic and a club topic).
-For each such group keep exactly one: the one whose topic fits the event best (if equal, the more informative headline). Different events about the same company are NOT
-duplicates.
-Output JSON: {"groups": [{"keep": int, "drop": [int]}]} (empty list if there are no duplicates)."""
+DEDUPE_SYSTEM = """You get TODAY's selected stories of a daily bulletin (numbered, grouped under topics) and, when given,
+the headlines that were already published on PREVIOUS DAYS (all topics).
+
+Task 1, same event twice today: find stories that describe the SAME real-world event under different topics
+(e.g. the same acquisition listed under both "AI" and "PC hardware", or the same match under a player topic and a
+club topic). For each such group keep exactly one: the one whose topic fits the event best (if equal, the more
+informative headline). Different events about the same company are NOT duplicates.
+
+Task 2, repeats from previous days: the reader must not see the same news again on a later day. List a story of
+today in "repeats" if it reports the same event as a previous-day headline (under any topic) and has no
+significant new development. A significant new development is a new result, decision, official confirmation,
+new numbers that change the picture, or a clearly new phase of the event. Rephrasing, more reactions, analysis,
+or minor details are NOT new developments. When unsure, treat it as a repeat.
+
+Output JSON: {"groups": [{"keep": int, "drop": [int]}], "repeats": [int]} (empty lists if none)."""
 
 
 def _line(it: S.Item) -> str:
@@ -157,7 +166,7 @@ def select_prompt(topic: dict, pool: S.Pool, ids: list[int],
         parts.append("MARKET DATA (thresholds marked):\n" + market_lines(markets, topic["market_group"]))
     if prev_headlines:
         parts.append("ALREADY REPORTED ON PREVIOUS DAYS:\n" +
-                     "\n".join(f"- {h['date']}: {h['headline']}" for h in prev_headlines[-25:]))
+                     "\n".join(f"- {h['date']}: {h['headline']}" for h in prev_headlines[-40:]))
     parts.append("CANDIDATE ITEMS:\n" + ("\n".join(_line(pool[i]) for i in ids) or "(none)"))
     return "\n\n".join(parts)
 
@@ -178,21 +187,47 @@ def parse_selection(res: dict, ids: list[int]) -> list[dict]:
     return stories
 
 
-def dedupe_across_topics(llm: DeepSeek, topics: list[dict], kept: dict[str, list]) -> dict[str, list]:
-    """Farklı makalelerle iki başlıkta birden çıkan aynı olayı tekilleştirir."""
+def recent_history(hist: dict, date: str, days: int) -> dict:
+    """Bülten gününden önceki son `days` günün başlıkları ve kaynak adresleri.
+    O günün kendisi dahil edilmez: aynı gün yeniden hazırlanırsa eski çalıştırma "önceden verilmiş" sayılmaz."""
+    start = (datetime.strptime(date, "%Y-%m-%d") - timedelta(days=days)).strftime("%Y-%m-%d")
+    return {"cited_urls": {u: d for u, d in hist.get("cited_urls", {}).items() if start <= d < date},
+            "headlines": {k: [h for h in v if start <= h["date"] < date]
+                          for k, v in hist.get("headlines", {}).items()}}
+
+
+def previous_headlines(hist: dict, topics: list[dict]) -> list[list[str]]:
+    """[tarih, başlık adı, haber başlığı] listesi; tüm konular, tarihe göre sıralı."""
+    titles = {t["id"]: t["title"] for t in topics}
+    out = [[h["date"], titles.get(tid, tid), h["headline"]]
+           for tid, lst in hist.get("headlines", {}).items() for h in lst]
+    return sorted(out)
+
+
+def needs_dedupe(flat: list, prev: list) -> bool:
+    return len(flat) >= 2 or (bool(flat) and bool(prev))
+
+
+def dedupe_across_topics(llm: DeepSeek, topics: list[dict], kept: dict[str, list],
+                         prev: list | None = None) -> dict[str, list]:
+    """Aynı olayı iki başlıkta birden vermeyi ve önceki günlerde verilmiş haberi tekrar vermeyi önler."""
     flat = [(t, s) for t in topics for s in kept[t["id"]]]
-    if len(flat) < 2:
+    if not needs_dedupe(flat, prev or []):
         return kept
     try:
-        res = llm.json(DEDUPE_SYSTEM, dedupe_listing(flat), max_tokens=6000)
+        res = llm.json(DEDUPE_SYSTEM, dedupe_listing(flat, prev), max_tokens=6000)
     except Exception as e:
         print("  tekilleştirme hatası:", e)
         return kept
     return apply_dedupe(res, topics, flat)
 
 
-def dedupe_listing(flat: list[tuple]) -> str:
-    return "\n".join(f"[{n}] {t['title']}: {s['headline']}" for n, (t, s) in enumerate(flat))
+def dedupe_listing(flat: list[tuple], prev: list | None = None) -> str:
+    today = "\n".join(f"[{n}] {t['title']}: {s['headline']}" for n, (t, s) in enumerate(flat))
+    if not prev:
+        return "TODAY:\n" + today
+    return ("TODAY:\n" + today + "\n\nPREVIOUS DAYS:\n" +
+            "\n".join(f"- {d} {title}: {h}" for d, title, h in prev))
 
 
 def apply_dedupe(res: dict, topics: list[dict], flat: list[tuple]) -> dict[str, list]:
@@ -202,7 +237,10 @@ def apply_dedupe(res: dict, topics: list[dict], flat: list[tuple]) -> dict[str, 
             if isinstance(d, int) and 0 <= d < len(flat) and d != g.get("keep"):
                 drop.add(d)
     for d in sorted(drop):
-        print(f"  tekrar çıkarıldı: {flat[d][0]['id']}: {flat[d][1]['headline'][:70]}")
+        print(f"  aynı gün tekrar çıkarıldı: {flat[d][0]['id']}: {flat[d][1]['headline'][:70]}")
+    repeats = {d for d in res.get("repeats", []) if isinstance(d, int) and 0 <= d < len(flat)} - drop
+    for d in sorted(repeats):
+        print(f"  önceki günlerde verilmiş, çıkarıldı: {flat[d][0]['id']}: {flat[d][1]['headline'][:70]}")
     # Çıkarılan kopyanın başlığı, kalan habere "also" olarak eklenir: haber birden fazla başlığa ait olabilir
     for g in res.get("groups", []):
         k = g.get("keep")
@@ -210,6 +248,7 @@ def apply_dedupe(res: dict, topics: list[dict], flat: list[tuple]) -> dict[str, 
             also = [flat[d][0]["id"] for d in g.get("drop", []) if d in drop and flat[d][0]["id"] != flat[k][0]["id"]]
             if also:
                 flat[k][1]["also"] = sorted(set(flat[k][1].get("also", []) + also))
+    drop |= repeats
     out = {t["id"]: [] for t in topics}
     for n, (t, s) in enumerate(flat):
         if n not in drop:
@@ -275,8 +314,13 @@ def build_detail(story: dict, res: dict, pool: S.Pool, n_texts: int, extra: list
     }
 
 
+HIGH_IMPORTANCE = 9   # bu puan ve üstü seviye sınırına (max_stories) takılmaz
+HIGH_EXTRA = 5        # ama bir başlığa sınırın üstünde en fazla bu kadar ek haber
+
+
 def keep_stories(topics: list[dict], sel: dict) -> dict[str, list]:
-    """Eşik altını atar; aynı haberi (ortak id) iki başlıkta kullanmaz, önemi yüksek olan kalır."""
+    """Eşik altını atar; aynı haberi (ortak id) iki başlıkta kullanmaz, önemi yüksek olan kalır.
+    Seviye sınırı (Az 3, Orta 5, Çok 8) 9-10 puanlı haberleri kesmez: 5 tane 9 puan varsa 5'i de gelir."""
     flat = []
     for ti, t in enumerate(topics):
         st, _ = sel[t["id"]]
@@ -289,7 +333,8 @@ def keep_stories(topics: list[dict], sel: dict) -> dict[str, list]:
         t = topics[ti]
         if s["ids"] and used & set(s["ids"]):
             continue
-        if len(kept[t["id"]]) >= t.get("max_stories", 5):
+        cap = t.get("max_stories", 5)
+        if len(kept[t["id"]]) >= (cap + HIGH_EXTRA if imp >= HIGH_IMPORTANCE else cap):
             continue
         used |= set(s["ids"])
         kept[t["id"]].append(s)
@@ -317,14 +362,19 @@ def assemble(topics: list[dict], sel: dict, jobs: list, details: list) -> list[d
 
 
 def update_history(out_topics: list[dict], date: str) -> None:
-    """Son 7 günün başlıklarını ve kaynak adreslerini saklar (ertesi gün tekrar gelmesin)."""
+    """Son 7 günün başlıklarını ve kaynak adreslerini saklar (sonraki günlerde tekrar gelmesin).
+    Aynı gün yeniden hazırlanırsa o günün eski kayıtları silinip yenisi yazılır."""
     hist_path = DATA / "history.json"
     hist = read_json(hist_path, {"cited_urls": {}, "headlines": {}})
     keep_after = (now_tr() - timedelta(days=7)).strftime("%Y-%m-%d")
+    hist["cited_urls"] = {u: d for u, d in hist["cited_urls"].items() if d != date}
+    for k in hist["headlines"]:
+        hist["headlines"][k] = [h for h in hist["headlines"][k] if h["date"] != date]
     for t in out_topics:
         lst = hist["headlines"].setdefault(t["id"], [])
         lst.extend({"date": date, "headline": s["headline"]} for s in t["stories"])
-        hist["headlines"][t["id"]] = [h for h in lst if h["date"] >= keep_after][-40:]
+        hist["headlines"][t["id"]] = sorted((h for h in lst if h["date"] >= keep_after),
+                                            key=lambda h: h["date"])[-60:]
         for s in t["stories"]:
             for src in s["sources"]:
                 hist["cited_urls"][S.norm_url(src["url"])] = date
@@ -349,7 +399,8 @@ def run_daily(cfg: dict, date: str | None = None) -> dict:
         end = started
     print(f"Kapsam: {since:%Y-%m-%d %H:%M}Z - {end:%Y-%m-%d %H:%M}Z, bülten günü {date}")
     hist_path = DATA / "history.json"
-    hist = read_json(hist_path, {"cited_urls": {}, "headlines": {}})
+    hist = recent_history(read_json(hist_path, {"cited_urls": {}, "headlines": {}}), date,
+                          cfg.get("repeat_days", 5))
     cited = set(hist["cited_urls"])
 
     print("Kaynaklar taranıyor...")
@@ -386,7 +437,7 @@ def run_daily(cfg: dict, date: str | None = None) -> dict:
     with ThreadPoolExecutor(6) as ex:
         sel = {tid: (st, n) for tid, st, n in ex.map(stage1, topics)}
 
-    kept = dedupe_across_topics(llm, topics, keep_stories(topics, sel))
+    kept = dedupe_across_topics(llm, topics, keep_stories(topics, sel), previous_headlines(hist, topics))
 
     print("Detaylar yazılıyor...")
     jobs = [(t, s) for t in topics for s in kept[t["id"]]]

@@ -24,7 +24,8 @@ from . import sources as S
 from .common import ROOT, DATA, read_json, write_json, now_tr, load_config
 from .daily import (SELECT_SYSTEM, DEDUPE_SYSTEM, DETAIL_SYSTEM, collect, pick_candidates,
                     select_prompt, parse_selection, keep_stories, dedupe_listing, apply_dedupe,
-                    _grounding_texts, detail_prompt, build_detail, assemble, update_history)
+                    _grounding_texts, detail_prompt, build_detail, assemble, update_history,
+                    recent_history, previous_headlines, needs_dedupe)
 from .markets import fetch_markets
 
 WORK = ROOT / "work"
@@ -136,10 +137,9 @@ def prep(variant: str, until: str | None, date: str | None, compare: bool) -> No
     since = end - timedelta(hours=cfg.get("lookback_hours", 30))
     date = date or now_tr().strftime("%Y-%m-%d")
 
-    hist = read_json(DATA / "history.json", {"cited_urls": {}, "headlines": {}})
-    if compare:  # o günün mevcut bülteni "önceden verilmiş" sayılmasın
-        hist = {"cited_urls": {u: d for u, d in hist["cited_urls"].items() if d < date},
-                "headlines": {k: [h for h in v if h["date"] < date] for k, v in hist["headlines"].items()}}
+    # Önceki son N günün başlıkları (o günün kendisi hariç: aynı gün yeniden hazırlanırsa eskisi sayılmaz)
+    hist = recent_history(read_json(DATA / "history.json", {"cited_urls": {}, "headlines": {}}), date,
+                          cfg.get("repeat_days", 5))
 
     print("Kaynaklar taranıyor...")
     pool = S.Pool()
@@ -169,6 +169,7 @@ def prep(variant: str, until: str | None, date: str | None, compare: bool) -> No
     _save({"stage": "select", "variant": variant, "date": date, "compare": compare,
            "since": since.isoformat(), "started": started.isoformat(),
            "pool": [it.to_dict() for it in pool.items], "cands": cands, "markets": markets,
+           "prev": previous_headlines(hist, cfg["topics"]),
            "task_chars": _chars(names), "tasks": len(names)})
     _print_tasks(names)
 
@@ -192,10 +193,11 @@ def next_step(no_fetch: bool = False) -> None:
         state["sel"] = {k: [v[0], v[1]] for k, v in sel.items()}
         state["kept"] = kept
         flat = [(t, s) for t in topics for s in kept[t["id"]]]
-        if len(flat) >= 2:
+        prev = state.get("prev", [])
+        if needs_dedupe(flat, prev):
             state["stage"] = "dedupe"
             _save(state)
-            names = [_write_task("tekillestirme", DEDUPE_SYSTEM, dedupe_listing(flat))]
+            names = [_write_task("tekillestirme", DEDUPE_SYSTEM, dedupe_listing(flat, prev))]
             state["task_chars"] += _chars(names)
             state["tasks"] += 1
             _save(state)

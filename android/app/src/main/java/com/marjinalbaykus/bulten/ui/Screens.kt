@@ -27,9 +27,29 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.platform.LocalViewConfiguration
+import androidx.compose.ui.platform.ViewConfiguration
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.zIndex
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -70,8 +90,10 @@ import com.marjinalbaykus.bulten.data.Topic
 import com.marjinalbaykus.bulten.data.Topics
 import com.marjinalbaykus.bulten.ui.theme.ThemeMode
 
-/** Bir haber ve ait olduğu başlık. */
-data class Item(val topic: Topic, val story: Story)
+/** Bir haber, ait olduğu başlık ve bülten tarihi (okundu bilgisi "tarih/sid" ile tutulur). */
+data class Item(val topic: Topic, val story: Story, val date: String = "") {
+    val readKey: String get() = "$date/${story.sid}"
+}
 
 fun trCount(n: Int): String = java.text.NumberFormat.getIntegerInstance(java.util.Locale.forLanguageTag("tr-TR")).format(n)
 
@@ -80,23 +102,27 @@ fun Bulletin.withTitles(t: Topics?): Bulletin =
     if (t == null) this else copy(topics = topics.map { tp -> t.title(tp.id)?.let { tp.copy(title = it) } ?: tp })
 
 /** Ana sayfadaki bir bölüm: tek başlık ya da bir grup (ör. Futbol). */
-private class Section(val key: String, val title: String, val items: List<Item>, val note: String, val grouped: Boolean)
+private class Section(
+    val key: String, val title: String, val items: List<Item>, val note: String, val grouped: Boolean,
+    val groupId: String? = null,
+)
 
+/** Önce gruplar Konular'daki sırayla (bültende üyesi yoksa atlanır), sonra grupsuz başlıklar bülten sırasıyla. */
 private fun sections(bulletin: Bulletin, topics: Topics?, visible: (Topic) -> List<Story>): List<Section> {
     val groupOf = HashMap<String, com.marjinalbaykus.bulten.data.TopicGroup>()
     topics?.groups.orEmpty().forEach { g -> g.topics.forEach { id -> groupOf.putIfAbsent(id, g) } }
-    val done = HashSet<String>()
     val out = ArrayList<Section>()
+    for (g in topics?.groups.orEmpty()) {
+        val members = bulletin.topics.filter { groupOf[it.id]?.id == g.id }
+        if (members.isEmpty()) continue
+        val items = members.flatMap { m -> visible(m).map { Item(m, it, bulletin.date) } }
+            .distinctBy { it.story.sid }
+            .sortedByDescending { it.story.importance }
+        out += Section("g-${g.id}", g.name, items, "", grouped = true, groupId = g.id)
+    }
     for (t in bulletin.topics) {
-        val g = groupOf[t.id]
-        if (g == null) {
-            out += Section("t-${t.id}", t.title, visible(t).map { Item(t, it) }, t.note, grouped = false)
-        } else if (done.add(g.id)) {
-            val items = bulletin.topics.filter { groupOf[it.id]?.id == g.id }
-                .flatMap { m -> visible(m).map { Item(m, it) } }
-                .distinctBy { it.story.sid }
-                .sortedByDescending { it.story.importance }
-            out += Section("g-${g.id}", g.name, items, "", grouped = true)
+        if (groupOf[t.id] == null) {
+            out += Section("t-${t.id}", t.title, visible(t).map { Item(t, it, bulletin.date) }, t.note, grouped = false)
         }
     }
     return out
@@ -108,14 +134,16 @@ fun itemLabel(item: Item, bulletin: Bulletin): String =
         .distinct().joinToString(", ")
 
 @Composable
-fun Tag(text: String, highlight: Boolean = false) {
+fun Tag(text: String, highlight: Boolean = false, modifier: Modifier = Modifier) {
     Surface(
+        modifier = modifier,
         shape = RoundedCornerShape(50),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
         color = if (highlight) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface,
     ) {
         Text(
             text, style = MaterialTheme.typography.labelSmall,
+            maxLines = 1, overflow = TextOverflow.Ellipsis,
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
         )
     }
@@ -222,8 +250,47 @@ fun BulletinScreen(
     onOpen: (Item) -> Unit,
     padding: PaddingValues,
     listState: LazyListState,
+    sortByScore: Boolean,
+    unreadOnly: Boolean,
+    readKeys: Set<String>,
+    reordering: Boolean,
+    onReorderStart: () -> Unit,
+    onReorderDone: (List<String>) -> Unit,
+    onReorderCancel: () -> Unit,
 ) {
+    if (reordering) {
+        GroupOrderEditor(
+            groups = topics?.groups.orEmpty().map { it.id to it.name },
+            onDone = onReorderDone,
+            onCancel = onReorderCancel,
+            padding = padding,
+        )
+        return
+    }
+
     val parts = sections(bulletin, topics, visible)
+    // Puana göre: tüm haberler tek listede, önem puanı azalan (eşitlikte başlık sırası korunur)
+    val byScore = if (sortByScore) {
+        bulletin.topics.flatMap { t -> visible(t).map { Item(t, it, bulletin.date) } }
+            .distinctBy { it.story.sid }
+            .sortedByDescending { it.story.importance }
+    } else emptyList()
+    val allItems = if (sortByScore) byScore else parts.flatMap { it.items }
+    val noUnread = unreadOnly && allItems.none { it.readKey !in readKeys }
+    val muted = MaterialTheme.colorScheme.onSurfaceVariant
+
+    val base = LocalViewConfiguration.current
+    // Grup başlığında uzun basma süresi 1 saniye
+    val slowPress = remember(base) {
+        object : ViewConfiguration by base {
+            override val longPressTimeoutMillis: Long = 1000L
+        }
+    }
+    val haptic = LocalHapticFeedback.current
+    val startReorder by rememberUpdatedState {
+        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+        onReorderStart()
+    }
 
     LazyColumn(
         state = listState,
@@ -240,7 +307,7 @@ fun BulletinScreen(
                     Text(
                         "Hazırlandı ${trPrepared(bulletin.generatedAt, bulletin.date)}" +
                             if (offline) "\nÇevrimdışı kopya" else "",
-                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        style = MaterialTheme.typography.bodySmall, color = muted,
                     )
                 }
                 MarketMini(bulletin)
@@ -248,87 +315,190 @@ fun BulletinScreen(
             if (bulletin.scanned > 0) {
                 Text(
                     "${trCount(bulletin.scanned)} haber tarandı, ${bulletin.selected} haber seçildi.",
-                    style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.labelSmall, color = muted,
                     modifier = Modifier.padding(top = 2.dp),
                 )
             }
             HorizontalDivider(Modifier.padding(top = 6.dp, bottom = 4.dp))
+            if (noUnread) {
+                Text("Okunmamış haber yok.", style = MaterialTheme.typography.bodyMedium, color = muted,
+                    modifier = Modifier.padding(vertical = 12.dp))
+            }
         }
-        parts.forEach { part ->
-            item(key = part.key) {
-                Column(Modifier.padding(vertical = 6.dp)) {
-                    Text(part.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                    if (part.items.isEmpty()) {
-                        Text(
-                            part.note.ifBlank { "Kayda değer bir gelişme yok." },
-                            fontStyle = FontStyle.Italic, color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                    part.items.forEach { item ->
-                        Row(
-                            Modifier.fillMaxWidth().clickable { onOpen(item) }.padding(vertical = 5.dp),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        ) {
-                            Text("${item.story.importance}", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary,
-                                maxLines = 1, softWrap = false, modifier = Modifier.widthIn(min = 22.dp))
-                            Column {
-                                if (part.grouped) {
-                                    Text(itemLabel(item, bulletin), style = MaterialTheme.typography.labelSmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant)
+        if (!noUnread) {
+            if (sortByScore) {
+                val list = if (unreadOnly) byScore.filter { it.readKey !in readKeys } else byScore
+                items(list, key = { "p-${it.story.sid}" }) { item ->
+                    StoryCard(item, itemLabel(item, bulletin), item.readKey in readKeys) { onOpen(item) }
+                }
+            } else {
+                parts.forEach { part ->
+                    item(key = part.key) {
+                        val shown = if (unreadOnly) part.items.filter { it.readKey !in readKeys } else part.items
+                        Column(Modifier.padding(vertical = 6.dp)) {
+                            if (part.groupId != null) {
+                                CompositionLocalProvider(LocalViewConfiguration provides slowPress) {
+                                    Text(
+                                        part.title, style = MaterialTheme.typography.titleMedium,
+                                        fontWeight = FontWeight.SemiBold,
+                                        modifier = Modifier.fillMaxWidth().pointerInput(Unit) {
+                                            detectTapGestures(onLongPress = { startReorder() })
+                                        },
+                                    )
                                 }
-                                Text(item.story.headline, style = MaterialTheme.typography.bodyMedium)
+                            } else {
+                                Text(part.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                            }
+                            if (part.items.isEmpty()) {
+                                Text(
+                                    part.note.ifBlank { "Kayda değer bir gelişme yok." },
+                                    fontStyle = FontStyle.Italic, color = muted,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                )
+                            } else if (shown.isEmpty()) {
+                                Text("Hepsi okundu.", style = MaterialTheme.typography.bodySmall, color = muted,
+                                    modifier = Modifier.padding(top = 2.dp))
+                            }
+                            shown.forEach { item ->
+                                StoryCard(item, if (part.grouped) itemLabel(item, bulletin) else null, item.readKey in readKeys) {
+                                    onOpen(item)
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        item { StatsFooter(bulletin) }
     }
 }
 
+/** Haber kartı: önem rozeti, (varsa) başlık etiketi ve sadece haber başlığı. Okunmuşsa soluk. */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
-fun AllNewsScreen(
-    bulletin: Bulletin,
-    visible: (Topic) -> List<Story>,
-    onOpen: (Item) -> Unit,
-    padding: PaddingValues,
-    listState: LazyListState,
-) {
-    // Tüm haberler önem puanına göre (eşitlikte başlık sırası korunur)
-    val all = bulletin.topics.flatMap { t -> visible(t).map { Item(t, it) } }.sortedByDescending { it.story.importance }
-    if (all.isEmpty()) {
-        Centered { Text("Bu bültende haber yok.") }
-        return
-    }
-    LazyColumn(
-        state = listState,
-        contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding() + 4.dp,
-            bottom = padding.calculateBottomPadding() + 32.dp),
-        modifier = Modifier.fillMaxSize(),
+private fun StoryCard(item: Item, label: String?, read: Boolean, onClick: () -> Unit) {
+    Card(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp).alpha(if (read) 0.5f else 1f),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
     ) {
-        item {
-            Row(Modifier.fillMaxWidth().padding(bottom = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text(trDate(bulletin.date), style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(
-                    if (bulletin.scanned > 0) "${trCount(bulletin.scanned)} haberden ${all.size} seçildi" else "Toplam ${all.size} haber",
-                    style = MaterialTheme.typography.bodySmall,
-                    fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary)
+        Column(Modifier.padding(12.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                Tag("Önem ${item.story.importance}/10", highlight = item.story.importance >= 8)
+                if (label != null) Tag(label, modifier = Modifier.weight(1f, fill = false))
+            }
+            Spacer(Modifier.height(6.dp))
+            Text(item.story.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
+        }
+    }
+}
+
+/** "deepseek-flash" -> "DeepSeek Flash", "sonnet" -> "Claude Sonnet". */
+private fun modelName(model: String): String {
+    val m = model.lowercase()
+    return when {
+        m.startsWith("deepseek") -> "DeepSeek" + m.removePrefix("deepseek").split('-').filter { it.isNotBlank() }
+            .joinToString("") { " " + it.replaceFirstChar { c -> c.uppercase() } }
+        "sonnet" in m -> "Claude Sonnet"
+        "haiku" in m -> "Claude Haiku"
+        "opus" in m -> "Claude Opus"
+        else -> model
+    }
+}
+
+/** Ana sayfanın en altı: hazırlayan model, maliyet, süre ve token. Eski bültenlerde (model yok) gösterilmez. */
+@Composable
+private fun StatsFooter(b: Bulletin) {
+    if (b.model.isBlank()) return
+    val tr = java.util.Locale.forLanguageTag("tr-TR")
+    val muted = MaterialTheme.colorScheme.onSurfaceVariant
+    val cost = b.costUsd?.let {
+        "Maliyet: yaklaşık " + String.format(tr, if (it < 0.01) "%.4f" else "%.2f", it) + " dolar"
+    } ?: "Maliyet: Claude aboneliği içinde (ek ücret yok)"
+    val parts = ArrayList<String>()
+    if (b.seconds > 0) parts += if (b.seconds >= 60) "${b.seconds / 60} dk ${b.seconds % 60} sn" else "${b.seconds} sn"
+    if (b.tokens > 0) parts += "${trCount(b.tokens)} token"
+    Column(Modifier.fillMaxWidth().padding(top = 20.dp)) {
+        HorizontalDivider()
+        Text("Hazırlayan model: ${modelName(b.model)}", style = MaterialTheme.typography.labelSmall, color = muted,
+            modifier = Modifier.padding(top = 8.dp))
+        Text(cost, style = MaterialTheme.typography.labelSmall, color = muted)
+        if (parts.isNotEmpty()) {
+            Text("Süre: " + parts.joinToString(" · "), style = MaterialTheme.typography.labelSmall, color = muted)
+        }
+    }
+}
+
+/** Sıralama modu: sadece grup adları; satırı tutup sürükleyerek yer değiştirilir. */
+@Composable
+private fun GroupOrderEditor(
+    groups: List<Pair<String, String>>,
+    onDone: (List<String>) -> Unit,
+    onCancel: () -> Unit,
+    padding: PaddingValues,
+) {
+    BackHandler { onCancel() }
+    val order = remember { mutableStateListOf<Pair<String, String>>().also { it.addAll(groups) } }
+    val rowPx = with(LocalDensity.current) { 60.dp.toPx() }
+    var draggingId by remember { mutableStateOf<String?>(null) }
+    var offset by remember { mutableFloatStateOf(0f) }
+    val muted = MaterialTheme.colorScheme.onSurfaceVariant
+
+    Column(Modifier.fillMaxSize().padding(top = padding.calculateTopPadding())) {
+        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = 16.dp, vertical = 8.dp)) {
+            Text("Grupları sırala", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
+            Text("Tutup sürükle. Sıra Konular'da da aynı olur.", style = MaterialTheme.typography.bodySmall,
+                color = muted, modifier = Modifier.padding(top = 2.dp, bottom = 12.dp))
+            order.toList().forEach { entry ->
+                val id = entry.first
+                key(id) {
+                    val dragging = draggingId == id
+                    Surface(
+                        modifier = Modifier.fillMaxWidth().height(60.dp)
+                            .zIndex(if (dragging) 1f else 0f)
+                            .graphicsLayer { translationY = if (dragging) offset else 0f }
+                            .pointerInput(id) {
+                                detectDragGestures(
+                                    onDragStart = { draggingId = id; offset = 0f },
+                                    onDragEnd = { draggingId = null; offset = 0f },
+                                    onDragCancel = { draggingId = null; offset = 0f },
+                                    onDrag = { change, amount ->
+                                        change.consume()
+                                        offset += amount.y
+                                        val i = order.indexOfFirst { it.first == id }
+                                        if (offset > rowPx / 2 && i in 0 until order.lastIndex) {
+                                            order.add(i + 1, order.removeAt(i)); offset -= rowPx
+                                        } else if (offset < -rowPx / 2 && i > 0) {
+                                            order.add(i - 1, order.removeAt(i)); offset += rowPx
+                                        }
+                                    },
+                                )
+                            },
+                        color = if (dragging) MaterialTheme.colorScheme.surfaceContainerHighest
+                        else MaterialTheme.colorScheme.surface,
+                        tonalElevation = if (dragging) 6.dp else 0.dp,
+                    ) {
+                        Column {
+                            Row(Modifier.fillMaxWidth().weight(1f).padding(horizontal = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically) {
+                                Text(entry.second, style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
+                                MenuIcon()
+                            }
+                            HorizontalDivider()
+                        }
+                    }
+                }
             }
         }
-        items(all, key = { "kart-${it.story.sid}" }) { item ->
-            Card(Modifier.fillMaxWidth().padding(vertical = 5.dp).clickable { onOpen(item) }) {
-                Column(Modifier.padding(12.dp)) {
-                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Tag("Önem ${item.story.importance}/10", highlight = item.story.importance >= 8)
-                        Tag(itemLabel(item, bulletin))
-                    }
-                    Spacer(Modifier.height(6.dp))
-                    Text(item.story.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
-                    Text(item.story.headline, style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 3)
-                }
+        Surface(tonalElevation = 3.dp, shadowElevation = 6.dp) {
+            Row(
+                Modifier.fillMaxWidth().padding(start = 16.dp, end = 12.dp, top = 8.dp,
+                    bottom = 8.dp + padding.calculateBottomPadding()),
+                horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.CenterVertically,
+            ) {
+                TextButton(onClick = onCancel) { Text("Vazgeç") }
+                Button(onClick = { onDone(order.map { it.first }) }) { Text("Bitti") }
             }
         }
     }
@@ -393,16 +563,25 @@ private fun shareStory(context: Context, s: Story) {
     context.startActivity(Intent.createChooser(send, "Haberi paylaş"))
 }
 
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun HistoryScreen(index: Index?, onPick: (String) -> Unit, padding: PaddingValues) {
     if (index == null) {
         Centered { CircularProgressIndicator() }
         return
     }
+    var picking by remember { mutableStateOf(false) }
     LazyColumn(
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = padding.calculateTopPadding(),
             bottom = padding.calculateBottomPadding() + 32.dp),
     ) {
+        item {
+            FilledTonalButton(
+                onClick = { picking = true },
+                enabled = index.bulletins.isNotEmpty(),
+                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+            ) { Text("Tarih seç") }
+        }
         items(index.bulletins, key = { it.date }) { b ->
             Row(
                 Modifier.fillMaxWidth().clickable { onPick(b.date) }.padding(vertical = 14.dp),
@@ -412,6 +591,45 @@ fun HistoryScreen(index: Index?, onPick: (String) -> Unit, padding: PaddingValue
                 Text("${b.count} haber", color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             HorizontalDivider()
+        }
+    }
+
+    if (picking) {
+        val utc = java.time.ZoneOffset.UTC
+        val days = remember(index) {
+            index.bulletins.mapNotNull { runCatching { java.time.LocalDate.parse(it.date) }.getOrNull() }.toSet()
+        }
+        val newest = days.maxOrNull() ?: java.time.LocalDate.now()
+        val oldest = days.minOrNull() ?: newest
+        val state = androidx.compose.material3.rememberDatePickerState(
+            initialDisplayedMonthMillis = newest.atStartOfDay(utc).toInstant().toEpochMilli(),
+            yearRange = oldest.year..newest.year,
+            selectableDates = object : androidx.compose.material3.SelectableDates {
+                override fun isSelectableDate(utcTimeMillis: Long): Boolean =
+                    java.time.Instant.ofEpochMilli(utcTimeMillis).atZone(utc).toLocalDate() in days
+            },
+        )
+        // Bir güne dokununca diyalog kapanır ve o günün bülteni açılır
+        LaunchedEffect(state.selectedDateMillis) {
+            state.selectedDateMillis?.let {
+                picking = false
+                onPick(java.time.Instant.ofEpochMilli(it).atZone(utc).toLocalDate().toString())
+            }
+        }
+        androidx.compose.material3.DatePickerDialog(
+            onDismissRequest = { picking = false },
+            confirmButton = {},
+            dismissButton = { TextButton(onClick = { picking = false }) { Text("Kapat") } },
+        ) {
+            androidx.compose.material3.DatePicker(
+                state = state,
+                title = { Text("Hangi günün bülteni?", modifier = Modifier.padding(start = 24.dp, top = 16.dp)) },
+                headline = {
+                    Text("Bülteni olan bir güne dokun", style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.padding(start = 24.dp, end = 12.dp, bottom = 12.dp))
+                },
+                showModeToggle = false,
+            )
         }
     }
 }
@@ -632,7 +850,7 @@ fun SettingsScreen(
                         scope.launch {
                             runMessage = try {
                                 repo.runBulletin(day?.toString())
-                                "Başlatıldı. 3-5 dakika sonra Ana sayfada aşağı çekip yenile."
+                                "Başlatıldı. 3-5 dakika sonra Akış'ta aşağı çekip yenile."
                             } catch (e: Exception) {
                                 "Başlatılamadı: " + (e.message ?: e.javaClass.simpleName)
                             }

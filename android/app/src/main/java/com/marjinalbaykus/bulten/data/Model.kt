@@ -33,6 +33,11 @@ data class Bulletin(
     val markets: List<Market>,
     /** Bu bülten için taranan (tekil) haber sayısı; eski bültenlerde 0. */
     val scanned: Int = 0,
+    /** Hazırlayan model (deepseek-flash, sonnet...), tahmini maliyet (USD; Claude rutininde yok), süre, token. */
+    val model: String = "",
+    val costUsd: Double? = null,
+    val seconds: Int = 0,
+    val tokens: Int = 0,
 ) {
     val selected: Int get() = topics.sumOf { it.stories.size }
 }
@@ -64,7 +69,17 @@ data class TopicGroup(val id: String, val name: String, val topics: List<String>
 
 data class Topics(val active: List<TopicInfo>, val removed: List<TopicInfo>, val groups: List<TopicGroup>) {
     fun title(id: String): String? = active.firstOrNull { it.id == id }?.title
+
+    /** Grupları verilen kimlik sırasına dizer; listede olmayanlar sona, kendi sıralarıyla. */
+    fun withOrder(order: List<String>): Topics {
+        if (order.isEmpty()) return this
+        val pos = order.withIndex().associate { it.value to it.index }
+        return copy(groups = groups.sortedBy { pos[it.id] ?: Int.MAX_VALUE })
+    }
 }
+
+/** GitHub Actions'taki bir çalıştırmanın durumu. */
+data class RunStatus(val done: Boolean, val ok: Boolean)
 
 private fun JSONArray?.objects(): List<JSONObject> =
     if (this == null) emptyList() else (0 until length()).mapNotNull { optJSONObject(it) }
@@ -110,8 +125,13 @@ fun parseBulletin(text: String): Bulletin {
         val day = m.optJSONObject("changes")?.takeIf { it.has("day") }?.optDouble("day")
         Market(m.optString("symbol"), m.optString("name"), m.optDouble("value"), day)
     }
+    val st = o.optJSONObject("stats")
     return Bulletin(o.optString("date"), o.optString("generated_at"), topics, alarms, markets,
-        scanned = o.optJSONObject("stats")?.optInt("items") ?: 0)
+        scanned = st?.optInt("items") ?: 0,
+        model = st?.optString("model").orEmpty(),
+        costUsd = st?.takeIf { it.has("cost_usd") }?.optDouble("cost_usd"),
+        seconds = st?.optInt("seconds") ?: 0,
+        tokens = (st?.optInt("prompt_tokens") ?: 0) + (st?.optInt("completion_tokens") ?: 0))
 }
 
 fun parseIndex(text: String): Index {

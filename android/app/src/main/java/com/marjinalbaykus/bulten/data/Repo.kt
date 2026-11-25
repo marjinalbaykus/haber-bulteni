@@ -21,7 +21,77 @@ class Repo(context: Context) {
 
     suspend fun research(id: String): Loaded<Research> = load("r/$id.json", ::parseResearch)
 
-    suspend fun topics(): Loaded<Topics> = load("topics.json", ::parseTopics)
+    /** Konu listesi; gruplar telefonda seçilen sıraya dizilir. fresh: site önbelleğini her istekte aşar. */
+    suspend fun topics(fresh: Boolean = false): Loaded<Topics> =
+        load("topics.json", { parseTopics(it).withOrder(groupOrder) }, fresh)
+
+    /** Grup sırası (grup kimlikleri). Hem ana sayfa hem Konular bu sırayı kullanır; sunucuya da gönderilir. */
+    var groupOrder: List<String>
+        get() = prefs.getString("grup_sirasi", "").orEmpty().split(',').filter { it.isNotBlank() }
+        set(value) = prefs.edit().putString("grup_sirasi", value.joinToString(",")).apply()
+
+    /** Sadece grup sırasını/üyeliğini sunucuya kaydeder (ana sayfadaki sıralama). */
+    suspend fun saveGroups(groups: List<TopicGroup>) {
+        val arr = org.json.JSONArray(groups.map { g ->
+            org.json.JSONObject().put("id", g.id).put("name", g.name).put("topics", org.json.JSONArray(g.topics))
+        })
+        saveTopics(org.json.JSONObject().put("groups", arr).toString())
+    }
+
+    /** Ana sayfa: puana göre sırala (false = gruplara göre) ve sadece okunmamışları göster. */
+    var sortByScore: Boolean
+        get() = prefs.getBoolean("puana_gore", false)
+        set(value) = prefs.edit().putBoolean("puana_gore", value).apply()
+
+    var unreadOnly: Boolean
+        get() = prefs.getBoolean("okunmamislar", false)
+        set(value) = prefs.edit().putBoolean("okunmamislar", value).apply()
+
+    /** Okunan haberler: "tarih/sid" (sid her bültende baştan numaralandığı için tarih de gerekir). */
+    @Volatile private var readCache: Set<String>? = null
+
+    fun readKeys(): Set<String> =
+        readCache ?: prefs.getStringSet("okunan", emptySet())!!.toSet().also { readCache = it }
+
+    fun markRead(key: String) {
+        val cur = readKeys()
+        if (key in cur) return
+        val oldest = java.time.LocalDate.now(java.time.ZoneId.of("Europe/Istanbul")).minusDays(90).toString()
+        val next = cur.filter { it.substringBefore('/') >= oldest }.toSet() + key   // 90 günden eskiler unutulur
+        readCache = next
+        prefs.edit().putStringSet("okunan", next).apply()
+    }
+
+    /**
+     * Bir iş akışının [since] (ms) sonrası başlatılmış en son elle çalıştırmasının durumu; henüz görünmüyorsa null.
+     * Konular kaydedilince sitenin yayınlanmasını beklemeden işin bittiği buradan anlaşılır.
+     */
+    suspend fun lastRun(workflow: String, since: Long): RunStatus? = withContext(Dispatchers.IO) {
+        val token = githubToken
+        if (token.isBlank()) return@withContext null
+        val conn = URL("https://api.github.com/repos/$REPO/actions/workflows/$workflow/runs?event=workflow_dispatch&per_page=5")
+            .openConnection() as HttpURLConnection
+        try {
+            conn.connectTimeout = 10_000
+            conn.readTimeout = 15_000
+            conn.useCaches = false
+            conn.setRequestProperty("Accept", "application/vnd.github+json")
+            conn.setRequestProperty("Authorization", "Bearer $token")
+            conn.setRequestProperty("X-GitHub-Api-Version", "2022-11-28")
+            if (conn.responseCode != 200) return@withContext null
+            val runs = org.json.JSONObject(conn.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() })
+                .optJSONArray("workflow_runs") ?: return@withContext null
+            // Telefon ve GitHub saati arasındaki küçük farka pay bırakılır
+            (0 until runs.length()).mapNotNull { runs.optJSONObject(it) }
+                .firstOrNull { r ->
+                    runCatching { java.time.Instant.parse(r.optString("created_at")).toEpochMilli() >= since - 60_000 }
+                        .getOrDefault(false)
+                }
+                ?.let { r -> RunStatus(done = r.optString("status") == "completed", ok = r.optString("conclusion") == "success") }
+        } finally {
+            conn.disconnect()
+        }
+    }
 
     /**
      * Geçmiş bültenler (yerel arama için). Telefonda kopyası olan eski bültenler tekrar indirilmez;
@@ -153,10 +223,10 @@ class Repo(context: Context) {
     /** Sunucu bülteni zaten konu seviyelerine göre hazırlıyor; burada ek filtre yok. */
     fun visible(topic: Topic): List<Story> = topic.stories
 
-    private suspend fun <T> load(path: String, parse: (String) -> T): Loaded<T> = withContext(Dispatchers.IO) {
+    private suspend fun <T> load(path: String, parse: (String) -> T, fresh: Boolean = false): Loaded<T> = withContext(Dispatchers.IO) {
         val file = File(cache, path.replace('/', '_'))
         try {
-            val text = fetch(path)
+            val text = fetch(path, fresh)
             val value = parse(text)  // önce çözümle, bozuk veriyle önbelleği ezme
             file.writeText(text)
             Loaded(value, offline = false)
@@ -165,9 +235,11 @@ class Repo(context: Context) {
         }
     }
 
-    private fun fetch(path: String): String {
+    private fun fetch(path: String, fresh: Boolean = false): String {
         // GitHub Pages yanıtları birkaç dakika önbellekte tutar; dakikalık parametre bunu aşar.
-        val url = URL("$BASE$path?t=${System.currentTimeMillis() / 60_000}")
+        // fresh: her istekte farklı parametre (kaydetmeden sonra yeni hali beklerken, aynı dakika içinde de taze).
+        val key = if (fresh) System.currentTimeMillis() else System.currentTimeMillis() / 60_000
+        val url = URL("$BASE$path?t=$key")
         val conn = url.openConnection() as HttpURLConnection
         conn.connectTimeout = 15_000
         conn.readTimeout = 20_000
