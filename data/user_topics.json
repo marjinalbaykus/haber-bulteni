@@ -122,6 +122,15 @@
  "titles": {},
  "groups": [
   {
+   "id": "ai",
+   "name": "Yapay Zeka",
+   "topics": [
+    "yapay_zeka",
+    "yerel_llm",
+    "ai_kodlama"
+   ]
+  },
+  {
    "id": "teknoloji",
    "name": "Teknoloji",
    "topics": [
@@ -134,8 +143,8 @@
    "id": "futbol",
    "name": "Futbol",
    "topics": [
-    "arda_guler",
     "real_madrid",
+    "arda_guler",
     "sampiyonlar_ligi",
     "premier_lig",
     "barcelona_gunluk_haberleri",
@@ -149,15 +158,6 @@
     "oyunlar",
     "oyun_genel",
     "cs2"
-   ]
-  },
-  {
-   "id": "ai",
-   "name": "Yapay Zeka",
-   "topics": [
-    "yapay_zeka",
-    "yerel_llm",
-    "ai_kodlama"
    ]
   },
   {
