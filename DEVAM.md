@@ -31,6 +31,9 @@ Büyük bir karar gerektiren işte önce sor ("önce karar verelim sonra yap dic
   takım vb.) geçmez; bu yüzden `detail_prompt` konu kriterini (criteria) modele VERMEZ, kriter sadece seçimde kullanılır.
   Detay en fazla ~120 kelime, 1-3 paragraf, tekrar yok. "Öne çıkanlar" (key_points) kaldırıldı: modelden istenmiyor,
   site ve uygulama göstermiyor (eski bültenlerde alan dursa da görünmez).
+  Konuya özel yazım talimatı gerekiyorsa config.yaml'da `detail_note` alanı kullanılır (kişisel bilgi içermemeli);
+  detail_prompt bunu "TOPIC NOTES" olarak verir. Local LLM: seçim okuyucunun VRAM'ine göre elemez, detayda
+  parametre sayısı ve yaklaşık 4-bit/8-bit VRAM ihtiyacı yazılır (kaynakta yoksa "yaklaşık" tahmin).
 - **Tekrar önleme:** `data/history.json` son 7 günün başlık ve kaynaklarını tutar.
 - Aynı olay birden fazla başlığa girerse tekilleştirme birini tutar, habere `also: [başlık id]` ekler.
 - Telegram tamamen kaldırıldı (25 Kasım): `telegram.py`, poll.yml, resend.yml, iş akışlarındaki Telegram adımları,

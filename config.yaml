@@ -150,20 +150,19 @@ topics:
     min_importance: 7
     max_stories: 5
     criteria: |
-      Kullanıcı modelleri kendi bilgisayarında çalıştırıyor: AMD RX 7800 XT, 16 GB VRAM.
-      İleride ikinci bir kart alıp toplam 32 GB VRAM'e çıkabilir. AMD olduğu için ROCm, Vulkan,
-      llama.cpp, LM Studio, Ollama desteği önemli.
-      Önemli: 16-32 GB VRAM'e (4-bit veya benzeri quantization ile) sığan yeni açık ağırlıklı modeller,
-      kendi boyutunda rekor kıran küçük/orta modeller, büyük laboratuvarların açık model çıkışları
-      (Qwen, Llama, Mistral, Gemma, DeepSeek, GLM, Phi vb.), AMD GPU'larda performansı ciddi artıran
-      yazılım güncellemeleri, önemli quantization veya çıkarım tekniği gelişmeleri.
-      Her haberde modelin boyutunu ve 16 GB / 32 GB VRAM'e sığıp sığmadığını belirt.
-      Puanlama kuralı: 4-bit ile 32 GB VRAM'e sığmayan modeller normalde en fazla 6 puan alır (bültene girmez).
-      İstisna: alanı gerçekten sarsan çok büyük olaylar yine de girsin (8 ve üstü). Örneğin açık bir modelin
-      en iyi kapalı modelleri (GPT, Gemini, Claude) geçmesi, büyük bir laboratuvarın yeni amiral gemisi açık modeli,
-      ya da yerel LLM dünyasını etkileyecek tarihi bir gelişme. Bu durumda VRAM'e sığmadığını açıkça belirt.
-      Önemsiz: 32 GB'a sığmayan niş veya alan-özel modeller (tıp, hukuk vb.),
-      ufak fine-tune'lar, "uncensored" kopyalar, tanıtım amaçlı içerikler.
+      Yerel (kendi bilgisayarında) çalıştırılabilen açık ağırlıklı modeller ve bunları çalıştıran araçlar.
+      Okuyucunun donanımına göre eleme yapma; büyük modeller de önemliyse girer.
+      Önemli: büyük laboratuvarların açık model çıkışları (Qwen, Llama, Mistral, Gemma, DeepSeek, GLM, Phi vb.),
+      kendi boyutunda rekor kıran küçük/orta modeller, açık bir modelin en iyi kapalı modellere yaklaşması
+      veya geçmesi, llama.cpp, Ollama, LM Studio, vLLM, ROCm, Vulkan gibi araçlarda performansı veya donanım
+      desteğini ciddi değiştiren güncellemeler, önemli quantization veya çıkarım tekniği gelişmeleri.
+      Önemsiz: niş veya alan-özel modeller (tıp, hukuk vb.), ufak fine-tune'lar, "uncensored" kopyalar,
+      tanıtım amaçlı içerikler.
+    detail_note: |
+      Haber bir model hakkındaysa detayda şunları kısaca yaz: parametre sayısı (MoE ise toplam ve aktif),
+      yerelde çalıştırmak için yaklaşık VRAM ihtiyacı (4-bit ve 8-bit), varsa GGUF/Ollama/LM Studio desteği.
+      VRAM kaynakta yoksa parametre sayısından kaba tahmin yap (4-bit için milyar parametre x 0,6 GB,
+      8-bit için x 1,1 GB) ve tahmin olduğunu "yaklaşık" diye belirt. Parametre sayısı da yoksa uydurma.
     sources:
       huggingface: true
       hackernews: true

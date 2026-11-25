@@ -43,6 +43,7 @@ Rules:
 - Write natural, fluent Turkish. Translate foreign material.
 - Use only facts in the provided material. If the material is thin, write a shorter text.
   Never invent numbers, quotes, dates or names.
+- If TOPIC NOTES are given, follow them; an estimate they allow must be marked as approximate.
 - title: Turkish title, at most about 12 words.
 - headline: the one-line Turkish bullet (at most about 25 words). Improve it if the articles give better
   facts, otherwise keep it.
@@ -290,6 +291,8 @@ def detail_prompt(topic: dict, story: dict, pool: S.Pool, texts: list) -> str:
     related = "\n".join(_line(pool[i]) for i in story["ids"]) or "(no news item; market data only)"
     # Konu kriteri (kişisel bilgiler içerir) bilerek verilmez: haber metnine okuyucu bilgisi sızmasın.
     parts = [f"TOPIC: {topic['title']}", f"HEADLINE: {story['headline']}", f"RELATED ITEMS:\n{related}"]
+    if topic.get("detail_note"):
+        parts.insert(1, f"TOPIC NOTES (follow these):\n{topic['detail_note'].strip()}")
     for n, (it, txt) in enumerate(texts, 1):
         parts.append(f"ARTICLE {n} ({it.source}, {it.lang}):\n{txt}")
     return "\n\n".join(parts)
