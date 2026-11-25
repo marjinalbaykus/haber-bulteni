@@ -122,6 +122,15 @@
  "titles": {},
  "groups": [
   {
+   "id": "teknoloji",
+   "name": "Teknoloji",
+   "topics": [
+    "pc_donanim",
+    "teknoloji",
+    "akilli_telefon"
+   ]
+  },
+  {
    "id": "futbol",
    "name": "Futbol",
    "topics": [
@@ -134,30 +143,21 @@
    ]
   },
   {
-   "id": "ai",
-   "name": "Yapay Zeka",
-   "topics": [
-    "yapay_zeka",
-    "yerel_llm",
-    "ai_kodlama"
-   ]
-  },
-  {
-   "id": "teknoloji",
-   "name": "Teknoloji",
-   "topics": [
-    "pc_donanim",
-    "teknoloji",
-    "akilli_telefon"
-   ]
-  },
-  {
    "id": "oyun",
    "name": "Oyun",
    "topics": [
     "oyunlar",
     "oyun_genel",
     "cs2"
+   ]
+  },
+  {
+   "id": "ai",
+   "name": "Yapay Zeka",
+   "topics": [
+    "yapay_zeka",
+    "yerel_llm",
+    "ai_kodlama"
    ]
   },
   {
