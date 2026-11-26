@@ -6,11 +6,11 @@
    "symbol": "GC=F",
    "name": "Altın (ons, USD)",
    "group": "dunya",
-   "value": 3623.1,
+   "value": 3593.7,
    "changes": {
-    "day": 2.47,
-    "week": -1.69,
-    "month": -11.08
+    "day": 1.64,
+    "week": -2.49,
+    "month": -11.8
    },
    "alarms": []
   },
@@ -18,11 +18,11 @@
    "symbol": "GRAM",
    "name": "Gram altın (TL)",
    "group": "tr",
-   "value": 5902.78,
+   "value": 5854.67,
    "changes": {
-    "day": 2.48,
-    "week": -1.28,
-    "month": -9.49
+    "day": 1.65,
+    "week": -2.08,
+    "month": -10.22
    },
    "alarms": []
   },
@@ -30,11 +30,11 @@
    "symbol": "BZ=F",
    "name": "Brent petrol",
    "group": "dunya",
-   "value": 91.6,
+   "value": 91.55,
    "changes": {
-    "day": -3.18,
-    "week": -0.41,
-    "month": -19.56
+    "day": -3.23,
+    "week": -0.47,
+    "month": -19.61
    },
    "alarms": []
   },
@@ -54,11 +54,11 @@
    "symbol": "EURTRY=X",
    "name": "Euro/TL",
    "group": "tr",
-   "value": 55.68,
+   "value": 55.72,
    "changes": {
-    "day": 0.24,
-    "week": 0.34,
-    "month": 0.06
+    "day": 0.32,
+    "week": 0.42,
+    "month": 0.14
    },
    "alarms": []
   },
@@ -66,11 +66,11 @@
    "symbol": "XU100.IS",
    "name": "BIST 100",
    "group": "tr",
-   "value": 10655.7,
+   "value": 10743.11,
    "changes": {
-    "day": -2.83,
-    "week": -7.16,
-    "month": -4.45
+    "day": 0.82,
+    "week": -5.76,
+    "month": -3.66
    },
    "alarms": []
   },
@@ -102,11 +102,11 @@
    "symbol": "BTC-USD",
    "name": "Bitcoin",
    "group": "dunya",
-   "value": 60703.06,
+   "value": 60506.01,
    "changes": {
-    "day": 1.6,
-    "week": -1.94,
-    "month": -24.88
+    "day": 0.21,
+    "week": -2.25,
+    "month": -25.12
    },
    "alarms": []
   }
@@ -279,14 +279,14 @@
     }
    ],
    "note": "",
-   "candidates": 145
+   "candidates": 239
   },
   {
    "id": "real_madrid",
    "title": "Real Madrid",
    "stories": [],
-   "note": "Bu başlık bugün işlenemedi (teknik hata).",
-   "candidates": 220
+   "note": "Kayda değer bir gelişme yok.",
+   "candidates": 397
   },
   {
    "id": "sampiyonlar_ligi",
@@ -371,10 +371,91 @@
      ],
      "read_articles": 0,
      "sid": "sampiyonlar_ligi-1"
+    },
+    {
+     "importance": 8,
+     "headline": "Şampiyonlar Ligi 5. hafta ikinci gün: Lille, Bayern Münih'i 2-1 yendi; Roma, PSG'yi 2-2 tutarak Paris'in yenilmezliğine son verdi; Liverpool, Barcelona ve Inter kazandı.",
+     "title": "Şampiyonlar Ligi 5. hafta: Lille Bayern'i, Roma PSG'yi durdurdu",
+     "detail": "Şampiyonlar Ligi 5. haftanın ikinci gününde Lille, Bayern Münih'i 2-1 mağlup etti. Gazete Oksijen'e göre Alman ekibi bu sonuçla puan tablosunda 15. sıraya geriledi.\n\nParis'te oynanan PSG-Roma maçı 2-2 berabere bitti. Sakat oyuncuların bulunduğu PSG, sezonun bu aşamasına kadar bir puan bile bırakmamıştı; Roma'nın golcülerinden Malen maçın öne çıkan isimleri arasında yer aldı. Karşılaşma, Fransız ekibinin kampanyadaki ilk puan kaybı oldu.\n\nGecenin diğer sonuçlarında Liverpool ve Barcelona rakiplerini yendi. Inter ise Stuttgart'ı mağlup etti; teknik direktör Chivu, Lautaro Martinez'in oyuna girdikten sonraki anlık etkisini övdü.",
+     "sources": [
+      {
+       "title": "Champions League highlights and round-up: Liverpool and Barça win well, Roma end Paris' perfect record, Bayern beaten",
+       "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNZGZzTWs3a21nTmtGTkg0ekljaWV5ZGp4QTVXbVZNdUVhMlZ6M1Q1SGdIQ1NTVmE4YVdSQUNzX0piVFlyMEJ1T0Q0SERXb29LMkxfN1oyb04wTGFuNXV0OVFtNWsyTVQySjNQVFNLRjdSMkFvQ05hc1RMYmdFQV80X1h1c2NpZG9WTUotVGJKZTdhUEx5RlYxbS0wU3VabGpRQS1teGlYdW1COUh1T3lhMmRrU0FBVjdOR3FwMzhCZG1UMkJ5bUUxWEI5eWFOd2tsMnZBdTRzbmljdw?oc=5",
+       "source": "UEFA.com",
+       "lang": "en",
+       "published": "2026-11-26T00:42Z"
+      },
+      {
+       "title": "UEFA Champions League Matchday 5 Day Two: Three Key Takeaways As Bayern Munich Suffer Shock Away Defeat",
+       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVklnTHk1eVdXRWV1bFRQYlpINXRYUGpkWmUzMUt3NlNVa3lUeTFNakxZMXY3eDByd2VUVmllTUEwTWQ1ZHlEVzNKbFgxX3hpUnVxQjlUVzN1OWEzSWx2OXFHSDIyanFkRDFMaXZuSm5xSmJScGR5bFBKQ2JwTjBlejdBUmgyRlpRN2FHTmk4VUpCUQ?oc=5",
+       "source": "Yahoo Sports",
+       "lang": "en",
+       "published": "2026-11-26T10:52Z"
+      },
+      {
+       "title": "Gecenin sürprizi Fransa'dan, Almanlar 15. sıraya düştü: Lille, Bayern Münih'i 2-1 yendi",
+       "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQWWVSQUZVYjJoTmtobzR4emVIQVNOZmlacXlfZGY0b2tNNkc0OHNtcGFOdTllVEMxZWtQZ2RlMF9ReUt0UHBXZkJIMzU1clloaG50aDFuX1l1ZU5CckEwSVRXeW9EaThRTkZGMElGdDBIdW1OQzktVjZnc2JvcWduWk5acHZlc1ZrZ3NNR2UxQkJCN2I0VXhvQ1ZXdUpua2lfQVdEY2hoamhYVU4yNlJNVm0xVmhlLWJlTWtQNmo4Uk9XNXdPeDBWd2h3ZzBKRV9nblM2dUtR?oc=5",
+       "source": "Gazete Oksijen",
+       "lang": "tr",
+       "published": "2026-11-26T07:19Z"
+      },
+      {
+       "title": "Champions League review: Lille monster Bayern, De Bruyne’s sad return and more United chaos",
+       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQN01lVU5KYXh2Ui1PWV9Qd1NJcmhIQUFKU25YNWZNT2xlNEU2b2JyLXJGNGNBUEoxRUI3MV9IajFuR282YlJ0bGF5LUdCa3NRRUxTS3dncXRlZmR0eWtHZUlZRW1mRS1PNE96ejkySk5kTmRaSW1KYmxKNDJxNm9iRl92OGxRejlReENiVDU4VWwyc1B3WExQZm1wRzRJSkdJQXQxMEpMNkZfMHVCMVpwdWhuaWt3QQ?oc=5",
+       "source": "The Guardian",
+       "lang": "en",
+       "published": "2026-11-26T16:09Z"
+      },
+      {
+       "title": "Sports - Injury-hit PSG drop first points of Champions League campaign against Roma",
+       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOTmpQRUNJMUF2QVBrSTBkenJ2RFNubHlMT1F5aUNSRHJLaUREbF9Gb1J6N3VqcldGZGdieGhja3dadlNrSkNRb1VIZm5lSnNTekdMMEttX2ZLUXloWG5mWlJ3eEJiMFRWM1F4NXVaVVB5Um1Qbm53MUNUX1VURGxHNU1iZXZrellNYldOcE5UM01vQkY5Nmd6OWRYZEdDVFlDVzFGell5NDhPN1B4T2p4RVhNc3FYLXpFX1FXS01kZ3hfTDkxWEE?oc=5",
+       "source": "France 24",
+       "lang": "en",
+       "published": "2026-11-26T08:34Z"
+      },
+      {
+       "title": "Malen and Roma deny injury-hit PSG in Champions League draw",
+       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOZ2NCRWhpaGRReGlhN0Yxd2lLM2poZEotMHhPME1ONnl2ZDcyamY5a2RzLWw4LUFrdEk5TFhuMVRQbHdzc0YybFlOWGNmdWdvSjh0WTRzSGhCS3VLZlFzZWJKUDdCYjVOdkMwVEg3M0xkeFh1Vk11eGVwMDA0Vi1qTktNc0otOGxjV2ZkbGw0WmJMS3V5Ty1VNmhINEEwMHY1eWxVSEN30gGrAUFVX3lxTE1WNFdyRGtfOGZrVnR4OXdJM29HUTYwcW1LaEg5RTNsTzhCajhIcl8td3c3YWVvcmdrUlo2Zy0yT09tRm9OWVpoVTRwOHN6bFFyODdIbEhtRzRQRDZ6V3NQdTVJY0p2UjhfZ3JYMUlacGtkOUx6bnVPanhuVFpHRnlqMXRwWXpUSS1GdWctNzF6U0NaLUlSVDBPaEVpREhpaTVBaEpsYVZJNnFrWQ?oc=5",
+       "source": "Al Jazeera",
+       "lang": "en",
+       "published": "2026-11-25T22:49Z"
+      },
+      {
+       "title": "PSG 2-2 AS Roma (Nov 25, 2026) Game Analysis",
+       "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBTMHJSNDVfWHJBcmw0d1JYc2FCdWRibk5lM1hVaGV0clYtRi01RlNFQnpaUmhRbHVxQU9FbDVOX183RG1FX0pTRTBzQ0p0QWJibDY1dGlzMzI0T2Jac2drZDg5RQ?oc=5",
+       "source": "ESPN",
+       "lang": "en",
+       "published": "2026-11-25T22:38Z"
+      },
+      {
+       "title": "Inter, Stuttgart'ı yenerken Chivu'dan Lautaro Martinez'in Şampiyonlar Ligi'ndeki anlık etkisine övgü",
+       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQOHF4YlFFOEZ2YVVkazU5WVBCd3lhXzQwaXRyc1ZSdHBzcVQ3Z0RuV2pIY0VfU0JlZUdCRVc1NnpzdlRuU3M2V3JFbzBEWHNkNXpFVEZ2TE91aGhsdFlaZHhiNXBLcmZiZ2g3bTBqMEM3SlU1c1k0RWZiM0trZEdqSFVDVFlidDFXU2RTNGVzX29QRFRobkYwVjRSU09VemxJcWdHamNaWnhMMWFqS0pSSkpzdTljVk9zQVlNblNtb3NwZVJtenpKdFdoTEQ2ZUxQWTFCMkdRM2VIS1dVcFphd2pGRQ?oc=5",
+       "source": "Goal.com",
+       "lang": "tr",
+       "published": "2026-11-26T12:09Z"
+      },
+      {
+       "title": "Confirmed: Barcelona star Anthony Gordon named UEFA Champions League Player of the Week",
+       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcEVyZnE4Yy1Kam5rRTVHeWw2anhybmR2a1NqQ0ZUM25iQXNNdmhZLVlHZmY2NEJMeC1iRGRCaFozeldEUV9kMGxuNW1FUXczRDFlblB6RmZaU2lMSkRzdzYxa2Q3ZjlrQk82NnFzRHVJaHhuZGxpa3ZjZEZjeVdGM0Z6dUQ0VHBjQUZWeEhka3VfNEpIMlVCQ3NOSQ?oc=5",
+       "source": "Yahoo Sports",
+       "lang": "en",
+       "published": "2026-11-26T17:02Z"
+      },
+      {
+       "title": "Champions League highlights and round-up: Liverpool and Barça win well, Roma end Paris' perfect record, Bayern beaten",
+       "url": "https://www.uefa.com/uefachampionsleague/news/02ab-22288f99d39c-d5631dd311d0-1000--champions-league-round-up-liverpool-and-barca-win-well-rom/",
+       "source": "UEFA",
+       "lang": "en",
+       "published": "2026-11-25T14:41Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "sampiyonlar_ligi-2",
+     "added_at": "2026-11-26T18:13Z"
     }
    ],
    "note": "",
-   "candidates": 190
+   "candidates": 305
   },
   {
    "id": "premier_lig",
@@ -434,7 +515,7 @@
     }
    ],
    "note": "",
-   "candidates": 107
+   "candidates": 220
   },
   {
    "id": "pc_donanim",
@@ -716,7 +797,7 @@
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 440
   },
   {
    "id": "yerel_llm",
@@ -776,7 +857,7 @@
     }
    ],
    "note": "",
-   "candidates": 96
+   "candidates": 213
   },
   {
    "id": "yapay_zeka",
@@ -877,7 +958,7 @@
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 390
   },
   {
    "id": "ai_kodlama",
@@ -1059,10 +1140,42 @@
      ],
      "read_articles": 0,
      "sid": "ai_kodlama-3"
+    },
+    {
+     "importance": 7,
+     "headline": "OpenAI'nin fatura düzeltmesi sonrası GPT-6.2 kullanım limitleri düştü: Astra limitlere yüzde 40, Sol yüzde 25 daha hızlı takılıyor.",
+     "title": "OpenAI fatura hatasını düzeltti, GPT-6.2 kullanım limitleri düştü",
+     "detail": "OpenAI, GPT-6.2'nin lansmanında yaptığı bir faturalandırma hatasının, GPT-6.2 Astra ve Sol kullanımını çoğu kullanıcı için yanlışlıkla indirimli saydığını açıkladı. Hata düzeltildi; aynı iş artık plan kullanım hakkından daha fazla pay tüketiyor.\n\nŞirkete göre geçen haftayla karşılaştırıldığında kullanıcılar GPT-6.2 Astra'da limitlere yüzde 40, Sol'da yüzde 25 daha hızlı ulaşacak. OpenAI, bu modellerin 6 Astra ve 6.1 Sol'a kıyasla yine de daha uzun kullanım sağladığını belirtti. Diğer modeller etkilenmedi ve geçmiş kullanım için fark ücreti alınmayacak.\n\nÖzür olarak Go, Plus, Pro ve Business abonelerinin hesabına birer birikmiş sıfırlama hakkı eklenecek. TechCrunch ise ChatGPT'nin Chat ve Work bölümlerinin birleştirilmesiyle yoğun kullanıcıların limitlere daha erken takılabileceğini bildirdi.",
+     "sources": [
+      {
+       "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+       "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+       "source": "twitter.com",
+       "lang": "en",
+       "published": "2026-11-26T03:36Z"
+      },
+      {
+       "title": "ChatGPT users hit limits up to 40% sooner after OpenAI billing fix",
+       "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPMTh2UzA1UkwxNzJzWGxTS0Mxd1pxd01uUHZhV3R1bExSNE95ZjNFNEJqbWFxemZDWDBMN3JYYnE1NFE1dHNuVjE5Vk0zUWhFUDRNWWFrcHZGSTBsemRVT1FLOE5sc2VOemdNanJ5QUs0M0tZdmNQVnJodEcxYVpNSnAyZU16eTFzaldyWDhka0Fkb1J6SnRWVzdjb1ZCckVlV1otMWJKbV9XMV9rMGo0?oc=5",
+       "source": "Notebookcheck",
+       "lang": "en",
+       "published": "2026-11-26T11:27Z"
+      },
+      {
+       "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNQWZET3dOcDNPZ1c3bnhSaGh6SkdXeGItdEl0dUNmbzVVZlhhSV8wZ1p0OTN5RDlfUXRZV3NMSXNnV2FxYXdVRWY5UnJZZ2FxbkVXNlFkWFFabHNfRTl2ZXJ5ZFVRd0prUkE0OFRYYktyVGNBemZkSGJZbXUzOVljaEtBdEhIT2Vydkhab2h1cFc0NDJyNVZMb29BQ3U2bUh3N2NETVpyenBmVVpRclBCWnpscjUwUQ?oc=5",
+       "source": "TechCrunch",
+       "lang": "en",
+       "published": "2026-11-25T20:03Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "ai_kodlama-4",
+     "added_at": "2026-11-26T18:13Z"
     }
    ],
    "note": "",
-   "candidates": 153
+   "candidates": 278
   },
   {
    "id": "teknoloji",
@@ -1122,6 +1235,52 @@
      ],
      "read_articles": 3,
      "sid": "teknoloji-2"
+    },
+    {
+     "importance": 7,
+     "headline": "Huawei Qiankun etkinliğinde Xingchi sürüş yardım sistemi tanıtıldı; CATL 99 saniyede batarya değişimi ve 700+ km menzilli 30# Chocolate bataryasını duyurdu.",
+     "title": "Huawei Qiankun etkinliğinde Xingchi sürüş sistemi ve CATL bataryası tanıtıldı",
+     "detail": "Huawei, 26 Kasım'daki 2026 Qiankun Ekosistem Konferansı'nda Xingchi sürüş yardım sistemini tanıttı. Huawei akıllı otomotiv çözümleri birimi CEO'su Jin Yuzhi'ye göre sistem, Qiankun ADS ile aynı teknolojiye dayanıyor, WEWA (dünya motoru + dünya davranış modeli) mimarisini kullanıyor ve bulut hesaplama gücünü paylaşıyor. İşlev ve deneyim açısından iki sistem arasında fark olacak. Huawei, L2 sürüş yardımına talebin uzun süre süreceğini belirtti. 2027'de Deepal, SAIC-GM-Wuling, GAC Trumpchi, Arcfox ve Dongfeng Yipai markalarından 10'dan fazla modelde Xingchi'nin seri üretime girmesi planlanıyor.\n\nEtkinlikte Qiankun ADS ile CATL'nin Chocolate batarya değişimi arasında iş birliği ilan edildi. CATL yöneticisi Yang Jun, 30# Chocolate bataryasını duyurdu: ilk sürüm 100 kWh olacak ve 700 km üzerinde menzil sunacak. Batarya değişimi 99 saniye sürüyor; süper şarjla 10 dakikada 400 km menzil kazanılıyor. Tepe deşarj gücü 600 kW, 0-100 km/s hızlanma ise yaklaşık 3 saniye olarak belirtildi.",
+     "sources": [
+      {
+       "title": "宁德时代预告 30#巧克力电池：首发 100kWh 版本，支持实现 3s 级零百加速",
+       "url": "https://www.ithome.com/1/033/129.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-26T15:10Z"
+      },
+      {
+       "title": "华为：乾崑智驾和星驰辅助驾驶二者在具体功能和体验方面会有所差异",
+       "url": "https://www.ithome.com/1/033/124.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-26T14:50Z"
+      },
+      {
+       "title": "华为：从市场来看，对 L2 辅助驾驶的需求将长期存在",
+       "url": "https://www.ithome.com/1/033/118.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-26T14:30Z"
+      },
+      {
+       "title": "社交平台 X 正式推出面向 13~17 岁青少年的家长控制功能",
+       "url": "https://www.ithome.com/1/033/123.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-26T14:44Z"
+      },
+      {
+       "title": "阿维塔陈卓：已有超过 5000 名华为员工自费成为阿维塔车主",
+       "url": "https://www.ithome.com/1/033/128.htm",
+       "source": "IT之家",
+       "lang": "zh",
+       "published": "2026-11-26T15:01Z"
+      }
+     ],
+     "read_articles": 2,
+     "sid": "teknoloji-7",
+     "added_at": "2026-11-26T18:13Z"
     },
     {
      "importance": 6,
@@ -1249,7 +1408,7 @@
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 440
   },
   {
    "id": "akilli_telefon",
@@ -1420,10 +1579,91 @@
      ],
      "read_articles": 1,
      "sid": "akilli_telefon-4"
+    },
+    {
+     "importance": 7,
+     "headline": "Vivo X500, X500 Pro ve X500 Pro Max Hindistan'da tanıtıldı: 200 MP ZEISS kamera, 7.800 mAh'e kadar batarya, fiyatlar 1,19,999 rupiden başlıyor, satış 3 Aralık'ta.",
+     "title": "Vivo X500 serisi Hindistan'da tanıtıldı",
+     "detail": "Vivo, X500, X500 Pro ve X500 Pro Max modellerinden oluşan X500 serisini Hindistan'da tanıttı; fiyatlar 1,19,999 rupiden başlıyor ve satış 3 Aralık'ta başlayacak. Şirket aynı etkinlikte 14.999 rupi etiketli Watch GT2 akıllı saatini de duyurdu.\n\nX500 Pro Max'te 200 MP, X500 Pro'da 64 MP ZEISS APO telefoto kamera bulunuyor. İki modelde de saniyede 60 odak ayarı yapabilen telefoto AF takibi ile 4K 240 fps sinematik ağır çekim var. Pro Max, 6,85 inç LTPO AMOLED ekran (144 Hz, 5.000 nit tepe parlaklık), Dimensity 9600 Pro işlemci, 12 GB RAM'e kadar bellek ve 90 W kablolu, 40 W kablosuz şarjlı 7.800 mAh batarya sunuyor. X500 Pro'da 6,36 inç ekran ve 6.510 mAh batarya yer alıyor. Standart X500 ise 6,59 inç ekran, Dimensity 9600M ve 7.500 mAh bataryayla geliyor.\n\nÜç model de Android 17 tabanlı OriginOS 7 ile çalışıyor ve yedi yıl işletim sistemi ile güvenlik güncellemesi vaat ediliyor.",
+     "sources": [
+      {
+       "title": "Vivo X500 Pro ve X500 Pro Max Hindistan'da tanıtıldı: ZEISS kamera, 200mm/400mm telekonverter ve Dimensity 9600 Pro",
+       "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQM3JNeFZnMy1xWHBGNlBqSnpVSnZSXzdHZ0taY0l2dWRIeXBjNDhKX3FLbDhidDFibktDSDZnSUVnc25yeGM3OGduZUFkdW5iWXRNSHV4MUpqd04tTjBvdEdRdU1FS056bHVaaE9mc3RmZDVNXzlqM3FjT1ozMEZwTGQ0MDdVYUFzOFR1eXVST2Rlck1BZXdIY1R1RjdETEtuNVB6anFmYV9wQmhRT015d2hQUmpDZ1BJS2U0c3F2UERHTkFGdTROM1ZDQk8?oc=5",
+       "source": "BeeTekno.com",
+       "lang": "tr",
+       "published": "2026-11-26T16:09Z"
+      },
+      {
+       "title": "vivo X500 Series With 200MP ZEISS Camera and Up to 7,800mAh Battery Launched in India, Price Starts at Rs. 1,19,999",
+       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPWXItWjRsb0hpX2xaWDEwR3JhU3BQNjZacXhyU3lhMFMtUXktMmdzdG5hUUZqV1lNSGF3ajd1MkhVQ2lDYVB1M3FWSnpSLW5fNUJJQUVYTnEzM1otcGoxcEVrUHJkaGlVYmpiR2pxM0YxTGVvZnVXOWdncTB2YUtOcllLM2FsUTNwZWlNSDlfTDhhWFotOGpfVGl5UnM3QkROQWMwNEdsQ21KLW1MOTZ2SVlZQVFYRFBGZWMwcHJhS2M0cU5EX1MwVElNMFFMd0FMS2MzVTJrQk91ekg2cGJEa3o3SdIB6AFBVV95cUxPTThaaVZQa0UyMVVIR1dfTy1EZ3FZVVN0T3N3ZFJUT1FLdWd4YzJINy1CcDNKV0QySVFfUTgtdzBvSkJaQ1NfbjAzWUNXWWtDUlZaY0E4a1dLNzN2bFk3LWxXT2N1TFJRRlZnWHRXaUg2VjVRbjlQNDNZbWllckhycFpDNF95MWZqdjlCQVhPeWp1akVKTXFobXc1WTZiUnFfbmo2b19Zb09SSHhfN1UtMllIcTBhcXhqX0NGR1R5dWRldGhLSmFBdlZuanpjQktyT193cHpOV0Naek02RjA3alRLOFBaTzI1?oc=5",
+       "source": "TechloMedia",
+       "lang": "en",
+       "published": "2026-11-26T14:11Z"
+      },
+      {
+       "title": "Vivo X500 Series Launched in India Today: Check Vivo X500, X500 Pro & X500 Pro Max Price, Full Specifications, 200MP Camera, Battery, Display, Features, Availability & Sale Date",
+       "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxPdFR3NTQxMUthMjFJbjdTNkZ4c2dtRUp0UDJTZE4td2FDZUREQWlnWUtYdmVTcjUyRDlNYmpiMjRBMnd0X2RERzJEcnFQa0tCRUxuSVhSS0VjNlAwaFhuUkM5MktJYTlPMnlwWTB6aEdXNDZLekhpbFk5MzB3NVRnRXhMTDBnX1gwRi00Ql9kbG13NHZndE54RHBCQkNxZlRDbnpvcE0yM29udUFGNkJrcTROVG9kSDFUdTdCMTQ4UnJCTkgyRjg1emV0ME50OWdLYWdEWGRmYzZwckVTT3pxMWtmNU5zanB6TU9GUS1GeGRQS05Sb1I5dG1MeHNuYTl4ZGlqbGoyNzZKYzRqQmpuWExvUlRIcmJ0ZGRienp5WnNHRkplbzJSZFJQYWlNU21EaDBJMXJOX1h1SHBkdHlv?oc=5",
+       "source": "The Sunday Guardian",
+       "lang": "en",
+       "published": "2026-11-26T13:51Z"
+      },
+      {
+       "title": "Vivo Launches X500 Pro Max, X500, and Watch GT2 in India",
+       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNXy1MdDUzblNNb19ZUEZDTWNxeXhXdngtcWhnQ3Exc2Q3ekxDTzZNRU9jSE1HOXhYdUJWcTdvVTJSeFNDRzNhbUNwcFZMcVM3UG1kRzB5ZnJycU9IVzc2QjFmYTlSZUFsdWY5WTFOcEw5WTBpY00tdnRyd0gxUElzODJJUno2eVE?oc=5",
+       "source": "Udaipur Kiran",
+       "lang": "en",
+       "published": "2026-11-26T13:30Z"
+      },
+      {
+       "title": "Vivo X500 Pro Max, X500 Pro and X500 launched in India: How different are the three smartphones?",
+       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPbk5pTldTX1BEQU9IWjFkOXBENXJ0ZEwtRExjNTdnQnRKWDFzaUVrb200cmV3QWVra3J3NHp2U0lZd3VWX2pqcUpwZVpHQ2Q3UjlwZWU4YTVQMDlOUk5rSHpKVXVwejN6dExpNmJqaVdhWUlPYTU2REVGV0Y5dXVwbWdBRHUyTGEzREZJQU5SRmRhRFJLVkFRZjRvaUc2RnVxMGRvdC16UXo5cjh6bG9sTkZoM0stR20zVXFpSS1vbFhyNHNFaG1qUUxBd9IB0AFBVV95cUxPU0ZNRnNaOWNEUnc5TW5vSThFVmc2a2JDck9mZUo3QTI0WlBzWXpxNGh3LXJpN1RWRVRnY2RkWmNrSURnb1hrZFd2ckxMZmJlb0dZNTFwNEwyOHVmZ2lNQXRITFMzRmhzZU9ONk9aV0piYmg1YnpPSTBCSVNfUkt5MWdNeUMzOWZEYUw4NVZNdDJjX3VMZVZtdUV4UmVfRTV2SDVpdldIZUpsdlU3UWpybG5QdnVFMFAzeTR3Njd2Sy1HcERlQXo4ZzNyOGg1cUFs?oc=5",
+       "source": "News9live",
+       "lang": "en",
+       "published": "2026-11-26T13:29Z"
+      },
+      {
+       "title": "Vivo X500 Series Launched in India with 200MP Zeiss Camera, Sale on Dec 3",
+       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPcHc5ekFyTFhxb3hRYUdaWExYSVBFb3ZYM3U2SWhVYnZxRk02Mk4zOXl1MXBJWGd2a2VCcnY5d1VMTU1YZHlMbTlOT0pTemV3U0p6eTExallzRmRWbldaeElndmE2VEJOZFdXYldRMnhIU2RDRHFKRTRkQUs0eFJnS1FZZzdKV21CV3Bn?oc=5",
+       "source": "NewsBricks",
+       "lang": "en",
+       "published": "2026-11-26T13:05Z"
+      },
+      {
+       "title": "Vivo X500 launched in India with 7,500mAh battery, MediaTek Dimensity 9600M: price, specifications",
+       "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOY01OYXpTalloRk45ZHAxYVBvb05wWkQxNlNlVE1iTlJMSVN1VVhjdGRDOE5pTWhWWm1JbVU4SFFwU1pLOGVIdFdyWFRwaVV2MkZ1bHpWVXpVdFlaRDRkeEhydHNieENRU1h6VnpRaVB4a2lWRERINmIyY1NLQ1F0N1o1dUZlS0U2aHZxUnJwemRrWWcwQ0dpLU85TmZHTm1yZ1VRVko3MzJFdTZWbGhWV3dzLUZFUTlpakFTR0FVcHBHcjlhTUVR?oc=5",
+       "source": "Kalinga TV",
+       "lang": "en",
+       "published": "2026-11-26T12:13Z"
+      },
+      {
+       "title": "Vivo X500 Series Launched in India: Prices start at Rs 1.19 lakh; check features, camera and offers",
+       "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNZUlfM1RwTEcxZGVGSTlKbVd5LU5MVkFsLWxHMUY3a0JDZkxkeXc1X2FnVU9wcVU3eFVVREFvN3phdWx1T3NsWjhtUHBFV3FvRURUMFVOODY0NlhsbXcyVTd1SkpBcDc0bEJEVFUyMmMwYnRXVUhRLXZNYmNCNGYxZXpQcHkxZldVZ0Y4TjR5cUl5UDdMNzAya3phc0p4ZUtseTBnOUZ1aUVIUjZ3WVFOU1ZrZmQyLWVWMHlkb0wwR0tiZkU0Y0pDcFp2bm9GOWhuQm5hSEdQb1E?oc=5",
+       "source": "Zee Business",
+       "lang": "en",
+       "published": "2026-11-26T11:27Z"
+      },
+      {
+       "title": "Vivo X500 Series Launched In India: Three Phones, A ₹1,19,999 Starting Price, & Compelling Camera Arrays",
+       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdVZJQ0NFcVpQUWdPdWZmNDhpRWdxMUppWnMycjhLTHYxQldfTzhqTGUwOUw5RXdMTjVNaTJ2U2hoY015QllEQ0owUG5pUTQ2ZEpOTHpJWFFzRnBTeTlKczNTZWEzMXJLWlpPd0xNem0xSmQ2MUVnSWphZ2hrX2VHQ3ZnZGc1R1hUcEItU3VrbDNCMm5mODFWYVJxTjFxR3dTNUlUS09MOVpBSHV3ZTZOTTJ5cnBGM2gxWTdSa2lERlNvTFkzem5YWGl1YXhPbXA3OVF4aQ?oc=5",
+       "source": "Smartprix",
+       "lang": "en",
+       "published": "2026-11-26T11:19Z"
+      },
+      {
+       "title": "Vivo X500 series with 200MP camera, WATCH GT 2 launched in India: Price, features",
+       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQMFN6aG51eFZrcENFWl9yclZfMjRiUGZTSktwRHFXbWMxdnBIWEswWHp3Ty1aYkVwNlc5RGxPSHRya0ZiaWFvRDR1bHYzNlZnbGpfcGlXTEJ0dkxRXzJ3NFNpQnA4dnB6MkVKb2JnTnU4SnFSclRGX3pFOFROU2UyWDFpaFFvZGhxdEhJZmdldmFUaU9IQloyNEFmX282enhzX2fSAagBQVVfeXFMTlEzZktvbFpKZDNWZDFILWExbjZLT0tfTHYtY2Uwb1pmLVJrS1FCNU9lRWJOTTBQdVB0aUJZZU01bWJNSHZDQlFMOERySXVkSWJZenBLeVJXWElwYm5aNmJCc2hzWDNFQWVFYUVlTWVvQ3l1Wk40NXNwRWZMZzFmNUJqMWRoNHZKUmkyZVlBY2JpYUYweElfYlpHakxOWDczWXJRTWJSYjlK?oc=5",
+       "source": "The Indian Express",
+       "lang": "en",
+       "published": "2026-11-26T11:02Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "akilli_telefon-5",
+     "added_at": "2026-11-26T18:13Z"
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 440
   },
   {
    "id": "oyunlar",
@@ -1445,10 +1685,35 @@
      ],
      "read_articles": 0,
      "sid": "oyunlar-1"
+    },
+    {
+     "importance": 7,
+     "headline": "Elden Ring'in yeni genişlemesinin Temmuz 2027'de çıkacağı bildirildi; Starscourge Radahn'ın geri döneceği belirtiliyor.",
+     "title": "Elden Ring'in yeni genişlemesi Temmuz 2027'de çıkacak",
+     "detail": "IMDb'nin haberine göre Elden Ring için hazırlanan yeni genişleme, adıyla \"Ancestral Expansion\", Temmuz 2027'de piyasaya sürülecek. FandomWire ise Starscourge Radahn'ın 2027'de oyuna resmen geri döneceğini yazdı. Haberlerde genişlemenin içeriğine dair başka ayrıntı yer almıyor.",
+     "sources": [
+      {
+       "title": "Elden Ring: Ancestral Expansion Officially Releasing July 2027",
+       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1zRnhSTktCYnJ2cnpER1FDaDI2cEM0azIxSm5saVdLWU02ZEZ5SmR3czNxQ2drZUVLMTUwczhXZWxwZy1iQ0FmM2FKUWtucTVqOW00aGRtc0NaN1E2ZllxZHR6RVVXTFZM?oc=5",
+       "source": "IMDb",
+       "lang": "en",
+       "published": "2026-11-26T01:41Z"
+      },
+      {
+       "title": "Starscourge Radahn Is Officially Returning to Elden Ring in 2027",
+       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9ZZjhZaUhnTjVDbEhEVXVHWDhySDhhRklseXJHXzJCMWhkQjc1ejM0QVdTcmZFUGJuSkdDdVFscXlkSldIQ3VJY184a1FjeTVJZ1dzQS1fdlJWbThTeEY0aFlJUDNnMlExdEJwUHJ0S3paMG1WQXpjM0pYeXluVjA?oc=5",
+       "source": "FandomWire",
+       "lang": "en",
+       "published": "2026-11-25T21:32Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "oyunlar-2",
+     "added_at": "2026-11-26T18:13Z"
     }
    ],
    "note": "",
-   "candidates": 80
+   "candidates": 150
   },
   {
    "id": "oyun_genel",
@@ -1528,7 +1793,7 @@
     }
    ],
    "note": "",
-   "candidates": 88
+   "candidates": 231
   },
   {
    "id": "cs2",
@@ -1602,21 +1867,185 @@
     }
    ],
    "note": "",
-   "candidates": 71
+   "candidates": 136
   },
   {
    "id": "ekonomi_tr",
    "title": "Türkiye Ekonomisi",
-   "stories": [],
-   "note": "Kayda değer bir gelişme yok.",
-   "candidates": 150
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "Merkez Bankası rezervlerinde 17 milyar dolarlık sert düşüş yaşandı; net rezervler geriledi, aralık ayı faiz indirimi beklentisi zayıfladı.",
+     "title": "Merkez Bankası rezervlerinde sert düşüş faiz indirimi beklentisini zayıflattı",
+     "detail": "TCMB rezervlerinde 17 milyar dolarlık düşüş yaşandığı ve net rezervlerin gerilediği bildirildi. Eylül ayından itibaren hızlanan rezerv kaybı, aralıktaki Para Politikası Kurulu toplantısına ilişkin beklentileri değiştirdi.\n\nBloomberg News'a göre yatırımcılar artık aralıkta faiz indirimi ihtimalini daha düşük görüyor; daha önce 100 baz puan olan indirim beklentisi fiyatlamalarda 10 baz puana kadar geriledi. Bloomberg Economics hesaplarına göre net rezervler 11 Eylül'den pazartesi gününe kadar yaklaşık 43 milyar dolar azaldı. Ağustos sonunda 53 milyar dolar düzeyinde olan rezervlerdeki kaybın arkasında fon piyasasındaki kriz, yabancı sermaye çıkışları ve yurt içi yerleşiklerin artan döviz talebi gösteriliyor.\n\nTürkiye'nin 10 yıllık tahvil faizi de yüzde 37,02 ile rekor seviyeye çıktı. BBVA'dan Tufan Cömert, petrol fiyatlarındaki düşüşün olumlu olmasına karşın rezerv kaybının hızının belirleyici olduğunu belirtti.",
+     "sources": [
+      {
+       "title": "Merkez Bankası rezervlerinde sert düşüş",
+       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQR0dweG4zV3RqS05BeTA5QjhTMW95em5JazFia0U3ZE5NLXFvVG5qMXc4UE1scjVwOExtakJ5dkQwbGU2SGpHUXZOOFFSYm5FSU9sc25Gamc3RzZHNTZQU2NxamZNMHdpY09zQ0lxbUkzZmM1VmdSNlF6VVVDYlBaM3Joa2locmM?oc=5",
+       "source": "EKOTÜRK",
+       "lang": "tr",
+       "published": "2026-11-26T17:31Z"
+      },
+      {
+       "title": "TCMB Rezervlerinde 17 Milyar Dolarlık Düşüş: Net Rezervler Geriledi",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZGNPUUVyeWtPcU9xRTdlVGtLRUZjRk5oRHVSejQ3YkNrNWN3ME1UWTNHZVV3MG1MdWRHcUE5bTB5OFotMGMwOFRJS0RnZVRfSVI5Q2thZFZpeXNaXzZJOWgtT3RhMFZHbXZTUk02OEIwbkJ6N0ZuZzVHbUxRQmNmRXBnaVhDcmxLdldvb19xcnRuWGpmMkdORFZGdk9PeXlmUHVmNUY1SU5ITHJE?oc=5",
+       "source": "Para Ajansı",
+       "lang": "tr",
+       "published": "2026-11-26T15:00Z"
+      },
+      {
+       "title": "Rezervler sert geriledi, piyasanın faiz indirim beklentisi değişti",
+       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNT0hETnB6Z1JMclYxSVROaXRjamp5WFlHTjRzZlZYTGM5YWpCS2FZRzdTRDROSHBWNEhrM1BGMjRMLXFlTC1BWDBabUJqcEFRdnh4VG9HSjcyZ0huWmdiMkRncU5JR1JqczhRZFRsTFR0R3VCRk0tM2ZHbzdkaE1LSXlGQ0V6Z2Z1aDNLZHRqM2JRLVNBUHhtVkhWQzBDcWpqY2ZEU3hyMzhtRTd2Y01LMktn?oc=5",
+       "source": "Ekonomim",
+       "lang": "tr",
+       "published": "2026-11-26T13:24Z"
+      },
+      {
+       "title": "Merkez Bankası rezervlerinde büyük düşüş! Yeni rakamlar açıklandı",
+       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPYWJXcldrMzNpaHdZWjlIbmNhV3FZTUhMYU1WZEJYQ2NPbE45T0lyRmU5N202Vk13QjVsRTIwNDZNclI5elpBa2xMNnljTHBBanpnU2djWnFoUmh3M1lRNjhSTjVCRlh2M1VNdUNqOXFHYmNXUHdkQUdTVU81bHZSYklkWXpTd1hyaHRxb05NeVVKX0xSd3c?oc=5",
+       "source": "bursa tv",
+       "lang": "tr",
+       "published": "2026-11-26T12:32Z"
+      },
+      {
+       "title": "Merkez Bankası rezervlerinde sert kayıp: Ekonomistlerden kritik uyarılar",
+       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPRWJPdUJkQkVTZk5mdjVJV1gzTHNuNnRZZEJES0o3YS1peUlhZ0gtWXgxSDVkWmc4Z0FmOHIySEs2WG41WkRXV0V2T05SX3E5YktJYXY0VGJSOHUyUG9VT3doUGlqd19ISW91T1dJUlhMTmZVMFFTTXctd1dwRk1ZXzhxT0ZyYkF1ZGljVURhUUxZMlZ6Q3Z2NDhPclFLMnBRU0JNZWFNUklpNmVLaDRFbzdfT3p5U3hE?oc=5",
+       "source": "Cumhuriyet",
+       "lang": "tr",
+       "published": "2026-11-26T11:55Z"
+      },
+      {
+       "title": "Merkez Bankası rezervlerinde 17 milyar dolarlık gerileme",
+       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOOWtITUZuaUtiOHY3Y3RnYl9tYVAzMjB5U1pWdVBBWHBuN3dwTk5keWJqODZkM2tuUWItOW9obzVOdVhWT3YzRUJVRUtVbFM1N0RuNUJXd1hWNURlSnVMYzdCYXppMDZJTDlDMHQyNHZ0U0hBWTFKelQzNXJielRUblFaM1FEQlNUS1dsSWFxY3g0YW1FbjQwNkNOMnIycXc?oc=5",
+       "source": "Habertürk",
+       "lang": "tr",
+       "published": "2026-11-26T12:44Z"
+      },
+      {
+       "title": "Rezervlerdeki hareketlilik borsanın seyrini değiştirebilir!",
+       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQaUVNZlVneWdnajVRakdwdXdnYUR6aVg4OFpoUVIzTDFSekU5MWRMbGMxTjMzOXlELThSYWhMYjVOdkp4RHdEbWh2OHFnRm9ueVhVNnJZUUNmRmk5VWthRDVWNV9OSkFwa2tfNXVLSU54b0pFU2ZqNDBxblNyYmE0MmZMYWhtWjNjTE5PSDlNY2VKY04tdmRMS1FlaS1SOHlWd3oyaWQwQ3doQVo1ZS1WejROYXdqVENGZWfSAa4BQVVfeXFMUFpqLWpMQ2p0RWFqbDRKTjJpRmlGTk5HU3FtLTZLck0xbFMwWlFwOERDcC1oclJlbnljaVpnWThSRjBiRTZKX21GVnFxUklzM3daQUFVNks5eGZXUUFweXpneDMtUGMySXd0NjRtV1JkTHhRMEpFbEM0bEZYOUNod3dfRVgzQUtsZURyT2NsSmNiWDlTY2tyNm5JRVZFbG54OGVIRHk2M3BvTHBVaFlB?oc=5",
+       "source": "Haber 7",
+       "lang": "tr",
+       "published": "2026-11-26T08:39Z"
+      },
+      {
+       "title": "Merkez Bankası rezervlerindeki düşüş faiz indirimi beklentisini azalttı",
+       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMVQ4U2xkckk3eTNVZjNHUnNmQTlSU2tQQWk2VExoUEtudjJIOUtPdlhWZDRYdkx6cHZiR0NienR6UEZqX2FNdGlSV3hHLW1JTEZINDBtZGVYblVhMzhxZHBmOElMZEpJZ3doQ0tYYlhCZEltaWJoRjJzOUVuNjcwYUtXRUJhZXQ3U1BzdnF5OTlPX2tITkFmSVBybXAzOFdMcUdGb1E1NXJDZ0VZ0gGyAUFVX3lxTE9VS3NwWmdURDNNQ2hDQ3pYTlpQNnZ2YUZTRmFsdlpsaHZ5d2FLeFZNdjFBMlplTVBTR3hDZWt4d3pxajgwTkt3ZEVhd3g0bTE3ZXdaU1dETG9fWVA3dGQ1RW5GSzlndmlfZ3MxMXI1MERMenFwVjlkSEZJSjlrbzJkSTdZMTZhUEZ6NVpHSHpITzZQYmRWMUtKNE9jcFlpSkVFMGNsRWJoU0kzVDhGWmFXZ3c?oc=5",
+       "source": "İlkses Gazetesi",
+       "lang": "tr",
+       "published": "2026-11-26T07:46Z"
+      },
+      {
+       "title": "Merkez Bankası altın ve dolar rezervleri belli oldu",
+       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNNDhPVmdqTTFKNzlEN2VTWDN1RlFYUS11aC0xZjZiRjJkZEQtNnl3SkZhbWNvUklWcW5NZkRQT185aEtTNUpCd1FDWThWZnktaDJwUHFoc1c1UlVYOE8weWMwRWUwT3J3SFdLcmdTeDhHaF9EMU5OVjlkRmxOeUh0Y0FoUkVYNFpMSHJMQjFydWRvTGNiSXhz0gGaAUFVX3lxTE4xaVNVOFBxTHN5MVdoQ2VDUGhNeEg3SEtjc0xXc1dQUjBqWEE5TWE5N1daOTZna1ZJRFJ2SGdrQmRlZW9RdE8yTWZ2ZEM5djM3X1dJVUl6TU9jdmcybGNOZXNqbzNVdGRjaFBTdFdLbmtJRnUtdUlrbzF2LU9jWmQ3UW5wQTZtNjJYc2p0RGVTdk5WTkhtLVcyTnc?oc=5",
+       "source": "Sabah",
+       "lang": "tr",
+       "published": "2026-11-26T11:52Z"
+      },
+      {
+       "title": "Merkez Bankası rezervleri 142 milyar dolar oldu",
+       "url": "https://www.msn.com/tr-tr/finans/ekonomi/merkez-bankas%C4%B1-rezervleri-142-milyar-dolar-oldu/ar-AA2ihQvZ",
+       "source": "AA on MSN",
+       "lang": "tr",
+       "published": "2026-11-26T08:35Z"
+      }
+     ],
+     "read_articles": 1,
+     "sid": "ekonomi_tr-1",
+     "added_at": "2026-11-26T18:13Z"
+    }
+   ],
+   "note": "",
+   "candidates": 279
   },
   {
    "id": "ekonomi_dunya",
    "title": "Dünya Ekonomisi",
-   "stories": [],
-   "note": "Bu başlık bugün işlenemedi (teknik hata).",
-   "candidates": 149
+   "stories": [
+    {
+     "importance": 8,
+     "headline": "ABD, aşırı kapasite gerekçesiyle Çin, AB, Japonya, Brezilya dahil 14 ülkeye yeni gümrük vergisi önerdi; Çin 'gerekli önlemleri' alacağını açıkladı, AB ve diğer ortaklar tepki gösterdi.",
+     "title": "ABD, 14 ülkeye yeni gümrük vergisi önerdi; Çin ve AB tepki gösterdi",
+     "detail": "Trump yönetimi, Çin, Avrupa Birliği, Japonya ve Brezilya'nın aralarında bulunduğu 14 ticaret ortağının mallarına yeni gümrük vergileri önerdi. AP'ye göre adım, sübvansiyonlu fabrikalar gerekçesiyle atıldı. Reuters, Brezilya'dan ithalata yönelik sürpriz önerilerin arasında uçaklara uygulanacak yüzde 10'luk verginin de bulunduğunu bildirdi. Bloomberg ise Çin için yüzde 40'lık bir vergi tehdidinin gündemde olduğunu yazdı.\n\nÇin, AFP'ye göre 'gerekli önlemleri' alacağı uyarısında bulundu. France 24, Çin ve AB'nin aralarında bulunduğu büyük ekonomilerin yeni vergilere karşı çıkarak adımı 'kabul edilemez' olarak nitelediğini aktardı.",
+     "sources": [
+      {
+       "title": "Trump admin.: New tariffs on 14 countries, including China and Japan",
+       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQbXViTVlRQWNTUTBUeFRRWVdQZjFiOGZhbnZDR0JfRXNzOTZjQ3FjNVNZdGh1bG85cUdnLXFtd29Mek96ZWNLbWRhcm9SX1U4NGVPX2VURlo1TFp3VzJnT3BlRnF2aFNqOG9VeHR5MGJZOWYyUENYZTFRMWNiRXNROFZSOFlXLUtWRnI2UktUTklUU1ptbHNiNmVrLTZaZjZqWmJlOFlES09ndWM?oc=5",
+       "source": "Denver Gazette",
+       "lang": "en",
+       "published": "2026-11-26T17:41Z"
+      },
+      {
+       "title": "US to hike tariffs on China, EU, Brazil and others over subsidized factories",
+       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPcWJ0MDE3ZEJzV2tVdThRbXdzcGxXN0phLUpNTHAyVWlEQV9JNzVUWlpsRXp6ZHFTNnY1dnpKMHJjNExkUnZxTlRXdzZNTUFOeXhkUTk5XzF0ZW55b1lZcnhJYTkyYUt5N1lvdm5TZ3QyZDh5UkNsVmtHMmhuNm5xcGc3VmVUcV9fellldEtWcTdaYWJpRUlBcm5R?oc=5",
+       "source": "AP News",
+       "lang": "en",
+       "published": "2026-11-25T22:06Z"
+      },
+      {
+       "title": "Trump admin proposes new tariffs on China, EU and 12 other trading partners",
+       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPN3dSZHFTVnZVU1IxNk0ydWl4QjJTdUF3dTRuckhxSUNwMGI5enBLWEFyZHVGRGlILTN6OXNibmFnLVNWNGhBcFgtR2Vfd3hUX3Nmc0VjdnJvdEdERktyUnVKRW1tejhHLXVhY056YVFvbzR3Vy1wdGRPLWJYbm5EanBkdHJfdFRrQ2doTkh1SEkzTUVQMWZJ0gGcAUFVX3lxTE5NQ2dvX1lVT2Z3ZXUtUGgxcHdYMUE0VTZQZzNGd3V0amdGOEdMd2hWeEJYMl94dE9KUVRKY3pBQnJ2NzhNZTZQTXFPSjlqamtaenBiRE5FR1VvTEFCV2c1UXFoZk5YbHpsRzY0Z1Vmal9BZ3NxYjVOeXppMVJRd092STNQQjZZLUsxMmVDWWd4b2F4QkJ2ZTlPa1hJUw?oc=5",
+       "source": "ABC News - Breaking News, Latest News and Videos",
+       "lang": "en",
+       "published": "2026-11-25T22:07Z"
+      },
+      {
+       "title": "US announces new tariffs on host of countries including China",
+       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5IQkloM185eWdfMGhXTkZBYmdEWHM2cy1CQjNpODYzQTRRV0V1VzU4akFoUkdsLTJucFZKTlF2MlZtMTgxMV9xZTRoZjdnTjdkRmMtTnd3Y3pZV28?oc=5",
+       "source": "BBC",
+       "lang": "en",
+       "published": "2026-11-26T04:10Z"
+      },
+      {
+       "title": "Trump administration proposes new tariffs on goods from major U.S. trading partners",
+       "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOREtlV1RacXpWTkdMNzV4SnY0ZEx2ejd0MDRnbng3Sm1pYm9Tb0lSZ3NrbWF0T2JrTEFpWXRvMHRkSXNqR2lUZENfQnFUTkxnSW8yWjBUVjAxYnRBVzAtaENqUl9RdnNXcWZFUzRMLTZ0X3pXS1Z1MTJVUE9aRnVWU1Z1cFRkY1BqRVhWRUZqUHd4VlVzbVRrY095MHJ0X3YyQ2NYSUYxWG1wdDladUxiQlVzbk9ub0xBdFhGZGpoSHNnUi1ZNlE?oc=5",
+       "source": "NPR",
+       "lang": "en",
+       "published": "2026-11-26T11:43Z"
+      },
+      {
+       "title": "Trump Is Hiking Tariffs Again. Here Are the New Tariff Rates on 14 Countries",
+       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNenlTeFhoc2tNMU1lRjBlck91OWtjbzN2NHhLRmM3WmlqWE1TeFI5d2phS2dlNzE3a2VWNU5rdTRDM1k3RHp1bDlLSm5YTTUtN2JSVS1MMEJmM1docXJhSFhGVW4wcG41c1RsRWpJaXRDNGpaakd5em5haE1VSVR1Z1RQMHBxM0syTXZnM1NCVWpvZzZrVzlTU1hBcXY0VFU?oc=5",
+       "source": "Yahoo Finance",
+       "lang": "en",
+       "published": "2026-11-26T13:17Z"
+      },
+      {
+       "title": "US proposes surprise new tariffs on Brazil imports, including 10% duty on aircraft",
+       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNTGZ4TFg5REgyY0VnandHQjZIMFN1cnNBOEJVQTBDaU1IWDFLVUxmdHFTXzRLVnVKc3pHd3lTYk9lRHZBOWV1Skd5V0VzVU05ZDRjZXdZekl5cWFneWI2b3ptS09taEhjNzZIcGhuWVdydDk5cnpkcElkMUdTZkJjTjROT09sOG5adVUxNVpNeGp5UmxaaHl2bzh6TklXMlp2eVQyVW9idi1QV25LcnpIeFBjMEF4RzNNbkNIU3JOUlN6WWVqSjRtTlFZMA?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-25T23:42Z"
+      },
+      {
+       "title": "Trump's new tariffs aim to prise global trade from China's grip",
+       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOaUdXQjZTRVJvNzVESnNzMlpfZmxhTEgweFZsUHRZRTVLa29xcENmUjJaUUNjWExsaVNTREJqNlNwSFZzNXFuRUFqSlpRam4tZkZHWXEwZXQ5VlhPVFJzcmNnZEw5a3N2ZVBndnpnNzhiN1Y1NkRtU1M5WE05UmRFcGMzUVk0NXYyRTVpM05MOUhISDhmb3BPTERXcmNHWE9zc2dR?oc=5",
+       "source": "Reuters",
+       "lang": "en",
+       "published": "2026-11-26T07:03Z"
+      },
+      {
+       "title": "Trump Aims to Keep Leverage Over Xi With 40% China Tariff Threat",
+       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcTVMWExHUXNZQS1TWHdON1BLSjgydFhicUlOeWo0dXZ4cVBxYm4zUk9ydG5YXy1oNlVNMDB4TlU1ZjRoaDdGMlJieE5XSlJsenNFZ3ZDWGtvVEt0V0IyaGNwRnYyRGNJdXlBaGs0MEdsUjhPZ1FwNFV2NlVfZ21Ldk9DLTk3Wk1lWF9FenVEZHdselN5X2ktUHItdUpMZVM4eldXMnNiM2pqWExNMUotWGdjYw?oc=5",
+       "source": "Bloomberg",
+       "lang": "en",
+       "published": "2026-11-26T08:41Z"
+      },
+      {
+       "title": "China warns of 'necessary measures' after new US tariffs",
+       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE84QTBmYUJCaGVPOVVCSHVjZm9ZNWtKSFBqc0lWZW9ORi1vMC0ybVZ5a2J0MFJwT3g4Mlprcm5hbHBITDZkY2M1YmJURQ?oc=5",
+       "source": "AFP.com",
+       "lang": "en",
+       "published": "2026-11-26T10:47Z"
+      }
+     ],
+     "read_articles": 0,
+     "sid": "ekonomi_dunya-1",
+     "added_at": "2026-11-26T18:13Z"
+    }
+   ],
+   "note": "",
+   "candidates": 278
   },
   {
    "id": "turkiye_siyaseti_ve_gundem",
@@ -1697,7 +2126,7 @@
     }
    ],
    "note": "",
-   "candidates": 112
+   "candidates": 239
   },
   {
    "id": "barcelona_gunluk_haberleri",
@@ -1785,24 +2214,40 @@
     }
    ],
    "note": "",
-   "candidates": 220
+   "candidates": 433
   },
   {
    "id": "turkiye_milli_futbol_takimi",
    "title": "Türkiye Milli Futbol Takımı",
    "stories": [],
    "note": "Kayda değer bir gelişme yok.",
-   "candidates": 45
+   "candidates": 152
   }
  ],
  "stats": {
-  "items": 2716,
-  "seconds": 601,
-  "model": "deepseek-flash",
+  "items": 5253,
+  "model": "sonnet",
+  "seconds": 743,
+  "tasks": 26,
+  "task_chars": 569441,
   "calls": 64,
   "prompt_tokens": 387115,
   "completion_tokens": 286373,
   "cache_hit_tokens": 141950,
-  "cost_usd": 0.209
- }
+  "cost_usd": 0.209,
+  "runs": [
+   {
+    "at": "2026-11-26T06:01Z",
+    "model": "deepseek-flash",
+    "items": 2716,
+    "cost_usd": 0.209
+   },
+   {
+    "at": "2026-11-26T18:13Z",
+    "model": "sonnet",
+    "items": 2537
+   }
+  ]
+ },
+ "updated_at": "2026-11-26T18:13Z"
 }
